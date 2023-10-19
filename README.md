@@ -1,8 +1,51 @@
-# React + Vite
+Welcome to the Anubhav Frontend repository! This project is part of the Anubhav web application and focuses on the frontend components and user interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About Anubhav
 
-Currently, two official plugins are available:
+Anubhav: Experience Sharing Point (A-ESP) is a platform developed for AITians to read & share encounters of various interviews.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+To get started with the Anubhav Frontend, follow these steps:
+
+1. Clone the repository to your local machine:
+```bash
+git clone https://github.com/aitoss/Anubhav-frontend-23.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd Anubhav-frontend-23
+```
+
+3. Install project dependencies:
+```bash
+npm install
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## Contributing
+We welcome contributions from the community. If you'd like to contribute to the project, please follow these guidelines:
+
+1. Fork the repository.
+
+2. Create a new branch for your feature or bug fix:
+```bash
+git checkout -b feature/your-feature-name
+```
+
+3. Make your changes and commit them:
+```bash
+git commit -m "Add your feature or bug fix"
+```
+
+4. Push your changes to your fork:
+```bash
+git push origin feature/your-feature-name
+```
+
+5. Create a pull request to the main branch of this repository.
