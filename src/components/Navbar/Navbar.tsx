@@ -9,7 +9,7 @@ const Navbar = () => {
 
                 <a href="#" className="ml-[128px] p-2">
 
-                    <img className="h-8 w-auto" src={logo} alt="" />
+                    <img className="w-20" src={logo} alt="" />
                 </a>
 
 
