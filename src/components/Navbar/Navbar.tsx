@@ -4,8 +4,8 @@ import arrow from '../../assets/images/arrow.png'
 
 const Navbar = () => {
     return (
-        <nav className="bg-white text-black py-2 px-4 fixed top-0 w-full z-10" aria-label="Global">
-            <div className="flex lg:flex-1 space-x-[660px]">
+        <nav className="bg-white w-screen text-black py-2 px-4 fixed top-0 z-10" aria-label="Global">
+            <div className="flex space-x-[660px]">
 
                 <a href="#" className="ml-[128px] p-2">
 
@@ -13,7 +13,7 @@ const Navbar = () => {
                 </a>
 
 
-                <ul className=" w-8/12 items-end lg:flex py-2 px-4 justify-center space-x-16">
+                <ul className=" w-8/12 items-end lg:flex py-2 px-4 space-x-16">
                     <li>
                         <a href="javascript:void(0)" className="text-[18px] p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 ">
                             Trending
