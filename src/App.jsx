@@ -6,7 +6,7 @@ import BlogSection from './components/BlogSection/BlogSection';
 
 const App = () => {
   return (
-    <div className=" px-1">
+    <div className="flex flex-col">
       <Navbar />
       <HomeScreen />
       <BlogSection/>
