@@ -6,9 +6,9 @@ import { CiHeart } from "react-icons/ci";
 
 const BlogSection = () => {
   return (
-    <section className="py-4 -mt-24">
-      <div className="container mx-auto md:px-20">
-        <h1 className="font-semibold text-5xl pb-12 text-black text-center">Trending Stories</h1>
+    <section className="lg:py-4 lg:-mt-24">
+      <div className="container lg:mx-auto md:px-20">
+        <h1 className="font-semibold text-5xl lg:pb-12 text-black text-center">Trending Stories</h1>
         {Scroll()}
         {Scroll()}
         {Scroll()}
@@ -20,13 +20,13 @@ const BlogSection = () => {
 
 function Scroll() {
   return (
-    <div className="grid md:grid-cols-2 py-4 -gap-2 h-64">
-      <div className="image h-60 justify-center shrink-0 ml-24">
+    <div className="grid lg:grid-cols-2 justify-centre lg:py-4 lg:-gap-2 lg:h-64">
+      <div className="image lg:h-60 justify-center shrink-0 lg:ml-24">
         <a href="">
-          <img src={user1Image} alt="User 1" className="w-96 h-60"  />
+        <img src={user1Image} alt="User 1" className="lg:w-96 lg:h-60 mx-auto w-30 h-30 "  />
         </a>
       </div>
-      <div className="data h-60 flex justify-center -ml-6 flex-col p-4 md:mt-0">
+      <div className="data lg:h-60 flex justify-center lg:-ml-6 flex-col p-4 md:mt-0">
         <div className="heading">
             <a className="text-3xl md:text-4xl font-bold text-gray-700 hover:text-gray-800" href="">Druva Interview Experience</a>
         </div>

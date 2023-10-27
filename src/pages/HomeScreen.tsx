@@ -46,66 +46,7 @@ export default function HomeScreen() {
           </div>
         </div>
       </div>
-      <div className="w-full inline-flex flex-nowrap">
-        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
-          <li>
-            <img src={adobe} alt="adobe" />
-          </li>
-          <li>
-            <img src={amazon} alt="amazon" />
-          </li>
-          <li>
-            <img src={atlassian} alt="atlassian" />
-          </li>
-          <li>
-            <img src={google} alt="google" />
-          </li>
-          <li>
-            <img src={microsoft} alt="microsoft" />
-          </li>
-          <li>
-            <img src={uber} alt="uber" />
-          </li>
-          <li>
-            <img src={cisco} alt="cisco" />
-          </li>
-          <li>
-            <img src={DeutscheBank} alt="DeutscheBank" />
-          </li>
-          <li>
-            <img src={masterCard} alt="masterCard" />
-          </li>
-        </ul>
-        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll" aria-hidden="true">
-        <li>
-            <img src={adobe} alt="adobe" />
-          </li>
-          <li>
-            <img src={amazon} alt="amazon" />
-          </li>
-          <li>
-            <img src={atlassian} alt="atlassian" />
-          </li>
-          <li>
-            <img src={google} alt="google" />
-          </li>
-          <li>
-            <img src={microsoft} alt="microsoft" />
-          </li>
-          <li>
-            <img src={uber} alt="uber" />
-          </li>
-          <li>
-            <img src={cisco} alt="cisco" />
-          </li>
-          <li>
-            <img src={DeutscheBank} alt="DeutscheBank" />
-          </li>
-          <li>
-            <img src={masterCard} alt="masterCard" />
-          </li>
-        </ul>
-      </div>
+  
     </div>
   </>
   )
