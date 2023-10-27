@@ -10,9 +10,14 @@ export default function HomeScreen() {
   function onChange(e) {
     setsearch(e.target.value);
   }
+  const bg = {
+    backgroundImage: `url(${('../assets/images/dots pattern.png')})`,
+    backgroundRepeat: 'no-repeat',
+  };
 
   return (<>
-    <div className="flex h-screen w-full flex-col justify-center items-center ">
+
+    <div className="flex h-screen w-full flex-col justify-center items-center " style={bg}>
       <div className='flex h-screen flex-col gap-4 justify-center items-center'>
         <h1 className="text-8xl text-slate-900 flex justify-center font-bold">Anubhav</h1>
         <p className="text-4xl text-slate-800 flex justify-center">Stories of Success</p>
@@ -38,6 +43,7 @@ export default function HomeScreen() {
         </div>
       </div>
     </div>
+  
   </>
   )
 }
