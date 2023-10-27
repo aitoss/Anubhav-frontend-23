@@ -1,5 +1,5 @@
 import React from 'react';
-import Author from './_Child/author';
+import Author from './_Child/Author';
 import user1Image from '../../assets/images/user1.png';
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
