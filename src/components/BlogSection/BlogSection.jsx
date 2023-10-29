@@ -25,6 +25,14 @@ function ReadTime(content) {
   return minutes;
 }
 
+function restrict(content, wordLimit) {
+  const words = content.split(' ');
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(' ') + '...';
+  }
+  return content;
+}
+
 function Scroll() {
   const [article, Content] = useState('');
   const [readingTime, Time] = useState(0);
@@ -56,7 +64,7 @@ function Scroll() {
           <Author />
           <div className="lorem-container text-black py-3 justify-center">
             <p>
-              {article}
+            {restrict(article, 30)}
               <span>
                 <a href="/link" className="text-gray-400 hover:text-gray-500">
                   ..Read More
