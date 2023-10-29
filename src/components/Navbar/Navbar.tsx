@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import arrow from '../../assets/images/arrow.png'
 
@@ -7,10 +8,10 @@ const Navbar = () => {
         <nav className="bg-white lg:block hidden w-screen text-black py-2 px-4 fixed top-0 z-10" aria-label="Global">
             <div className="flex space-x-[660px]">
 
-                <a href="#" className="ml-[128px] p-2">
+                <Link to="/" className="ml-[128px] p-2">
 
                     <img className="w-20" src={logo} alt="" />
-                </a>
+                </Link>
 
 
                 <ul className=" w-8/12 items-end lg:flex py-2 px-4 space-x-16">
@@ -25,10 +26,10 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li className='bg-[#212121] rounded-3xl px-2'>
-                        <a href="javascript:void(0)" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white ">
+                        <Link to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white ">
                             Write Articles
                             <span><img src={arrow} alt="Arrow" /></span>
-                        </a>
+                        </Link>
 
 
                     </li>
