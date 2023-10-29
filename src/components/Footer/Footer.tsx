@@ -2,21 +2,21 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="bg-white bottom-0 px-2 lg:w-full lg:-py-1">
+    <div className="bg-white bottom-0 w-[98.9vw] px-1 ">
 
       <div className='bg-[#212121] p-3 text-white rounded-3xl'>
-        <div className='ml-12'>
-          <div className='text-white text-[34px]'>
+        <div className='lg:ml-6'>
+          <div className='text-white sm:text-left text-center text-[34px]'>
             Anbv
           </div>
-          <div className='text-[#D9D9D9] text-base'>
+          <div className='text-[#D9D9D9] sm:text-left text-center text-base'>
             @2023 OSS Club All
           </div>
-          <div className='text-[#D9D9D9] text-base'>
+          <div className='text-[#D9D9D9] sm:text-left text-center text-base'>
             Rights reserved
           </div>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center sm:text-left text-center'>
           Made with ❤️ by OSS Club
         </div>
       </div>

@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={
-      <div className="flex flex-col w-screen">
+      <div className="flex flex-col w-full">
       <Navbar />
       <HomeScreen />
       <BlogSection/>
