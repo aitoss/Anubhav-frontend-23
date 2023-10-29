@@ -19,7 +19,7 @@ const BlogSection = () => {
 }
 
 function ReadTime(content) {
-  const wpm = 150;
+  const wpm = 180;
   const words = content.split(' ').length;
   const minutes = Math.ceil(words / wpm);
   return minutes;
@@ -48,14 +48,16 @@ function Scroll() {
   }, [article]);
 
   return (
-    <div className="lg:p-6 p-1">
+    <div className="lg:p-6 p-1 lg:flex lg:flex-row lg:items-start shrink">
       <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
 
-      <a href="/link" className="block lg:grid lg:grid-cols-2 lg:rounded-3xl md:rounded-3xl lg:border  hover:sm:shadow-xl sm:shadow-md hover:border-gray-400 lg:border-gray-300 p-3">
-        <div className="image lg:h-30 lg:w-30 sm:px-5 sm:content-start sm:justify-start justify-center flex items-center">
-          <img src={user1Image} alt="User 1" className="lg:w-30 lg:h-30 rounded-md w-30 h-30" />
-        </div>
-        <div className="data lg:h-60 flex justify-center lg:-ml-96 flex-col p-4 md:mt-0  ">
+      <a href="/link" className=" lg:rounded-3xl md:rounded-3xl lg:border  hover:sm:shadow-xl sm:shadow-md hover:border-gray-400 lg:border-gray-300 p-3">
+        <div className="lg:flex-row sm:flex-col sm:flex space-x-8 ">
+        <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
+  <img src={user1Image} alt="User 1" className="lg:h-full lg:w-full rounded-md" />
+</div>
+
+        <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
           <div className="heading">
             <a className="text-2xl md:text-4xl font-bold text-gray-700 hover:text-gray-800" href="/link">
               Druva Interview Experience
@@ -84,6 +86,7 @@ function Scroll() {
   </div>
 </div>
 
+        </div>
         </div>
       </a>
     </div>
