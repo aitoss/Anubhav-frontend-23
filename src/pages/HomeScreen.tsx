@@ -23,8 +23,8 @@ export default function HomeScreen() {
   return (<>
     <div className="flex h-screen w-full flex-col justify-center items-center">
       <div className='flex h-screen flex-col gap-4 justify-center items-center'>
-        <h1 className="text-8xl text-slate-900 flex justify-center font-bold">Anubhav</h1>
-        <p className="text-4xl text-slate-800 flex justify-center">Stories of Success</p>
+        <h1 className="text-6xl lg:text-8xl text-slate-900 flex justify-center font-bold">Anubhav</h1>
+        <p className="text-3xl lg:text-4xl text-slate-800 flex justify-center">Stories of Success</p>
         <div className='flex items-center gap-4'>
           <div className='flex'>
             <img src={logo2} alt="random" className="w-12 mr-[-16px] rounded-full border-4 border-white" />
@@ -38,7 +38,7 @@ export default function HomeScreen() {
           <input
             type="text"
             placeholder="Search for your dreams"
-            className="border-2 w-[400px] border-gray-500 rounded-full pl-4 pr-4 py-2 focus:outline-none  focus:border-transparent transition duration-250 ease-in-out"
+            className="border-2 w-[300px] lg:w-[400px] border-gray-500 rounded-full pl-4 pr-4 py-2 focus:outline-none  focus:border-transparent transition duration-250 ease-in-out"
             onChange={onChange}
           />
           <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
