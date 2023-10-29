@@ -38,7 +38,7 @@ function Scroll() {
   const [readingTime, Time] = useState(0);
 
   useEffect(() => {
-    const example = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus minima in sapiente vero, sunt hic, consequuntur aliquid beatae atque dolorem dolorum saepe!";
+    const example = "Lorem ipsum dolor sit ametr adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus minima in sapiente vero, sunt hic, consequuntur aliquid beatae atque dolorem dolorum saepe!";
     Content(example);
   }, []);
 
@@ -51,7 +51,7 @@ function Scroll() {
     <div className="lg:p-6 p-1">
       <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
 
-      <a href="/link" className="block lg:grid lg:grid-cols-2 lg:rounded-3xl md:rounded-3xl lg:border hover:border-gray-400 lg:border-gray-300 p-3">
+      <a href="/link" className="block lg:grid lg:grid-cols-2 lg:rounded-3xl md:rounded-3xl lg:border  hover:sm:shadow-xl sm:shadow-md hover:border-gray-400 lg:border-gray-300 p-3">
         <div className="image lg:h-30 lg:w-30 sm:px-5 sm:content-start sm:justify-start justify-center flex items-center">
           <img src={user1Image} alt="User 1" className="lg:w-30 lg:h-30 rounded-md w-30 h-30" />
         </div>
