@@ -21,8 +21,11 @@ const BlogSection = () => {
 
 function Scroll() {
   return (
+    
+    
+    <div className="lg:p-6 p-2">
+      <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
 
-    <div className="lg:p-6 p-4">
     <a href="/link" className="block lg:grid lg:grid-cols-2 lg:rounded-3xl md:rounded-3xl lg:border hover:border-gray-400 lg:border-gray-300 p-3">
       <div className="image mx-auto lg:h-30 lg:w-30 justify-center flex items-center">
         <img src={user1Image} alt="User 1" className="lg:w-30 lg:h-30 rounded-md mx-auto w-30 h-30" />
