@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Author from './_Child/Author';
-import user1Image from '../../assets/images/user1.png';
+import company from '../../assets/images/company.png'
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 
@@ -52,10 +52,10 @@ function Scroll() {
     <div className="lg:p-6 p-1 lg:flex lg:flex-row lg:items-start shrink">
       <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
 
-      <Link to="/Blog" className=" lg:border-b-2xl md:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:border-gray-400 lg:border-gray-300 p-3">
+      <Link to="/Blog" className=" lg:border-b-2xl md:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:border-b-gray-400 lg:border-b-gray-300 p-3">
         <div className="lg:flex-row sm:flex-col sm:flex space-x-8 ">
         <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-  <img src={user1Image} alt="User 1" className="lg:h-full lg:w-full rounded-md" />
+  <img src={company} alt="User 1" className="lg:h-full lg:w-full rounded-md" />
 </div>
 
         <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
