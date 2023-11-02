@@ -27,7 +27,7 @@ const Inputtag = (props) => {
 
   return (
     <div>
-      <div className="relative">
+      <div className="relative flex flex-col gap-1">
         <label className="block text-sm font-semibold leading-6 text-gray-900">
           Add Tag
         </label>
@@ -35,7 +35,7 @@ const Inputtag = (props) => {
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex items-center bg-blue-500 p-2 rounded-md"
+              className="flex items-center bg-blue-500 px-1 rounded-md"
             >
               <span className="text-black text-sm">{tagItem}</span>
               <span
