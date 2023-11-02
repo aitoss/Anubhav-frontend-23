@@ -13,12 +13,20 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.17",
+<<<<<<< HEAD
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
     "aos": "^3.0.0-beta.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
+=======
+    "alpinejs": "^3.13.2",
+    "aos": "^3.0.0-beta.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+>>>>>>> b7a02c96ccda2ed64c51abef91b59ca2b0fde5c9
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.17.0",
     "react-scroll": "^1.9.0"

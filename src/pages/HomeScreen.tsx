@@ -3,6 +3,7 @@ import logo1 from '../assets/images/user1.png';
 import logo2 from '../assets/images/user2.png';
 import logo3 from '../assets/images/user3.png';
 import background from '../assets/bg.png';
+import Slider from '../components/Slider/Slider';
 import adobe from '../assets/company logo/adobe.svg';
 import amazon from '../assets/company logo/amazon.svg';
 import atlassian from '../assets/company logo/atlassian.svg';
@@ -47,11 +48,10 @@ export default function HomeScreen() {
               <path d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M29.8333 29.9842L27.1666 27.3175" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-
           </div>
         </div>
       </div>
-  
+      <Slider></Slider>
     </div>
   </>
   )
