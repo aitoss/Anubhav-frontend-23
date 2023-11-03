@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
 import './Style.css';
-import { Helmet } from 'react-helmet';
 import adobe from '../../assets/company logo/adobe.svg';
 import amazon from '../../assets/company logo/amazon.svg';
 import atlassian from '../../assets/company logo/atlassian.svg';
@@ -30,12 +29,12 @@ const Slider = () => {
 </div> 
 </div> 
 {/* fix later */}
-        <Helmet>
+      
             <script>
             var copy = document.querySelector(".logos-slide").cloneNode(true);
             document.querySelector(".logos").appendChild(copy);
             </script>
-        </Helmet>
+      
         </>
     )
 }

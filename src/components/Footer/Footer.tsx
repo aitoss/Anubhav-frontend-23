@@ -3,7 +3,7 @@ import {
   RiTwitterXLine,
   RiLinkedinFill,
   RiInstagramFill,
-  RiDiscordFill,
+  RiDiscordFill
 } from "react-icons/ri";
 
 const Footer = () => {
