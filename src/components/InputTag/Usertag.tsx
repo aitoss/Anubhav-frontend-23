@@ -3,28 +3,36 @@ import { RxCross1 } from "react-icons/rx";
 import { FiArrowRight} from "react-icons/fi";
 
 //commit
+const Inputtag = () => {
+  const [tag, setTag] = useState("");
+  const [tags, setTags] = useState([]);
 
-const Inputtag = (props) => {
-  const [tags, settags] = useState<string[]>([]);
-  const [tag, settag] = useState<string>("");
+  const handleChange = (e) => {
+    setTag(e.target.value);
+  };
 
-  function handleChange(e) {
-    settag(e.target.value);
-  }
-
-  function handleClick() {
-    if (tag.trim() !== "") {
-      settags([...tags, tag]);
-      settag("");
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && tag.trim() !== "") {
+      addTag();
     }
-  }
-  
+  };
 
-  function handleTagDelete(index) {
-    const updatedTags = tags.filter((_, i) => i !== index);
-    settags(updatedTags);
-  }
+  const handleClick = () => {
+    if (tag.trim() !== "") {
+      addTag();
+    }
+  };
 
+  const addTag = () => {
+    setTags([...tags, tag]);
+    setTag("");
+  };
+
+  const handleTagDelete = (index) => {
+    const updatedTags = [...tags];
+    updatedTags.splice(index, 1);
+    setTags(updatedTags);
+  };
   return (
     <div>
       <div className="relative flex flex-col gap-1">
@@ -49,13 +57,12 @@ const Inputtag = (props) => {
         </div>
         <div className="flex gap-2">
           <input
-            type={props.type}
-            name={props.title}
-            id={props.id}
-            className="block w-full rounded-md bg-secondry border-opacity-0 py-1.5 pl-2 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-secondry-900  focus:outline-none sm:text-xs sm:leading-6"
-            placeholder="Enter tag"
-            onChange={handleChange}
-            value={tag}
+               type="text"
+               name="tag"
+               className="block w-full rounded-md bg-secondry border-opacity-0 py-1.5 pl-2 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-secondry-900  focus:outline-none sm:text-xs sm:leading-6"               placeholder="Enter tag"
+               value={tag}
+               onChange={handleChange}
+               onKeyDown={handleKeyDown}
           />
           <span
             onClick={handleClick}
