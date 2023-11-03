@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone";
-
+import { RxCross1 } from "react-icons/rx";
+import { FiArrowRight} from "react-icons/fi";
 
 //commit
 
@@ -19,6 +18,7 @@ const Inputtag = (props) => {
       settag("");
     }
   }
+  
 
   function handleTagDelete(index) {
     const updatedTags = tags.filter((_, i) => i !== index);
@@ -35,14 +35,14 @@ const Inputtag = (props) => {
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex items-center bg-blue-500 px-1 rounded-md"
+              className="flex bg-blue-500 px-1 items-center rounded-md"
             >
-              <span className="text-black text-sm">{tagItem}</span>
+              <span className="text-white text-[16px] text-center text-base">{tagItem}</span>
               <span
                 onClick={() => handleTagDelete(index)}
                 className="cursor-pointer ml-1"
               >
-                <CloseTwoToneIcon className="text-sm" />
+                <RxCross1 className=" items-center" />
               </span>
             </div>
           ))}
@@ -59,9 +59,9 @@ const Inputtag = (props) => {
           />
           <span
             onClick={handleClick}
-            className="relative text-white mb-1 text-3xl cursor-pointer bg-blue-500 px-1 rounded-md"
+            className="relative text-white items-center text-3xl cursor-pointer bg-blue-500 px-1 rounded-md"
           >
-            <ArrowForwardIcon className="w-16 h-16" />
+            <FiArrowRight className="text-center mt-0.5" />
           </span>
         </div>
       </div>

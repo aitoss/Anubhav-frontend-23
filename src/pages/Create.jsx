@@ -45,6 +45,7 @@ const Create = () => {
 
   return (
     <>
+    
       <Navbar />
       <div className=" relative w-[100vw] min-h-screen bg-primary flex justify-center pb-5">
         <div className="relative w-auto h-min top-24 rounded-2xl bg-white p-5">
@@ -107,6 +108,7 @@ const Create = () => {
               Submit
             </button>
           </div>
+    
         </div>
       </div>
     </>
