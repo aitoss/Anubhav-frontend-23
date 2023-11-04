@@ -64,12 +64,12 @@ const Inputtag = () => {
                onChange={handleChange}
                onKeyDown={handleKeyDown}
           />
-          <span
+          {/* <span
             onClick={handleClick}
             className="relative text-white items-center text-3xl cursor-pointer bg-blue-500 px-1 rounded-md"
           >
             <FiArrowRight className="text-center mt-0.5" />
-          </span>
+          </span> */}
         </div>
       </div>
     </div>
