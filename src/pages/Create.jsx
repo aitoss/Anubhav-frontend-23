@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import imag from "../assets/images/upload_img.png";
+import TextEditor from "../components/Editor/TextEditor";
 // import Texteditor from "../components/Editor/TextEditor";
 
 function Userinput(props) {
@@ -47,14 +48,14 @@ const Create = () => {
     <>
     
       <Navbar />
-      <div className=" relative w-[100vw] min-h-screen bg-primary flex justify-center pb-5">
-        <div className="relative w-auto h-min top-24 rounded-2xl bg-white p-5">
+      <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center pb-5">
+        <div className="relative w-[80%] justify-center item-center h-min top-24 rounded-2xl border-[4px] bg-white p-5">
           <div className="flex flex-col gap-3">
             <div className="flex justify-center cursor-pointer">
               <div className="w-24 h-24" onClick={handleFileClick}>
                 {file ? (
                   <img
-                    src={URL.createObjectURL(file)}
+                    src={URL.createObjectURL(file)} 
                     alt=""
                     className="w-28 h-24 object-cover rounded-full"
                   />
@@ -108,9 +109,12 @@ const Create = () => {
               Submit
             </button>
           </div>
-    
         </div>
       </div>
+      <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
+      <TextEditor/>
+      </div>
+
     </>
   );
 };
