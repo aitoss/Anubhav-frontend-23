@@ -9,7 +9,7 @@ const BlogSection = () => {
   return (
     <section className="lg:py-4 lg:-mt-24">
       <div className="container lg:mx-auto md:px-20">
-        <h1 className="font-semibold text-5xl lg:pb-12 p-5 text-slate-900 text-center">Trending Stories</h1>
+        <h1 className="font-semibold text-5xl lg:mt-16 font-sans p-5 text-slate-900 text-center">Trending Stories</h1>
         {Scroll()}
         {Scroll()}
         {Scroll()}
@@ -52,7 +52,7 @@ function Scroll() {
     <div className="lg:p-6 p-1 lg:flex lg:flex-row lg:items-start shrink">
       <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
 
-      <Link to="/Blog" className=" lg:border-b-2xl md:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:border-b-gray-400 lg:border-b-gray-300 p-3">
+      <Link to="/Blog" className="p-3 lg:border-b-[2px]  lg:border-gray-500 lg:hover:shadow-xl">
         <div className="lg:flex-row sm:flex-col sm:flex space-x-8 ">
         <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
   <img src={company} alt="User 1" className="lg:h-full lg:w-full rounded-md" />
@@ -60,7 +60,7 @@ function Scroll() {
 
         <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
           <div className="heading">
-            <a className="text-2xl md:text-4xl font-bold text-gray-700 hover:text-gray-800" href="/link">
+            <a className="text-2xl md:text-3xl font-bold text-gray-700 hover:text-gray-800" href="/link">
               Druva Interview Experience
             </a>
           </div>

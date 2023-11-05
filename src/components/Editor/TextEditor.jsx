@@ -23,7 +23,7 @@ const TextEditor = () => {
     const [value, setValue] = useState("");
   return (
     <div className="container relative h-screen text-black w-[100%] ">
-    <div className="row h-[100%] w-[100%] flex items-center justify-center">
+    <div className="row h-[100%] w-[100%] flex lg:flex-row flex-col items-center justify-center">
     <div className="editor relative h-[100%] w-[50%] flex items-center justify-center">
     <ReactQuill
   modules={modules}

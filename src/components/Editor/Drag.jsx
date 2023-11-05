@@ -40,9 +40,9 @@ const DragDropFiles = () => {
 
   return (
     <>
-   <section className="p-8 -mb-3 w-screen flex justify-center items-center">
+   <section className="pt-12 pb-10 lg:mb-8 lg:p-6 mt-12  -mb-3 w-screen flex justify-center items-center">
   <div
-    className="dropzone p-8 w-[83.7%] h-full rounded-xl flex flex-col justify-center items-center border-dotted border-[4px]"
+    className="dropzone p-8 w-[82%] h-full rounded-xl flex flex-col justify-center items-center border-dotted border-[4px]"
     onDragOver={handleDragOver}
     onDrop={handleDrop}
   >

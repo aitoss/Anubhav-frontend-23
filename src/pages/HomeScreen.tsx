@@ -51,7 +51,7 @@ export default function HomeScreen() {
           </div>
         </div>
       </div>
-      <Slider></Slider>
+
     </div>
   </>
   )
