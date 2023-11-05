@@ -3,3 +3,22 @@
     padding: 0;
     box-sizing:  border-box;
 }
+/* .ql-editor{
+    position: absolute;
+    height: 100%;
+} */
+.ql-container{
+    padding: 10px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.ql-toolbar.ql-snow{
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    box-shadow: 0 20px 50px 0px rgba(0, 0, 0, 0.1);
+}
+.ql-snow .ql-picker-label{
+    display: flex;
+    gap: .5px;
+}

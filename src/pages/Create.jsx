@@ -3,8 +3,10 @@ import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import imag from "../assets/images/upload_img.png";
 import TextEditor from "../components/Editor/TextEditor";
+
 import {FiUploadCloud} from "react-icons/fi";
-// import Texteditor from "../components/Editor/TextEditor";
+// import Texteditor from "../components/Editor/TextEditor"
+import DragDropFiles from "../components/Editor/Drag"; 
 
 function Userinput(props) {
   return (
@@ -84,8 +86,8 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div className=" relative w-screen flex h-auto min-h-[80%] overflow-auto items-center flex-col justify-center bg-white sm:h-[100%]">
-        <div className="relative w-[70%]  h-min rounded-2xl border-[2px] top-5 bg-white p-7 pb-4 flex flex-col gap-3 hover:shadow-2xl md:gap-1 md:top-6  x-sm:w-[80%] ">
+      <div className=" relative w-screen flex h-[70%]  overflow-auto justify-center bg-white md:h-[70%]">
+        <div className="relative w-[70%]  h-min rounded-2xl border-[2px] top-32 bg-white p-7 pb-4 flex flex-col gap-3 hover:shadow-xl md:gap-1 md:top-20 x-sm:w-[80%]">
           {/* basic info */}
           <div className="w-full">
             <h2 className="text-black font-[500] text-2xl ml-2">
@@ -121,7 +123,7 @@ const Create = () => {
             </div>
 
             {/* image upload and tag */}
-            <div className="flex flex-col gap-3 p-2 w-[50%] h-full md:w-full">
+            <div className="flex flex-col gap-4 p-2 w-[50%] h-full md:w-full">
               <UserImage />
               <div>
                 <Inputtag title="Tags" id="tag" type="text" />
@@ -143,16 +145,34 @@ const Create = () => {
         </div>
       </div>
       
-      {/* <div className="w-screen h-[50%] bg-red-400 flex flex-col justify-center items-center">
+      <div className="w-screen h-[40%] bg-white flex flex-col justify-center items-center md:h-[30%]">
         <div className="w-[70%] flex justify-start">
-          <h1 className="text-black font-[500] text-2xl ml-4 pb-5">Cover Image</h1>
+          <h1 className="text-black font-[500] text-2xl ml-4 pb-7">Cover Image</h1>
         </div>
-        <div className="w-[70%] h-[80%] bg-black rounded-4x1"></div>
-        
+        <DragDropFiles/>
+        {/* <TextEditor/> */}
+      </div>
+      
+
+      <div className="w-screen h-[80%] bg-white items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%]">
+        <div className="relative w-[70%] flex justify-start bottom-10">
+          <h1 className="text-black font-[500] text-2xl ml-4">Write Here</h1>
+        </div>
+        <TextEditor />
+      </div>
+
+      {/* <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
+        <div>
+          <div className="w-[70%] flex justify-start">
+            <h1 className="text-black font-[500] text-2xl ml-4 pb-5">Cover Image</h1>
+          </div>
+        <DragDropFiles/>
+        </div>
+        <TextEditor/>
       </div> */}
 
       {/* <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
-      <TextEditor/>
+      
       </div> */}
     </>
   );
