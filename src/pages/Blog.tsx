@@ -8,10 +8,13 @@ import Blogs from "../components/BlogSection/Blogs";
 const Create = () => {
     return(
         <>
+
         <Navbar />
+        <div className="w-screen">
         <Blogs/>
         <Articles/>
         <Footer />
+        </div>
         </>
     );
 }

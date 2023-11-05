@@ -7,7 +7,7 @@ import { CiHeart } from "react-icons/ci";
 
 const Blogs = () => {
   return (
-    <div className="container items-center lg:ml-60 ml-8 mt-40 p-3 lg:mx-auto md:px-20">
+    <div className="container items-center  mt-40 p-6 lg:mx-auto w-screen lg:px-20">
       <div className="data items-start lg:justify-start justify-center flex-col p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
@@ -84,11 +84,6 @@ const Blogs = () => {
             suscipit eos corporis ut ex esse magni blanditiis id reprehenderit
             cupiditate tempore aliquid numquam excepturi officiis, adipisci,
             nulla impedit illo ea fuga.
-            <span>
-              <a href="/link" className="text-gray-400 hover:text-gray-500">
-                ..Read More
-              </a>
-            </span>
           </p>
         </div>
       </div>

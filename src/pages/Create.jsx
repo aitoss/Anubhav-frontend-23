@@ -47,6 +47,7 @@ const Create = () => {
     setfile(file);
   };
 
+
   const UserImage = () => {
     return (
       <>
@@ -55,6 +56,7 @@ const Create = () => {
             <h3 className="text-black flex justify-center mr-1">Your Photo</h3>
             <div className="w-full flex justify-center">
               <div className="w-28 h-28 flex justify-center  rounded-full sm:w-24 sm:h-24" onClick={handleFileClick}>
+
                 {file ? (
                   <img
                     src={URL.createObjectURL(file)}
