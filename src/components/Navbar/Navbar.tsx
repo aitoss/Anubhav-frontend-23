@@ -10,23 +10,23 @@ const Navbar = () => {
     const handleClick = () => setClick(!click);
     const content = <>
     <div className="lg:hidden block bg-[#212121] items-center p-4 h-screen justify-center  space-y-10 absolute top-10 w-screen bg-sltate-900 transition">
-    <Link spy={true} smooth={true} to="/" className="p-2">
+    <Link  to="/" className="p-2">
                     <img className="" src={logo} alt="" />
                 </Link>
         <ul className="gap-24">
-            <Link spy={true} smooth={true} to="Trending">
+            <Link  to="/">
             <li className="text-[20px] p-2 text-white hover:text-yellow-400 ">
                 Trending
             </li>
             </Link>
-            <Link spy={true} smooth={true} to="Videos">
             <li className="text-[20px] p-2 text-white hover:text-yellow-400">
+            <Link  to="/Videos">
                 Videos
+                </Link>
             </li>
-            </Link>
    
             <li className="">
-                        <Link spy={true} smooth={true} to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
+                        <Link  to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
@@ -73,8 +73,11 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" className="text-[20px] p-2 text-gray-800 hover:text-yellow-400">
-                            Videos
+                        <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
+                            
+                        <Link  to="/Videos" className='text-gray-800 hover:text-yellow-400'>
+                          Videos
+                        </Link>
                         </a>
                     </li>
                     <li className="bg-[#212121] rounded-2xl px-2">

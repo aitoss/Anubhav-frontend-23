@@ -4,10 +4,9 @@ import Author from './_Child/Author';
 import company from '../../assets/images/company.png'
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-
 const BlogSection = () => {
   return (
-    <section className="lg:py-4 lg:-mt-24">
+    <section className="lg:py-4 lg:mx-auto lg:-mt-24">
       <div className="container lg:mx-auto md:px-20">
         <h1 className="font-semibold text-5xl lg:mt-16 font-sans p-5 text-slate-900 text-center">Trending Stories</h1>
         {Scroll()}
@@ -18,14 +17,12 @@ const BlogSection = () => {
     </section>
   );
 }
-
 function ReadTime(content) {
   const wpm = 180;
   const words = content.split(' ').length;
   const minutes = Math.ceil(words / wpm);
   return minutes;
 }
-
 function restrict(content, wordLimit) {
   const words = content.split(' ');
   if (words.length > wordLimit) {
@@ -33,32 +30,28 @@ function restrict(content, wordLimit) {
   }
   return content;
 }
-
 function Scroll() {
   const [article, Content] = useState('');
   const [readingTime, Time] = useState(0);
-
   useEffect(() => {
     const example = "Lorem ipsum dolor sit ametr adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus minima in sapiente vero, sunt hic, consequuntur aliquid beatae atque dolorem dolorum saepe!";
     Content(example);
   }, []);
-
   useEffect(() => {
     const TotalReadTime = ReadTime(article);
     Time(TotalReadTime);
   }, [article]);
-
   return (
-    <div className="lg:p-6 p-1 lg:flex lg:flex-row lg:items-start shrink">
-      <div className="bg-gray-300 lg:hidden h-px w-full mt-6 mb-6"></div>
+    <div className="lg:p-6 p-1 lg:flex lg:flex-row  shrink">
+      <div className="bg-gray-300 lg:hidden h-px  mt-6 mb-6"></div>
 
-      <Link to="/Blog" className="p-3 lg:border-b-[2px]  lg:border-gray-300 lg:hover:shadow-xl">
-        <div className="lg:flex-row sm:flex-col sm:flex space-x-8 ">
+      <Link to="/Blog" className="p-3 lg:border-b-2 lg:border-gray-400 lg:hover:shadow-xl">
+        <div className="flex lg:flex-row flex-col space-x-8 ">
         <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-  <img src={company} alt="User 1" className="lg:h-full lg:w-full rounded-md" />
+  <img src={company} alt="User 1" className="lg:h-full rounded-md" />
 </div>
 
-        <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
+<div className="data items-start lg:justify-start justify-center flex-row p-4 md:mt-0">
           <div className="heading">
             <a className="text-2xl md:text-3xl font-bold text-gray-700 hover:text-gray-800" href="/link">
               Druva Interview Experience
@@ -86,12 +79,10 @@ function Scroll() {
     </a>
   </div>
 </div>
-
         </div>
         </div>
       </Link>
     </div>
   );
 }
-
 export default BlogSection;

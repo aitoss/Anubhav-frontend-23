@@ -11,7 +11,7 @@ const Blogs = () => {
       <div className="data items-start lg:justify-start justify-center flex-col p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
-            className="text-2xl md:text-5xl font-bold text-gray-700 hover:text-gray-800"
+            className="text-2xl lg:text-5xl font-bold text-gray-700 hover:text-gray-800"
             href="/link"
           >
             Druva Interview Experience

@@ -57,7 +57,7 @@ const Inputtag = () => {
           <input
                type="text"
                name="tag"
-               className="block w-full rounded-md text-4x1 bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white sm:p-2 sm:text-[13px]"
+               className="block w-full rounded-md bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white sm:p-2 sm:text-[13px]"
                placeholder="Tags relevant to your field"
                value={tag}
                onChange={handleChange}

@@ -10,7 +10,7 @@ const Create = () => {
         <>
 
         <Navbar />
-        <div className="w-screen">
+        <div className="">
         <Blogs/>
         <Articles/>
         <Footer />

@@ -40,11 +40,11 @@ const Create = () => {
   const UserImage = () => {
     return (
       <>
-        <div className="flex justify-center cursor-pointer gap-1 md:w-full">
+        <div className="flex justify-center cursor-pointer md:w-full">
           <div>
             <h3 className="text-black flex justify-center mr-1">Your Photo</h3>
             <div className="w-full flex justify-center">
-              <div className="w-28 h-28 flex justify-center  rounded-full sm:w-24 sm:h-24" onClick={handleFileClick}>
+              <div className="w-[110px] h-[110px] flex justify-center  rounded-full sm:w-24 sm:h-24" onClick={handleFileClick}>
 
                 {file ? (
                   <img
@@ -114,7 +114,7 @@ const Create = () => {
             </div>
 
             {/* image upload and tag */}
-            <div className="flex flex-col gap-4 p-2 w-[50%] h-full md:w-full">
+            <div className="flex flex-col mb-1 p-2 w-[50%] h-full md:w-full">
               <UserImage />
               <div>
                 <Inputtag title="Tags" id="tag" type="text" />
