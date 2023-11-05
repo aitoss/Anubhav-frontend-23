@@ -1,23 +1,14 @@
 import React, { useState, useRef } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
-import imag from "../assets/images/upload_img.png";
 import TextEditor from "../components/Editor/TextEditor";
-
 import {FiUploadCloud} from "react-icons/fi";
-// import Texteditor from "../components/Editor/TextEditor"
 import DragDropFiles from "../components/Editor/Drag"; 
 
 function Userinput(props) {
   return (
     <>
       <div className="relative flex flex-col gap-2">
-        {/* <label
-          htmlFor="title"
-          className="block text-sm font-semibold leading-6 text-gray-900"
-        >
-          {props.title}
-        </label> */}
         <input
           type={props.type}
           name={props.title}
@@ -46,8 +37,6 @@ const Create = () => {
     console.log(file);
     setfile(file);
   };
-
-
   const UserImage = () => {
     return (
       <>
@@ -152,7 +141,7 @@ const Create = () => {
           <h1 className="text-black font-[500] text-2xl ml-4 pb-7">Cover Image</h1>
         </div>
         <DragDropFiles/>
-        {/* <TextEditor/> */}
+        
       </div>
       
 
@@ -162,27 +151,9 @@ const Create = () => {
         </div>
         <TextEditor />
       </div>
-
-      {/* <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
-        <div>
-          <div className="w-[70%] flex justify-start">
-            <h1 className="text-black font-[500] text-2xl ml-4 pb-5">Cover Image</h1>
-          </div>
-        <DragDropFiles/>
-        </div>
-        <TextEditor/>
-      </div> */}
-
-      {/* <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
-      
-      </div> */}
     </>
   );
 };
 
 export default Create;
 
-// <Inputtag title="Tags" id="tag" type="text" />
-//             <button className="bg-blue-700 text-lg font-semibold">
-//               Submit
-//             </button>
