@@ -9,7 +9,7 @@ const Navbar = () => {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const content = <>
-    <div className="lg:hidden block bg-[#212121] items-center p-4 h-screen justify-center grid place-content-center space-y-10 absolute top-10 w-screen bg-sltate-900 transition">
+    <div className="lg:hidden block bg-[#212121] items-center p-4 h-screen justify-center  space-y-10 absolute top-10 w-screen bg-sltate-900 transition">
     <Link spy={true} smooth={true} to="/" className="p-2">
                     <img className="" src={logo} alt="" />
                 </Link>

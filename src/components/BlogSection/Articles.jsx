@@ -6,7 +6,7 @@ import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 const Articles = () => {
     return (
-        <section className="">
+        <section className="w-screen">
         <div className="container lg:mx-auto md:px-20">
           <h1 className="font-medium lg:text-5xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20 p-3 text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
