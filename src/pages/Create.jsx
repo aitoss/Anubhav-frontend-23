@@ -8,7 +8,7 @@ import DragDropFiles from "../components/Editor/Drag";
 function Userinput(props) {
   return (
     <>
-      <div className="relative flex  w-screen flex-col gap-2">
+      <div className="relative flex flex-col gap-2">
         <label
           htmlFor="title" bg-red-500
           className="block text-sm font-semibold leading-6 text-gray-900"
@@ -48,6 +48,7 @@ const Create = () => {
     <>
     
       <Navbar />
+      <div className="w-screen">
       <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center pb-5">
         <div className="relative w-[80%] justify-center item-center h-min top-24 rounded-2xl border-[4px] bg-white p-5">
           <div className="flex flex-col gap-3">
@@ -111,9 +112,10 @@ const Create = () => {
           </div>
         </div>
       </div>
-      <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
+      <div className=" relative w-screen flex min-h-screen items-center flex-col justify-center ">
         <DragDropFiles/>
       <TextEditor/>
+      </div>
       </div>
 
     </>
