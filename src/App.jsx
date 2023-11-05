@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col ">
       <Navbar />
       <HomeScreen />
       <BlogSection/>
