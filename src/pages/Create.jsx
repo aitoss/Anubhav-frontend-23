@@ -3,18 +3,18 @@ import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import imag from "../assets/images/upload_img.png";
 import TextEditor from "../components/Editor/TextEditor";
-// import Texteditor from "../components/Editor/TextEditor";
+import DragDropFiles from "../components/Editor/Drag";
 
 function Userinput(props) {
   return (
     <>
       <div className="relative flex flex-col gap-2">
         <label
-          htmlFor="title"
+          htmlFor="title" bg-red-500
           className="block text-sm font-semibold leading-6 text-gray-900"
         >
           {props.title}
-        </label>
+        </label>''
         <input
           type={props.type}
           name={props.title}
@@ -112,6 +112,7 @@ const Create = () => {
         </div>
       </div>
       <div className=" relative w-screen flex  min-h-screen items-center flex-col justify-center ">
+        <DragDropFiles/>
       <TextEditor/>
       </div>
 
