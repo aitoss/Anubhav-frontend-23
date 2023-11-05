@@ -42,7 +42,7 @@ function Scroll() {
     Time(TotalReadTime);
   }, [article]);
   return (
-    <div className="lg:p-6 p-1 lg:flex lg:flex-row  shrink">
+    <div className="lg:p-6 p-1 lg:flex lg:flex-row w-[80%] mx-auto  shrink">
       <div className="bg-gray-300 lg:hidden h-px  mt-6 mb-6"></div>
 
       <Link to="/Blog" className="p-3 lg:border-b-2 lg:border-gray-400 lg:hover:shadow-xl">
