@@ -25,7 +25,15 @@ export default {
         '1/2': '50%',
         '3/4': '75%',
         'full': '100%',
-       }
+       },
+       screens: {
+        'md': {'max': '750px'},
+        // => @media (max-width: 767px) { ... }
+  
+        'sm': {'max': '639px'},
+        // => @media (max-width: 639px) { ... }
+        'x-sm': {max: '400px'},
+      },
     },
   },
   plugins: [],

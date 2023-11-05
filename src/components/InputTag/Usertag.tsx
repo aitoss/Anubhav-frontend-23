@@ -35,17 +35,15 @@ const Inputtag = () => {
   };
   return (
     <div>
-      <div className="relative flex flex-col gap-1">
-        <label className="block text-sm font-semibold leading-6 text-gray-900">
-          Add Tag
-        </label>
-        <div className="flex flex-wrap gap-2 w-[350px]">
+      <div className="relative flex flex-col gap-[5.5px]">
+      <h4 className="text-black ml-3">Tags</h4>
+        <div className="flex flex-wrap gap-2 w-[350px] md:w-full">
           {tags.map((tagItem, index) => (
             <div
               key={index}
               className="flex bg-blue-500 px-1 items-center rounded-md"
             >
-              <span className="text-white text-[16px] text-center text-base">{tagItem}</span>
+              <span className="text-white text-[20px] text-center text-base">{tagItem}</span>
               <span
                 onClick={() => handleTagDelete(index)}
                 className="cursor-pointer ml-1"
@@ -55,11 +53,12 @@ const Inputtag = () => {
             </div>
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="flex">
           <input
                type="text"
                name="tag"
-               className="block w-full rounded-md bg-secondry border-opacity-0 py-1.5 pl-2 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-secondry-900  focus:outline-none sm:text-xs sm:leading-6"               placeholder="Enter tag"
+               className="block w-full rounded-md text-4x1 bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white sm:p-2 sm:text-[13px]"
+               placeholder="Tags relevant to your field"
                value={tag}
                onChange={handleChange}
                onKeyDown={handleKeyDown}
