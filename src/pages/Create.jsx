@@ -8,7 +8,7 @@ import DragDropFiles from "../components/Editor/Drag";
 function Userinput(props) {
   return (
     <>
-      <div className="relative flex flex-col gap-2">
+      <div className="relative flex  w-screen flex-col gap-2">
         <label
           htmlFor="title" bg-red-500
           className="block text-sm font-semibold leading-6 text-gray-900"
