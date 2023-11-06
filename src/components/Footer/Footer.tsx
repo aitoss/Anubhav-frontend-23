@@ -22,7 +22,7 @@ const Footer = () => {
       Rights reserved
     </div>
   </div>
-  <div className="flex  lg:flex-row flex-col my-auto gap-[5px] lg:gap-[60px]">
+  <div className="flex  lg:flex-row flex-col my-auto gap-[5px] lg:gap-[90px]">
   <ul>
   <li className="font-semibold py-1 text-[20px]">Explore</li>
   <li><Link to="/" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">Trending Stories</Link></li>
