@@ -6,9 +6,9 @@ import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 const Articles = () => {
     return (
-        <section className="w-[60%">
+        <section className="">
         <div className="container items-center  p-6 lg:mx-auto  lg:px-20">
-          <h1 className="font-medium lg:text-5xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20 p-2 text-slate-900 ">Similar Articles</h1>
+          <h1 className="font-medium lg:text-4xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20 p-2 text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
             {Scroll()}
             {Scroll()}

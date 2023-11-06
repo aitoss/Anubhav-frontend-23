@@ -10,11 +10,12 @@ const Create = () => {
         <>
 
         <Navbar />
-        <div className="">
         <Blogs/>
+        <div className="w-[70%] mx-auto">
         <Articles/>
-        <Footer />
         </div>
+        <div className="w-screen"><Footer /></div>
+       
         </>
     );
 }

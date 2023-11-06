@@ -8,7 +8,7 @@ import noogler from "../../assets/images/noogler.png"
 
 const Blogs = () => {
   return (
-    <div className="container items-center  mt-20 p-6 lg:mx-auto w-[70%] lg:px-20">
+    <div className="container items-center  mt-20 p-6 mx-auto lg:mx-auto w-[70%] lg:px-20">
       <div className="data items-start lg:justify-start justify-center flex-col p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
