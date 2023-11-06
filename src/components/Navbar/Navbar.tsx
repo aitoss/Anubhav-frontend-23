@@ -74,7 +74,7 @@ const Navbar = () => {
                 </Link>
                 <ul className="lg:flex py-2 px-4 space-x-16">
                     <li>
-                        <a href="#blog-section" onClick={scrollToBlog} className="text-[20px] p-2 text-gray-800 hover:text-yellow-400 ">
+                        <a onClick={scrollToBlog} className="text-[20px] cursor-pointer p-2 text-gray-800 hover:text-yellow-400 ">
                             Trending
                         </a>
                     </li>
