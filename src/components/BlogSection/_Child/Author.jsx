@@ -3,7 +3,7 @@ import React from 'react'
 const author = () => {
   return (
 <div className="author flex items-center py-2">
-  <img src="/src/assets/images/user1.png" className="rounded-full w-8 h-8 mr-2" alt="User Avatar" />
+  <img src="/src/assets/images/kd.jpg" className="rounded-full w-8 h-8 mr-2" alt="User Avatar" />
   <div className="flex items-center gap-2">
     <a href="#" className="text-md font-bold hover:text-gray-600 text-gray-700">
       Kamakshi Dixit
