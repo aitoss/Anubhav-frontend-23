@@ -38,8 +38,8 @@ const Footer = () => {
 <ul>
   <li className="font-semibold py-1 text-[20px]">Other</li>
   <li><Link to="/guidelines" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">Guidelines</Link></li>
-  <li><Link to="/" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">Our World</Link></li>
-  <li><Link to="/" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">About</Link></li>
+  <li><Link to="/" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">Our Story</Link></li>
+  <li><Link to="/" className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]">About us</Link></li>
 </ul>
   </div>
   <div className="flex flex-col px-5 my-auto gap-3">

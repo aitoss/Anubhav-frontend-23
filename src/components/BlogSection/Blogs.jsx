@@ -39,7 +39,7 @@ const Blogs = () => {
           <div class="h-[400px] pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="w-full h-full" alt="" />
           </div>
-          <div class="p-4 text-[20px] bg-white shadow-lg rounded-lg">
+          <div class="p-4 text-[18px] bg-white shadow-lg rounded-lg">
             <p class="mb-4">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
             <p class="mb-4">Off-campus applications are generally open around November and December on their careers page. For on-campus, Google visits several campuses to hire STEP interns.</p>
             <p class="mb-4">Yes, the journey begins from here 😉</p>

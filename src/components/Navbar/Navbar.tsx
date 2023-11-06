@@ -61,7 +61,7 @@ const Navbar = () => {
         };
     }, [prevScrollPos]);
 
-    const navClasses = `bg-white lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
+    const navClasses = `bg-white relative lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
         visible ? 'translate-y-0' : '-translate-y-full'
     }`;
 
