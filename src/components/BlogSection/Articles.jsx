@@ -8,8 +8,10 @@ const Articles = () => {
     return (
         <section className="">
         <div className="container items-center  p-6 lg:mx-auto  lg:px-20">
-          <h1 className="font-medium lg:text-4xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20 p-2 text-slate-900 ">Similar Articles</h1>
+          <h1 className="font-medium lg:text-4xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20  text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
+            {Scroll()}
+            {Scroll()}
             {Scroll()}
             {Scroll()}
             {Scroll()}
@@ -51,12 +53,12 @@ const Articles = () => {
     }, [article]);
   
     return (
-      <div className="lg:p-6 p-1 lg:flex lg:flex-row lg:items-start shrink">
+      <div className="lg:p-4 p-1 lg:flex lg:flex-row lg:items-start shrink">
   
         <Link to="/Blog" className=" lg:border-b-2xl md:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:border-b-gray-500 lg:border-b-gray-300 p-3">
           <div className="lg:flex-col sm:flex-col sm:flex space-x-8 ">
           <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-    <img src={company} alt="User 1" className="lg:h-[250px] lg:w-full rounded-md" />
+    <img src={company} alt="User 1" className="lg:h-[250px] lg:p-12 p-4 lg:w-full rounded-md" />
   </div>
   
           <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
@@ -68,7 +70,7 @@ const Articles = () => {
             <Author />
             <div className="lorem-container text-black py-3 justify-center">
               <p>
-              {restrict(article, window.innerWidth <= 640 ? 15 : 20)}
+              {restrict(article, window.innerWidth <= 640 ? 10 : 20)}
                 <span>
                   <a href="/link" className="text-gray-400 hover:text-gray-500">
                     ..Read More

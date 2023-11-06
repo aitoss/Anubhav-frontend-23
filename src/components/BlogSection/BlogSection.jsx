@@ -45,7 +45,7 @@ function Scroll() {
     <div className="lg:p-6 p-1 lg:flex lg:flex-row w-[80%] mx-auto  shrink">
       <div className="bg-gray-300 lg:hidden h-px  mt-6 mb-6"></div>
 
-      <Link to="/Blog" className="p-3 lg:border-b-2 lg:border-gray-400 lg:hover:shadow-xl">
+      <Link to="/blog" className="p-3 lg:border-b-2 lg:border-gray-400 lg:hover:shadow-xl">
         <div className="flex lg:flex-row flex-col space-x-8 ">
         <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
   <img src={company} alt="User 1" className="lg:h-full rounded-md" />

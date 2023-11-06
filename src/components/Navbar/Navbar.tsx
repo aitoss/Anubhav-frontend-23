@@ -20,13 +20,13 @@ const Navbar = () => {
             </li>
             </Link>
             <li className="text-[20px] p-2 text-white hover:text-yellow-400">
-            <Link  to="/Videos">
+            <Link  to="/videos">
                 Videos
                 </Link>
             </li>
    
             <li className="">
-                        <Link  to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
+                        <Link  to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
@@ -75,13 +75,13 @@ const Navbar = () => {
                     <li>
                         <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
                             
-                        <Link  to="/Videos" className='text-gray-800 hover:text-yellow-400'>
+                        <Link  to="/videos" className='text-gray-800 hover:text-yellow-400'>
                           Videos
                         </Link>
                         </a>
                     </li>
                     <li className="bg-[#212121] rounded-2xl px-2">
-                        <Link to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
+                        <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
