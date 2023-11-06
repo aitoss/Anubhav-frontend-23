@@ -8,7 +8,7 @@ const BlogSection = () => {
   return (
     <section className="lg:py-4 lg:mx-auto lg:-mt-24">
       <div className="container lg:mx-auto md:px-20">
-        <h1 className="font-semibold text-5xl lg:mt-16 font-sans p-5 text-slate-900 text-center">Trending Stories</h1>
+        <h1 className="font-semibold text-5xl lg:mt-16 font-sans p-5 text-slate-900 text-center" id="blog-section">Trending Stories</h1>
         {Scroll()}
         {Scroll()}
         {Scroll()}

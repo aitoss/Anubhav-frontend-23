@@ -6,6 +6,12 @@ import {FaTimes} from "react-icons/fa";
 import {CiMenuFries} from "react-icons/ci";
 
 const Navbar = () => {
+    const scrollToBlog = () => {
+        const blogSection = document.getElementById('blog-section');
+        if (blogSection) {
+            blogSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const content = <>
@@ -68,7 +74,7 @@ const Navbar = () => {
                 </Link>
                 <ul className="lg:flex py-2 px-4 space-x-16">
                     <li>
-                        <a href="javascript:void(0)" className="text-[20px] p-2 text-gray-800 hover:text-yellow-400 ">
+                        <a href="#blog-section" onClick={scrollToBlog} className="text-[20px] p-2 text-gray-800 hover:text-yellow-400 ">
                             Trending
                         </a>
                     </li>
@@ -77,6 +83,14 @@ const Navbar = () => {
                             
                         <Link  to="/videos" className='text-gray-800 hover:text-yellow-400'>
                           Videos
+                        </Link>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
+                            
+                        <Link  to="/guidelines" className='text-gray-800 hover:text-yellow-400'>
+                          Guidelines
                         </Link>
                         </a>
                     </li>
