@@ -78,7 +78,7 @@ const Create = () => {
     <>
       <Navbar />
       <div className=" relative w-screen flex h-[70%]  overflow-auto justify-center bg-white md:h-[70%]">
-        <div className="relative w-[70%]  h-min rounded-2xl border-[2px] top-32 bg-white p-7 pb-4 flex flex-col gap-3 hover:shadow-xl md:gap-1 md:top-20 x-sm:w-[80%]">
+        <div className="relative w-[70%]  h-min rounded-2xl border-[2px] top-32 bg-white p-7 pb-4 flex flex-col gap-3 hover:shadow-xl md:gap-1 md:top-20 md:w-[90%] md:p-5">
           {/* basic info */}
           <div className="w-full">
             <h2 className="text-black font-[500] text-2xl ml-2">
@@ -136,7 +136,7 @@ const Create = () => {
         </div>
       </div>
       
-      <div className="w-screen h-[40%] bg-white flex flex-col justify-center items-center md:h-[30%]">
+      <div className="w-screen h-[40%] bg-white flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
         <div className="w-[70%] flex justify-start">
           <h1 className="text-black font-[500] text-2xl ml-4 pb-7">Cover Image</h1>
         </div>
@@ -145,7 +145,7 @@ const Create = () => {
       </div>
       
 
-      <div className="w-screen h-[80%] bg-white items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%]">
+      <div className="w-screen h-[80%] bg-white items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
         <div className="relative w-[70%] flex justify-start bottom-10">
           <h1 className="text-black font-[500] text-2xl ml-4">Write Here</h1>
         </div>

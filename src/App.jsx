@@ -22,7 +22,7 @@ const App = () => {
       </div>
     </div>
       } />
-      <Route path='/create' element={ <Create /> } />
+      <Route path='/Create' element={ <Create /> } />
       <Route path='/blog' element={ <Blog /> }/>
       <Route path='/videos' element={<Videos/>} />
       <Route path='*' element={ <Error404 />} />

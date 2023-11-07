@@ -4,6 +4,7 @@ import upload from "../../assets/images/upload.png"
 const DragDropFiles = () => {
   const [files, setFiles] = useState(null);
   const inputRef = useRef();
+  console.log(files);
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -40,13 +41,13 @@ const DragDropFiles = () => {
 
   return (
     <>
-   <section className="pb-10 lg:mb-8 lg:p-2  -mb-3 w-[70%] flex">
+   <section className="pb-10 lg:mb-8 lg:p-2  -mb-3 w-[70%] flex md:w-[90%]">
   <div
     className="dropzone p-8 w-full h-full rounded-xl flex flex-col justify-center items-center border-dotted border-[4px] hover:shadow-xl"
     onDragOver={handleDragOver}
     onDrop={handleDrop}
   >
-    <img src={upload} alt="" className="" />
+    {files ? <img src={URL.createObjectURL.file} />: <img src={upload} />}
     <h1 className="text-gray-400 pb-2 text-base">Drag or Drop here</h1>
     <h1 className="text-gray-400 pb-2 text-base">Or</h1>
     <input

@@ -9,7 +9,7 @@ import {
 const Footer = () => {
   return (
 <div className="bg-[#212121] bottom-0 mt-1 p-4 text-left  text-[#D9D9D9]">
-  <div className="lg:ml-6 ">
+  <div className="lg:ml-6">
     <div className="text-white sm:text-left  text-[34px]">
       Anbv
     </div>

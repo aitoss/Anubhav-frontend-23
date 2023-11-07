@@ -8,17 +8,19 @@
     height: 100%;
 } */
 .ql-container{
+    width: 100%;
     padding: 10px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 .ql-toolbar.ql-snow{
+    width: 100%;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
-    box-shadow: 0 20px 50px 0px rgba(0, 0, 0, 0.1);
 }
 .ql-snow .ql-picker-label{
+    width: 100%;
     display: flex;
     gap: .5px;
 }
