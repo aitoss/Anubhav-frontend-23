@@ -5,6 +5,11 @@ import company from "../../assets/images/company.png";
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png"
+import {
+  RiTwitterXLine,
+  RiLinkedinFill,
+  RiInstagramFill,
+} from "react-icons/ri";
 
 const Blogs = () => {
   return (
@@ -34,7 +39,7 @@ const Blogs = () => {
           <div class="h-[400px] pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="w-full h-full" alt="" />
           </div>
-          <div class="p-4 bg-white shadow-md rounded-lg">
+          <div class="p-4 text-[18px] bg-white shadow-lg rounded-lg">
             <p class="mb-4">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
             <p class="mb-4">Off-campus applications are generally open around November and December on their careers page. For on-campus, Google visits several campuses to hire STEP interns.</p>
             <p class="mb-4">Yes, the journey begins from here 😉</p>
@@ -78,9 +83,17 @@ const Blogs = () => {
             <p class="mb-4">I hope this article will provide you most of the insights into the entire selection process.&nbsp;</p>
             <p class="mb-4">For connecting with me, follow on</p>
             <p class="mb-4">
-              <a href="https://www.linkedin.com/in/kamakshi-dixit-101a21200" class="text-blue-600 hover:underline" target="_self">Linkedin</a> |
-              <a href="https://instagram.com/_kamakshi.dixit_?igshid=NDk5N2NlZjQ=" class="text-blue-600 hover:underline" target="_self">Instagram</a> |
-              <a href="https://www.facebook.com/kamakshi.dixit.71" class="text-blue-600 hover:underline" target="_self">Facebook</a>&nbsp;
+              <div className="flex space-x-3">
+            <a href="#">
+          <RiTwitterXLine className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+        </a>
+        <a href="#">
+          <RiLinkedinFill className="text-gray-800  text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+        </a>
+        <a href="#">
+          <RiInstagramFill className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+        </a>
+        </div>
             </p>
             <p class="mb-4">All the best 😉</p>
           </div>

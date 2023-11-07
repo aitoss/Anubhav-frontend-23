@@ -6,6 +6,12 @@ import {FaTimes} from "react-icons/fa";
 import {CiMenuFries} from "react-icons/ci";
 
 const Navbar = () => {
+    const scrollToBlog = () => {
+        const blogSection = document.getElementById('blog-section');
+        if (blogSection) {
+            blogSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const content = <>
@@ -20,13 +26,13 @@ const Navbar = () => {
             </li>
             </Link>
             <li className="text-[20px] p-2 text-white hover:text-yellow-400">
-            <Link  to="/Videos">
+            <Link  to="/videos">
                 Videos
                 </Link>
             </li>
    
             <li className="">
-                        <Link  to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
+                        <Link  to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
@@ -55,7 +61,7 @@ const Navbar = () => {
         };
     }, [prevScrollPos]);
 
-    const navClasses = `bg-white lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
+    const navClasses = `bg-white relative lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
         visible ? 'translate-y-0' : '-translate-y-full'
     }`;
 
@@ -68,20 +74,28 @@ const Navbar = () => {
                 </Link>
                 <ul className="lg:flex py-2 px-4 space-x-16">
                     <li>
-                        <a href="javascript:void(0)" className="text-[20px] p-2 text-gray-800 hover:text-yellow-400 ">
+                        <a onClick={scrollToBlog} className="text-[20px] cursor-pointer p-2 text-gray-800 hover:text-yellow-400 ">
                             Trending
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
                             
-                        <Link  to="/Videos" className='text-gray-800 hover:text-yellow-400'>
+                        <Link  to="/videos" className='text-gray-800 hover:text-yellow-400'>
                           Videos
                         </Link>
                         </a>
                     </li>
+                    <li>
+                        <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
+                            
+                        <Link  to="/guidelines" className='text-gray-800 hover:text-yellow-400'>
+                          Guidelines
+                        </Link>
+                        </a>
+                    </li>
                     <li className="bg-[#212121] rounded-2xl px-2">
-                        <Link to="/Create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
+                        <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
