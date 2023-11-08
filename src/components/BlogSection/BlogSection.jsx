@@ -8,9 +8,9 @@ import noogler from "../../assets/images/noogler.png"
 const BlogSection = () => {
   return (
     <section className="lg:py-4 lg:mx-auto lg:-mt-24">
-      <div className="container lg:mx-auto md:px-20">
+      <div className="container lg:mx-auto lg:px-20">
         <h1
-          className="font-semibold text-5xl lg:mt-16 font-sans p-5 text-slate-900 text-center"
+          className="font-semibold text-5xl lg:mt-16 font-sans lg:p-5 text-slate-900 text-center"
           id="blog-section"
         >
           Trending Stories
@@ -23,7 +23,7 @@ const BlogSection = () => {
           <div className="h-full lg:block hidden  w-full lg:mt-[44px] lg:ml-24 mx-auto"> 
           <div className="text-4xl pb-4 font-bold text-gray-700 text-center hover:text-gray-800">Popular Stories</div>
           <div class="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
-            <img src={noogler} className=" h-full" alt="" />
+            <img src={noogler} className="rounded-md h-full" alt="" />
           </div>
           <Author/>
           <div  className="text-xl lg:text-3xl font-bold text-gray-700 hover:text-gray-800">Google STEP Internship Decoded</div>
@@ -43,7 +43,7 @@ const BlogSection = () => {
              which is open to all students studying in their second year and enrolled in a Bachelor’s Program.<br/></p>         
           </div>
       </Link>
-          <div className="w-[70%] lg:ml-48">
+          <div className=" w-full lg:ml-48">
             {Scroll()}
             {Scroll()}
             {Scroll()}
@@ -88,7 +88,7 @@ function Scroll() {
       >
         <div className="flex lg:flex-row flex-col space-x-4">
           <div className="image sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-            <img src={company} alt="User 1" className=" rounded-md" />
+            <img src={company} alt="User 1" className="p-1 rounded-md" />
           </div>
 
           <div className="data items-start lg:justify-start justify-center flex-row p-2 md:mt-0">

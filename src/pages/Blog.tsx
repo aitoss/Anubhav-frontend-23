@@ -11,7 +11,7 @@ const Create = () => {
 
         <Navbar />
         <Blogs/>
-        <div className="w-[70%] mx-auto">
+        <div className="lg:w-[70%] mx-auto">
         <Articles/>
         </div>
         <div className="w-screen"><Footer /></div>

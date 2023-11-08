@@ -7,8 +7,8 @@ import { CiHeart } from "react-icons/ci";
 const Articles = () => {
     return (
         <section className="">
-        <div className="container items-center  p-6 lg:mx-auto  lg:px-20">
-          <h1 className="font-medium lg:text-4xl text-3xl items-center justify-center lg:ml-10 ml-8 mt-20  text-slate-900 ">Similar Articles</h1>
+        <div className="container items-center  lg:p-6 p-1 w-full lg:mx-auto mt-12  lg:px-20">
+          <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center lg:ml-10  lg:mt-20  text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
             {Scroll()}
             {Scroll()}
@@ -22,7 +22,7 @@ const Articles = () => {
       
     );
   }
-  
+
   function ReadTime(content) {
     const wpm = 180;
     const words = content.split(' ').length; 
@@ -53,21 +53,21 @@ const Articles = () => {
     }, [article]);
   
     return (
-      <div className="lg:p-4 p-1 lg:flex lg:flex-row lg:items-start shrink">
+      <div className="lg:p-4 p-1 lg:flex lg:flex-row  shrink">
   
-        <Link to="/Blog" className=" lg:border-b-2xl md:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:border-b-gray-500 lg:border-b-gray-300 p-3">
-          <div className="lg:flex-col sm:flex-col sm:flex space-x-8 ">
-          <div className="image sm:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-    <img src={company} alt="User 1" className="lg:h-[250px] lg:p-12 p-4 lg:w-full rounded-md" />
+        <Link to="/Blog" className=" lg:border-b-2xl lg:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:lg:border-b-gray-500 lg:border-b-gray-300 lg:p-3">
+          <div className="lg:flex-col sm:flex-col sm:flex lg:space-x-8 ">
+          <div className="image lg:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
+    <img src={company} alt="User 1" className="lg:h-[250px] lg:p-12 p-3 lg:w-full rounded-md" />
   </div>
   
           <div className="data items-start lg:justify-start justify-center flex-col p-4 md:mt-0  ">
             <div className="heading">
-              <a className="text-2xl md:text-3xl font-bold text-gray-700 hover:text-gray-800" href="/link">
+              <a className="text-xl lg:text-3xl font-bold text-gray-700 hover:text-gray-800" href="/link">
                 Druva Interview Experience
               </a>
             </div>
-            <Author />
+            <div className="lg:text-base text-[18px] "><Author/></div>
             <div className="lorem-container text-black py-3 justify-center">
               <p>
               {restrict(article, window.innerWidth <= 640 ? 10 : 20)}
