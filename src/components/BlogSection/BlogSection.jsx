@@ -10,17 +10,17 @@ const BlogSection = () => {
     <section className=" lg:mx-auto">
       <div className="container lg:mx-auto lg:px-20">
         <h1
-          className="font-medium p-1 ml-3 text-4xl lg:text-5xl lg:mt-[16px] font-sans lg:p-5 text-slate-900 text-left lg:text-center"
+          className="font-medium p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-slate-900 text-center lg:text-center"
           id="blog-section"
         >
           Trending Stories
         </h1>
-        <div className=" flex flex-col lg:flex-row justify-between">
+        <div className=" flex flex-col  lg:flex-row justify-between">
         <Link
         to="/blog"
         className=""
       >
-          <div className="h-full lg:block hidden  w-full lg:mt-[44px] lg:ml-24 mx-auto"> 
+          <div className="h-full lg:block hidden  w-full lg:mt-[100px] lg:ml-24 mx-auto"> 
           <div class="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="rounded-md h-full" alt="" />
           </div>
@@ -38,8 +38,7 @@ const BlogSection = () => {
               </div>
               
             </div>
-            <p class="mb-4 lg:block hidden text-black">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong>,<br/>
-             which is open to all students studying in their second year and enrolled in a Bachelor’s Program.<br/></p>         
+            <p class="mb-4 lg:block hidden text-black">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong></p>         
           </div>
       </Link>
           <div className=" w-full lg:ml-48">
@@ -78,24 +77,21 @@ function Scroll() {
     Time(TotalReadTime);
   }, [article]);
   return (
-    <div className="p-1 lg:px-14 lg:flex lg:flex-row ">
+    <div className="p-1 lg:px-14 w-full lg:flex lg:flex-row ">
       <div className="bg-gray-300 lg:hidden h-px  mt-6 mb-6"></div>
 
       <Link
         to="/blog"
-        className=" lg:border-b-2 lg:rounded-md lg:border-gray-400 lg:hover:shadow-xl"
+        className=" lg:border-b-2 lg:p-3 lg:rounded-md lg:border-gray-400 lg:hover:shadow-xl"
       >
         <div className="flex lg:flex-row flex-col space-x-4">
           <div className="image sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-            <img src={company} alt="User 1" className="px-4 rounded-md" />
+            <img src={company} alt="User 1" className=" lg:px-0 px-6 rounded-md" />
           </div>
 
           <div className="data items-start lg:justify-start justify-center flex-row p-2 md:mt-0">
             <div className="heading">
-              <a
-                className="text-2xl md:text-3xl font-bold text-gray-700 hover:text-gray-800"
-                href="/link"
-              >
+            <a className="text-xl lg:text-xl font-bold text-gray-700 hover:text-gray-800" href="/link">
                 Druva Interview Experience
               </a>
             </div>

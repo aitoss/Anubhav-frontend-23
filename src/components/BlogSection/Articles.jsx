@@ -8,7 +8,7 @@ const Articles = () => {
     return (
         <section className="">
         <div className="container items-center  lg:p-6 p-1 w-full lg:mx-auto mt-12  lg:px-20">
-          <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center lg:ml-10 lg:mt-20  text-slate-900 ">Similar Articles</h1>
+          <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
             {Scroll()}
             {Scroll()}
@@ -55,7 +55,7 @@ const Articles = () => {
     return (
       <div className="lg:p-4 p-1 lg:flex lg:flex-row  shrink">
   
-        <Link to="/Blog" className=" lg:border-b-2xl lg:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:lg:border-b-gray-500 lg:border-b-gray-300 lg:p-3">
+        <Link to="/" className=" lg:border-b-2xl lg:border-b-2xl  hover:sm:shadow-xl sm:shadow-md hover:lg:border-b-gray-500 lg:border-b-gray-300 lg:p-3">
           <div className="lg:flex-col sm:flex-col sm:flex lg:space-x-8 ">
           <div className="image lg:p-5 sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
     <img src={company} alt="User 1" className="lg:h-[250px] lg:p-12 p-3 lg:w-full rounded-md" />

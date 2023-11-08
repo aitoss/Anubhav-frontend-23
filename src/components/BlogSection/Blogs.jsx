@@ -36,8 +36,8 @@ const Blogs = () => {
           </div>
         </div>
         <div class="lorem-container text-black py-3 flex flex-col items-center justify-center">
-          <div class="h-[400px] lg:pb-4 flex flex-col items-center justify-center">
-            <img src={noogler} className="w-full h-[] lg:h-full" alt="" />
+          <div class="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
+            <img src={noogler} className="w-full lg:h-full" alt="" />
           </div>
           <div class="lg:p-4 text-[18px] bg-white shadow-lg rounded-lg">
             <p class="mb-4">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
