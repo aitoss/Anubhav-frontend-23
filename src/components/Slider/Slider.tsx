@@ -13,13 +13,11 @@ import uber from '../../assets/company logo/uber.svg';
 
 const Slider = () => {
   useEffect(() => {
-    // Clone the .logos-slide element and append it to .logos
     const logosSlide = document.querySelector(".logos-slide");
     const logosContainer = document.querySelector(".logos");
     const copy = logosSlide.cloneNode(true);
     logosContainer.appendChild(copy);
 
-    // Animate the carousel
     logosSlide.style.animation = '35s slide infinite linear';
   }, []);
 

@@ -7,10 +7,10 @@ import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png"
 const BlogSection = () => {
   return (
-    <section className="lg:py-4 lg:mx-auto lg:-mt-24">
+    <section className=" lg:mx-auto">
       <div className="container lg:mx-auto lg:px-20">
         <h1
-          className="font-semibold text-5xl lg:mt-16 font-sans lg:p-5 text-slate-900 text-center"
+          className="font-medium p-1 ml-3 text-4xl lg:text-5xl lg:mt-[16px] font-sans lg:p-5 text-slate-900 text-left lg:text-center"
           id="blog-section"
         >
           Trending Stories
@@ -21,12 +21,11 @@ const BlogSection = () => {
         className=""
       >
           <div className="h-full lg:block hidden  w-full lg:mt-[44px] lg:ml-24 mx-auto"> 
-          <div className="text-4xl pb-4 font-bold text-gray-700 text-center hover:text-gray-800">Popular Stories</div>
           <div class="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="rounded-md h-full" alt="" />
           </div>
           <Author/>
-          <div  className="text-xl lg:text-3xl font-bold text-gray-700 hover:text-gray-800">Google STEP Internship Decoded</div>
+          <div  className="text-xl lg:text-2xl font-bold text-gray-700 hover:text-gray-800">Google STEP Internship Decoded</div>
           <div className="flex lg:gap-10 py-2 items-center">
               <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
               <div className="flex lg:gap-3 ml-auto">
@@ -84,11 +83,11 @@ function Scroll() {
 
       <Link
         to="/blog"
-        className=" lg:border-b-2 lg:border-gray-400 lg:hover:shadow-xl"
+        className=" lg:border-b-2 lg:rounded-md lg:border-gray-400 lg:hover:shadow-xl"
       >
         <div className="flex lg:flex-row flex-col space-x-4">
           <div className="image sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-            <img src={company} alt="User 1" className="p-1 rounded-md" />
+            <img src={company} alt="User 1" className="px-4 rounded-md" />
           </div>
 
           <div className="data items-start lg:justify-start justify-center flex-row p-2 md:mt-0">

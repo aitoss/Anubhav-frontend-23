@@ -19,7 +19,6 @@ const App = () => {
       <Navbar />
       <HomeScreen />
       <div className="w-screen mx-auto">
-      <Slider />
       <BlogSection/>
       <Footer />
       </div>

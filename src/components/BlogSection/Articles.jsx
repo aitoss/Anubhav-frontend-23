@@ -8,7 +8,7 @@ const Articles = () => {
     return (
         <section className="">
         <div className="container items-center  lg:p-6 p-1 w-full lg:mx-auto mt-12  lg:px-20">
-          <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center lg:ml-10  lg:mt-20  text-slate-900 ">Similar Articles</h1>
+          <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center lg:ml-10 lg:mt-20  text-slate-900 ">Similar Articles</h1>
           <div className="grid lg:grid-cols-2 gap-0.5">
             {Scroll()}
             {Scroll()}
