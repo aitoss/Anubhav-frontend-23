@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import BlogSection from './components/BlogSection/BlogSection';
 import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
+import Slider from './components/Slider/Slider';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Navbar />
       <HomeScreen />
       <div className="w-screen mx-auto">
+      <Slider />
       <BlogSection/>
       <Footer />
       </div>

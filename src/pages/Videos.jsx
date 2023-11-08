@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import { BsSearch } from "react-icons/bs";
 import Data from "./data";
 
 //commit
@@ -8,8 +7,7 @@ import Data from "./data";
 const Videos = () => {
   const [info, setInfo] = useState(Data);
 
-  const YoutubeCards = ({title, img, info}) => {
-
+  const YoutubeCards = ({ title, img, info }) => {
     const [readMore, setReadMore] = useState(false);
 
     return (
@@ -36,9 +34,14 @@ const Videos = () => {
               </div>
               <p className="leading-5 pt-[3px] content-start text-black">
                 {readMore ? info : `${info.substring(0, 100)}...`}
-                <button className="bg-white p-0 text-blue-400" onClick={() =>{
-                  setReadMore(!readMore);
-                }}>{readMore ? "read less": "read more"}</button>
+                <button
+                  className="bg-white p-0 text-blue-400"
+                  onClick={() => {
+                    setReadMore(!readMore);
+                  }}
+                >
+                  {readMore ? "read less" : "read more"}
+                </button>
               </p>
             </div>
           </a>
@@ -53,15 +56,36 @@ const Videos = () => {
       <div className="flex flex-col gap-5">
         <div className="w-screen h-[20%] flex justify-center align-bottom pt-6">
           <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">
-            <div className="flex w-[80%] justify-center">
+            <div className="relative">
               <input
                 type="text"
-                name=""
-                id=""
                 placeholder="Search"
-                className="w-[30%] p-2 rounded-[40px] bg-gray-200 focus:outline-none pl-3 text-black placeholder:text-black focus:placeholder:text-gray-200 x-sm:w-full"
+                className="border-2 w-[300px] lg:w-[400px] bg-gray-200 rounded-full pl-4 pr-4 py-2 focus:outline-none text-black placeholder:text-black  focus:border-transparent transition duration-250 ease-in-out focus:placeholder:text-gray-200 x-sm:w-full"
               />
-              <BsSearch className="mt-3 text-black w-9" />
+              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 33 33"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M29.8333 29.9842L27.1666 27.3175"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
               <button className="p-[2px] px-3 rounded-[20px] bg-gray-700">
@@ -98,7 +122,7 @@ const Videos = () => {
         <div className="w-screen flex justify-center">
           <div className="w-[80%]  flex flex-wrap justify-center gap-10 p-3 pt-1">
             {info.map((item) => {
-              return <YoutubeCards id={item.id} key={item.id} {...item}/>
+              return <YoutubeCards id={item.id} key={item.id} {...item} />;
             })}
           </div>
         </div>
