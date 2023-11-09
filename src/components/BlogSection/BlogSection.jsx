@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Author from "./_Child/Author";
 import company from "../../assets/images/company.png";
@@ -21,7 +21,7 @@ const BlogSection = () => {
         className=""
       >
           <div className="h-full lg:block hidden  w-full lg:mt-[100px] lg:ml-24 mx-auto"> 
-          <div class="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
+          <div className="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="rounded-md h-full" alt="" />
           </div>
           <Author/>
@@ -38,7 +38,7 @@ const BlogSection = () => {
               </div>
               
             </div>
-            <p class="mb-4 lg:block hidden text-black">STEP is a Google <strong class="text-blue-600">Software Student Training in Engineering Program</strong></p>         
+            <p className="mb-4 lg:block hidden text-black">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>         
           </div>
       </Link>
           <div className=" w-full lg:ml-48">

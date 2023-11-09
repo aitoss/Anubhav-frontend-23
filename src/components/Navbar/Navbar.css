@@ -1,0 +1,9 @@
+.nav-items li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inner-nav{
+    max-width: 1600px !important;
+    margin: auto;
+}

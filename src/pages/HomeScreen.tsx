@@ -23,7 +23,7 @@ export default function HomeScreen() {
   }
 
   return (<>
-    <div className="flex h-screen w-full flex-col justify-center items-center" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+    <div className="flex w-full flex-col justify-center items-center" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
       <div className='flex h-screen flex-col gap-4 justify-center items-center'>
         <h1 className="text-6xl lg:text-8xl text-slate-900 flex justify-center font-bold">Anubhav</h1>
         <p className="text-3xl lg:text-4xl text-[#414141] flex justify-center">Stories of Success</p>

@@ -6,11 +6,12 @@ import {
   RiDiscordFill
 } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import './Footer.css'
 
 const Footer = () => {
   return (
     <div className="bg-[#212121] bottom-0 space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9]">
-<div className="bg-[#212121] lg:flex-row flex flex-col justify-between text-[#D9D9D9]">
+<div className="bg-[#212121] lg:flex-row flex flex-col justify-between text-[#D9D9D9] footer">
   <div className="lg:ml-6 ">
     <div className="text-[#D9D9D9] lg:text-left text-[34px]">
       Anubhav

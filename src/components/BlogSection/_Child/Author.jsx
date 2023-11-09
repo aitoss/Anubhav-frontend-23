@@ -1,4 +1,3 @@
-import React from 'react'
 import kd from "../../../assets/images/kd.jpg";
  
 const author = () => {

@@ -4,6 +4,7 @@ import logo from '../../assets/images/logo.png';
 import arrow from '../../assets/images/arrow.png';
 import {FaTimes} from "react-icons/fa";
 import {CiMenuFries} from "react-icons/ci";
+import './Navbar.css';
 
 const Navbar = () => {
     const scrollToBlog = () => {
@@ -61,18 +62,18 @@ const Navbar = () => {
         };
     }, [prevScrollPos]);
 
-    const navClasses = `bg-white relative lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
+    const navClasses = `bg-white fixed lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
         visible ? 'translate-y-0' : '-translate-y-full'
     }`;
 
     return (
         <nav className={navClasses} aria-label="Global">
-            <div className="hidden lg:block">
+            <div className="hidden lg:block inner-nav">
             <div className="flex justify-between items-center">
                 <Link to="/" className="p-2">
                     <img className="" src={logo} alt="" />
                 </Link>
-                <ul className="lg:flex py-2 px-4 space-x-16">
+                <ul className="lg:flex py-2 px-4 space-x-5 nav-items">
                     <li>
                         <a onClick={scrollToBlog} className="text-[20px] cursor-pointer p-2 text-gray-800 hover:text-yellow-400 ">
                             Trending
@@ -94,14 +95,22 @@ const Navbar = () => {
                         </Link>
                         </a>
                     </li>
-                    <li className="bg-[#212121] rounded-2xl px-2">
+                    <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
+                    <button type="button" className="text-white bg-[#212121] rounded-2xl  px-5 py-2.5 text-center inline-flex items-center">
+                        Write Article
+                        <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </button>
+                    </Link>
+                    {/* <li className="bg-[#212121] rounded-2xl px-2">
                         <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
                             Write Articles
                             <span className="icon">
                                 <img src={arrow} alt="Arrow" className="" />
                             </span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             </div>

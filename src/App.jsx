@@ -1,5 +1,4 @@
-import React from 'react'
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import HomeScreen from './pages/HomeScreen'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer';
@@ -9,7 +8,6 @@ import Blog from './pages/Blog';
 import BlogSection from './components/BlogSection/BlogSection';
 import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
-import Slider from './components/Slider/Slider';
 
 const App = () => {
   return (
