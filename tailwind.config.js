@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -11,13 +11,13 @@ export default {
       },
       keyframes: {
         'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        }
+          from: {transform: 'translateX(0)'},
+          to: {transform: 'translateX(-100%)'},
+        },
       },
       colors: {
-        primary: "rgba(50, 51, 55, 1)",
-        secondry: "rgba(51, 34, 51, 0.2)",
+        primary: 'rgba(50, 51, 55, 1)',
+        secondry: 'rgba(51, 34, 51, 0.2)',
       },
       minHeight: {
         '0': '0',
@@ -25,11 +25,11 @@ export default {
         '1/2': '50%',
         '3/4': '75%',
         'full': '100%',
-       },
-       screens: {
+      },
+      screens: {
         'md': {'max': '750px'},
         // => @media (max-width: 767px) { ... }
-  
+
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
         'x-sm': {max: '400px'},
@@ -38,5 +38,5 @@ export default {
     },
   },
   plugins: [],
-}
+};
 
