@@ -4,6 +4,7 @@ import Author from "./_Child/Author";
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png"
+import Tags from "./_Child/Tags"
 import {
   RiTwitterXLine,
   RiLinkedinFill,
@@ -23,6 +24,7 @@ const Blogs = () => {
           </a>
         </div>
         <Author />
+        <Tags></Tags>
         <div className="flex pb-4 lg:gap-10 items-center">
           <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
           <div className="flex gap-3 ml-auto">
@@ -38,7 +40,7 @@ const Blogs = () => {
           <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="w-full lg:h-full" alt="" />
           </div>
-          <div className="lg:p-4 text-[18px] bg-white shadow-lg rounded-lg">
+          <div className="lg:p-4 text-[18px] bg-white shadow-none rounded-lg">
             <p className="mb-4">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
             <p className="mb-4">Off-campus applications are generally open around November and December on their careers page. For on-campus, Google visits several campuses to hire STEP interns.</p>
             <p className="mb-4">Yes, the journey begins from here 😉</p>
@@ -96,7 +98,6 @@ const Blogs = () => {
             </p>
             <p className="mb-4">All the best 😉</p>
           </div>
-
         </div>
       </div>
     </div>
