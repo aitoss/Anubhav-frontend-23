@@ -55,7 +55,7 @@ const Videos = () => {
     <>
       <Navbar />
       <div className="flex flex-col gap-5" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
-        <div className="w-screen h-[20%] flex justify-center align-bottom pt-6">
+        <div className="w-screen h-[50%] flex justify-center align-bottom pt-6">
           <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">
             <div className="relative">
               <input

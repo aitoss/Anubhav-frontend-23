@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../Editor/Index.css";
@@ -21,10 +21,10 @@ const modules = {
 
 const TextEditor = () => {
   const [value, setValue] = useState("");
-  console.log({value});
+  console.log(value);
   return (
     <div className="relative w-[90%]  text-black">
-      <div className="row h-[100%] w-[100%] flex lg:flex-row lg:gap-3 flex-col gap-6 items-center justify-center bg-white">
+      <div className="row h-[90%] w-[100%] flex lg:flex-row lg:gap-3  gap-6 items-center justify-center bg-white">
         <div className="editor relative h-full w-[50%] flex items-center justify-center md:w-[100%]">
           <ReactQuill
             modules={modules}
@@ -35,7 +35,7 @@ const TextEditor = () => {
           />
         </div>
         <div
-          className="preview border-[2px] h-[110%] mt-16 overflow-auto w-[50%] flex text-black p-[10px] rounded-xl shadow-xl md:hidden "
+          className="preview border-[2px] h-[110%] mt-16 overflow-auto w-[50%]  text-black p-[10px] rounded-xl shadow-xl md:hidden "
           dangerouslySetInnerHTML={{ __html: value }}
         />
       </div>
