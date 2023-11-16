@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Data from "./data";
 import background from '../assets/bg.png';
+import Footer from "../components/Footer/Footer";
 
 //commit
 
@@ -13,7 +14,7 @@ const Videos = () => {
 
     return (
       <>
-        <div className="w-[350px] bg-white border-[1px]  rounded-[20px] hover:shadow-xl hover:border-[3px]">
+        <div className="w-[350px] mt-[13px] bg-white border-[1px]  rounded-[20px] hover:shadow-xl hover:border-[3px]">
           <a href="">
             <img
               src={img}
@@ -54,8 +55,7 @@ const Videos = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-16 md:h-8"></div>
-      <div className="flex flex-col gap-5" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
+      <div className="flex pt-[90px] flex-col gap-5" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
         <div className="w-screen h-[50%] flex justify-center align-bottom pt-6">
           <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">
             <div className="relative">
@@ -116,7 +116,7 @@ const Videos = () => {
         </div>
         <div className="w-screen  flex justify-center">
           <div className="w-[70%]">
-            <h1 className="text-[25px] text-black tracking-[1px]">
+            <h1 className="text-[28px] p-4 lg:ml-[90px] text-black tracking-[1px]">
               Popular Videos
             </h1>
           </div>
@@ -129,6 +129,7 @@ const Videos = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

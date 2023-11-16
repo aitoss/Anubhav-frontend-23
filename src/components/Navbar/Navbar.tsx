@@ -23,8 +23,12 @@ const Navbar = () => {
             <Link onClick={scrollToBlog} to="/" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
                 Trending
             </Link>
+        
             <Link to="/videos" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
                 Videos
+            </Link>
+            <Link to="/request" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                Request Article
             </Link>
             <Link to="/create" className="text-[20px] text-[#212121] font-[500] head-text p-2 cursor-pointer hover:text-[#414141] ">
                 <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] w-[80%]] rounded-full text-[#fff] font-[400] head-text  p-2 cursor-pointer hover:bg-[#414141] hover:focus:outline:none hover:focus:border:none">
@@ -82,6 +86,11 @@ return (
                     <li>
                         <Link to="/guidelines" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
                             Guidelines
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/request" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                            Request Article
                         </Link>
                     </li>
                     <Link to="/create" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
