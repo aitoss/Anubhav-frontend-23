@@ -23,7 +23,8 @@
     "react-icons": "^4.11.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.17.0",
-    "react-scroll": "^1.9.0"
+    "react-scroll": "^1.9.0",
+    "tailwindcss-filters": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

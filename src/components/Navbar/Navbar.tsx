@@ -55,12 +55,12 @@ useEffect(() => {
     };
 }, [prevScrollPos]);
 
-const navClasses = `bg-white fixed lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
+const navClasses = `bg-[#fffffff9] h-[70px] p-3 lg:block w-screen text-black fixed top-0 z-10 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
     }`;
 
 return (
     <nav className={navClasses} aria-label="Global">
-        <div className="hidden lg:block w-[100%] max-w-[1280px] m-auto">
+        <div className="hidden lg:block w-[100%] h-full max-w-[1280px] m-auto">
             <div className="flex justify-between">
                 <Link to="/" className="p-2">
                     <img className="" src={logo} alt="" />

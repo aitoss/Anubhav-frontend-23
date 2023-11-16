@@ -4,3 +4,7 @@
     font-family: TT Hoves;
     font-style: normal;
 }
+
+.blur{
+    backdrop-filter: blur(1px);
+}
