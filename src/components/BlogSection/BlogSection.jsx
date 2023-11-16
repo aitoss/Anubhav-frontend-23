@@ -13,7 +13,7 @@ const BlogSection = () => {
     <section className=" lg:mx-auto">
       <div className="container lg:mx-auto lg:px-20">
         <h1
-          className="text-[#212121] font-[600] p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-center lg:text-center"
+          className="text-[#212121] style-text font-[600] p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-center lg:text-center"
           id="blog-section"
         >
           Trending Stories
@@ -28,7 +28,7 @@ const BlogSection = () => {
                 <img src={noogler} className="rounded-md h-full" alt="" />
               </div>
               <Author />
-              <div className="text-xl text-[#212121] lg:text-2xl font-bold">Google STEP Internship Decoded</div>
+              <div className="text-xl text-[#212121] style-text lg:text-2xl font-bold">Google STEP Internship Decoded</div>
               <div className="flex lg:gap-10 py-2 items-center">
                 <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
                 <div className="flex lg:gap-3 ml-auto">

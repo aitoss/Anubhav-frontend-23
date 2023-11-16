@@ -1,6 +1,3 @@
-.head-text {
-    color: var(--dark, #212121);
+.style-text {
     font-feature-settings: 'ss04' on, 'ss05' on;
-    font-family: TT Hoves;
-    font-style: normal;
 }
