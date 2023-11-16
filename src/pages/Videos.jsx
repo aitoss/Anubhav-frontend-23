@@ -54,6 +54,7 @@ const Videos = () => {
   return (
     <>
       <Navbar />
+      <div className="w-full h-16 md:h-8"></div>
       <div className="flex flex-col gap-5" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
         <div className="w-screen h-[50%] flex justify-center align-bottom pt-6">
           <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">

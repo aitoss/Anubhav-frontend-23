@@ -32,7 +32,7 @@ export default {
 
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
-        'x-sm': {max: '400px'},
+        'x-sm': {max: '500px'},
         'lg-xl': {'max': '1024px'},
       },
     },

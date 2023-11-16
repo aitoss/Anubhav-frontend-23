@@ -6,6 +6,7 @@ const Guidelines = () => {
   return (
     <>
       <Navbar />
+      <div className="w-full h-10 md:h-8"></div>
       <div className="min-h-screen flex flex-col items-center">
         <section className="mx-auto lg:w-[70%] px-4 py-8 overflow-y-auto">
           <div className="text-xl text-black">

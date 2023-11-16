@@ -45,7 +45,7 @@ const Create = () => {
             <h3 className="text-black flex justify-center">Your Photo</h3>
             <div className="w-full flex justify-center ">
               <div
-                className="w-[80px] h-[80px] flex justify-center rounded-full sm:w-24 sm:h-24"
+                className="w-[130px] h-[130px] flex justify-center rounded-full sm:w-24 sm:h-24"
                 onClick={handleFileClick}
               >
                 {file ? (
@@ -204,7 +204,7 @@ const Create = () => {
           <div className="relative w-[70%] flex justify-start pb-7">
             <h1 className="text-black font-[500] text-2xl ml-4">Write Here</h1>
           </div>
-          <div className="relative h-[100vh] w-[100%]  text-[#212121] flex justify-center">
+          <div className="relative w-[100%] text-[#212121] flex justify-center">
             <TextEditor />
           </div>
         </div>
