@@ -1,9 +1,9 @@
-.footer{
+.footer {
     max-width: 1400px !important;
     margin: auto;
 }
 
-.round{
+.round {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }

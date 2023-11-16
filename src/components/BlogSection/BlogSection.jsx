@@ -5,7 +5,6 @@ import company from "../../assets/images/company.png";
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png"
-import "./BlogSection.css";
 
 const BlogSection = () => {
 
