@@ -22,8 +22,7 @@ body {
 
 /* scroll-bar */
 ::-webkit-scrollbar {
-    width: 14px;
-    color: red;
+    width: 15px;
     background-color: #ffffff;
 }
 
@@ -33,3 +32,4 @@ body {
     border: 3px solid transparent;
     background-clip: content-box;
 }
+

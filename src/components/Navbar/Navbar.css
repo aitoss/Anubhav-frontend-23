@@ -1,14 +1,3 @@
-.nav-items li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.inner-nav {
-    max-width: 1600px !important;
-    margin: auto;
-}
-
 .head-text {
     color: var(--dark, #212121);
     font-feature-settings: 'ss04' on, 'ss05' on;
