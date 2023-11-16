@@ -35,7 +35,7 @@ const TextEditor = () => {
           />
         </div>
         <div
-          className="bg-white preview border-[2px] h-[100%] mt-16 overflow-auto w-[70%]  text-black p-[10px] rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:hidden "
+          className="bg-white preview border-[1px] h-[100%] mt-16 overflow-auto w-[70%]  text-black p-[10px] rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:hidden "
           dangerouslySetInnerHTML={{ __html: value }}
         />
       </div>

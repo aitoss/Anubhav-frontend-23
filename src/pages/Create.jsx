@@ -42,7 +42,7 @@ const Create = () => {
       <>
         <div className="flex flex-col justify-center w-full gap-2 h-[80%] rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
           {/* <div> */}
-            <h3 className="text-black flex justify-center">Your Photo</h3>
+            <h3 className="text-[#212121] flex justify-center">Your Photo</h3>
             <div className="w-full flex justify-center ">
               <div
                 className="w-[80px] h-[80px] flex justify-center rounded-full sm:w-24 sm:h-24"
@@ -92,9 +92,9 @@ const Create = () => {
         <div className=" relative w-[100%] max-w-[100%] flex  justify-center  md:h-[70%] md:w-[90%] py-7">
           <form
             onSubmit={(e) => { e.preventDefault(); console.log(value) }}
-            className="relative w-[70%] rounded-2xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5">
+            className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5">
             <div className="w-full">
-              <h2 className="text-black font-[500] text-2xl ml-2">
+              <h2 className="text-[#212121] font-[500] text-2xl ml-2">
                 Basic Information
               </h2>
             </div>
@@ -178,13 +178,13 @@ const Create = () => {
                   type="checkbox"
                   name=""
                   id=""
-                  className="focus:bg-black hover:bg-[#cabfec] w-5 ml-3"
+                  className="focus:bg-[#212121] hover:bg-[#cabfec] w-5 ml-3"
                 />
                 <p className="text-[#414141] text-[16px]">
                   I agree to the Terms of Service
                 </p>
               </div>
-              <button className="bg-black text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-white hover:text-black hover:border-black">
+              <button className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
                 Publish
               </button>
             </div>
@@ -193,7 +193,7 @@ const Create = () => {
         {/* Cover image */}
         <div className="w-full max-w-[100%] flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
           <div className="w-[70%] flex justify-start">
-            <h1 className="text-black font-[500] text-2xl ml-4 pb-4">
+            <h1 className="text-[#212121] font-[500] text-2xl ml-4 pb-4">
               Cover Image
             </h1>
           </div>
@@ -202,7 +202,7 @@ const Create = () => {
         {/* Write here (Editor) */}
         <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
           <div className="relative w-[70%] flex justify-start pb-7">
-            <h1 className="text-black font-[500] text-2xl ml-4">Write Here</h1>
+            <h1 className="text-[#212121] font-[500] text-2xl ml-4">Write Here</h1>
           </div>
           <div className="relative h-[100vh] w-[100%]  text-[#212121] flex justify-center">
             <TextEditor />
