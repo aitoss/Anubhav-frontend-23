@@ -5,7 +5,9 @@ import TextEditor from "../components/Editor/TextEditor";
 import { FiUploadCloud } from "react-icons/fi";
 import DragDropFiles from "../components/Editor/Drag";
 import background from "../assets/bg.png";
+import background2 from "../assets/dots-pattern.svg"
 import Footer from "../components/Footer/Footer";
+import Upload from "../assets/images/upload.svg"
 
 const Create = () => {
   const inputRef = useRef(null);
@@ -17,8 +19,8 @@ const Create = () => {
     position: "",
   });
 
-  const handleChange= (e) =>{
-    setValue({...value, [e.target.name]: e.target.value})
+  const handleChange = (e) => {
+    setValue({ ...value, [e.target.name]: e.target.value })
   }
 
   const handleFileClick = (e) => {
@@ -38,12 +40,12 @@ const Create = () => {
   const UserImage = () => {
     return (
       <>
-        <div className="flex justify-center cursor-pointer md:w-full">
-          <div>
-            <h3 className="text-black flex justify-center mr-1">Your Photo</h3>
-            <div className="w-full flex justify-center">
+        <div className="flex flex-col justify-center w-full gap-2 h-[80%] rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
+          {/* <div> */}
+            <h3 className="text-black flex justify-center">Your Photo</h3>
+            <div className="w-full flex justify-center ">
               <div
-                className="w-[110px] h-[110px] flex justify-center  rounded-full sm:w-24 sm:h-24"
+                className="w-[80px] h-[80px] flex justify-center rounded-full sm:w-24 sm:h-24"
                 onClick={handleFileClick}
               >
                 {file ? (
@@ -53,18 +55,18 @@ const Create = () => {
                     className="w-full h-full object-cover rounded-full"
                   />
                 ) : (
-                  <FiUploadCloud className="text-black w-full h-full" />
+                  <img
+                    className="cursor-pointer"
+                    src={Upload} />
                 )}
               </div>
             </div>
             <p className="text-gray-300">
               {file ? null : (
-                <p className="md:text-[12px]">
-                  JPG, JPEG, PNG, file size no more than 10MB
-                </p>
+                <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
               )}
             </p>
-          </div>
+          {/* </div> */}
           <input
             type="file"
             ref={inputRef}
@@ -81,16 +83,16 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div className="w-screen h-16 md:h-8"></div>
+      <div className="w-full h-16 md:h-8"></div>
       <div
         className="flex flex-col gap-3 items-center mx-auto"
-        style={{ backgroundImage: `url(${background})` }}
+        style={{ backgroundImage: `url(${background2})`}}
       >
-        <div className=" relative w-[100%] max-w-screen-2xl flex  justify-center  md:h-[70%] md:w-[90%] py-7">
+        {/* basic info */}
+        <div className=" relative w-[100%] max-w-[100%] flex  justify-center  md:h-[70%] md:w-[90%] py-7">
           <form
-            onSubmit={(e) => {e.preventDefault(); console.log(value)}}
-            className="relative w-[70%]   rounded-2xl border-[2px]  bg-white p-7 pb-4 flex flex-col gap-3 hover:shadow-xl md:gap-1  md:w-screen md:p-5">
-            {/* basic info */}
+            onSubmit={(e) => { e.preventDefault(); console.log(value) }}
+            className="relative w-[70%] rounded-2xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5">
             <div className="w-full">
               <h2 className="text-black font-[500] text-2xl ml-2">
                 Basic Information
@@ -106,13 +108,25 @@ const Create = () => {
                   <div className="flex flex-col gap-2">
 
                     <div className="relative flex flex-col gap-2">
-                      <input type="text" name="name" id="name" placeholder="Your Name" value={value.name} onChange={handleChange}
-                      className="block w-full rounded-md text-4x1 font-[100] bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white md:w-full sm:p-2 sm:text-[13px]" />
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                        value={value.name}
+                        onChange={handleChange}
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                     </div>
-                    
+
                     <div className="relative flex flex-col gap-2">
-                      <input type="email" name="email" id="email" placeholder="Your Email" value={value.email} onChange={handleChange}
-                      className="block w-full rounded-md text-4x1 font-[100] bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white md:w-full sm:p-2 sm:text-[13px]" />
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        value={value.email}
+                        onChange={handleChange}
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                     </div>
 
                   </div>
@@ -122,15 +136,27 @@ const Create = () => {
                 <div className="flex flex-col gap-3 md:gap-1">
                   <h4 className="ml-3 text-gray-700">About Company</h4>
                   <div className="flex flex-col gap-2">
-                  
+
                     <div className="relative flex flex-col gap-2">
-                      <input type="text" name="company" id="name" placeholder="Company's name" value={value.company} onChange={handleChange}
-                      className="block w-full rounded-md text-4x1 font-[100] bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white md:w-full sm:p-2 sm:text-[13px]" />
+                      <input
+                        type="text"
+                        name="company"
+                        id="name"
+                        placeholder="Company's name"
+                        value={value.company}
+                        onChange={handleChange}
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                     </div>
-                    
+
                     <div className="relative flex flex-col gap-2">
-                      <input type="text" name="position" id="email" placeholder="Your Position" value={value.position} onChange={handleChange}
-                      className="block w-full rounded-md text-4x1 font-[100] bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white md:w-full sm:p-2 sm:text-[13px]" />
+                      <input
+                        type="text"
+                        name="position"
+                        id="email"
+                        placeholder="Your Position"
+                        value={value.position}
+                        onChange={handleChange}
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                     </div>
 
                   </div>
@@ -138,11 +164,9 @@ const Create = () => {
               </div>
 
               {/* image upload and tag */}
-              <div className="flex flex-col mb-1 p-2 w-[50%] h-full md:w-full">
+              <div className="flex flex-col gap-3 p-2 w-[50%] h-full md:w-full">
                 <UserImage />
-                <div>
-                  <Inputtag title="Tags" id="tag" type="text" />
-                </div>
+                <Inputtag title="Tags" id="tag" type="text" />
               </div>
             </div>
 
@@ -154,10 +178,10 @@ const Create = () => {
                   type="checkbox"
                   name=""
                   id=""
-                  className="focus:bg-black w-5 ml-3"
+                  className="focus:bg-black hover:bg-[#cabfec] w-5 ml-3"
                 />
-                <p className="text-black text-[15px]">
-                  I agree to the Term of Service
+                <p className="text-[#414141] text-[16px]">
+                  I agree to the Terms of Service
                 </p>
               </div>
               <button className="bg-black text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-white hover:text-black hover:border-black">
@@ -166,8 +190,8 @@ const Create = () => {
             </div>
           </form>
         </div>
-
-        <div className="w-screen max-w-screen-2xl flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
+        {/* Cover image */}
+        <div className="w-full max-w-[100%] flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
           <div className="w-[70%] flex justify-start">
             <h1 className="text-black font-[500] text-2xl ml-4 pb-4">
               Cover Image
@@ -175,12 +199,12 @@ const Create = () => {
           </div>
           <DragDropFiles />
         </div>
-
-        <div className="w-screen max-w-screen-2xl items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
+        {/* Write here (Editor) */}
+        <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
           <div className="relative w-[70%] flex justify-start pb-7">
             <h1 className="text-black font-[500] text-2xl ml-4">Write Here</h1>
           </div>
-          <div className="relative h-[100vh] w-[90%]  text-black flex justify-center">
+          <div className="relative h-[100vh] w-[100%]  text-[#212121] flex justify-center">
             <TextEditor />
           </div>
         </div>

@@ -41,14 +41,14 @@ const Inputtag = () => {
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex bg-blue-500 px-1 items-center rounded-md"
+              className="flex bg-[#212121] p-1 px-2 items-center rounded-full hover:bg-[#313131]"
             >
-              <span className="text-white text-[20px] text-center text-base">{tagItem}</span>
+              <span className="text-white font-light text-[20px] text-center text-base">{tagItem}</span>
               <span
                 onClick={() => handleTagDelete(index)}
                 className="cursor-pointer ml-1"
               >
-                <RxCross1 className=" items-center" />
+                <RxCross1 className="h-[14px] items-center" />
               </span>
             </div>
           ))}
@@ -57,7 +57,7 @@ const Inputtag = () => {
           <input
                type="text"
                name="tag"
-               className="block w-full rounded-md bg-white border-[0.5px] p-3 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-grey-200 focus:outline-none focus:placeholder:text-white sm:p-2 sm:text-[13px]"
+               className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                placeholder="Tags relevant to your field"
                value={tag}
                onChange={handleChange}

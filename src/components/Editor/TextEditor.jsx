@@ -23,9 +23,9 @@ const TextEditor = () => {
   const [value, setValue] = useState("");
   console.log(value);
   return (
-    <div className="relative w-[90%]  text-black">
-      <div className="row h-[90%] w-[100%] flex lg:flex-row lg:gap-3  gap-6 items-center justify-center bg-white">
-        <div className="editor relative h-full w-[50%] flex items-center justify-center md:w-[100%]">
+    <div className="relative w-[100%]  text-black">
+      <div className="row h-[100%] w-[100%] flex flex-col lg:gap-3  gap-6 items-center justify-center ">
+        <div className="editor relative h-full w-[70%] flex items-center justify-center md:w-[100%] bg-white">
           <ReactQuill
             modules={modules}
             className="input h-[100%] w-[100%]"
@@ -35,7 +35,7 @@ const TextEditor = () => {
           />
         </div>
         <div
-          className="preview border-[2px] h-[110%] mt-16 overflow-auto w-[50%]  text-black p-[10px] rounded-xl shadow-xl md:hidden "
+          className="bg-white preview border-[2px] h-[100%] mt-16 overflow-auto w-[70%]  text-black p-[10px] rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:hidden "
           dangerouslySetInnerHTML={{ __html: value }}
         />
       </div>

@@ -10,7 +10,10 @@
          url('./src/assets/fonts/TTHoves-Medium.woff') format('woff'),
          
          url('./src/assets/fonts/TTHoves-Regular.woff2') format('woff2'),
-         url('./src/assets/fonts/TTHoves-Regular.woff') format('woff');
+         url('./src/assets/fonts/TTHoves-Regular.woff') format('woff'),
+         
+         url('./src/assets/fonts/TTHoves-Light.woff2') format('woff2'),
+         url('./src/assets/fonts/TTHoves-Light.woff') format('woff');
   }
   
   body {
