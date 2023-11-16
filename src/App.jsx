@@ -8,6 +8,7 @@ import Blog from './pages/Blog';
 import BlogSection from './components/BlogSection/BlogSection';
 import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
+import RequestArticle from './pages/RequestArticle';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
       <Route path='/blog' element={<Blog />} />
       <Route path='/videos' element={<Videos />} />
       <Route path='/guidelines' element={<Guidelines />} />
+      <Route path='/RequestArticle' element={<RequestArticle />} />
       <Route path='*' element={<Error404 />} />
     </Routes>
   );
