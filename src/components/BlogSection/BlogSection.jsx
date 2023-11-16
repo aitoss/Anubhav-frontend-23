@@ -41,7 +41,7 @@ const BlogSection = () => {
                 </div>
 
               </div>
-              <p className="mb-4 lg:block hidden text-black">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>
+              <p className="mb-4 lg:block hidden text-[#212121]">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>
             </div>
           </Link>
           <div className=" w-full lg:ml-48">
@@ -99,7 +99,7 @@ function Scroll() {
               </a>
             </div>
             <Author />
-            <div className="lorem-container text-black py-2 justify-center">
+            <div className="lorem-container text-[#212121] py-2 justify-center">
               <p>
                 {restrict(article, window.innerWidth <= 640 ? 20 : 35)}
                 <span>

@@ -4,15 +4,3 @@
     font-family: TT Hoves;
     font-style: normal;
 }
-
-.title-text {
-    color: var(--dark, #212121);
-    font-feature-settings: 'ss04' on, 'ss05' on;
-    font-family: TT Hoves;
-    font-size: 40.537px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 99.52%;
-    /* 40.342px */
-    letter-spacing: 0.811px;
-}
