@@ -21,9 +21,9 @@ const RequestArticle = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-16 md:h-8"></div>
+      <div className="h-16 w-screen md:h-8"></div>
       <div
-        className="flex flex-col gap-3 items-center mx-auto"
+        className="flex flex-col mt-6 w-screen justify-center gap-3 items-center mx-auto"
         style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}
@@ -33,7 +33,7 @@ const RequestArticle = () => {
             className="relative w-[100%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5">
             <div className="w-full">
               <h2 className="text-[#212121] font-[600] text-2xl ml-2">
-              Whose experience you wanna know?
+                Whose experience you wanna know?
               </h2>
             </div>
 
@@ -96,15 +96,16 @@ const RequestArticle = () => {
                         onChange={handleChange}
                         className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                     </div>
-                    <div className="relative flex flex-col  gap-2">
-                      <input
-                        type="text"
+                    <div className="relative flex flex-col gap-2">
+                      <textarea
+                        rows="4"
                         name="position"
                         id="email"
                         placeholder="Personal note"
                         value={value.note}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md h-28 bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                      />
                     </div>
 
                   </div>
@@ -133,6 +134,7 @@ const RequestArticle = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
