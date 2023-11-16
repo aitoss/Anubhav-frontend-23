@@ -61,7 +61,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/"
+                to="/RequestArticle"
                 className="text-[#D9D9D9] no-underline hover:text-[#D9D9D9]"
               >
                 Request Article

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.svg';
 import arrow from '../../assets/images/arrow.png';
-import {FaTimes} from "react-icons/fa";
-import {CiMenuFries} from "react-icons/ci";
+import { FaTimes } from "react-icons/fa";
+import { CiMenuFries } from "react-icons/ci";
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,112 +16,93 @@ const Navbar = () => {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const content = <>
-    <div className="lg:hidden block bg-[#212121] items-center p-4 h-screen justify-center  space-y-10 absolute top-10 w-screen bg-sltate-900 transition">
-    <Link  to="/" className="p-2">
-                    <img className="" src={logo} alt="" />
-                </Link>
-        <ul className="gap-24">
-            <Link  to="/">
-            <li className="text-[20px] p-2 text-white hover:text-yellow-400 ">
-                Trending
-            </li>
+        <div className="lg:hidden bg-[white] h-screen w-screen flex flex-col items-center justify-center  gap-8 absolute transition duration-300">
+            <Link to="/" className="">
+                <img className="" src={logo} alt="" />
             </Link>
-            <li className="text-[20px] p-2 text-white hover:text-yellow-400">
-            <Link  to="/videos">
+            <Link onClick={scrollToBlog} to="/" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                Trending
+            </Link>
+            <Link to="/videos" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
                 Videos
-                </Link>
-            </li>
-   
-            <li className="">
-                        <Link  to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[20px] text-white">
-                            Write Articles
-                            <span className="icon">
-                                <img src={arrow} alt="Arrow" className="" />
-                            </span>
-                        </Link>
-                    </li>
-        </ul>
-    </div>
-        </>
+            </Link>
+            <Link to="/create" className="text-[20px] text-[#212121] font-[500] head-text p-2 cursor-pointer hover:text-[#414141] ">
+                <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] w-[80%]] rounded-full text-[#fff] font-[400] head-text  p-2 cursor-pointer hover:bg-[#414141] hover:focus:outline:none hover:focus:border:none">
+                    Write Article
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 19" fill="none">
+                        <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </Link>
+        </div >
+    </>
 
     const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
+const [visible, setVisible] = useState(true);
 
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY;
-        const scrollingDown = currentScrollPos > prevScrollPos;
+const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    const scrollingDown = currentScrollPos > prevScrollPos;
 
-        setVisible(!scrollingDown);
-        setPrevScrollPos(currentScrollPos);
+    setVisible(!scrollingDown);
+    setPrevScrollPos(currentScrollPos);
+};
+
+useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
     };
+}, [prevScrollPos]);
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [prevScrollPos]);
-
-    const navClasses = `bg-white fixed lg:block w-screen text-black py-2 px-4 fixed top-0 z-10 transition-transform transform ${
-        visible ? 'translate-y-0' : '-translate-y-full'
+const navClasses = `bg-[#fffffff9] h-[70px] p-3 lg:block w-screen text-black fixed top-0 z-10 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
     }`;
 
-    return (
-        <nav className={navClasses} aria-label="Global">
-            <div className="hidden lg:block inner-nav">
-            <div className="flex justify-between items-center">
+return (
+    <nav className={navClasses} aria-label="Global">
+        <div className="hidden lg:block w-[100%] h-full max-w-[1280px] m-auto">
+            <div className="flex justify-between">
                 <Link to="/" className="p-2">
                     <img className="" src={logo} alt="" />
                 </Link>
-                <ul className="lg:flex py-2 px-4 space-x-5 nav-items">
+                <ul className="flex justify-center items-center gap-4">
                     <li>
-                        <a onClick={scrollToBlog} className="text-[20px] cursor-pointer p-2 text-gray-800 hover:text-yellow-400 ">
+                        <a
+                            onClick={scrollToBlog}
+                            className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] "
+                        >
                             Trending
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
-                            
-                        <Link  to="/videos" className='text-gray-800 hover:text-yellow-400'>
-                          Videos
+                        <Link to="/videos" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                            Videos
                         </Link>
-                        </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" className="text-[20px] p-2 no-underline text-gray-800 hover:text-yellow-400">
-                            
-                        <Link  to="/guidelines" className='text-gray-800 hover:text-yellow-400'>
-                          Guidelines
+                        <Link to="/guidelines" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                            Guidelines
                         </Link>
-                        </a>
                     </li>
-                    <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
-                    <button type="button" className="text-white bg-[#212121] rounded-2xl  px-5 py-2.5 text-center inline-flex items-center">
-                        Write Article
-                        <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
-                    </button>
+                    <Link to="/create" className="text-[20px] text-[#212121] font-[500] head-text  p-2 cursor-pointer hover:text-[#414141] ">
+                        <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] rounded-full text-[#fff] font-[400] head-text  p-2 cursor-pointer hover:bg-[#414141] hover:focus:outline:none hover:focus:border:none">
+                            Write Article
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 19" fill="none">
+                                <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </Link>
-                    {/* <li className="bg-[#212121] rounded-2xl px-2">
-                        <Link to="/create" className="flex gap-2 p-1 px-2 items-center hover:text-yellow-400 text-[18px] text-white">
-                            Write Articles
-                            <span className="icon">
-                                <img src={arrow} alt="Arrow" className="" />
-                            </span>
-                        </Link>
-                    </li> */}
                 </ul>
             </div>
-            </div>
-            <div>
-                {click && content}
-            </div>
-            <button className="block right-0 lg:hidden text-white bg-[#212121] flex-end transition-all" onClick={handleClick}>
-                {click ? <FaTimes/> :  <CiMenuFries/>} 
-            </button>
-        </nav>
-    );
+        </div>
+        <div>
+            {click && content}
+        </div>
+        <button className="absolute right-3 z-50 lg:hidden text-white bg-[#212121] transition-all" onClick={handleClick}>
+            {click ? <FaTimes /> : <CiMenuFries />}
+        </button>
+    </nav>
+);
 };
 
 export default Navbar;

@@ -5,42 +5,45 @@ import company from "../../assets/images/company.png";
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png"
+import "./BlogSection.css";
+
 const BlogSection = () => {
+
   return (
     <section className=" lg:mx-auto">
       <div className="container lg:mx-auto lg:px-20">
         <h1
-          className="font-medium p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-slate-900 text-center lg:text-center"
+          className="head-text font-[600] p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-center lg:text-center"
           id="blog-section"
         >
           Trending Stories
         </h1>
         <div className=" flex flex-col  lg:flex-row justify-between">
-        <Link
-        to="/blog"
-        className=""
-      >
-          <div className="h-full lg:block hidden  w-full lg:mt-[100px] lg:ml-24 mx-auto"> 
-          <div className="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
-            <img src={noogler} className="rounded-md h-full" alt="" />
-          </div>
-          <Author/>
-          <div  className="text-xl lg:text-2xl font-bold text-gray-700 hover:text-gray-800">Google STEP Internship Decoded</div>
-          <div className="flex lg:gap-10 py-2 items-center">
-              <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
-              <div className="flex lg:gap-3 ml-auto">
-                <a href="#">
-                  <CiHeart color="#888888" />
-                </a>
-                <a href="#">
-                  <CiBookmark color="#888888" />
-                </a>
+          <Link
+            to="/blog"
+            className=""
+          >
+            <div className="h-full lg:block hidden  w-full lg:mt-[100px] lg:ml-24 mx-auto">
+              <div className="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
+                <img src={noogler} className="rounded-md h-full" alt="" />
               </div>
-              
+              <Author />
+              <div className="text-xl head-text lg:text-2xl font-bold text-gray-700 hover:text-gray-800">Google STEP Internship Decoded</div>
+              <div className="flex lg:gap-10 py-2 items-center">
+                <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
+                <div className="flex lg:gap-3 ml-auto">
+                  <a href="#">
+                    <CiHeart color="#888888" />
+                  </a>
+                  <a href="#">
+                    <CiBookmark color="#888888" />
+                  </a>
+                </div>
+
+              </div>
+              <p className="mb-4 lg:block hidden text-[#212121]">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>
             </div>
-            <p className="mb-4 lg:block hidden text-black">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>         
-          </div>
-      </Link>
+          </Link>
           <div className=" w-full lg:ml-48">
             {Scroll()}
             {Scroll()}
@@ -91,12 +94,12 @@ function Scroll() {
 
           <div className="data items-start lg:justify-start justify-center flex-row p-2 md:mt-0">
             <div className="heading">
-            <a className="text-xl lg:text-xl font-bold text-gray-700 hover:text-gray-800" href="/link">
+              <a className="text-xl lg:text-xl font-bold text-gray-700 hover:text-gray-800" href="/link">
                 Druva Interview Experience
               </a>
             </div>
             <Author />
-            <div className="lorem-container text-black py-2 justify-center">
+            <div className="lorem-container text-[#212121] py-2 justify-center">
               <p>
                 {restrict(article, window.innerWidth <= 640 ? 20 : 35)}
                 <span>

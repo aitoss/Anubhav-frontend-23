@@ -1,10 +1,6 @@
 .head-text {
     color: var(--dark, #212121);
     font-feature-settings: 'ss04' on, 'ss05' on;
-    font-family: 'TTHoves', sans-serif;
+    font-family: TT Hoves;
     font-style: normal;
-}
-
-.blur {
-    backdrop-filter: blur(1px);
 }

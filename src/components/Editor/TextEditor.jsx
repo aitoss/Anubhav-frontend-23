@@ -40,7 +40,6 @@ const TextEditor = () => {
         </div>
         <div
           className="bg-white preview border-[2px] h-[60vh] max-h-[80vh] mt-16 overflow-auto w-full  text-black  rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]"
-  
         > <ReactQuill value={value} theme="bubble" readOnly className="w-full h-full"/></div>
       </div>
     </div>
