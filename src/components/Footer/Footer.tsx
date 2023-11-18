@@ -11,7 +11,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <div className="container max-w-[1538px] flex justify-center items-center mx-auto">
+      <div className="bg-[#212121] flex justify-center items-center mx-auto w-100">
 
         <div className="bg-[#212121] w-full bottom-0 space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9] round">
           <div className="bg-[#212121] lg:flex-row flex flex-col justify-between text-[#D9D9D9] footer">
