@@ -7,7 +7,8 @@ import DragDropFiles from "../components/Editor/Drag";
 import background from "../assets/bg.png";
 import background2 from "../assets/dots-pattern.svg"
 import Footer from "../components/Footer/Footer";
-import Upload from "../assets/images/upload.svg"
+import Upload from "../assets/images/upload.svg";
+import { Link } from "react-router-dom";
 
 const Create = () => {
   const inputRef = useRef(null);
@@ -20,12 +21,13 @@ const Create = () => {
   });
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value })
+    setValue({...value, [e.target.name]: e.target.value})
   }
 
   const handleFileClick = (e) => {
     if (inputRef.current) {
       inputRef.current.click();
+      console.log(inputRef.current);
     }
     e.preventDefault();
   };
@@ -41,7 +43,7 @@ const Create = () => {
     return (
       <>
         <div className="flex flex-col justify-center w-full gap-2 h-[80%] rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
-          {/* <div> */}
+          
             <h3 className="text-[#212121] flex justify-center">Your Photo</h3>
             <div className="w-full flex justify-center ">
               <div
@@ -166,7 +168,7 @@ const Create = () => {
               {/* image upload and tag */}
               <div className="flex flex-col gap-3 p-2 w-[50%] h-full md:w-full">
                 <UserImage />
-                <Inputtag title="Tags" id="tag" type="text" />
+                <Inputtag title="Tags" id="tag" type="text"/>
               </div>
             </div>
 
@@ -181,24 +183,24 @@ const Create = () => {
                   className="focus:bg-[#212121] hover:bg-[#cabfec] w-5 ml-3"
                 />
                 <p className="text-[#414141] text-[16px]">
-                  I agree to the Terms of Service
+                  I agree to the <Link to="/Create/TermService">Terms of Service</Link> 
                 </p>
               </div>
-              <button className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
+              <button type="Subm" className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
                 Publish
               </button>
             </div>
           </form>
         </div>
         {/* Cover image */}
-        <div className="w-full max-w-[100%] flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
+        {/* <div className="w-full max-w-[100%] flex flex-col justify-center items-center md:h-[30%] md:w-[100%]">
           <div className="w-[70%] flex justify-start">
             <h1 className="text-[#212121] font-[500] text-2xl ml-4 pb-4">
               Cover Image
             </h1>
           </div>
           <DragDropFiles />
-        </div>
+        </div> */}
         {/* Write here (Editor) */}
         <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
           <div className="relative w-[70%] flex justify-start pb-7">

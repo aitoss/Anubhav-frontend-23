@@ -9,6 +9,7 @@ import BlogSection from './components/BlogSection/BlogSection';
 import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
 import RequestArticle from './pages/RequestArticle';
+import TermsService from './pages/TermsService';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
       <Route path='/videos' element={<Videos />} />
       <Route path='/guidelines' element={<Guidelines />} />
       <Route path='/request' element={<RequestArticle />} />
+      <Route path="/Create/TermService" element={<TermsService/>}/>
       <Route path='*' element={<Error404 />} />
     </Routes>
   );

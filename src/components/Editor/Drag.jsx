@@ -4,7 +4,6 @@ import upload from "../../assets/images/upload.svg"
 const DragDropFiles = () => {
   const [files, setFiles] = useState(null);
   const inputRef = useRef();
-  console.log(files);
 
   const handleDragOver = (event) => {
     event.preventDefault();

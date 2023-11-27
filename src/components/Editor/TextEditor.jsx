@@ -24,7 +24,6 @@ const modules = {
 
 const TextEditor = () => {
   const [value, setValue] = useState("");
-  console.log(value);
 
   return (
     <div className="relative w-[70%]  text-black">

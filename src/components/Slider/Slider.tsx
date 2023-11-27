@@ -23,7 +23,7 @@ const Slider = () => {
 
   return (
     <>
-      <div className="w-screen lg:block hidden ">
+      <div className="w-screen lg:block hidden">
         <div className="logos">
           <div className="logos-slide">
             <img src={adobe} alt="" srcSet="" />
