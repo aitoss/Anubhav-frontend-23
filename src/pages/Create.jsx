@@ -9,10 +9,11 @@ import background2 from "../assets/dots-pattern.svg"
 import Footer from "../components/Footer/Footer";
 import Upload from "../assets/images/upload.svg";
 import { Link } from "react-router-dom";
+import { UploadFile } from "@mui/icons-material";
 
 const Create = () => {
-  const inputRef = useRef(null);
-  const [file, setfile] = useState(null);
+  const inputRef = useRef();
+  const [file, setFile] = useState(null);
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -24,42 +25,37 @@ const Create = () => {
     setValue({...value, [e.target.name]: e.target.value})
   }
 
-  const handleFileClick = (e) => {
-    if (inputRef.current) {
-      inputRef.current.click();
-      console.log(inputRef.current);
-    }
-    e.preventDefault();
-  };
+  const UploadFile= () =>{
+    const file= inputRef.current.files[0];
+    setFile(URL.createObjectURL(file));
+  }
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
-    setfile(file);
-  };
 
 
   const UserImage = () => {
     return (
       <>
-        <div className="flex flex-col justify-center w-full gap-2 h-[80%] rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
+        <div className="flex flex-col justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
           
             <h3 className="text-[#212121] flex justify-center">Your Photo</h3>
             <div className="w-full flex justify-center ">
               <div
-                className="w-[130px] h-[130px] flex justify-center rounded-full sm:w-24 sm:h-24"
-                onClick={handleFileClick}
+                className="w-[130px] h-[130px]  flex justify-center rounded-full sm:w-24 sm:h-24"
+                
               >
                 {file ? (
                   <img
-                    src={URL.createObjectURL(file)}
+                    src={file}
                     alt=""
                     className="w-full h-full object-cover rounded-full"
                   />
                 ) : (
                   <img
                     className="cursor-pointer"
-                    src={Upload} />
+                    src={Upload} onClick={(e) => {
+                      inputRef.current.click();
+                      e.preventDefault();
+                    }}/>
                 )}
               </div>
             </div>
@@ -68,13 +64,14 @@ const Create = () => {
                 <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
               )}
             </p>
+            {file && <button className=" relative p-[10px] py-0 bottom-2 border-transparent" onClick={() => setFile(null)}>Cancle</button>}
           {/* </div> */}
           <input
             type="file"
             ref={inputRef}
             name=""
             id=""
-            onClick={handleFileChange}
+            onChange={UploadFile}
             className="hidden"
           />
         </div>
@@ -86,6 +83,7 @@ const Create = () => {
     <>
       <Navbar />
       <div className="w-full h-16 md:h-8"></div>
+      
       <div
         className="flex flex-col gap-3 items-center mx-auto"
         style={{ backgroundImage: `url(${background2})`}}

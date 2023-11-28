@@ -26,17 +26,17 @@ const DragDropFiles = () => {
     // )
   };
 
-  if (files) return (
-    <div className="uploads">
-      <ul>
-        {Array.from(files).map((file, idx) => <li key={idx}>{file.name}</li>)}
-      </ul>
-      <div className="actions">
-        <button onClick={() => setFiles(null)}>Cancel</button>
-        <button onClick={handleUpload}>Upload</button>
-      </div>
-    </div>
-  )
+  // if (files) return (
+  //   <div className="uploads">
+  //     <ul>
+  //       {Array.from(files).map((file, idx) => <li key={idx}>{file.name}</li>)}
+  //     </ul>
+  //     <div className="actions">
+  //       <button onClick={() => setFiles(null)}>Cancel</button>
+  //       <button onClick={handleUpload}>Upload</button>
+  //     </div>
+  //   </div>
+  // )
 
   return (
     <>
@@ -47,7 +47,7 @@ const DragDropFiles = () => {
           onDrop={handleDrop}
         >
           {
-            files ? <img src={URL.createObjectURL.file} />
+            files ? <img src={URL.createObjectURL.files} />
               :
               <img
                 onClick={() => inputRef.current.click()}

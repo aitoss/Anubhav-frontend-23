@@ -41,13 +41,13 @@ export default function HomeScreen() {
           <input
             type="text"
             placeholder="Search for your dreams"
-            className="border-2 bg-[#212121] text-xl placeholder:text-[#d9d9d9d9] placeholder:focus:text-[#d9d9d980] font-[400] text-[#d9d9d9]  w-[300px] lg:w-[400px] border-[#212121] rounded-full pl-4 pr-4 py-2 focus:outline-none  focus:border-transparent transition duration-250 ease-in-out"
+            className="border-2 border-black bg-white text-xl placeholder:text-black  font-[400] text-black  w-[300px] lg:w-[400px]  rounded-full pl-4 pr-4 py-2 focus:outline-none   transition duration-250 ease-in-out placeholder:focus:text-white"
             onChange={onChange}
           />
           <div className="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer">
             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z" stroke="#D9D9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M29.8333 29.9842L27.1666 27.3175" stroke="#D9D9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M29.8333 29.9842L27.1666 27.3175" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
 
           </div>
