@@ -1,30 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import error from "../assets/error.svg";
 
 export default function Error404() {
     return (
       <>
-        {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full">
-          <body class="h-full">
-          ```
-        */}
-        <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-          <div className="text-center">
-            <p className="text-base font-semibold text-indigo-600">404</p>
-            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
-            <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.</p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link to="/" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back to Home</Link>
-              <a href="#" className="text-sm font-semibold text-gray-900">
-                Contact support <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-        </main>
+        <Navbar />
+        <div className="w-full h-16 md:h-8"></div>
+        <section className="w-[100%] h-[90vh] mx-auto flex flex-col  place-items-center md:justify-center">
+             <img src={error} alt="" />
+             <div className="flex flex-col justify-center place-items-center gap-2 md:bottom-20">
+              <h1 className="text-black md:text-[25px]">Page not found</h1>
+              <p className="text-black text-center md:text-[15px]">Oops! Looks like you followed a bad link. If you think is a problem with us, please tell us</p>
+              <Link to="/" className="bg-black text-white p-1 px-2 rounded-[20px] hover:border-[#212121] hover:bg-[#313131] hover:text-[#fff]">Go back to Home</Link>
+             </div>
+        </section>
       </>
     )
   }

@@ -9,7 +9,7 @@ import noogler from "../../assets/images/noogler.png"
 const BlogSection = () => {
 
   return (
-    <section className=" lg:mx-auto">
+    <section className=" lg:mx-auto ">
       <div className="container lg:mx-auto lg:px-20">
         <h1
           className="text-[#212121] style-text font-[600] p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-center lg:text-center"
@@ -44,9 +44,9 @@ const BlogSection = () => {
             </div>
           </Link>
           <div className=" w-full lg:ml-48">
+            {/* {Scroll()}
             {Scroll()}
-            {Scroll()}
-            {Scroll()}
+            {Scroll()} */}
           </div>
         </div>
       </div>

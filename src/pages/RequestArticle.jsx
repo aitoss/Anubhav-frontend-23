@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg"
 import Footer from "../components/Footer/Footer";
@@ -124,7 +125,7 @@ const RequestArticle = () => {
                   className="focus:bg-[#212121] hover:bg-[#cabfec] w-5 ml-3"
                 />
                 <p className="text-[#414141] text-[16px]">
-                  I agree to the Terms of Service
+                  I agree to the <Link to="/TermService">Terms of Service</Link>
                 </p>
               </div>
               <button className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">

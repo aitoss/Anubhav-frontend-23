@@ -4,7 +4,6 @@ import Inputtag from "../components/InputTag/Usertag";
 import TextEditor from "../components/Editor/TextEditor";
 import { FiUploadCloud } from "react-icons/fi";
 import DragDropFiles from "../components/Editor/Drag";
-import background from "../assets/bg.png";
 import background2 from "../assets/dots-pattern.svg"
 import Footer from "../components/Footer/Footer";
 import Upload from "../assets/images/upload.svg";
@@ -181,7 +180,7 @@ const Create = () => {
                   className="focus:bg-[#212121] hover:bg-[#cabfec] w-5 ml-3"
                 />
                 <p className="text-[#414141] text-[16px]">
-                  I agree to the <Link to="/Create/TermService">Terms of Service</Link> 
+                  I agree to the <Link to="/TermService">Terms of Service</Link> 
                 </p>
               </div>
               <button type="Subm" className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
