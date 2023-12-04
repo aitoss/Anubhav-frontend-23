@@ -4,49 +4,46 @@ import Author from "./_Child/Author";
 import company from "../../assets/images/company.png";
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-import noogler from "../../assets/images/noogler.png"
+import noogler from "../../assets/images/noogler.png";
+
+{/*  */}
 
 const BlogSection = () => {
-
   return (
-    <section className=" lg:mx-auto ">
-      <div className="container lg:mx-auto lg:px-20">
-        <h1
-          className="text-[#212121] style-text font-[600] p-2 ml-3 text-4xl lg:text-5xl lg:mt-[16px] lg:p-5 text-center lg:text-center"
-          id="blog-section"
-        >
-          Trending Stories
-        </h1>
-        <div className=" flex flex-col  lg:flex-row justify-between">
-          <Link
-            to="/blog"
-            className=""
-          >
-            <div className="h-full lg:block hidden  w-full lg:mt-[100px] lg:ml-24 mx-auto">
-              <div className="lg:h-[300px] h-[200px]  lg:block mx-auto lg:ml-16 w-full pb-4 flex flex-col items-center justify-center">
-                <img src={noogler} className="rounded-md h-full" alt="" />
-              </div>
+    <section className=" lg:mx-auto">
+      <div className="w-[100%] flex flex-col place-items-center">
+        <h1 className="text-black md:text-[40px]" id="blog-section">Trending Stories</h1>
+        <div className="w-full flex justify-center p-2 py-16 gap-16">
+          <div className="w-[35%] flex flex-col place-items-start rounded-md p-1 cursor-pointer hover:shadow-lg">
+            <img src={noogler} alt="" className="w-full h-[300px] rounded-md" />
+            <h2 className="text-black text-[30px] pt-2">
+              Google STEP Internship
+            </h2>
+            <div className="px-2">
               <Author />
-              <div className="text-xl text-[#212121] style-text lg:text-2xl font-bold">Google STEP Internship Decoded</div>
-              <div className="flex lg:gap-10 py-2 items-center">
-                <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
-                <div className="flex lg:gap-3 ml-auto">
-                  <a href="#">
-                    <CiHeart color="#888888" />
-                  </a>
-                  <a href="#">
-                    <CiBookmark color="#888888" />
-                  </a>
-                </div>
-
-              </div>
-              <p className="mb-4 lg:block hidden text-[#212121]">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong></p>
             </div>
-          </Link>
-          <div className=" w-full lg:ml-48">
-            {/* {Scroll()}
-            {Scroll()}
-            {Scroll()} */}
+            <p className="text-black">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+              eligendi culpa repudiandae hic eaque explicabo maxime, adipisci
+              beatae, facilis eos aut eum veniam!...<Link to="/blog">read more</Link>
+            </p>
+            <div className="w-full flex justify-between">
+              <p className="text-gray-500 pt-2">{`3 mins read • 21/12/2022`}</p>
+              <div className="flex  gap-2">
+                <a href="#">
+                  <CiHeart color="#888888" className="w-[20px] h-[30px]" />
+                </a>
+                <a href="#">
+                  <CiBookmark color="#888888" className="w-[20px] h-[30px]" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="w-[40%] flex flex-col gap-4">
+            <Scroll />
+            <Scroll />
+            <Scroll />
+            <Scroll />
           </div>
         </div>
       </div>
@@ -79,50 +76,26 @@ function Scroll() {
     Time(TotalReadTime);
   }, [article]);
   return (
-    <div className="p-1 lg:px-14 w-full lg:flex lg:flex-row ">
-      <div className="bg-gray-300 lg:hidden h-px  mt-6 mb-6"></div>
-
-      <Link
-        to="/blog"
-        className=" lg:border-b-2 lg:p-3 lg:rounded-md lg:border-gray-400 lg:hover:shadow-xl"
-      >
-        <div className="flex lg:flex-row flex-col space-x-4">
-          <div className="image sm:content-start flex-auto sm:justify-center lg:justify-start justify-center flex items-center">
-            <img src={company} alt="User 1" className=" lg:px-0 px-6 rounded-md" />
-          </div>
-
-          <div className="data items-start lg:justify-start justify-center flex-row p-2 md:mt-0">
-            <div className="heading">
-              <a className="text-xl lg:text-xl font-bold text-gray-700 hover:text-gray-800" href="/link">
-                Druva Interview Experience
-              </a>
-            </div>
+    <>
+      <Link to="/blog">
+      <div className="w-full flex gap-4 rounded-md hover:shadow-lg">
+          <img src={company} alt="" className="w-[220px] rounded-md"/>
+          <div>
+            <h2 className="text-black text-[20px]">Druva Interview Experience</h2>
             <Author />
-            <div className="lorem-container text-[#212121] py-2 justify-center">
-              <p>
+            <p className="text-black hidden">
                 {restrict(article, window.innerWidth <= 640 ? 20 : 35)}
                 <span>
                   <a href="/link" className="text-gray-400 hover:text-gray-500">
                     ..Read More
                   </a>
                 </span>
-              </p>
-            </div>
-            <div className="flex lg:gap-10 items-center">
-              <p className="text-gray-500">{`${readingTime} mins read • 21/12/2022`}</p>
-              <div className="flex gap-3 ml-auto">
-                <a href="#">
-                  <CiHeart color="#888888" />
-                </a>
-                <a href="#">
-                  <CiBookmark color="#888888" />
-                </a>
-              </div>
-            </div>
+            </p>
+            <p className="text-gray-500 pt-2">{`{readingTime} mins read • 21/12/2022`}</p>
           </div>
-        </div>
+      </div>
       </Link>
-    </div>
+    </>
   );
 }
 export default BlogSection;
