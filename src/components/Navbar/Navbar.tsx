@@ -20,9 +20,9 @@ const Navbar = () => {
             <Link to="/" className="">
                 <img className="" src={logo} alt="" />
             </Link>
-            <Link onClick={scrollToBlog} to="/" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#414141] ">
+            {/* <Link onClick={scrollToBlog} to="/" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#414141] ">
                 Trending
-            </Link>
+            </Link> */}
         
             <Link to="/videos" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#414141] ">
                 Videos
@@ -70,14 +70,14 @@ return (
                     <img className="" src={logo} alt="" />
                 </Link>
                 <ul className="flex justify-center items-center gap-4">
-                    <li>
+                    {/* <li>
                         <a
                             onClick={scrollToBlog}
                             className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] "
                         >
                             Trending
                         </a>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/videos" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] ">
                             Videos

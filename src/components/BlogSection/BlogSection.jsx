@@ -13,7 +13,7 @@ const BlogSection = () => {
     <section className=" lg:mx-auto">
       <div className="w-[100%] flex flex-col place-items-center">
         <h1 className="text-black md:text-[40px]" id="blog-section">Trending Stories</h1>
-        <div className="w-full flex lg:flex-row flex-col justify-center p-2 py-16 gap-16">
+        <div className="w-full flex lg:flex-row flex-col justify-center p-4 py-16 gap-16">
           <div className="lg:w-[35%] flex flex-col place-items-start rounded-md p-1 cursor-pointer hover:shadow-lg">
             <img src={noogler} alt="" className="w-full h-[300px] rounded-md" />
             <h2 className="text-black text-[30px] pt-2">
@@ -91,7 +91,7 @@ function Scroll() {
                   </a>
                 </span>
             </p>
-            <p className="text-gray-500 pt-2">{`{readingTime} mins read • 21/12/2022`}</p>
+            <p className="text-gray-500 pt-2">{`3 mins read • 21/12/2022`}</p>
           </div>
       </div>
       </Link>
