@@ -13,9 +13,9 @@ const BlogSection = () => {
     <section className=" lg:mx-auto">
       <div className="w-[100%] flex flex-col place-items-center">
         <h1 className="text-black md:text-[40px]" id="blog-section">Trending Stories</h1>
-        <div className="w-full flex lg:flex-row flex-col justify-center p-4 py-16 gap-16">
-          <div className="lg:w-[35%] flex flex-col place-items-start rounded-md p-1 cursor-pointer hover:shadow-lg">
-            <img src={noogler} alt="" className="w-full h-[300px] rounded-md" />
+        <div className="w-full flex lg:flex-row flex-col items-center justify-center p-4 py-16 gap-16">
+          <div className="lg:w-[35%] w-[75%] flex flex-col items-center lg:place-items-start rounded-md p-1 cursor-pointer hover:shadow-lg">
+            <img src={noogler} alt="" className="lg:w-full h-[300px] rounded-md" />
             <h2 className="text-black text-[30px] pt-2">
               Google STEP Internship
             </h2>
@@ -78,8 +78,8 @@ function Scroll() {
   return (
     <>
       <Link to="/blog">
-      <div className="w-full lg:flex-row p-4 flex-col flex gap-4 rounded-md hover:shadow-lg">
-          <img src={company} alt="" className="lg:w-[220px] rounded-md"/>
+      <div className="w-full lg:flex-row p-4 flex-col flex gap-4 items-center rounded-md hover:shadow-lg">
+          <img src={company} alt="" className="lg:w-[220px] items-center w-[75%] rounded-md"/>
           <div>
             <h2 className="text-black text-[20px]">Druva Interview Experience</h2>
             <Author />
