@@ -11,11 +11,11 @@ import noogler from "../../assets/images/noogler.png";
 const BlogSection = () => {
   return (
     <section className=" lg:mx-auto">
-      <div className="w-[100%] flex flex-col place-items-center">
+      <div className="flex flex-col place-items-center">
         <h1 className="text-black md:text-[40px]" id="blog-section">Trending Stories</h1>
-        <div className="w-full flex lg:flex-row flex-col items-center justify-center p-4 py-16 gap-16">
-          <div className="lg:w-[35%] w-[75%] flex flex-col items-center lg:place-items-start rounded-md p-1 cursor-pointer hover:shadow-lg">
-            <img src={noogler} alt="" className="lg:w-full h-[300px] rounded-md" />
+        <div className=" flex lg:flex-row flex-col items-center justify-center p-4 py-16 gap-16">
+          <div className="lg:w-[40%] w-[75%] flex flex-col items-center rounded-md p-1 cursor-pointer hover:shadow-lg">
+            <img src={noogler} alt="" className="items-center w-full lg:w-[500px] h-[300px] rounded-md" />
             <h2 className="text-black text-[30px] pt-2">
               Google STEP Internship
             </h2>

@@ -18,7 +18,7 @@ const App = () => {
         <div className="flex flex-col mx-auto  overflow-hidden">
           <Navbar />
           <HomeScreen />
-          <div className="w-screen mx-auto">
+          <div className="mx-auto">
             <BlogSection />
             <Footer />
           </div>

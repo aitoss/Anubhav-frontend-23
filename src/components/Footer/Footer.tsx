@@ -11,7 +11,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#212121] flex justify-center items-center mx-auto w-100">
+      <div className="bg-[#212121] flex justify-center items-center mx-auto w-screen">
 
         <div className="bg-[#212121] w-full bottom-0 space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9] round">
           <div className="bg-[#212121] lg:flex-row flex flex-col justify-between text-[#D9D9D9] footer">
@@ -130,12 +130,8 @@ const Footer = () => {
                   </svg>
 
                 </a>
-                <a href="https://twitter.com/ait_oss">
-                  <svg className="fill-[#d9d9d9] hover:fill-[#f0f0f0]" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.7911 0.809326H23.4712L15.4312 10.9755L24.8896 24.8093H17.4837L11.6831 16.4192L5.04595 24.8093H1.36357L9.96321 13.9355L0.889648 0.809326H8.48359L13.7268 8.47825L19.7911 0.809326ZM18.4994 22.3724H20.5387L7.37553 3.11825H5.18724L18.4994 22.3724Z" />
-                  </svg>
 
-                </a>
+
               </div>
             </div>
           </div>
