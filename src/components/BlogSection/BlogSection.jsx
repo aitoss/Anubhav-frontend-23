@@ -14,7 +14,7 @@ const BlogSection = () => {
       <div className="flex flex-col place-items-center">
         <h1 className="text-black md:text-[40px] font-[500]" id="blog-section">Trending Stories</h1>
         <div className=" flex lg:flex-row flex-col items-center justify-center p-4 py-16 gap-16">
-          <div className="lg:w-[40%] w-[75%] flex flex-col items-center rounded-md p-1 cursor-pointer hover:shadow-2xl hover:shadow-[#e3e3e3] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all">
+          <div className="lg:w-[40%] w-[75%] flex flex-col items-start rounded-md p-1 cursor-pointer hover:shadow-2xl hover:shadow-[#e3e3e3] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all duration-300">
             <div className="items-center bg-cover h-[300px] overflow-hidden rounded-md" >
               <img src={noogler} alt="" />
             </div>
@@ -80,7 +80,7 @@ function Scroll() {
   return (
     <>
       <Link to="/blog">
-        <div className="w-full lg:flex-row p-1 flex-col flex gap-4 items-center rounded-md hover:shadow-lg hover:shadow-[#eeeeee] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all">
+        <div className="w-full lg:flex-row p-1 flex-col flex gap-4 items-center rounded-md hover:shadow-lg hover:shadow-[#eeeeee] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all  duration-300">
           <img src={company} alt="" className="lg:w-[220px] items-center w-[75%] rounded-md" />
           <div>
             <h2 className="text-black text-[20px]">Druva Interview Experience</h2>

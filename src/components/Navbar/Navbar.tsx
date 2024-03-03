@@ -20,14 +20,14 @@ const Navbar = () => {
             <Link to="/" className="">
                 <img className="" src={logo} alt="" />
             </Link>
-            <Link to="/videos" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#414141] ">
+            <Link to="/videos" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#313131] ">
                 Videos
             </Link>
-            <Link to="/request" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#414141] ">
+            <Link to="/request" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#313131] ">
                 Request Article
             </Link>
-            <Link to="/create" className="text-[20px] text-[#212121] font-[500]  p-2 cursor-pointer hover:text-[#414141] ">
-                <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] w-[80%]] rounded-full text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#414141] hover:focus:outline:none hover:focus:border:none">
+            <Link to="/create" className="text-[20px] text-[#212121] font-[500]  p-2 cursor-pointer hover:text-[#313131] ">
+                <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] w-[80%]] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
                     Write Article
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 19" fill="none">
                         <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -67,22 +67,22 @@ return (
                 </Link>
                 <ul className="flex justify-center items-center gap-4">
                     <li>
-                        <Link to="/videos" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] ">
+                        <Link to="/videos" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
                             Videos
                         </Link>
                     </li>
                     <li>
-                        <Link to="/guidelines" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] ">
+                        <Link to="/guidelines" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
                             Guidelines
                         </Link>
                     </li>
                     <li>
-                        <Link to="/request" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] ">
+                        <Link to="/request" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
                             Request Article
                         </Link>
                     </li>
-                    <Link to="/create" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#414141] ">
-                        <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#414141] hover:focus:outline:none hover:focus:border:none">
+                    <Link to="/create" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
+                        <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
                             Write Article
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 19" fill="none">
                                 <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
