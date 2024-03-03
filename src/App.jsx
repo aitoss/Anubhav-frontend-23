@@ -15,10 +15,10 @@ const App = () => {
   return (
     <Routes>
       <Route path='/' element={
-        <div className="flex flex-col mx-auto  overflow-hidden">
+        <div className="flex flex-col mx-auto overflow-hidden">
           <Navbar />
           <HomeScreen />
-          <div className="mx-auto">
+          <div className="mx-auto flex flex-col items-center">
             <BlogSection />
             <Footer />
           </div>

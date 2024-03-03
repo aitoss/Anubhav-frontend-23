@@ -11,26 +11,26 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#212121] flex justify-center items-center mx-auto w-screen">
+      <div className="bg-[#212121] flex justify-center items-center w-[98%]  pt-16 pb-6 m-3 px-3 rounded-lg">
 
-        <div className="bg-[#212121] w-full bottom-0 space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9] round">
-          <div className="bg-[#212121] lg:flex-row flex flex-col justify-between text-[#D9D9D9] footer">
-            <div className="lg:ml-6 ">
+        <div className="bg-[#212121] w-full bottom-0 space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9]">
+          <div className="bg-[#212121]  text-left lg:flex-row lg:justify-between flex flex-col justify-start text-[#D9D9D9]">
+            <div className="lg:ml-12  ">
               <div className="text-[#f0f0f0] font-[400] tracking-wide py-1 text-[32px]">Anubhav</div>
-              <div className="text-[#D9D9D9] lg:text-left  text-base">
-                @2023 OSS Club All
+              <div className="text-[#D9D9D9] lg:text-left text-base">
+                @2024 OSS Club All
               </div>
-              <div className="text-[#D9D9D9] lg:text-left  text-base">
+              <div className="text-[#D9D9D9] lg:text-left text-base">
                 Rights reserved
               </div>
             </div>
-            <div className="flex  lg:flex-row flex-col my-auto gap-[5px] lg:gap-[90px]">
+            <div className="flex lg:flex-row flex-col my-auto gap-[5px] lg:gap-[90px]">
               <ul>
                 <li className="text-[#f0f0f0] font-[400] tracking-wide py-1 text-[20px]">Explore</li>
                 <li>
                   <Link
                     to="/"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Trending Stories
                   </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Recent Stories
                   </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/videos"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Popular Videos
                   </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/create"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Write Article
                   </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/request"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Request Article
                   </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/videos"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Video with us
                   </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/guidelines"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Guidelines
                   </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     Our Story
                   </Link>
@@ -100,14 +100,14 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/"
-                    className="text-[#D9D9D9] font-[400] tracking-wide no-underline hover:text-[#f0f0f0]"
+                    className="text-[#D9D9D9] font-[300] tracking-wide no-underline hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
                   >
                     About us
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col px-5 my-auto gap-3">
+            <div className="flex flex-col justify-start items-start lg:items-center lg:px-5 my-auto gap-3">
               <p className="text-[#f0f0f0] font-[400] tracking-wide py-1 text-[20px]">Connect with us</p>
               <div className="flex gap-3 justify-center -mt-1">
                 <a href="https://www.linkedin.com/company/open-source-software-club/">
@@ -135,6 +135,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          <div className="w-full h-[1px] bg-[#515151] rounded-full"></div>
           <div className="flex justify-center text-[#D9D9D9] sm:text-start ">
             Made with ❤️ by OSS Club
           </div>
