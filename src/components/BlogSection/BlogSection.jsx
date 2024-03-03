@@ -6,21 +6,23 @@ import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import noogler from "../../assets/images/noogler.png";
 
-{/*  */}
+{/*  */ }
 
 const BlogSection = () => {
   return (
     <section className=" lg:mx-auto">
       <div className="flex flex-col place-items-center">
-        <h1 className="text-black md:text-[40px]" id="blog-section">Trending Stories</h1>
+        <h1 className="text-black md:text-[40px] font-[500]" id="blog-section">Trending Stories</h1>
         <div className=" flex lg:flex-row flex-col items-center justify-center p-4 py-16 gap-16">
-          <div className="lg:w-[40%] w-[75%] flex flex-col items-center rounded-md p-1 cursor-pointer hover:shadow-lg">
-            <img src={noogler} alt="" className="items-center w-full lg:w-[500px] h-[300px] rounded-md" />
+          <div className="lg:w-[40%] w-[75%] flex flex-col items-center rounded-md p-1 cursor-pointer hover:shadow-2xl hover:shadow-[#e3e3e3] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all">
+            <div className="items-center bg-cover h-[300px] overflow-hidden rounded-md" >
+              <img src={noogler} alt="" />
+            </div>
             <h2 className="text-black text-[30px] pt-2">
               Google STEP Internship
             </h2>
             <div className="px-2">
-              <Author />
+              <Author name="Kamakshi Dixit" company="Google" />
             </div>
             <p className="text-black">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
@@ -78,22 +80,22 @@ function Scroll() {
   return (
     <>
       <Link to="/blog">
-      <div className="w-full lg:flex-row p-4 flex-col flex gap-4 items-center rounded-md hover:shadow-lg">
-          <img src={company} alt="" className="lg:w-[220px] items-center w-[75%] rounded-md"/>
+        <div className="w-full lg:flex-row p-1 flex-col flex gap-4 items-center rounded-md hover:shadow-lg hover:shadow-[#eeeeee] hover:bg-[#f5f5f5] border border-[#f2f2f2] transition-all">
+          <img src={company} alt="" className="lg:w-[220px] items-center w-[75%] rounded-md" />
           <div>
             <h2 className="text-black text-[20px]">Druva Interview Experience</h2>
-            <Author />
+            <Author name="Kamakshi Dixit" company="Google" />
             <p className="text-black hidden">
-                {restrict(article, window.innerWidth <= 640 ? 20 : 35)}
-                <span>
-                  <a href="/link" className="text-gray-400 hover:text-gray-500">
-                    ..Read More
-                  </a>
-                </span>
+              {restrict(article, window.innerWidth <= 640 ? 20 : 35)}
+              <span>
+                <a href="/link" className="text-gray-400 hover:text-gray-500">
+                  ..Read More
+                </a>
+              </span>
             </p>
             <p className="text-gray-500 pt-2">{`3 mins read • 21/12/2022`}</p>
           </div>
-      </div>
+        </div>
       </Link>
     </>
   );
