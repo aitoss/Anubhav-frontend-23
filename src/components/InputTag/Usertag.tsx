@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { FiArrowRight } from "react-icons/fi";
 import { BACKEND_URL } from "../../constants";
-import './style.css'
 
 //commit
 const Inputtag = ({ setTags, tags }) => {
