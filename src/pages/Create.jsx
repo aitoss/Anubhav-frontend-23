@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import TextEditor from "../components/Editor/TextEditor";
@@ -9,10 +9,13 @@ import Footer from "../components/Footer/Footer";
 import Upload from "../assets/images/upload.svg";
 import { Link } from "react-router-dom";
 import { UploadFile } from "@mui/icons-material";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
 
 const Create = () => {
   const inputRef = useRef();
   const [file, setFile] = useState(null);
+  const [tags, setTags] = useState([]);
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -29,6 +32,22 @@ const Create = () => {
     setFile(URL.createObjectURL(file));
   }
 
+  const [companySuggestions, setCompanySuggestions] = useState([]);
+
+  useEffect(() => {
+
+    const fetchCompanySuggestions = async () => {
+      try {
+        const response = await axios.get(BACKEND_URL+'/companies');
+        setCompanySuggestions(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error fetching company suggestions:', error);
+      }
+    };
+
+    fetchCompanySuggestions();
+  }, []);
 
 
   const UserImage = () => {
@@ -36,7 +55,7 @@ const Create = () => {
       <>
         <div className="flex flex-col justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
           
-            <h3 className="text-[#212121] flex justify-center">Your Photo</h3>
+            <h3 className="text-[#212121] flex justify-center">Banner Image</h3>
             <div className="w-full flex justify-center ">
               <div
                 className="w-[130px] h-[130px]  flex justify-center rounded-full sm:w-24 sm:h-24"
@@ -141,10 +160,16 @@ const Create = () => {
                         type="text"
                         name="company"
                         id="name"
+                        list="companySuggestions"
                         placeholder="Company's name"
                         value={value.company}
                         onChange={handleChange}
                         className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
+                      <datalist id="companySuggestions">
+                        {companySuggestions.map((suggestion, index) => (
+                          <option key={index} value={suggestion} />
+                        ))}
+                      </datalist>
                     </div>
 
                     <div className="relative flex flex-col gap-2">
@@ -165,7 +190,7 @@ const Create = () => {
               {/* image upload and tag */}
               <div className="flex flex-col gap-3 p-2 w-[50%] h-full md:w-full">
                 <UserImage />
-                <Inputtag title="Tags" id="tag" type="text"/>
+                <Inputtag tags={tags} setTags={setTags} />
               </div>
             </div>
 

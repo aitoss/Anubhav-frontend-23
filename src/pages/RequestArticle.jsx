@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
@@ -7,6 +7,8 @@ import Footer from "../components/Footer/Footer";
 const RequestArticle = () => {
   const inputRef = useRef(null);
   const [file, setfile] = useState(null);
+  const [requestSend, setRequestSend] = useState(false);
+  const [requestError, setRequestError] = useState(false);
   const [value, setValue] = useState({
     name: "",
     seniorName: "",
@@ -15,23 +17,56 @@ const RequestArticle = () => {
     company: "",
     note: "",
   });
+  const [companySuggestions, setCompanySuggestions] = useState([]);
+  const [showCompanySuggestions, setShowCompanySuggestions] = useState(false);
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setValue((prevValue) => ({ ...prevValue, [name]: value })); // Fix: use a function to update state
+
+    if (name === "company") {
+      fetchCompanySuggestions(value);
+    }
   };
 
+
+  useEffect(() => {
+  }, [value.company]);
+
+
+  const handleBlur = () => {
+    // Hide company suggestions when the input is out of focus
+    setShowCompanySuggestions(false);
+  };
+
+  const handleCompanyClick = (selectedCompany) => {
+    // Update the company input and hide suggestions on click
+    setValue({ ...value, company: selectedCompany });
+    setShowCompanySuggestions(false);
+  };
+
+  const fetchCompanySuggestions = async (query) => {
+    try {
+      const response = await axios.get(
+        `https://oss-backend.vercel.app/api/anubhav/companies?query=${query}`
+      );
+      setCompanySuggestions(response.data);
+    } catch (error) {
+      console.error("Error fetching company suggestions:", error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-
       const requestData = {
         requesterName: value.name,
         requesteeName: value.seniorName,
         requesteeContact: value.link,
         company: value.company,
         note: value.note,
+        requesterEmailId: value.email,
       };
 
       const response = await axios.post(
@@ -39,8 +74,10 @@ const RequestArticle = () => {
         requestData
       );
       console.log("Response from server:", response.data);
+      setRequestSend(true);
     } catch (error) {
       console.error("Error:", error);
+      setRequestError(true);
     }
   };
 
@@ -87,6 +124,7 @@ const RequestArticle = () => {
 
                     <div className="relative flex flex-col gap-2">
                       <input
+                        required
                         type="email"
                         name="email"
                         id="email"
@@ -104,6 +142,7 @@ const RequestArticle = () => {
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
                       <input
+                        required
                         type="text"
                         name="seniorName"
                         id="name"
@@ -116,6 +155,7 @@ const RequestArticle = () => {
 
                     <div className="relative flex flex-col gap-2">
                       <input
+                        required
                         type="text"
                         name="link"
                         id="email"
@@ -127,6 +167,7 @@ const RequestArticle = () => {
                     </div>
                     <div className="relative flex flex-col gap-2">
                       <input
+                        required
                         type="text"
                         name="company"
                         id="email"
@@ -134,8 +175,23 @@ const RequestArticle = () => {
                         value={value.company}
                         onChange={handleChange}
                         className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        onFocus={() => setShowCompanySuggestions(true)}
                       />
                     </div>
+                    {showCompanySuggestions &&
+                      companySuggestions.length > 0 && (
+                        <ul className="z-10 bg-white border border-gray-300 mt-1 w-full max-h-40 overflow-y-auto rounded-lg shadow-lg">
+                          {companySuggestions.map((company, index) => (
+                            <li
+                              key={index}
+                              className="py-1 px-3 cursor-pointer hover:bg-gray-200"
+                              onClick={() => handleCompanyClick(company)}
+                            >
+                              {company}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     <div className="relative flex flex-col gap-2">
                       <textarea
                         rows="4"
@@ -155,7 +211,7 @@ const RequestArticle = () => {
             {/* submit button */}
 
             <div className="flex flex-col justify-center gap-3">
-              <div className="flex gap-2">
+              {/* <div className="flex gap-2">
                 <input
                   type="checkbox"
                   name=""
@@ -165,8 +221,9 @@ const RequestArticle = () => {
                 <p className="text-[#414141] text-[16px]">
                   I agree to the Terms of Service
                 </p>
-              </div>
-              <button className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
+              </div> */}
+              <button
+                className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
                 onClick={handleSubmit}
               >
                 Send Request
@@ -175,6 +232,96 @@ const RequestArticle = () => {
           </form>
         </div>
       </div>
+      {requestSend && (
+        <div
+          id="toast-success"
+          className="flex fixed bottom-4 right-4 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert"
+        >
+          <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>
+            <span className="sr-only">Check icon</span>
+          </div>
+          <div className="ms-3 text-sm font-normal">
+            Request Send Successfully
+          </div>
+          <button
+            type="button"
+            className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            onClick={() => setRequestSend(false)}
+            aria-label="Close"
+          >
+            <span className="sr-only">Close</span>
+            <svg
+              className="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+      {requestError && (
+        <div
+          id="toast-danger"
+          class="flex fixed bottom-4 right-4 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert"
+        >
+          <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+            </svg>
+            <span class="sr-only">Error icon</span>
+          </div>
+          <div class="ms-3 text-sm font-normal">Error Sending The Request.</div>
+          <button
+            type="button"
+            class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            onClick={() => setRequestError(false)}
+            aria-label="Close"
+          >
+            <span class="sr-only">Close</span>
+            <svg
+              class="w-3 h-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
       <Footer />
     </>
   );
