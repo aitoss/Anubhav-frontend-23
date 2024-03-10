@@ -8,3 +8,24 @@
 .blur {
     backdrop-filter: blur(1px);
 }
+/* text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131]  */
+li{
+    font-size: 20px;
+    color: #212121;
+    font-weight: 400;
+    padding: 8px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+li:hover{
+    background-color: #212121;
+    color: white;
+    border-radius: 10px;
+}
+.active{
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+}

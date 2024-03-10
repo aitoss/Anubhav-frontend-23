@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
-import arrow from '../../assets/images/arrow.png';
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import './Navbar.css';
@@ -13,19 +12,20 @@ const Navbar = () => {
             blogSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
+    
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const content = <>
-        <div className="lg:hidden bg-[white] h-screen w-screen flex flex-col items-center justify-center  gap-8 absolute transition duration-300">
+        <div className="lg:hidden bg-[white] h-screen w-screen flex flex-col items-center justify-center  gap-8 absolute transition duration-300 x-sm:w-[100%]">
             <Link to="/" className="">
                 <img className="" src={logo} alt="" />
             </Link>
-            <Link to="/videos" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#313131] ">
+            <NavLink to="/videos">
                 Videos
-            </Link>
-            <Link to="/request" className="text-[20px] text-[#212121] font-[500]   p-2 cursor-pointer hover:text-[#313131] ">
+            </NavLink>
+            <NavLink to="/request">
                 Request Article
-            </Link>
+            </NavLink>
             <Link to="/create" className="text-[20px] text-[#212121] font-[500]  p-2 cursor-pointer hover:text-[#313131] ">
                 <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] w-[80%]] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
                     Write Article
@@ -67,28 +67,33 @@ return (
                 </Link>
                 <ul className="flex justify-center items-center gap-4">
                     <li>
-                        <Link to="/videos" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
+                        <NavLink to="/">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/videos">
                             Videos
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/guidelines" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
+                        <NavLink to="/guidelines">
                             Guidelines
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/request" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
+                        <NavLink to="/request">
                             Request Article
-                        </Link>
+                        </NavLink>
                     </li>
-                    <Link to="/create" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
+                    <NavLink to="/create" className="text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131] ">
                         <div className="flex gap-2 py-[6px] px-5 justify-center items-center text-[20px] bg-[#212121] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
                             Write Article
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 10 19" fill="none">
                                 <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                    </Link>
+                    </NavLink>
                 </ul>
             </div>
         </div>
