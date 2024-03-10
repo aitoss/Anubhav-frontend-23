@@ -8,7 +8,7 @@ Anubhav: Experience Sharing Point (A-ESP) is a platform developed for AITians to
 
 To get started with the Anubhav Frontend, follow these steps:
 
-1. Clone the repository to your local machine:
+1. Clone the repository to your local machine :
 ```bash
 git clone https://github.com/aitoss/Anubhav-frontend-23.git
 ```
