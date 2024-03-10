@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
-import axios from "axios";
+// import axios from "axios";
 
 const RequestArticle = () => {
   const inputRef = useRef(null);
