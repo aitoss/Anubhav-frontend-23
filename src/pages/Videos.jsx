@@ -55,7 +55,7 @@ const Videos = () => {
   return (
     <>
       <Navbar />
-      <div className="flex pt-[90px] flex-col gap-5" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
+      <div className="flex pt-[90px] flex-col gap-5 overflow-hidden" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
         <div className="w-screen h-[50%] flex justify-center align-bottom pt-6">
           <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">
             <div className="flex flex-wrap gap-2 justify-center">
@@ -91,7 +91,7 @@ const Videos = () => {
           </div>
         </div>
         <div className="w-screen flex justify-center">
-          <div className="w-[80%]  flex flex-wrap justify-center gap-10 p-3 pt-1">
+          <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1">
             {info.map((item) => {
               return <YoutubeCards id={item.id} key={item.id} {...item} />;
             })}

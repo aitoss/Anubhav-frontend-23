@@ -61,8 +61,8 @@ export default function HomeScreen() {
         <div className="flex justify-between items-center p-1 bg-[#212121] text-xl placeholder:text-[#a9a9a9] placeholder:font-[300]  font-[300] text-[#d9d9d9]  w-[320px] lg:w-[450px]  rounded-lg transition duration-250 ease-in-out placeholder:focus:text-[#b9b9b9]">
           {/* search icon */}
           <svg className='bg-[#313131] w-[40px] p-1 rounded-md' width="36" height="36" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z" stroke="#b9b9b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M29.8333 29.9842L27.1666 27.3175" stroke="#b9b9b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z" stroke="#b9b9b9" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M29.8333 29.9842L27.1666 27.3175" stroke="#b9b9b9" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           {/* input */}
           <input

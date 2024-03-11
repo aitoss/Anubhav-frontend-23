@@ -53,6 +53,7 @@ const Create = () => {
     }
     setIsLoading(true);
     try {
+      // TODO: implement after view blogs is complete
       // const response = await axios.post(BACKEND_URL+'/blogs', {
       //   title: "test141",
       //   authorName: value.name,
