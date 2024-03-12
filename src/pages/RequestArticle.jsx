@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
-// import axios from "axios";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
 
 const RequestArticle = () => {
   const inputRef = useRef(null);
@@ -17,44 +18,28 @@ const RequestArticle = () => {
     company: "",
     note: "",
   });
+
   const [companySuggestions, setCompanySuggestions] = useState([]);
-  const [showCompanySuggestions, setShowCompanySuggestions] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValue((prevValue) => ({ ...prevValue, [name]: value })); // Fix: use a function to update state
-
-    if (name === "company") {
-      fetchCompanySuggestions(value);
-    }
+    setValue((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
 
   useEffect(() => {
-  }, [value.company]);
 
+    const fetchCompanySuggestions = async () => {
+      try {
+        const response = await axios.get(BACKEND_URL+'/companies');
+        setCompanySuggestions(response.data);
+      } catch (error) {
+        console.error('Error fetching company suggestions:', error);
+      }
+    };
 
-  const handleBlur = () => {
-    // Hide company suggestions when the input is out of focus
-    setShowCompanySuggestions(false);
-  };
-
-  const handleCompanyClick = (selectedCompany) => {
-    // Update the company input and hide suggestions on click
-    setValue({ ...value, company: selectedCompany });
-    setShowCompanySuggestions(false);
-  };
-
-  const fetchCompanySuggestions = async (query) => {
-    try {
-      const response = await axios.get(
-        `https://oss-backend.vercel.app/api/anubhav/companies?query=${query}`
-      );
-      setCompanySuggestions(response.data);
-    } catch (error) {
-      console.error("Error fetching company suggestions:", error);
-    }
-  };
+    fetchCompanySuggestions();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,7 +55,7 @@ const RequestArticle = () => {
       };
 
       const response = await axios.post(
-        "https://oss-backend.vercel.app/api/anubhav/reqarticle",
+        BACKEND_URL+ "/reqarticle",
         requestData
       );
       console.log("Response from server:", response.data);
@@ -172,26 +157,18 @@ const RequestArticle = () => {
                         name="company"
                         id="email"
                         placeholder="Company Name"
+                        list="companySuggestions"
                         value={value.company}
                         onChange={handleChange}
                         className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
-                        onFocus={() => setShowCompanySuggestions(true)}
                       />
+                      <datalist id="companySuggestions">
+                        {companySuggestions.map((suggestion, index) => (
+                          <option key={index} value={suggestion} />
+                        ))}
+                      </datalist>
                     </div>
-                    {showCompanySuggestions &&
-                      companySuggestions.length > 0 && (
-                        <ul className="z-10 bg-white border border-gray-300 mt-1 w-full max-h-40 overflow-y-auto rounded-lg shadow-lg">
-                          {companySuggestions.map((company, index) => (
-                            <li
-                              key={index}
-                              className="py-1 px-3 cursor-pointer hover:bg-gray-200"
-                              onClick={() => handleCompanyClick(company)}
-                            >
-                              {company}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                    
                     <div className="relative flex flex-col gap-2">
                       <textarea
                         rows="4"
@@ -315,7 +292,7 @@ const RequestArticle = () => {
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
               />
             </svg>

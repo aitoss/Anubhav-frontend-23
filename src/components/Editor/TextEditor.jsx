@@ -22,8 +22,7 @@ const modules = {
 
 
 
-const TextEditor = () => {
-  const [value, setValue] = useState("");
+const TextEditor = ({ article, setArticle }) => {
 
   return (
     <div className="relative w-[70%]  text-black">
@@ -33,13 +32,13 @@ const TextEditor = () => {
             modules={modules}
             className="input h-[100%] w-[100%]"
             theme="snow"
-            value={value}
-            onChange={(content) => setValue(content)}
+            value={article}
+            onChange={(content) => setArticle(content)}
           />
         </div>
         <div
           className="bg-white preview border-[2px] h-[60vh] max-h-[80vh] mt-16 overflow-auto w-full  text-black  rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]"
-        > <ReactQuill value={value} theme="bubble" readOnly className="w-full h-full"/></div>
+        > <ReactQuill value={article} theme="bubble" readOnly className="w-full h-full"/></div>
       </div>
     </div>
   );

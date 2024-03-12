@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer';
 import Create from './pages/Create';
 import Error404 from './pages/Error404';
-import Blog from './pages/Blog';
+import Blog from './pages/ViewBlog';
 import BlogSection from './components/BlogSection/BlogSection';
 import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
@@ -25,7 +25,7 @@ const App = () => {
         </div>
       } />
       <Route path='/Create' element={<Create />} />
-      <Route path='/blog' element={<Blog />} />
+      <Route path='/blog/:id' element={<Blog />} />
       <Route path='/videos' element={<Videos />} />
       <Route path='/guidelines' element={<Guidelines />} />
       <Route path='/request' element={<RequestArticle />} />
