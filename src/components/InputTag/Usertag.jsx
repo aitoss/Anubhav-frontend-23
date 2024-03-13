@@ -7,7 +7,7 @@ import { BACKEND_URL } from "../../constants";
 
 //commit
 const Inputtag = ({ setTags, tags }) => {
-
+  
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
