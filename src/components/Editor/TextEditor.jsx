@@ -15,7 +15,7 @@ const modules = {
       { list: "bullet" },
     ],
     ["link", "image"],
-    [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
+    [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
     [{ color: [] }, { background: [] }],
   ],
 };
@@ -38,7 +38,7 @@ const TextEditor = ({ article, setArticle }) => {
         </div>
         <div
           className="bg-white preview border-[2px] h-[60vh] max-h-[80vh] mt-16 overflow-auto w-full  text-black  rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]"
-        > <ReactQuill value={article} theme="bubble" readOnly className="w-full h-full"/></div>
+        > <ReactQuill value={article} theme="bubble" readOnly className="w-full h-full" /></div>
       </div>
     </div>
   );

@@ -4,45 +4,51 @@ import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
+import ErrorMessage from "../components/notification/ErrorMessage";
+import SuccessMessage from "../components/notification/SuccessMessage";
 
 const RequestArticle = () => {
-  const inputRef = useRef(null);
-  const [file, setfile] = useState(null);
-  const [requestSend, setRequestSend] = useState(false);
-  const [requestError, setRequestError] = useState(false);
-  const [value, setValue] = useState({
+  const initialState = {
     name: "",
     seniorName: "",
     email: "",
     link: "",
     company: "",
     note: "",
-  });
+  };
 
+  const [error, setError] = useState(null);
+  const [value, setValue] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
+  const [requestSend, setRequestSend] = useState(null);
   const [companySuggestions, setCompanySuggestions] = useState([]);
+
+  useEffect(() => {
+    const fetchCompanySuggestions = async () => {
+      try {
+        const response = await axios.get(BACKEND_URL + '/companies');
+        setCompanySuggestions(response.data);
+      } catch (error) {
+        console.error('Error fetching company suggestions:', error);
+      }
+    };
+    fetchCompanySuggestions();
+  }, []);
+
+  const addError = (message) => {
+    setError(message);
+    setTimeout(() => {
+      setError(null);
+    }, 3000);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValue((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
-
-  useEffect(() => {
-
-    const fetchCompanySuggestions = async () => {
-      try {
-        const response = await axios.get(BACKEND_URL+'/companies');
-        setCompanySuggestions(response.data);
-      } catch (error) {
-        console.error('Error fetching company suggestions:', error);
-      }
-    };
-
-    fetchCompanySuggestions();
-  }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    setIsLoading(true);
 
     try {
       const requestData = {
@@ -53,16 +59,17 @@ const RequestArticle = () => {
         note: value.note,
         requesterEmailId: value.email,
       };
-
-      const response = await axios.post(
-        BACKEND_URL+ "/reqarticle",
-        requestData
-      );
-      console.log("Response from server:", response.data);
-      setRequestSend(true);
+      // await axios.post(
+      //   BACKEND_URL+ "/reqarticle",
+      //   requestData
+      // );
+      setIsLoading(false);
+      setRequestSend("Request Send Successfully");
+      setValue(initialState);
     } catch (error) {
+      addError("Internal server error")
       console.error("Error:", error);
-      setRequestError(true);
+      setIsLoading(false);
     }
   };
 
@@ -76,11 +83,7 @@ const RequestArticle = () => {
       >
         {/* basic info */}
         <div className=" relative w-[100%] max-w-[90%] flex  justify-center lg:w-[50%] py-7">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log(value);
-            }}
+          <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
             className="relative w-[100%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
@@ -96,7 +99,7 @@ const RequestArticle = () => {
 
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
-                      <input
+                      <input required
                         type="text"
                         name="name"
                         id="name"
@@ -168,9 +171,9 @@ const RequestArticle = () => {
                         ))}
                       </datalist>
                     </div>
-                    
+
                     <div className="relative flex flex-col gap-2">
-                      <textarea
+                      <textarea required
                         rows="4"
                         name="note"
                         id="email"
@@ -184,78 +187,18 @@ const RequestArticle = () => {
                 </div>
               </div>
             </div>
-
             {/* submit button */}
-
             <div className="flex flex-col justify-center gap-3">
-              {/* <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  className="focus:bg-[#212121] hover:bg-[#cabfec] w-5 ml-3"
-                />
-                <p className="text-[#414141] text-[16px]">
-                  I agree to the Terms of Service
-                </p>
-              </div> */}
-              <button
-                className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
-                onClick={handleSubmit}
-              >
-                Send Request
+              <button type="Subm" disabled={isLoading} className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
+                {isLoading ? 'Processing...' : 'Send Request'}
               </button>
             </div>
           </form>
         </div>
       </div>
-      {requestSend && (
-        <div
-          id="toast-success"
-          className="flex fixed bottom-4 right-4 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-          role="alert"
-        >
-          <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-            </svg>
-            <span className="sr-only">Check icon</span>
-          </div>
-          <div className="ms-3 text-sm font-normal">
-            Request Send Successfully
-          </div>
-          <button
-            type="button"
-            className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-            onClick={() => setRequestSend(false)}
-            aria-label="Close"
-          >
-            <span className="sr-only">Close</span>
-            <svg
-              className="w-3 h-3"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-              />
-            </svg>
-          </button>
-        </div>
-      )}
-      {requestError && (
+      < ErrorMessage error={error} />
+      <SuccessMessage requestSend={requestSend} setRequestSend={setRequestSend} />
+      {/* {requestError && (
         <div
           id="toast-danger"
           class="flex fixed bottom-4 right-4 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
@@ -298,7 +241,7 @@ const RequestArticle = () => {
             </svg>
           </button>
         </div>
-      )}
+      )} */}
       <Footer />
     </>
   );

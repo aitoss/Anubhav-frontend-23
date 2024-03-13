@@ -11,7 +11,7 @@ const Inputtag = ({ setTags, tags }) => {
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
-        const response = await axios.get(BACKEND_URL+'/tags');
+        const response = await axios.get(BACKEND_URL + '/tags');
         setTagSuggestions(response.data);
         console.log(response.data)
       } catch (error) {
@@ -86,11 +86,11 @@ const Inputtag = ({ setTags, tags }) => {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-           <datalist id="tagSuggestions">
-              {tagSuggestions.map((suggestion, index) => (
-                <option key={index} value={suggestion._id} />
-              ))}
-            </datalist>
+          <datalist id="tagSuggestions">
+            {tagSuggestions.map((suggestion, index) => (
+              <option key={index} value={suggestion._id} />
+            ))}
+          </datalist>
         </div>
       </div>
     </div>

@@ -117,10 +117,10 @@ export default function HomeScreen() {
             </Modal.Body>
           </Modal>
         </div>
-        
+
       </div>
       <div className="w-full pb-5 flex flex-col items-center">
-      <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">Exploring <span className="font-[500]">The Interview Safari</span></h1>
+        <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">Exploring <span className="font-[500]">The Interview Safari</span></h1>
         <Slider />
       </div>
     </>

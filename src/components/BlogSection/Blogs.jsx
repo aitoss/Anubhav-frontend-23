@@ -85,16 +85,16 @@ const Blogs = () => {
             <p className="mb-4">For connecting with me, follow on</p>
             <p className="mb-4">
               <div className="flex space-x-3">
-            <a href="#">
-          <RiTwitterXLine className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
-        </a>
-        <a href="#">
-          <RiLinkedinFill className="text-gray-800  text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
-        </a>
-        <a href="#">
-          <RiInstagramFill className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
-        </a>
-        </div>
+                <a href="#">
+                  <RiTwitterXLine className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+                </a>
+                <a href="#">
+                  <RiLinkedinFill className="text-gray-800  text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+                </a>
+                <a href="#">
+                  <RiInstagramFill className="text-gray-800 text-2xl transform transition-transform hover:scale-110 hover:text-gray-300" />
+                </a>
+              </div>
             </p>
             <p className="mb-4">All the best 😉</p>
           </div>

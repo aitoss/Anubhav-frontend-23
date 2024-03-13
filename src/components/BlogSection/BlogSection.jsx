@@ -122,7 +122,7 @@ function Scroll() {
                   <CiBookmark color="#888888" className="w-[20px] h-[30px]" />
                 </a>
               </div>
-              </div>
+            </div>
           </div>
         </div>
       </Link>

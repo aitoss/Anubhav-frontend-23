@@ -1,10 +1,10 @@
 import React from "react";
 
-const data= [
-    'STEP', 'FAANG','On-Campus'
+const data = [
+    'STEP', 'FAANG', 'On-Campus'
 ]
 const Tags = () => {
-    return(
+    return (
         <>
             <div className="tags flex items-center py-1">
                 {
@@ -13,10 +13,10 @@ const Tags = () => {
                     ))
                 }
 
-                
+
             </div>
         </>
     )
 }
- 
+
 export default Tags;

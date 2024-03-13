@@ -8,16 +8,15 @@ import Blogs from "../components/BlogSection/Blogs";
 
 const ViewBlog = () => {
     const { id } = useParams();
-    return(
+    return (
         <>
             <h3 className="text-[#212121] flex justify-center">{id}</h3>
-        <Navbar />
-        <Blogs/>
-        <div className="lg:w-[70%] mx-auto">
-        <Articles/>
-        </div>
-        <Footer />
-       
+            <Navbar />
+            <Blogs />
+            <div className="lg:w-[70%] mx-auto">
+                <Articles />
+            </div>
+            <Footer />
         </>
     );
 }
