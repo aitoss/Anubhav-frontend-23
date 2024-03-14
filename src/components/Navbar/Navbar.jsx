@@ -20,9 +20,9 @@ const Navbar = () => {
             <Link to="/" className="">
                 <img className="" src={logo} alt="" />
             </Link>
-            <NavLink to="/videos">
+            {/* <NavLink to="/videos">
                 Videos
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/request">
                 Request Article
             </NavLink>
@@ -71,11 +71,11 @@ return (
                             Home
                         </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to="/videos">
                             Videos
                         </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                         <NavLink to="/guidelines">
                             Guidelines

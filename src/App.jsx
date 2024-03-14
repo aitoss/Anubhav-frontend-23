@@ -10,6 +10,7 @@ import Videos from './pages/Videos';
 import Guidelines from './pages/Guidelines';
 import RequestArticle from './pages/RequestArticle';
 import TermsService from './pages/TermsService';
+import Video from "./pages/Videos"
 
 const App = () => {
   return (
@@ -20,13 +21,14 @@ const App = () => {
           <HomeScreen />
           <div className="flex flex-col items-center">
             <BlogSection />
+            <Video />
             <Footer />
           </div>
         </div>
       } />
       <Route path='/Create' element={<Create />} />
       <Route path='/blog/:id' element={<Blog />} />
-      <Route path='/videos' element={<Videos />} />
+      {/* <Route path='/videos' element={<Videos />} /> */}
       <Route path='/guidelines' element={<Guidelines />} />
       <Route path='/request' element={<RequestArticle />} />
       <Route path="/TermService" element={<TermsService/>}/>

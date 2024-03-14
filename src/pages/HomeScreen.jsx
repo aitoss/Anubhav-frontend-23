@@ -8,6 +8,7 @@ import logo3 from "../assets/images/user3.png";
 import background2 from "../assets/bg.png";
 // import background2 from '../assets/dots-pattern.svg';
 import Slider from "../components/Slider/Slider";
+import Video from "../pages/Videos"
 
 export default function HomeScreen() {
   const [openModal, setOpenModal] = useState(false);
@@ -117,12 +118,12 @@ export default function HomeScreen() {
             </Modal.Body>
           </Modal>
         </div>
-
-      </div>
-      <div className="w-full pb-5 flex flex-col items-center">
+        <div className="w-full pt-24 flex flex-col items-center">
         <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">Exploring <span className="font-[500]">The Interview Safari</span></h1>
         <Slider />
       </div>
+      </div>
+      
     </>
   );
 }

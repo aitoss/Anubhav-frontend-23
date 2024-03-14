@@ -52,43 +52,28 @@ const Videos = () => {
     );
   };
 
+  const TagsOfVideo= ({name}) =>{
+    return (
+      <div>
+        <button className="p-[2px] px-3 rounded-[20px] bg-[#212121] text-white hover:none">
+                {name}
+        </button>
+      </div>
+    )
+  }
+
   return (
     <>
       <Navbar />
-      <div className="flex pt-[90px] flex-col gap-5 overflow-hidden" style={{backgroundImage: `url(${background})`, backgroundPosition: 'center'}}>
-        <div className="w-screen h-[50%] flex justify-center align-bottom pt-6">
-          <div className="w-[80%] h-full bg-white flex flex-col justify-end items-center gap-3 x-sm:h-40">
-            <div className="flex flex-wrap gap-2 justify-center">
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                CP
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                Codeforces
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                Dev
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                Hackthon
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                Deutsche-Bank
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                ACM-ICPC
-              </button>
-              <button className="p-[2px] px-3 rounded-[20px] bg-[#212121]">
-                Google
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="w-screen  flex justify-center">
-          <div className="w-[70%]">
-            <h1 className="text-[28px] p-4 lg:ml-[90px] text-black tracking-[1px]">
-              Popular Videos
-            </h1>
-          </div>
+      <div className="flex  flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-24">
+      <h1 className="text-black  x-sm:text-[35px]">Popular Video</h1>
+        <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom ">
+        <TagsOfVideo name="CP" />
+              <TagsOfVideo name="Codeforces" />
+              <TagsOfVideo name="Dev" />
+              <TagsOfVideo name="Hackthon" />
+              <TagsOfVideo name="Deutsche-Bank" />
+              <TagsOfVideo name="Google" />
         </div>
         <div className="w-screen flex justify-center">
           <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1">
@@ -98,7 +83,6 @@ const Videos = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };
