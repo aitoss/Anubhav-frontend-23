@@ -19,6 +19,7 @@ const Create = () => {
   const inputRef = useRef();
 
   const [file, setFile] = useState(null);
+  const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -44,6 +45,8 @@ const Create = () => {
   const UploadFile = () => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
+    setbannerImage(file)
+    console.log(file)
   }
 
   const publishPost = async () => {
@@ -51,28 +54,39 @@ const Create = () => {
       addError('Article cannot be empty');
       return;
     }
+
+    console.log(bannerImage)
+
+    if (!file) {
+      addError('Please upload a banner image');
+      return;
+    }
     setIsLoading(true);
     try {
-      // TODO: implement after view blogs is complete
-      // const response = await axios.post(BACKEND_URL+'/blogs', {
-      //   title: "test141",
-      //   authorName: value.name,
-      //   authorEmailId: value.email,
-      //   companyName: value.company,
-      //   role: value.position,
-      //   articleTags: tags,
-      //   article: article,
-      // });
-      // setIsLoading(false);
-      // const id = response.data.createArticle._id;
-      // console.log('Post published:', response.data);
-      // navigate('/blog/'+id);
-    }
-    catch (error) {
+      const formData = new FormData();
+      formData.append('image', bannerImage); 
+      formData.append('title', "title");
+      formData.append('authorName', value.name);
+      formData.append('authorEmailId', value.email);
+      formData.append('companyName', value.company);
+      formData.append('role', value.position);
+      formData.append('articleTags', JSON.stringify(tags));
+      formData.append('article', article);
+      const response = await axios.post(BACKEND_URL+'/blogs', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      });
+      setIsLoading(false);
+      const id = response.data.createArticle._id;
+      console.log('Post published:', response.data);
+      navigate('/blog/'+id);
+    } catch (error) {
       console.error('Error publishing post:', error);
       setIsLoading(false);
     }
   };
+  
 
 
   const [companySuggestions, setCompanySuggestions] = useState([]);
