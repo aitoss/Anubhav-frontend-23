@@ -20,6 +20,14 @@ export default function HomeScreen() {
     setsearch(e.target.value);
   }
 
+  document.addEventListener('keypress', (e) =>{
+    if(e.key == 'K' || e.key == 'k'){
+      setOpenModal(true)
+    }
+  });
+
+  
+
   return (
     <>
       <div className="w-full h-[10vh]"></div>
@@ -104,7 +112,7 @@ export default function HomeScreen() {
 
           <Modal
             show={openModal}
-            size="md"
+            size='xl'
             popup
             onClose={() => setOpenModal(false)}
             initialFocus={emailInputRef}
