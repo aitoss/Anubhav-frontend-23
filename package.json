@@ -19,7 +19,7 @@
     "axios": "^1.6.7",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.2",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^10.18.0",
     "html-to-text": "^9.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
