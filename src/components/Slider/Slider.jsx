@@ -34,9 +34,6 @@ const Slider = () => {
             <img src={google} alt="" srcSet="" />
             <img src={masterCard} alt="" srcSet="" />
             <img src={microsoft} alt="" srcSet="" />
-
-          </div>
-          <div className="logos-slide">
             <img src={adobe} alt="" srcSet="" />
             <img src={amazon} alt="" srcSet="" />
             <img src={atlassian} alt="" srcSet="" />
