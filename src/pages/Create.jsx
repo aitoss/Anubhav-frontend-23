@@ -147,7 +147,7 @@ const Create = () => {
       <Navbar />
 
       <div
-        className="flex flex-col gap-3 items-center mx-auto"
+        className="flex flex-col gap-3 items-center mx-auto pt-16"
         style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}

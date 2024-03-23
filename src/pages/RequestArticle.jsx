@@ -77,6 +77,7 @@ const RequestArticle = () => {
   return (
     <>
       <Navbar />
+      <div className="h-16 w-screen md:h-8"></div>
       <div
         className="flex flex-col mx-auto overflow-hidden mt-6 w-screen justify-center gap-3 items-center"
         style={{ backgroundImage: `url(${background2})` }}>

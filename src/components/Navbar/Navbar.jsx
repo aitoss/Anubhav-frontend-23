@@ -11,6 +11,8 @@ import './Navbar.css';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false) //for hamburger menu
     const [MobileNavOpen, setMobileNavOpen] = useState(false);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
 
     const handleClick = () => {
         setMobileNavOpen(!MobileNavOpen);
@@ -23,29 +25,6 @@ const Navbar = () => {
             blogSection.scrollIntoView({ behavior: 'mdooth' });
         }
     };
-
-    // const content =
-    //     <>
-    //         <div className="lg:hidden bg-[white] left-0 h-screen w-screen flex flex-col items-center justify-center gap-8 absolute transition duration-300 x-md:w-[100%]">
-    //             <NavLink to="/videos">
-    //                 Videos
-    //             </NavLink>
-    //             <NavLink to="/request">
-    //                 Request Article
-    //             </NavLink>
-    //             <Link to="/create" className="text-[20px] text-[#212121] font-[500]  p-1 cursor-pointer hover:text-[#313131] ">
-    //                 <div className="flex gap-2 py-1 px-2 justify-center items-center text-[20px] bg-[#212121] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
-    //                     Write Article
-    //                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 10 19" fill="none">
-    //                         <path d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103" stroke="#fff" strokeWidth="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-    //                     </svg>
-    //                 </div>
-    //             </Link>
-    //         </div>
-    //     </>
-
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY;
@@ -62,7 +41,7 @@ const Navbar = () => {
         };
     }, [prevScrollPos]);
 
-    const navClasses = `bg-[#ffffffcc] bg-blur border-b flex item-center justify-center h-[70px] p-3 lg:flex w-screen text-black z-40 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
+    const navClasses = `bg-[#ffffffcc] bg-blur border-b fixed item-center justify-center h-[70px] p-3 lg:flex w-screen text-black z-40 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
         }`;
 
     return (

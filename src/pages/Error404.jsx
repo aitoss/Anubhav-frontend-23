@@ -7,7 +7,8 @@ export default function Error404() {
     return (
       <>
         <Navbar />
-        <section className="w-[100%] h-[90vh] mx-auto flex flex-col  place-items-center md:justify-center">
+        <div className="h-16 w-screen md:h-8"></div>
+        <section className="w-[100%] h-[90vh] mx-auto flex flex-col  place-items-center md:justify-center ">
              <img src={error} alt="" />
              <div className="flex flex-col justify-center place-items-center gap-2 md:bottom-20">
               <h1 className="text-black md:text-[25px]">Page not found</h1>

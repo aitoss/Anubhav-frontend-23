@@ -14,7 +14,7 @@ const Videos = () => {
 
     return (
       <>
-        <div className="w-[350px] mt-[13px] bg-white border-[1px]  rounded-[20px] hover:shadow-xl hover:border-[3px]">
+        <div className="w-[350px] mt-[13px] bg-white border-[1px]  rounded-[20px] shadow-lg shadow-[#00000011] hover:shadow-[#00000019] transition-all">
           <a href="">
             <img
               src={img}
