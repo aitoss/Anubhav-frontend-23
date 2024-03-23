@@ -139,7 +139,7 @@ const Search = () => {
               <div className='px-2 py-2 flex flex-row w-full justify-center items-center'>No recent searches</div>
             ) : (
               <>
-                <div className='overflow-hidden px-2 pt-2 pb-1 w-[280px] lg:w-[486px] font-[400] tracking-wider'>Recent Searches</div>
+                <div className='overflow-hidden px-2 pt-2 pb-1 w-full font-[400] tracking-wider'>Recent Searches</div>
                 <div className='w-[480px] h-[1px] bg-[#313131]'></div>
                 {recentSearches.slice(0).reverse().map((search, index) => (
                   <div className="px-2 py-2 flex flex-row w-full justify-between items-center hover:bg-[#313131] ">
