@@ -109,7 +109,6 @@ export default function HomeScreen() {
   return (
     <>
       {OpenSearchModal && <SearchModal closeSearchModal={closeSearchModal} />}
-      <div className="w-full h-[10vh]"></div>
       <div
         className="relative flex flex-col w-full lg:pt-20 lg:pb-20 justify-center items-center"
         style={{

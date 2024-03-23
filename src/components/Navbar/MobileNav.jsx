@@ -18,10 +18,10 @@ const MobileNav = ({ isOpen }) => {
         <>
             <motion.div
                 className='w-full'
-                initial={{ opacity: 0, translateY: -10 }}
+                initial={{ opacity: 0, translateY: -30 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -10 }}
-                transition={{ duration: 0.15, delay: 0.0 }}
+                transition={{ duration: 0.025, delay: 0.0 }}
             >
                 <div className={`z-30 fixed bg-[#ffffffdd] bg-blur w-full shadow-lg shadow-[rgba(0,0,0,0.07)]`}>
                     <div className="flex flex-col justify-center  border-b pb-2">

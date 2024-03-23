@@ -1,0 +1,22 @@
+/* media query */
+@media (max-width: 1290px) {
+  .footer {
+    transform: translateX(-40px);
+  }
+}
+
+@media (max-width: 1200px) {
+    .footer {
+      transform: translateX(0px);
+    }
+  }
+  @media (max-width: 1080px) {
+    .footer {
+      transform: translateX(40px);
+    }
+  }
+  @media (max-width: 1024px) {
+    .footer {
+      transform: translateX(0px);
+    }
+  }

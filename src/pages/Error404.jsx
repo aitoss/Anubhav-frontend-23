@@ -7,7 +7,6 @@ export default function Error404() {
     return (
       <>
         <Navbar />
-        <div className="w-full h-16 md:h-8"></div>
         <section className="w-[100%] h-[90vh] mx-auto flex flex-col  place-items-center md:justify-center">
              <img src={error} alt="" />
              <div className="flex flex-col justify-center place-items-center gap-2 md:bottom-20">

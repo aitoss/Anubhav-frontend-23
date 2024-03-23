@@ -145,7 +145,6 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-16 md:h-8"></div>
 
       <div
         className="flex flex-col gap-3 items-center mx-auto"

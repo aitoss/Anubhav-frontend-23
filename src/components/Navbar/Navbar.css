@@ -11,7 +11,7 @@ li {
     color: #444444;
     font-weight: 400;
     padding: 8px;
-    cursor: pointer;
+    /* cursor: pointer; */
     letter-spacing: -0.5px;
 }
 
