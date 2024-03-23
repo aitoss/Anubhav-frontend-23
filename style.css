@@ -41,6 +41,8 @@ body {
 ::-webkit-scrollbar {
     width: 15px;
     background-color: #ffffff;
+    position: absolute;
+    right: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -52,4 +54,10 @@ body {
 
 * {
     font-feature-settings: 'ss04' on, 'ss05' on;
+}
+
+@media (max-width: 769px) {
+    ::-webkit-scrollbar {
+        width: 0px; /* Further adjusted width for even smaller screens */
+    }
 }

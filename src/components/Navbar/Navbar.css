@@ -21,3 +21,14 @@ li {
 .bg-blur {
     backdrop-filter: blur(12px);
 }
+/* for mobile nav */
+.mobile-nav {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.mobile-nav.open {
+    /* height: 100%; */
+    height: 0;
+}
