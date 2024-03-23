@@ -113,7 +113,7 @@ const Search = () => {
           </div>
           <input
             ref={inputRef}
-            className="bg-[#212121] text-[#ffffffcc]  w-[200px] lg:w-[400px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
+            className="bg-[#212121] text-[#ffffffcc]  w-[450px] md:w-[280px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
             type="text"
             placeholder="Search for your Dreams.."
             value={searchText}
@@ -127,8 +127,8 @@ const Search = () => {
           <div className=" z-50 overflow-hidden absolute top-[42.4px] flex flex-col font-[300] text-sm text-[#ffffffbb] bg-[#212121] w-full recent-searches border-[1.5px] border-[#414141] justify-start items-center rounded-lg shadow-md shadow-[rgba(48,50,51,0.3)]">
             {/* Conditional rendering for recent searches */}
             <div className='flex flex-col w-full justify-center items-center'>
-              <div className="overflow-hidden px-2 pt-2 pb-1  w-[280px] lg:w-[486px] font-[400] tracking-wider">Popular Searches</div>
-              <div className='w-[480px] h-[1px] bg-[#313131]'></div>
+              <div className="overflow-hidden px-2 pt-2 pb-1  w-full font-[400] tracking-wider">Popular Searches</div>
+              <div className='w-full h-[1px] bg-[#313131]'></div>
               {popularSearches.map((company, index) => (
                 <div className='px-2 py-2 flex flex-row w-full justify-between items-center hover:bg-[#313131] '>
                   <div className='pl-2 w-[400px] hover:bg-[#313131] ' key={index}>{company}</div>

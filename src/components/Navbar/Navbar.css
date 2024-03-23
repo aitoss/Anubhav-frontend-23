@@ -5,10 +5,6 @@
     font-style: normal;
 }
 
-.blur {
-    backdrop-filter: blur(1px);
-}
-
 /* text-[20px] text-[#212121] font-[400]   p-2 cursor-pointer hover:text-[#313131]  */
 li {
     font-size: 20px;
