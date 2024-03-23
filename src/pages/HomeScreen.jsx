@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useRef } from "react";
+import { motion } from 'framer-motion';
 import SearchModal from "../components/Search/SearchModal";
 import Search from "../components/Search/Search";
 import logo1 from "../assets/images/user1.png";
@@ -96,7 +97,7 @@ export default function HomeScreen() {
             className="bg-[#212121] text-[#ffffffcc]  w-[200px] lg:w-[400px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
             type="text"
             placeholder="Search for your Dreams.."
-  
+
           />
           <div className="border-[1.5px] border-[#414141] bg-[#313131] text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] ">⌘K</div>
         </div>
@@ -118,44 +119,88 @@ export default function HomeScreen() {
         }}
       >
         <div className="flex  flex-col gap-7 justify-center items-center p-7">
-          <h1 className="text-7xl lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
-            Anubhav
-          </h1>
-          <p className="text-3xl lg:text-4xl text-[#414141]  flex justify-center">
-            Stories of Success
-          </p>
-          <div className="flex items-center gap-4">
-            <div className="flex">
-              <img
-                src={logo2}
-                alt="random"
-                className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-              />
-              <img
-                src={logo1}
-                alt="random"
-                className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-              />
-              <img
-                src={logo3}
-                alt="random"
-                className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-              />
-              <div className="w-12 h-12 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
-                3k+
-              </div>
-            </div>
-            <p className="text-xl text-[#414141] font-[500] ">
-              Articles written
+          <motion.div
+            initial={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15 }}
+          >
+            <h1 className="text-7xl lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
+              Anubhav
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateY: 10 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15, delay: 0.05 }}
+          >
+
+            <p className="text-3xl lg:text-4xl text-[#414141]  flex justify-center">
+              Stories of Success
             </p>
-          </div>
-          <DummySearch />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateY: 10 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15, delay: 0.1 }}
+          >
+            <div className="flex items-center gap-4">
+              <div className="flex">
+                <img
+                  src={logo2}
+                  alt="random"
+                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
+                />
+                <img
+                  src={logo1}
+                  alt="random"
+                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
+                />
+                <img
+                  src={logo3}
+                  alt="random"
+                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
+                />
+                <div className="w-12 h-12 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
+                  3k+
+                </div>
+              </div>
+              <p className="text-xl text-[#414141] font-[500] ">
+                Articles written
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateY: 10 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15, delay: 0.15 }}
+          >
+            <DummySearch />
+          </motion.div>
         </div>
         <div className="w-full pt-24 flex flex-col items-center">
-          <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">Exploring <span className="font-[500]">The Interview Safari</span></h1>
-          <Slider />
+          <motion.div
+            initial={{ opacity: 0, translateY: 0 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15, delay: 0.2 }}
+          >
+
+            <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">Exploring <span className="font-[500]">The Interview Safari</span></h1>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, translateY: 0 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: 100 }}
+            transition={{ duration: 0.15, delay: 0.25 }}
+          >
+            <Slider />
+          </motion.div>
         </div>
-      </div>
+      </div >
 
     </>
   );

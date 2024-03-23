@@ -97,12 +97,13 @@ const Create = () => {
     return (
       <>
         < ErrorMessage error={error} />
-        <div className="flex flex-col justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
 
-          <h3 className="text-[#212121] flex justify-center">Banner Image</h3>
+        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
+        <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
+
           <div className="w-full flex justify-center ">
             <div
-              className="w-[130px] h-[130px]  flex justify-center rounded-full sm:w-24 sm:h-24"
+              className="w-[106px] h-[106px]  flex justify-center rounded-full sm:w-24 sm:h-24"
 
             >
               {file ? (

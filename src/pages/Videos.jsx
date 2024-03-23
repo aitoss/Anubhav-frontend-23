@@ -64,7 +64,7 @@ const Videos = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex  flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-24">
       <h1 className="text-black  x-sm:text-[35px]">Popular Video</h1>
         <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom ">
