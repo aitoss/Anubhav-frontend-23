@@ -3,19 +3,20 @@ import Navbar from "../components/Navbar/Navbar";
 import Data from "./data";
 import background from '../assets/bg.png';
 import Footer from "../components/Footer/Footer";
+import {YOUTUBE_PLAYLIST} from '../constants'
 
 //commit
 
 const Videos = () => {
   const [info, setInfo] = useState(Data);
 
-  const YoutubeCards = ({ title, img, info }) => {
+  const YoutubeCards = ({id, title, img, info }) => {
     const [readMore, setReadMore] = useState(false);
 
     return (
       <>
-        <div className="w-[350px] mt-[13px] bg-white border-[1px]  rounded-[20px] shadow-lg shadow-[#00000011] hover:shadow-[#00000019] transition-all">
-          <a href="">
+        <div className="w-[350px] bg-white border-[1px]  rounded-[20px] shadow-lg shadow-[#00000011] hover:shadow-[#00000019] transition-all">
+          <a href={YOUTUBE_PLAYLIST+id}>
             <img
               src={img}
               alt=""
@@ -65,7 +66,7 @@ const Videos = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="flex  flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-24">
+      <div className="flex  flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-20 mb-20">
       <h1 className="text-black  x-sm:text-[35px]">Popular Video</h1>
         <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom ">
         <TagsOfVideo name="CP" />
