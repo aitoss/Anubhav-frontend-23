@@ -54,19 +54,19 @@ const Create = () => {
     setIsLoading(true);
     try {
       // TODO: implement after view blogs is complete
-      // const response = await axios.post(BACKEND_URL+'/blogs', {
-      //   title: "test141",
-      //   authorName: value.name,
-      //   authorEmailId: value.email,
-      //   companyName: value.company,
-      //   role: value.position,
-      //   articleTags: tags,
-      //   article: article,
-      // });
-      // setIsLoading(false);
-      // const id = response.data.createArticle._id;
-      // console.log('Post published:', response.data);
-      // navigate('/blog/'+id);
+      const response = await axios.post(BACKEND_URL+'/blogs', {
+        title: "latest tets here", // TODO: add new field article title
+        authorName: value.name,
+        authorEmailId: value.email,
+        companyName: value.company,
+        role: value.position,
+        articleTags: tags, // TODO: Tags are not being added
+        article: article,
+      });
+      setIsLoading(false);
+      const id = response.data.createArticle._id;
+      console.log('Post published:', response.data);
+      navigate('/blog/'+id);
     }
     catch (error) {
       console.error('Error publishing post:', error);
