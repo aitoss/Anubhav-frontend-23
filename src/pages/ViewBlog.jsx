@@ -10,9 +10,6 @@ const ViewBlog = () => {
         <>
             <Navbar />
             <Blog />
-            <div className="lg:w-[70%] mx-auto">
-                <Articles />
-            </div>
             <Footer />
         </>
     );

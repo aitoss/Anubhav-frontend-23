@@ -40,7 +40,7 @@ const BlogSection = () => {
                   <h1 className="text-black text-[30px] md:text-[20px] md:g-black">
                     {item.companyName}
                   </h1>
-                  <Author name={item.author.name} company={item.articleTags} />
+                  <Author person={{ name: item?.author?.name, company: item?.companyName }} />
                   <p className="text-black text-[14px]">
                     {htmlToText(item.description).slice(0, 100)}
                     <Link to={`/blog/${item._id}`} className="text-gray-500">...Read more</Link>

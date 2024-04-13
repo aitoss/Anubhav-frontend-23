@@ -15,11 +15,13 @@ import axios from "axios";
 import { useParams } from 'react-router-dom';
 import { BACKEND_URL } from "../../constants";
 import ReactQuill from "react-quill";
+import Articles from "./Articles";
 
 const Blog = () => {
 
   const { id } = useParams();
   const [blogData, setBlogData] = useState([]);
+  const [similarArticles, setSimilarArticles] = useState(null);
   const [timeStamp, setTimeStamp] = useState('');
 
   function formatDate(dateString) {
@@ -39,6 +41,21 @@ const Blog = () => {
     const response = await axios.get(BACKEND_URL + '/blog/' + id);
     setBlogData(response.data)
     setTimeStamp(formatDate(response.data.createdAt))
+    const article = response.data;
+    await fetchSimilarBlogs(article.title, article.articleTags.join(',') ,article.companyName);
+  }
+
+  const fetchSimilarBlogs = async (title, articleTags, companyName) =>{
+    const params = {
+      q: title,
+      company: companyName,
+      tags: articleTags
+    }
+    const response = await axios.get(BACKEND_URL + '/search', {
+      params: params
+    })
+    console.log(response.data);
+    setSimilarArticles(response.data);
   }
 
   useEffect(() => {
@@ -46,7 +63,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="container items-center lg:p-6 mx-auto lg:mx-auto lg:w-[70%] p-3 lg:px-20">
+    <div className="container items-center lg:p-6 mx-auto lg:mx-auto lg:w-[75%] p-3 lg:px-20">
       <br /><br /><br />
       <div className="data items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
         <div className="heading">
@@ -134,7 +151,14 @@ const Blog = () => {
             <ReactQuill value={blogData?.description} theme="bubble" readOnly className="w-full h-full" />
         </div>
       </div>
-    </div>
+    </div>{JSON.stringify(similarArticles)}
+
+    {similarArticles ? (
+        <Articles similarArticles={similarArticles} /> // Render Articles component when similarArticles is not null
+    ) : (
+      <p>Loading...</p> // Render a loading indicator while data is being fetched
+    )}
+
     </div >
   );
 };
