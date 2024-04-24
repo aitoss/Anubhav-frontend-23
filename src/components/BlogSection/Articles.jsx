@@ -4,12 +4,18 @@ import Author from './_Child/Author';
 import company from '../../assets/images/company.png'
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-const Articles = () => {
+import { CleanHands } from '@mui/icons-material';
+
+const Articles = (props) => {
+  const { similarArticles } = props;
+  console.log(similarArticles)
+  console.log('first')
   return (
     <section className="">
       <div className="container items-center  lg:p-6 p-1 w-full lg:mx-auto mt-12  lg:px-20">
         <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">Similar Articles</h1>
         <div className="grid lg:grid-cols-2 gap-0.5">
+          {JSON.stringify(similarArticles)}
           {Scroll()}
           {Scroll()}
           {Scroll()}
@@ -67,7 +73,7 @@ function Scroll() {
                 Druva Interview Experience
               </a>
             </div>
-            <div className="lg:text-base text-[18px] "><Author /></div>
+            <div className="lg:text-base text-[18px] "><Author person={{ name: "john", company: "cred" }}/></div>
             <div className="lorem-container text-black py-3 justify-center">
               <p>
                 {restrict(article, window.innerWidth <= 640 ? 10 : 20)}

@@ -23,7 +23,7 @@ const Slider = () => {
 
   return (
     <>
-      <div className="w-screen">
+      <div className="w-screen max-w-[1440px]">
         <div className="logos">
           <div className="logos-slide">
             <img src={adobe} alt="" srcSet="" />
@@ -34,9 +34,6 @@ const Slider = () => {
             <img src={google} alt="" srcSet="" />
             <img src={masterCard} alt="" srcSet="" />
             <img src={microsoft} alt="" srcSet="" />
-
-          </div>
-          <div className="logos-slide">
             <img src={adobe} alt="" srcSet="" />
             <img src={amazon} alt="" srcSet="" />
             <img src={atlassian} alt="" srcSet="" />
@@ -46,7 +43,16 @@ const Slider = () => {
             <img src={masterCard} alt="" srcSet="" />
             <img src={microsoft} alt="" srcSet="" />
             <img src={uber} alt="" srcSet="" />
-          </div>
+            <img src={adobe} alt="" srcSet="" />
+            <img src={amazon} alt="" srcSet="" />
+            <img src={atlassian} alt="" srcSet="" />
+            <img src={DeutscheBank} alt="" srcSet="" />
+            <img src={cisco} alt="" srcSet="" />
+            <img src={google} alt="" srcSet="" />
+            <img src={masterCard} alt="" srcSet="" />
+            <img src={microsoft} alt="" srcSet="" />
+            <img src={uber} alt="" srcSet="" />
+            </div>
         </div>
       </div>
     </>

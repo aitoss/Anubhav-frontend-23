@@ -63,25 +63,22 @@ const Create = () => {
     }
     setIsLoading(true);
     try {
-      const formData = new FormData();
-      formData.append('image', bannerImage); 
-      formData.append('title', "title");
-      formData.append('authorName', value.name);
-      formData.append('authorEmailId', value.email);
-      formData.append('companyName', value.company);
-      formData.append('role', value.position);
-      formData.append('articleTags', JSON.stringify(tags));
-      formData.append('article', article);
-      const response = await axios.post(BACKEND_URL+'/blogs', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        }
+      // TODO: implement after view blogs is complete
+      const response = await axios.post(BACKEND_URL+'/blogs', {
+        title: "latest tets here", // TODO: add new field article title
+        authorName: value.name,
+        authorEmailId: value.email,
+        companyName: value.company,
+        role: value.position,
+        articleTags: tags, // TODO: Tags are not being added
+        article: article,
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
       console.log('Post published:', response.data);
       navigate('/blog/'+id);
-    } catch (error) {
+    }
+    catch (error) {
       console.error('Error publishing post:', error);
       setIsLoading(false);
     }
@@ -111,12 +108,13 @@ const Create = () => {
     return (
       <>
         < ErrorMessage error={error} />
-        <div className="flex flex-col justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
 
-          <h3 className="text-[#212121] flex justify-center">Banner Image</h3>
+        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
+        <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
+
           <div className="w-full flex justify-center ">
             <div
-              className="w-[130px] h-[130px]  flex justify-center rounded-full sm:w-24 sm:h-24"
+              className="w-[106px] h-[106px]  flex justify-center rounded-full sm:w-24 sm:h-24"
 
             >
               {file ? (
@@ -158,10 +156,9 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-16 md:h-8"></div>
 
       <div
-        className="flex flex-col gap-3 items-center mx-auto"
+        className="flex flex-col gap-3 items-center mx-auto pt-16"
         style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}

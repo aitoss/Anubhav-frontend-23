@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@esbuild/win32-x64": "^0.20.2",
     "@headlessui/react": "^1.7.17",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
@@ -19,7 +20,8 @@
     "axios": "^1.6.7",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.2",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^10.18.0",
+    "hamburger-react": "^2.5.0",
     "html-to-text": "^9.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -10,23 +10,74 @@ import {
   RiLinkedinFill,
   RiInstagramFill,
 } from "react-icons/ri";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { BACKEND_URL } from "../../constants";
+import ReactQuill from "react-quill";
+import Articles from "./Articles";
 
-const Blogs = () => {
+const Blog = () => {
+
+  const { id } = useParams();
+  const [blogData, setBlogData] = useState([]);
+  const [similarArticles, setSimilarArticles] = useState(null);
+  const [timeStamp, setTimeStamp] = useState('');
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+  
+    // Pad the day and month with leading zeros if needed
+    const formattedDay = day < 10 ? '0' + day : day;
+    const formattedMonth = month < 10 ? '0' + month : month;
+  
+    return `${formattedDay}-${formattedMonth}-${year}`;
+  }
+
+  const fetchBlogData = async () => {
+    const response = await axios.get(BACKEND_URL + '/blog/' + id);
+    setBlogData(response.data)
+    setTimeStamp(formatDate(response.data.createdAt))
+    const article = response.data;
+    await fetchSimilarBlogs(article.title, article.articleTags.join(',') ,article.companyName);
+  }
+
+  const fetchSimilarBlogs = async (title, articleTags, companyName) =>{
+    const params = {
+      q: title,
+      company: companyName,
+      tags: articleTags
+    }
+    const response = await axios.get(BACKEND_URL + '/search', {
+      params: params
+    })
+    console.log(response.data);
+    setSimilarArticles(response.data);
+  }
+
+  useEffect(() => {
+    fetchBlogData();
+  }, []);
+
   return (
-    <div className="container items-center  mt-20 lg:p-6 mx-auto lg:mx-auto lg:w-[70%] p-3 lg:px-20">
+    <div className="container items-center lg:p-6 mx-auto lg:mx-auto lg:w-[75%] p-3 lg:px-20">
+      <br /><br /><br />
       <div className="data items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
             className="text-2xl lg:text-5xl font-bold text-gray-700 hover:text-gray-800"
             href="/link"
           >
-            Google STEP Internship Decoded
+            {blogData?.title}
           </a>
         </div>
-        <Author />
-        <Tags></Tags>
+        <Author person={{ name: blogData?.author?.name, company: blogData?.companyName }} />
+        <Tags data={blogData?.articleTags} ></Tags>
         <div className="flex pb-4 lg:gap-10 items-center">
-          <p className="text-gray-500">{`3 mins read • 21/12/2022`}</p>
+          <p className="text-gray-500">{`3 mins read • ${timeStamp}`}</p>
           <div className="flex gap-3 ml-auto">
             <a href="#">
               <CiHeart color="#888888" />
@@ -40,8 +91,8 @@ const Blogs = () => {
           <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
             <img src={noogler} className="w-full lg:h-full" alt="" />
           </div>
-          <div className="lg:p-4 text-[18px] bg-white shadow-none rounded-lg">
-            <p className="mb-4">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
+          <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
+            {/* <p className="mb-4">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
             <p className="mb-4">Off-campus applications are generally open around November and December on their careers page. For on-campus, Google visits several campuses to hire STEP interns.</p>
             <p className="mb-4">Yes, the journey begins from here 😉</p>
             <p className="mb-4"><strong className="text-blue-600">Hola readers,</strong></p>
@@ -96,12 +147,20 @@ const Blogs = () => {
                 </a>
               </div>
             </p>
-            <p className="mb-4">All the best 😉</p>
-          </div>
+            <p className="mb-4">All the best 😉</p> */}
+            <ReactQuill value={blogData?.description} theme="bubble" readOnly className="w-full h-full" />
         </div>
       </div>
-    </div>
+    </div>{JSON.stringify(similarArticles)}
+
+    {similarArticles ? (
+        <Articles similarArticles={similarArticles} /> // Render Articles component when similarArticles is not null
+    ) : (
+      <p>Loading...</p> // Render a loading indicator while data is being fetched
+    )}
+
+    </div >
   );
 };
 
-export default Blogs;
+export default Blog;

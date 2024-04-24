@@ -42,7 +42,7 @@
 
 .logos-slide {
   display: inline-block;
-  animation: 35s slide infinite linear;
+  animation-duration: 10s;
 }
 
 .logos-slide img {
