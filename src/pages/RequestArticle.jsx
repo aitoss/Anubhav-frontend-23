@@ -77,9 +77,9 @@ const RequestArticle = () => {
   return (
     <>
       <Navbar />
-      <div className="h-16 w-screen md:h-8"></div>
+      <div className="h-16 md:h-8"></div>
       <div
-        className="flex flex-col mx-auto overflow-hidden mt-6 w-screen justify-center gap-3 items-center"
+        className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
         style={{ backgroundImage: `url(${background2})` }}>
         {/* basic info */}
         <div className=" relative w-[100%] max-w-[90%] flex  justify-center lg:w-[50%] py-7">

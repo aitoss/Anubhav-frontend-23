@@ -19,7 +19,7 @@ const MobileNav = ({ isOpen }) => {
 
             <div className={`z-50 fixed top-[70px] bg-[#ffffffbb] bg-blur w-full shadow-lg shadow-[rgba(0,0,0,0.07)]`}>
                 <div className="flex flex-col justify-center  border-b pb-2">
-                    <NavLink className=" p-4 text-center hover:bg-[#00000012]" to="/videos">
+                    <NavLink className=" p-4 text-center hover:bg-[#00000012]" to="/guidelines">
                         <motion.div
                             className='w-full h-full'
                             initial={{ opacity: 0, translateY: -10 }}
@@ -27,7 +27,7 @@ const MobileNav = ({ isOpen }) => {
                             exit={{ opacity: 0, translateY: -10 }}
                             transition={{ duration: 0.1, delay: 0.05 }}
                         >
-                            Videos
+                            Guidelines
                         </motion.div>
                     </NavLink>
                     <NavLink className=" p-4 text-center hover:bg-[#00000012]" to="/request">
