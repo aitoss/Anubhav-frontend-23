@@ -15,7 +15,7 @@ const Videos = () => {
 
     return (
       <>
-        <div className="w-[350px] bg-white border-[1px]  rounded-[20px] shadow-lg shadow-[#00000011] hover:shadow-[#00000019] transition-all">
+        <div className="w-[20rem] bg-white border-[1px]  rounded-[20px] shadow-lg shadow-[#00000011] hover:shadow-[#00000019] transition-all">
           <a href={YOUTUBE_PLAYLIST+id}>
             <img
               src={img}
@@ -77,7 +77,7 @@ const Videos = () => {
               <TagsOfVideo name="Google" />
         </div>
         <div className="w-screen flex justify-center">
-          <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1">
+          <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1 x-sm:w-[100%]">
             {info.map((item) => {
               return <YoutubeCards id={item.id} key={item.id} {...item} />;
             })}
