@@ -42,12 +42,26 @@ const Create = () => {
     setValue({ ...value, [e.target.name]: e.target.value })
   }
 
-  const UploadFile = () => {
+  const UploadFile = async() => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
-    setbannerImage(file)
     console.log(file)
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try{
+      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587" , formData);
+      console.log("Response form image cloud" , response);
+      setbannerImage(response.data.data.display_url);
+    } catch (error){
+      console.log("Error uploading image: " , error);
+    }
   }
+
+  useEffect(() => {
+    console.log("Banner Image" , bannerImage)
+  }, [bannerImage]);
 
   const publishPost = async () => {
     if (article === "") {
@@ -55,7 +69,7 @@ const Create = () => {
       return;
     }
 
-    console.log(bannerImage)
+    // console.log(bannerImage)
 
     if (!file) {
       addError('Please upload a banner image');
@@ -72,6 +86,7 @@ const Create = () => {
         role: value.position,
         articleTags: tags, // TODO: Tags are not being added
         article: article,
+        image:bannerImage
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
