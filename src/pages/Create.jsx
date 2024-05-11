@@ -19,6 +19,7 @@ const Create = () => {
   const inputRef = useRef();
 
   const [file, setFile] = useState(null);
+  const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,14 +42,37 @@ const Create = () => {
     setValue({ ...value, [e.target.name]: e.target.value })
   }
 
-  const UploadFile = () => {
+  const UploadFile = async() => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
+    console.log(file)
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try{
+      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587" , formData);
+      console.log("Response form image cloud" , response);
+      setbannerImage(response.data.data.display_url);
+    } catch (error){
+      console.log("Error uploading image: " , error);
+    }
   }
+
+  useEffect(() => {
+    console.log("Banner Image" , bannerImage)
+  }, [bannerImage]);
 
   const publishPost = async () => {
     if (article === "") {
       addError('Article cannot be empty');
+      return;
+    }
+
+    // console.log(bannerImage)
+
+    if (!file) {
+      addError('Please upload a banner image');
       return;
     }
     setIsLoading(true);
@@ -62,6 +86,7 @@ const Create = () => {
         role: value.position,
         articleTags: tags, // TODO: Tags are not being added
         article: article,
+        image:bannerImage
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
@@ -73,6 +98,7 @@ const Create = () => {
       setIsLoading(false);
     }
   };
+  
 
 
   const [companySuggestions, setCompanySuggestions] = useState([]);

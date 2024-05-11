@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import error from "../assets/error.svg";
+import Logo from "../components/Loader/DummyLoader";
 
 export default function Error404() {
   return (
     <>
       <Navbar />
       {/* <div className="h-16 w-screen md:h-12 pt-12"></div> */}
-      <section className="w-[100%] h-[90vh] mx-auto flex flex-col justify-center place-items-center md:justify-center ">
+      {/* <section className="w-[100%] h-[90vh] mx-auto flex flex-col justify-center place-items-center md:justify-center ">
         <div className="flex flex-col justify-center place-items-center gap-2 md:bottom-20">
           <motion.div
             initial={{ opacity: 0, translateY: 60 }}
@@ -51,7 +52,8 @@ export default function Error404() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <div className="w-full flex justify-center h-screen items-center"><Logo /></div>
     </>
   )
 }
