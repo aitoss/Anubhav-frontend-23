@@ -109,9 +109,9 @@ export default function HomeScreen() {
   return (
     <>
       {OpenSearchModal && <SearchModal closeSearchModal={closeSearchModal} />}
-      <div className="h-16 w-screen md:h-8 pt-20"></div>
+      {/* <div className="h-16 w-screen md:h-8 pt-20"></div> */}
       <div
-        className="relative flex flex-col w-full lg:pt-20 lg:pb-20 justify-center items-center"
+        className="relative flex flex-col w-full pt-20 lg:pb-20 justify-center items-center"
         style={{
           backgroundImage: `url(${background2})`,
           backgroundPosition: "center",

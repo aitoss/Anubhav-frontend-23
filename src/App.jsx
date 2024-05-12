@@ -11,6 +11,7 @@ import Guidelines from './pages/Guidelines';
 import RequestArticle from './pages/RequestArticle';
 import TermsService from './pages/TermsService';
 import Video from "./pages/Videos"
+import SearchPage from './components/Search/SearchPage';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
       <Route path='/guidelines' element={<Guidelines />} />
       <Route path='/request' element={<RequestArticle />} />
       <Route path="/TermService" element={<TermsService />} />
+      <Route path='/search' element={<SearchPage />} />
       <Route path='*' element={<Error404 />} />
     </Routes>
   );

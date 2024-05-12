@@ -7,8 +7,9 @@ import { motion } from 'framer-motion';
 import logo from '../../assets/images/logo.svg';
 import MobileNav from './MobileNav';
 import './Navbar.css';
+import Search from '../Search/Search';
 
-const Navbar = () => {
+const NavbarMini = () => {
     const [isOpen, setIsOpen] = useState(false) //for hamburger menu
     const [MobileNavOpen, setMobileNavOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -49,15 +50,17 @@ const Navbar = () => {
             {/* <div className="flex flex-col"> */}
 
             <nav className={navClasses} aria-label="Global">
-         
+                
 
                     <div className="flex md:hidden w-full h-full justify-between items-center max-w-[1400px] m-auto">
                         <div className="flex w-full items-center justify-between px-1 lg:px-8">
-                            <Link to="/" className="p-2">
-                                <img className="w-10" src={logo} alt="" />
-                            </Link>
                             <div className="flex justify-center items-center gap-2">
-
+                                <Link to="/" className="p-2">
+                                    <img className="w-10" src={logo} alt="" />
+                                </Link>
+                                <Search mode="light" />
+                            </div>
+                            <div className="flex justify-center items-center gap-2">
                                 <NavLink to="/request">
                                     <h5 className="hover:underline font-[400] text-[16px] -tracking-[0.2px] px-2 py-1">
                                         Request Article
@@ -97,4 +100,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavbarMini;

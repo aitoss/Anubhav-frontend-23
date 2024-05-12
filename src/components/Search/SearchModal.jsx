@@ -21,7 +21,7 @@ const SearchModal = ({ closeSearchModal }) => {
           exit={{ opacity: 0, translateY: 100 }}
           transition={{ duration: 0.15 }}
         >
-          <Search />
+          <Search mode="dark" />
         </motion.div>
 
       </div>
