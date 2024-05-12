@@ -7,7 +7,7 @@ const Guidelines = () => {
   return (
     <>
       <Navbar />
-      <div className="h-16 w-screen md:h-8"></div>
+      <div className="h-16 md:h-8"></div>
       <div className="flex flex-col items-center min-h-full">
         <section className="mx-auto w-[100%] h-full max-w-[1400px] lg:w-[70%] px-4 py-8 overflow-y-auto">
           <div className="text-xl text-black">

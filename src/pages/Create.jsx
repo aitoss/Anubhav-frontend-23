@@ -19,6 +19,7 @@ const Create = () => {
   const inputRef = useRef();
 
   const [file, setFile] = useState(null);
+  const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,38 +42,63 @@ const Create = () => {
     setValue({ ...value, [e.target.name]: e.target.value })
   }
 
-  const UploadFile = () => {
+  const UploadFile = async() => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
+    console.log(file)
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try{
+      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587" , formData);
+      console.log("Response form image cloud" , response);
+      setbannerImage(response.data.data.display_url);
+    } catch (error){
+      console.log("Error uploading image: " , error);
+    }
   }
+
+  useEffect(() => {
+    console.log("Banner Image" , bannerImage)
+  }, [bannerImage]);
 
   const publishPost = async () => {
     if (article === "") {
       addError('Article cannot be empty');
       return;
     }
+
+    // console.log(bannerImage)
+
+    if (!file) {
+      addError('Please upload a banner image');
+      return;
+    }
     setIsLoading(true);
     try {
       // TODO: implement after view blogs is complete
-      // const response = await axios.post(BACKEND_URL+'/blogs', {
-      //   title: "test141",
-      //   authorName: value.name,
-      //   authorEmailId: value.email,
-      //   companyName: value.company,
-      //   role: value.position,
-      //   articleTags: tags,
-      //   article: article,
-      // });
-      // setIsLoading(false);
-      // const id = response.data.createArticle._id;
-      // console.log('Post published:', response.data);
-      // navigate('/blog/'+id);
+      const response = await axios.post(BACKEND_URL+'/blogs', {
+        title: "latest tets here", // TODO: add new field article title
+        authorName: value.name,
+        authorEmailId: value.email,
+        companyName: value.company,
+        role: value.position,
+        articleTags: tags, // TODO: Tags are not being added
+        article: article,
+        image:bannerImage
+      });
+      setIsLoading(false);
+      const id = response.data.createArticle._id;
+      console.log('Post published:', response.data);
+      navigate('/blog/'+id);
     }
     catch (error) {
       console.error('Error publishing post:', error);
       setIsLoading(false);
     }
   };
+  
 
 
   const [companySuggestions, setCompanySuggestions] = useState([]);
@@ -147,7 +173,7 @@ const Create = () => {
       <Navbar />
 
       <div
-        className="flex flex-col gap-3 items-center mx-auto pt-16"
+        className="flex flex-col gap-3 items-center mx-auto pt-16 max-w-[1440px]"
         style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}

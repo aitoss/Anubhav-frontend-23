@@ -12,9 +12,9 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      <div className="bg-[#212121] flex justify-center items-center w-full pt-10 px-3 max-w-[1540px]">
+      <div className="bg-[#212121] flex justify-center items-center w-full pt-10 px-3 ">
 
-        <div className="bg-[#212121] w-full bottom-0  space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9]">
+        <div className="bg-[#212121] w-full bottom-0  space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9] max-w-[1540px]">
           <div className=" main-footer sm:px-0 bg-[#212121] px-16 lg:px-8 text-left lg:flex-row justify-between lg:justify-between flex sm:flex-row x-sm:flex-col items-start text-[#D9D9D9] ">
             <div className="relative z-0 lg:ml-12   ">
               <div className="z-40 text-[#f0f0f0] font-[400] tracking-wide py-1 text-[32px]">Anubhav</div>
