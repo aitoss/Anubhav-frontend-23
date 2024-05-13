@@ -7,12 +7,20 @@ import { motion } from 'framer-motion';
 import logo from '../../assets/images/logo.svg';
 import MobileNav from './MobileNav';
 import './Navbar.css';
+import Search from '../Search/Search';
+import SearchModal from '../Search/SearchModal';
 
-const Navbar = () => {
+const NavbarMini = () => {
     const [isOpen, setIsOpen] = useState(false) //for hamburger menu
-    const [MobileNavOpen, setMobileNavOpen] = useState(false);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
+    const [MobileNavOpen, setMobileNavOpen] = useState(false); //for mobile nav
+    const [prevScrollPos, setPrevScrollPos] = useState(0); //for navbar hide on scroll
+    const [visible, setVisible] = useState(true); //for navbar hide on scroll
+    const [searchMobile, setSearchMobile] = useState(false); //for search modal
+
+    const closeSearchModal = () => {
+        setSearchMobile(false);
+    }
+
 
     const handleClick = () => {
         setMobileNavOpen(!MobileNavOpen);
@@ -34,6 +42,11 @@ const Navbar = () => {
         setPrevScrollPos(currentScrollPos);
     };
 
+    const openSearchMobile = () => {
+        setSearchMobile(true);
+    }
+
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -41,23 +54,23 @@ const Navbar = () => {
         };
     }, [prevScrollPos]);
 
-    const navClasses = `bg-[#ffffffcc] bg-blur border-b fixed item-center justify-center h-[60px] p-3 flex w-screen text-black z-40 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
+    const navClasses = `rrelative bg-[#ffffffcc] bg-blur border-b fixed item-center justify-center h-[60px] p-3 flex w-screen text-black z-40 transition-transform transform ${visible ? 'translate-y-0' : '-translate-y-full'
         }`;
 
     return (
         <>
             {/* <div className="flex flex-col"> */}
-
+            {searchMobile && <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1} />}
             <nav className={navClasses} aria-label="Global">
-
-
                 <div className="flex md:hidden w-full h-full justify-between items-center max-w-[1400px] m-auto">
                     <div className="flex w-full items-center justify-between px-1 lg:px-8">
-                        <Link to="/" className="p-2">
-                            <img className="w-10" src={logo} alt="" />
-                        </Link>
                         <div className="flex justify-center items-center gap-2">
-
+                            <Link to="/" className="p-2">
+                                <img className="w-10" src={logo} alt="" />
+                            </Link>
+                            <Search mode="light" />
+                        </div>
+                        <div className="flex justify-center items-center gap-2">
                             <NavLink to="/request">
                                 <h5 className="hover:underline font-[400] text-[16px] -tracking-[0.2px] px-2 py-1">
                                     Request Article
@@ -85,9 +98,36 @@ const Navbar = () => {
                     <Link to="/" className="p-2">
                         <img className="w-10" src={logo} alt="" />
                     </Link>
-                    <div className="items-center justify-center p-0 m-0 z-50 md:flex hidden text-white transition-all" onClick={handleClick}>
-                        {/* {click ? <FaTimes /> : <CiMenuFries />} */}
-                        <Hamburger direction="right" color="#212121" size={32} toggled={isOpen} toggle={setIsOpen} />
+                    <div className="flex items-center justify-center gap-2">
+
+                        <div onClick={() => { openSearchMobile() }} className=" h-[28px] w-[28px] border-[1.5px] bg-[#f8f8f8] border-[#d9d9d9] rounded-lg p-1 cursor-pointer  flex justify-center items-center ">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 33 33"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z"
+                                    stroke="#b9b9b9"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M29.8333 29.9842L27.1666 27.3175"
+                                    stroke="#b9b9b9"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </div>
+                        <div className="items-center justify-center p-0 m-0 z-50 md:flex hidden text-white transition-all" onClick={handleClick}>
+                            {/* {click ? <FaTimes /> : <CiMenuFries />} */}
+                            <Hamburger direction="right" color="#212121" size={32} toggled={isOpen} toggle={setIsOpen} />
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -97,4 +137,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavbarMini;
