@@ -11,11 +11,23 @@ import Search from '../Search/Search';
 import SearchModal from '../Search/SearchModal';
 
 const NavbarMini = () => {
+    const [OpenSearchModal, setOpenSearchModal] = useState(false); //for search modal
     const [isOpen, setIsOpen] = useState(false) //for hamburger menu
-    const [MobileNavOpen, setMobileNavOpen] = useState(false);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
-    const [searchMobile, setSearchMobile] = useState(false);
+    const [MobileNavOpen, setMobileNavOpen] = useState(false); //for mobile nav
+    const [prevScrollPos, setPrevScrollPos] = useState(0); //for navbar hide on scroll
+    const [visible, setVisible] = useState(true); //for navbar hide on scroll
+    const [searchMobile, setSearchMobile] = useState(false); //for search modal
+
+    useEffect(() => {
+        if (OpenSearchModal) {
+    
+        }
+      }, [OpenSearchModal])
+      
+      const closeSearchModal = () => {
+        setOpenSearchModal(false);
+      }
+    
 
     const handleClick = () => {
         setMobileNavOpen(!MobileNavOpen);
@@ -54,7 +66,7 @@ const NavbarMini = () => {
     return (
         <>
             {/* <div className="flex flex-col"> */}
-            {searchMobile && <SearchModal />}
+            {searchMobile && <SearchModal  closeSearchModal={closeSearchModal} focus={1} full={1}  />}
             <nav className={navClasses} aria-label="Global">
                 <div className="flex md:hidden w-full h-full justify-between items-center max-w-[1400px] m-auto">
                     <div className="flex w-full items-center justify-between px-1 lg:px-8">

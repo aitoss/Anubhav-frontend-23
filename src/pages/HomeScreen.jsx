@@ -28,6 +28,7 @@ export default function HomeScreen() {
 
     }
   }, [OpenSearchModal])
+
   const closeSearchModal = () => {
     setOpenSearchModal(false);
   }
@@ -108,7 +109,7 @@ export default function HomeScreen() {
 
   return (
     <>
-      {OpenSearchModal && <SearchModal closeSearchModal={closeSearchModal} />}
+      {OpenSearchModal && <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1}   />}
       {/* <div className="h-16 w-screen md:h-8 pt-20"></div> */}
       <div
         className="relative flex flex-col w-full pt-20 lg:pb-20 justify-center items-center"

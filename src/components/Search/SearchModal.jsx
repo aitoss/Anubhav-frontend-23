@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion';
 import Search from './Search';
 
-const SearchModal = ({ closeSearchModal }) => {
+const SearchModal = ({ closeSearchModal, focus, full }) => {
 
 
   const handleClose = (e) => {
@@ -21,7 +21,7 @@ const SearchModal = ({ closeSearchModal }) => {
           exit={{ opacity: 0, translateY: 100 }}
           transition={{ duration: 0.15 }}
         >
-          <Search mode="dark" />
+          <Search mode="dark" focus={focus} full={full} />
         </motion.div>
 
       </div>

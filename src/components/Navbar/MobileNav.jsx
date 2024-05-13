@@ -17,7 +17,7 @@ const MobileNav = ({ isOpen }) => {
     return (
         <>
 
-            <div className={`z-50 fixed top-[70px] bg-[#ffffffbb] bg-blur w-full shadow-lg shadow-[rgba(0,0,0,0.07)]`}>
+            <div className={`z-40 fixed top-[70px] bg-[#ffffffbb] bg-blur w-full shadow-lg shadow-[rgba(0,0,0,0.07)]`}>
                 <div className="flex flex-col justify-center  border-b pb-2">
                     <NavLink className=" p-4 text-center hover:bg-[#00000012]" to="/guidelines">
                         <motion.div

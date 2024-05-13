@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import SearchModal from './SearchModal';
 
-const Search = ({ mode }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Search = ({ mode, focus, full }) => {
+  const [isExpanded, setIsExpanded] = useState(full);
   const [searchText, setSearchText] = useState('');
   const [recentSearches, setRecentSearches] = useState([]);
   let inputRef = useRef(null);
@@ -16,7 +16,9 @@ const Search = ({ mode }) => {
   ]
 
   useEffect(() => {
-    // inputRef.current.focus();
+    if(focus){
+      inputRef.current.focus();
+    }
     const handleKeyDown = (event) => {
       // Check if Cmd key is pressed on Mac or Ctrl key on other platforms
       if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
@@ -58,7 +60,7 @@ const Search = ({ mode }) => {
       setRecentSearches(limitedSearches); // Update the recent searches state
       setSearchText(''); // Clear the search input
     }
-    
+
   };
 
   const handleClose = (event) => {
@@ -116,7 +118,7 @@ const Search = ({ mode }) => {
             </div>
             <input
               ref={inputRef}
-              className="bg-[#212121] text-[#ffffffcc]  w-[450px] md:w-[280px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
+              className="bg-[#212121] text-[#ffffffcc]  w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
               type="text"
               placeholder="Search for your Dreams.."
               value={searchText}
@@ -159,7 +161,7 @@ const Search = ({ mode }) => {
       </>
     )
   }
-  else{
+  else {
     return (
       <>
         {/* search field */}
