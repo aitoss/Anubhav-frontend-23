@@ -18,7 +18,7 @@ const Create = () => {
   const navigate = useNavigate();
   const inputRef = useRef();
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("6541");
   const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -153,7 +153,7 @@ const Create = () => {
               <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
             )}
           </p>
-          {file && <button className=" relative p-[10px] py-0 bottom-2 border-transparent" onClick={() => setFile(null)}>Cancle</button>}
+          {file && <div className="h-[24px] text-[#212121] hover:border-b border-black py-0 cursor-pointer border-transparent flex items-center gap-1" onClick={() => setFile(null)}>Remove <span className="text-2xl">×</span></div>}
           {/* </div> */}
           <input
             type="file"
