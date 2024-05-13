@@ -60,7 +60,7 @@ const Navbar = () => {
 
                             <NavLink to="/request">
                                 <h5 className="hover:underline font-[400] text-[16px] -tracking-[0.2px] px-2 py-1">
-                                    Request Article
+                                    Request
                                 </h5>
                             </NavLink>
                             <Link to="/create" className="cursor-pointer hover:text-[#313131] ">

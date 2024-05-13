@@ -70,7 +70,7 @@ const Inputtag = ({ setTags, tags }) => {
                 onClick={() => handleTagDelete(index)}
                 className="cursor-pointer ml-1"
               >
-                <RxCross1 className="h-[14px] items-center" />
+                <RxCross1 className="h-[14px] items-center hover:text-white" />
               </span>
             </div>
           ))}
