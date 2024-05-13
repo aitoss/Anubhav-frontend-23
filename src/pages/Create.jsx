@@ -18,7 +18,7 @@ const Create = () => {
   const navigate = useNavigate();
   const inputRef = useRef();
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("6541");
   const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
