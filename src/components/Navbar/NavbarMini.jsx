@@ -11,23 +11,16 @@ import Search from '../Search/Search';
 import SearchModal from '../Search/SearchModal';
 
 const NavbarMini = () => {
-    const [OpenSearchModal, setOpenSearchModal] = useState(false); //for search modal
     const [isOpen, setIsOpen] = useState(false) //for hamburger menu
     const [MobileNavOpen, setMobileNavOpen] = useState(false); //for mobile nav
     const [prevScrollPos, setPrevScrollPos] = useState(0); //for navbar hide on scroll
     const [visible, setVisible] = useState(true); //for navbar hide on scroll
     const [searchMobile, setSearchMobile] = useState(false); //for search modal
 
-    useEffect(() => {
-        if (OpenSearchModal) {
-    
-        }
-      }, [OpenSearchModal])
-      
-      const closeSearchModal = () => {
-        setOpenSearchModal(false);
-      }
-    
+    const closeSearchModal = () => {
+        setSearchMobile(false);
+    }
+
 
     const handleClick = () => {
         setMobileNavOpen(!MobileNavOpen);
@@ -49,9 +42,10 @@ const NavbarMini = () => {
         setPrevScrollPos(currentScrollPos);
     };
 
-    const handleSearchMobile = () => {
-        setSearchMobile(!searchMobile);
+    const openSearchMobile = () => {
+        setSearchMobile(true);
     }
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -66,7 +60,7 @@ const NavbarMini = () => {
     return (
         <>
             {/* <div className="flex flex-col"> */}
-            {searchMobile && <SearchModal  closeSearchModal={closeSearchModal} focus={1} full={1}  />}
+            {searchMobile && <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1} />}
             <nav className={navClasses} aria-label="Global">
                 <div className="flex md:hidden w-full h-full justify-between items-center max-w-[1400px] m-auto">
                     <div className="flex w-full items-center justify-between px-1 lg:px-8">
@@ -106,7 +100,7 @@ const NavbarMini = () => {
                     </Link>
                     <div className="flex items-center justify-center gap-2">
 
-                        <div onClick={() => { handleSearchMobile() }} className=" h-[28px] w-[28px] border-[1.5px] bg-[#f8f8f8] border-[#d9d9d9] rounded-lg p-1 cursor-pointer  flex justify-center items-center ">
+                        <div onClick={() => { openSearchMobile() }} className=" h-[28px] w-[28px] border-[1.5px] bg-[#f8f8f8] border-[#d9d9d9] rounded-lg p-1 cursor-pointer  flex justify-center items-center ">
                             <svg
                                 width="16"
                                 height="16"
