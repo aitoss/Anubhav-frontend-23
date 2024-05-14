@@ -18,6 +18,7 @@ li {
 .active {
     color: #212121;
     text-decoration: underline;
+    /* display: inline-block; */
 }
 .bg-blur {
     backdrop-filter: blur(12px);

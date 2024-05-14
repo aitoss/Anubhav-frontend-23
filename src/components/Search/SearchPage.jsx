@@ -53,25 +53,34 @@ const SearchPage = () => {
                                 <path d="M10.93 2.1001L6 10.0001" stroke="#616161" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <BlogCard Title="Google STEP Internship"
+                        <BlogCard
+                            link="/create"
+                            Title="Google STEP Internship"
+                            imagesrc="https://images.unsplash.com/photo-1634170380004-4b3b3b3b3b3b"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
                             date="21/12/2022"
                         />
-                        <BlogCard Title="Google STEP Internship"
+                        <BlogCard
+                            link="/create"
+                            Title="Google STEP Internship"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
                             date="21/12/2022"
                         />
-                        <BlogCard Title="Google STEP Internship"
+                        <BlogCard
+                            link="/create"
+                            Title="Google STEP Internship"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
                             date="21/12/2022"
                         />
-                        <BlogCard Title="Google STEP Internship"
+                        <BlogCard
+                            link="/create"
+                            Title="Google STEP Internship"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}

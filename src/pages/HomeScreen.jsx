@@ -201,7 +201,7 @@ export default function HomeScreen() {
             <Slider />
           </motion.div>
         </div>
-      </div >
+      </div>
 
     </>
   );

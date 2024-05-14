@@ -7,53 +7,48 @@ import { CiHeart } from "react-icons/ci";
 import user3 from '../../assets/images/user3.png'
 
 
-const BlogCard = ({ Title, author, company, readingTime, date }) => {
+const BlogCard = ({ link, Title,imagesrc, author, company, readingTime, date }) => {
     return (
         <>
-            <div className="flex w-full h-full justify-center items-center border-b p-1 pb-4">
-                <Link to="/" >
-                    <div className="w-62 sm:w-12 md:w-48 lg:w-80 rounded-lg overflow-hidden">
-                        <img src={companyImage} alt="Amazon" />
+            <Link to={link} className="pb-2 border-b" >
+                <div className="flex w-full h-full justify-center items-center gap-4 p-1">
+                    <div className=" rounded-lg overflow-hidden">
+                        <img className='lg:w-[440px] x-sm:w-[240px] h-full' src={imagesrc} alt="Amazon" />
                     </div>
-                </Link>
-
-                <div className="data items-start lg:justify-start justify-between h-full flex-col p-4 md:mt-0 w-full  ">
-                    <div className="heading">
-                        <a className="text-xl lg:text-3xl font-[500] text-gray-700 hover:text-gray-800 truncate">
+                    <div className="data flex items-start lg:justify-start justify-between h-full flex-col w-full lg:gap-2 gap-4 x-sm:gap-1  ">
+                        <h1 className="text-[24px] sm:text-[20px] font-[500] x-sm:text-[16px] text-gray-700 hover:text-gray-800">
                             {Title}
-                        </a>
-                    </div>
-
-                    <div className="lg:text-base text-[14px] ">
-                        <div className="author flex items-center py-2">
-                            <img src={user3} className="rounded-full w-8 h-8 mr-2" alt="User Avatar" />
-                            <div className="flex items-center gap-2">
-                                <a href="#" className="font-[400] hover:text-gray-600 text-gray-700">
-                                    {author}
-                                </a>
-                                <span className="text-[#a0a0a0] font-[400]">|</span>
-                                <a href="#" className="font-[400] text-gray-500">
-                                    {company}
-                                </a>
+                        </h1>
+                        <div className="author flex items-center gap-2">
+                            <img src={user3} className="rounded-full w-6 h-6 x-sm:w-5 x-sm:h-5 mr-2" alt="User Avatar" />
+                            <a href="#" className="font-[400] x-sm:text-[13px]  hover:text-gray-600 text-gray-700 hover:underline">
+                                {author}
+                            </a>
+                            <span className="text-[#a0a0a0] font-[400]">|</span>
+                            <a href="#" className="font-[400] x-sm:text-[13px] text-gray-500">
+                                {company}
+                            </a>
+                        </div>
+                        <p className="font-[300] text-[#616161] h-[50px] overflow-ellipsis line-clamp-2 justify-center">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?
+                        </p>
+                        <div className="md:hidden flex justify-between w-full items-center">
+                            <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{date}</h2>
+                            <div className="flex gap-2">
+                                <CiHeart color="#888888" />
+                                <CiBookmark color="#888888" />
                             </div>
                         </div>
                     </div>
-                    <div className="lorem-container text-black lg:py-3 justify-center">
-                    </div>
-                    <div className="flex justify-between w-full items-center">
-                        <p className="text-gray-500 "><span className='md:hidden'>{readingTime} mins read • </span>{date}</p>
-                        <div className="flex gap-3 ml-auto">
-                            <a href="#">
-                                <CiHeart color="#888888" />
-                            </a>
-                            <a href="#">
-                                <CiBookmark color="#888888" />
-                            </a>
-                        </div>
+                </div>
+                <div className="md:flex hidden justify-between w-full items-center px-4">
+                    <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{date}</h2>
+                    <div className="flex gap-2">
+                        <CiHeart color="#888888" />
+                        <CiBookmark color="#888888" />
                     </div>
                 </div>
-
-            </div>
+            </Link>
         </>
     )
 }
