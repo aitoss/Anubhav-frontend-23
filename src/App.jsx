@@ -15,13 +15,13 @@ import { useEffect, useState } from "react";
 import SearchPage from "./components/Search/SearchPage";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      setLoading(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("load", () => {
+  //     setLoading(false);
+  //   });
+  // }, []);
 
   return (
     <Routes>
@@ -29,11 +29,11 @@ const App = () => {
         path="/"
         element={
           <>
-            {loading ? (
+            {/* {loading ? (
               <div className="w-full flex justify-center h-screen items-center">
                 <Logo />
               </div>
-            ) : (
+            ) : ( */}
               <div className="flex flex-col mx-auto overflow-hidden">
                 <Navbar />
                 <HomeScreen />
@@ -43,7 +43,7 @@ const App = () => {
                   <Footer />
                 </div>
               </div>
-            )}
+            {/* )} */}
           </>
         }
       />

@@ -10,7 +10,7 @@ export default function Error404() {
     <>
       <Navbar />
       {/* <div className="h-16 w-screen md:h-12 pt-12"></div> */}
-      {/* <section className="w-[100%] h-[90vh] mx-auto flex flex-col justify-center place-items-center md:justify-center ">
+      <section className="w-[100%] h-[90vh] mx-auto flex flex-col justify-center place-items-center md:justify-center ">
         <div className="flex flex-col justify-center place-items-center gap-2 md:bottom-20">
           <motion.div
             initial={{ opacity: 0, translateY: 60 }}
@@ -52,8 +52,8 @@ export default function Error404() {
             </Link>
           </motion.div>
         </div>
-      </section> */}
-      <div className="w-full flex justify-center h-screen items-center"><Logo /></div>
+      </section>
+      {/* <div className="w-full flex justify-center h-screen items-center"><Logo /></div> */}
     </>
   )
 }

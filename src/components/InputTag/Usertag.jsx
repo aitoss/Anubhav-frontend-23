@@ -61,14 +61,14 @@ const Inputtag = ({ setTags, tags }) => {
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex bg-[#212121] p-1 px-2 items-center rounded-full hover:bg-[#313131]"
+              className="flex bg-[#212121] px-2 items-center rounded-full hover:bg-[#313131] justify-center"
             >
               <span className="text-white font-light text-[20px] text-center text-base">
                 {tagItem}
               </span>
               <span
                 onClick={() => handleTagDelete(index)}
-                className="cursor-pointer ml-1"
+                className="cursor-pointer ml-1 text-white text-2xl"
               >
                 <RxCross1 className="h-[14px] items-center" />
               </span>

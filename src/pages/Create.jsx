@@ -18,7 +18,7 @@ const Create = () => {
   const navigate = useNavigate();
   const inputRef = useRef();
 
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("6541");
   const [bannerImage , setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -124,13 +124,12 @@ const Create = () => {
       <>
         < ErrorMessage error={error} />
 
-        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
+        <h3 className="text-[#212121] flex justify-start ml-3">Profile Image</h3>
         <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
 
           <div className="w-full flex justify-center ">
             <div
-              className="w-[106px] h-[106px]  flex justify-center rounded-full sm:w-24 sm:h-24"
-
+              className="w-[150px] h-[150px]  flex justify-center rounded-full sm:w-24 sm:h-24"
             >
               {file ? (
                 <img
@@ -153,7 +152,7 @@ const Create = () => {
               <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
             )}
           </p>
-          {file && <button className=" relative p-[10px] py-0 bottom-2 border-transparent" onClick={() => setFile(null)}>Cancle</button>}
+          {file && <button className=" relative p-[10px] py-0 bottom-2 border-transparent text-white" onClick={() => setFile(null)}>Cancle</button>}
           {/* </div> */}
           <input
             type="file"
@@ -255,6 +254,25 @@ const Create = () => {
                         <option value="FullTime">Full Time</option>
                         <option value="Interview-experience">Interview Experience</option>
                       </select>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3 md:gap-1">
+                  <h4 className="ml-3 text-gray-700">Title</h4>
+                  <div className="flex flex-col gap-2">
+
+                    <div className="relative flex flex-col gap-2">
+                    <div className="relative flex flex-col gap-2">
+                      <input required
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder="Blog Title"
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
+                    </div>
+              
                     </div>
 
                   </div>
