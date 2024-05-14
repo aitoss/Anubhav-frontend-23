@@ -56,7 +56,7 @@ const SearchPage = () => {
                         <BlogCard
                             link="/create"
                             Title="Google STEP Internship"
-                            imagesrc="https://images.unsplash.com/photo-1634170380004-4b3b3b3b3b3b"
+                            imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
@@ -65,6 +65,7 @@ const SearchPage = () => {
                         <BlogCard
                             link="/create"
                             Title="Google STEP Internship"
+                            imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
@@ -73,6 +74,7 @@ const SearchPage = () => {
                         <BlogCard
                             link="/create"
                             Title="Google STEP Internship"
+                            imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}
@@ -81,6 +83,7 @@ const SearchPage = () => {
                         <BlogCard
                             link="/create"
                             Title="Google STEP Internship"
+                            imagesrc={"https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"}
                             author="Kamakshi Dixit"
                             company="Google"
                             readingTime={20}

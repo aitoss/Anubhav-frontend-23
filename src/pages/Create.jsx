@@ -18,8 +18,8 @@ const Create = () => {
   const navigate = useNavigate();
   const inputRef = useRef();
 
-  const [file, setFile] = useState("6541");
-  const [bannerImage , setbannerImage] = useState(null);
+  const [file, setFile] = useState(null);
+  const [bannerImage, setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -42,7 +42,7 @@ const Create = () => {
     setValue({ ...value, [e.target.name]: e.target.value })
   }
 
-  const UploadFile = async() => {
+  const UploadFile = async () => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
     console.log(file)
@@ -50,17 +50,17 @@ const Create = () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    try{
-      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587" , formData);
-      console.log("Response form image cloud" , response);
+    try {
+      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587", formData);
+      console.log("Response form image cloud", response);
       setbannerImage(response.data.data.display_url);
-    } catch (error){
-      console.log("Error uploading image: " , error);
+    } catch (error) {
+      console.log("Error uploading image: ", error);
     }
   }
 
   useEffect(() => {
-    console.log("Banner Image" , bannerImage)
+    console.log("Banner Image", bannerImage)
   }, [bannerImage]);
 
   const publishPost = async () => {
@@ -78,7 +78,7 @@ const Create = () => {
     setIsLoading(true);
     try {
       // TODO: implement after view blogs is complete
-      const response = await axios.post(BACKEND_URL+'/blogs', {
+      const response = await axios.post(BACKEND_URL + '/blogs', {
         title: "latest tets here", // TODO: add new field article title
         authorName: value.name,
         authorEmailId: value.email,
@@ -86,19 +86,19 @@ const Create = () => {
         role: value.position,
         articleTags: tags, // TODO: Tags are not being added
         article: article,
-        image:bannerImage
+        image: bannerImage
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
       console.log('Post published:', response.data);
-      navigate('/blog/'+id);
+      navigate('/blog/' + id);
     }
     catch (error) {
       console.error('Error publishing post:', error);
       setIsLoading(false);
     }
   };
-  
+
 
 
   const [companySuggestions, setCompanySuggestions] = useState([]);
@@ -152,7 +152,7 @@ const Create = () => {
               <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
             )}
           </p>
-          {file && <button className=" relative p-[10px] py-0 bottom-2 border-transparent text-white" onClick={() => setFile(null)}>Cancle</button>}
+          {file && <div className="flex justify-center items-center gap-1 text-[#717171] border-[#fff] border-b hover:border-[#717171] h-[20px] cursor-pointer" onClick={() => setFile(null)}>Remove <span className="text-[24px]">×</span></div>}
           {/* </div> */}
           <input
             type="file"
@@ -264,15 +264,15 @@ const Create = () => {
                   <div className="flex flex-col gap-2">
 
                     <div className="relative flex flex-col gap-2">
-                    <div className="relative flex flex-col gap-2">
-                      <input required
-                        type="text"
-                        name="title"
-                        id="title"
-                        placeholder="Blog Title"
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
-                    </div>
-              
+                      <div className="relative flex flex-col gap-2">
+                        <input required
+                          type="text"
+                          name="title"
+                          id="title"
+                          placeholder="Blog Title"
+                          className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
+                      </div>
+
                     </div>
 
                   </div>

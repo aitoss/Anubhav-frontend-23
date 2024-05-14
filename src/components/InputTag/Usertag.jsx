@@ -7,7 +7,7 @@ import { BACKEND_URL } from "../../constants";
 
 //commit
 const Inputtag = ({ setTags, tags }) => {
-  
+
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
@@ -61,16 +61,16 @@ const Inputtag = ({ setTags, tags }) => {
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex bg-[#212121] px-2 items-center rounded-full hover:bg-[#313131] justify-center"
+              className="flex bg-[#f0f0f0] border px-2 items-center rounded-full hover:bg-[#e9e9e9] transition-all justify-center"
             >
-              <span className="text-white font-light text-[20px] text-center text-base">
+              <span className="text-[#212121] font-light text-[20px] text-center text-base">
                 {tagItem}
               </span>
               <span
                 onClick={() => handleTagDelete(index)}
-                className="cursor-pointer ml-1 text-white text-2xl"
+                className="cursor-pointer ml-1 text-2xl"
               >
-                <RxCross1 className="h-[14px] items-center" />
+                <RxCross1 className="h-[14px] text-[#919191] items-center" />
               </span>
             </div>
           ))}
