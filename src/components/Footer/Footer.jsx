@@ -28,7 +28,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#21212100] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Trending Stories
                 </Link>
@@ -36,7 +36,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#21212100] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Recent Stories
                 </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
 
                 <Link
                   to="/videos"
-                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#21212100] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] z-40 font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Popular Videos
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
 
                 <Link
                   to="/create"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Write Article
                 </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
 
                 <Link
                   to="/request"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Request Article
                 </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
 
                 <Link
                   to="/videos"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Video with us
                 </Link>
@@ -85,7 +85,7 @@ const Footer = () => {
 
                 <Link
                   to="/guidelines"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Guidelines
                 </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   Our Story
                 </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
 
                 <Link
                   to="/"
-                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] border-b-[1px] border-b-[#212121] hover:text-[#f0f0f0] hover:border-b hover:border-[#c1c1c1]"
+                  className="text-[#D9D9D9] font-[300] tracking-wide text-[16px] underline-none pl-1 hover:text-[#f0f0f0] hover:underline hover:border-[#c1c1c1]"
                 >
                   About us
                 </Link>

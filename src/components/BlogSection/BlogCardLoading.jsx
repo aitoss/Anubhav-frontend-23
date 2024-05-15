@@ -1,11 +1,11 @@
 import React from 'react'
 
-const BlogCardLoading = () => {
+const BlogCard = () => {
     return (
         <>
-            <div className="flex w-full h-full justify-center items-center gap-4 p-1 animate-pulse">
-                <div className='bg-[#e9e9e9] lg:w-[280px] w-[220px] md:w-[200px] x-sm:w-[150px] x-sm:h-[80px]  h-[120px] rounded-lg'></div>
-                <div className="data flex items-start lg:justify-start justify-between h-full flex-col w-full lg:gap-2 gap-2 x-sm:gap-1  ">
+            <div className="flex flex-row x-sm:flex-col  w-full h-full justify-center items-center gap-4 p-1 animate-pulse">
+                <div className='bg-[#e9e9e9] lg:w-[410px] h-[120px] lg:h-[150px] x-sm:h-[230px] md:h-[100px] w-[280px] md:w-[260px] x-sm:w-full rounded-lg'></div>
+                <div className="data flex items-start lg:justify-start justify-between h-full flex-col w-full lg:gap-4 gap-2 x-sm:gap-1  ">
                     <h1 className="text-[24px] bg-[#e9e9e9] x-sm:w-[100px]  w-[180px] h-[20px] sm:text-[20px] font-[500] x-sm:text-[16px] text-gray-700 hover:text-gray-800">
 
                     </h1>
@@ -35,4 +35,4 @@ const BlogCardLoading = () => {
     )
 }
 
-export default BlogCardLoading
+export default BlogCard

@@ -59,6 +59,7 @@ const SearchPage = () => {
                             imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
+                            data="lorem1 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
                             readingTime={20}
                             date="21/12/2022"
                         />
@@ -68,6 +69,7 @@ const SearchPage = () => {
                             imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
+                            data="lorem2 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
                             readingTime={20}
                             date="21/12/2022"
                         />
@@ -77,6 +79,7 @@ const SearchPage = () => {
                             imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
                             author="Kamakshi Dixit"
                             company="Google"
+                            data="lorem3 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
                             readingTime={20}
                             date="21/12/2022"
                         />
@@ -86,6 +89,7 @@ const SearchPage = () => {
                             imagesrc={"https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"}
                             author="Kamakshi Dixit"
                             company="Google"
+                            data="lorem4 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
                             readingTime={20}
                             date="21/12/2022"
                         />

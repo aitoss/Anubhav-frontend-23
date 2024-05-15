@@ -59,14 +59,14 @@ const Navbar = () => {
                         <div className="flex justify-center items-center gap-2">
 
                             <NavLink to="/request">
-                                <h5 className="hover:underline font-[400] text-[16px] -tracking-[0.2px] px-2 py-1">
-                                    Request
+                                <h5 className="hover:bg-[#e0e0e0] rounded-lg flex gap-1 font-[400] text-[#212121] text-[16px] -tracking-[0.2px] px-2 py-1">
+                                    Request <div className='x-sm:hidden block'>Article</div>
                                 </h5>
                             </NavLink>
                             <Link to="/create" className="cursor-pointer hover:text-[#313131] ">
                                 <div className="flex gap-2 p-1 justify-center items-center text-[16px] bg-[#212121] border border-[#121212] rounded-lg text-[#fff] font-[300] cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none transition-all">
-                                    <h5 className="font-[300] -tracking-[0.2px]">
-                                        Write Article
+                                    <h5 className="font-[300] -tracking-[0.2px] flex gap-1 ">
+                                        Write<div className='x-sm:hidden block'>Article</div>
                                     </h5>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M16 2H8C4 2 2 4 2 8V21C2 21.55 2.45 22 3 22H16C20 22 22 20 22 16V8C22 4 20 2 16 2Z" stroke="#f0f0f0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />

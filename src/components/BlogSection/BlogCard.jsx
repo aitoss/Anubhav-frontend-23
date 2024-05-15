@@ -7,13 +7,13 @@ import { CiHeart } from "react-icons/ci";
 import user3 from '../../assets/images/user3.png'
 
 
-const BlogCard = ({ link, Title, imagesrc, author, company, readingTime, date }) => {
+const BlogCard = ({ link, Title, imagesrc, author, company, data, readingTime, date }) => {
     return (
         <>
             <Link to={link} className="pb-2 border-b" >
-                <div className="flex w-full h-full justify-center items-center gap-4 p-1">
-                        <img className='lg:w-[280px] w-[220px] md:w-[200px] x-sm:w-[150px] h-full rounded-lg' src={imagesrc} alt="Amazon" />
-                    <div className="data flex items-start lg:justify-start justify-between h-full flex-col w-full lg:gap-2 gap-2 x-sm:gap-1  ">
+                <div className="flex flex-row x-sm:flex-col w-full h-full justify-center items-center gap-4 p-1">
+                    <img className='lg:w-[280px] w-[220px] md:w-[200px] x-sm:w-full h-full rounded-lg' src={imagesrc} alt="Amazon" />
+                    <div className="data flex items-start lg:justify-start justify-between h-full flex-col w-full lg:gap-2 gap-2 x-sm:gap-1 p-1  ">
                         <h1 className="text-[24px] sm:text-[20px] font-[500] x-sm:text-[16px] text-gray-700 hover:text-gray-800">
                             {Title}
                         </h1>
@@ -28,7 +28,7 @@ const BlogCard = ({ link, Title, imagesrc, author, company, readingTime, date })
                             </a>
                         </div>
                         <p className="font-[300] text-[#616161] h-[50px] overflow-ellipsis line-clamp-2 justify-center">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?
+                            {data} Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?
                         </p>
                         <div className="md:hidden flex justify-between w-full items-center">
                             <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{date}</h2>
