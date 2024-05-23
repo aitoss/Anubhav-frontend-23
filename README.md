@@ -1,6 +1,10 @@
 Welcome to the Anubhav Frontend repository! This project is part of the Anubhav web application and focuses on the frontend components and user interface.
 
+> [!NOTE]  
+> You can visit the backend for this project at [https://github.com/aitoss/oss-backend](OSS-Backend).
+
 ## About Anubhav
+![image](https://github.com/aitoss/Anubhav-frontend-23/assets/91362856/884ea575-8477-41c3-aa95-6a88504259a3)
 
 Anubhav: Experience Sharing Point (A-ESP) is a platform developed for AITians to read & share encounters of various interviews.
 
