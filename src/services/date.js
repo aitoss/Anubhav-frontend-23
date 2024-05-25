@@ -11,4 +11,11 @@ function formatDate(dateString) {
     return `${formattedDay}-${formattedMonth}-${year}`;
 }
 
-export {formatDate};
+function ReadTime(content) {
+    const wpm = 180;
+    const words = content.split(' ').length;
+    const minutes = Math.ceil(words / wpm);
+    return minutes;
+}
+
+export {formatDate, ReadTime};

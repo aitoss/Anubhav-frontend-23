@@ -5,6 +5,7 @@ import { htmlToText } from 'html-to-text';
 import { BACKEND_URL } from "../../constants";
 import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
+import { ReadTime } from "../../services/date";
 
 const BlogSection = () => {
   const [blogData, setBlogData] = useState([]);
@@ -48,7 +49,7 @@ const BlogSection = () => {
                 author={item.author.name}
                 company={item.companyName}
                 data={item.description}
-                readingTime={20}
+                readingTime={ReadTime(item.description)}
                 date={item.createdAt}
               />
             ))

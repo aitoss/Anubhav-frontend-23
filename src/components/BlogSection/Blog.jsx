@@ -18,6 +18,7 @@ import ReactQuill from "react-quill";
 import Articles from "./Articles";
 import { formatDate } from "../../services/date";
 import BlogCardLoading from "./BlogCardLoading";
+import { ReadTime } from "../../services/date";
 
 const Blog = () => {
 
@@ -25,12 +26,14 @@ const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [similarArticles, setSimilarArticles] = useState(null);
   const [timeStamp, setTimeStamp] = useState('');
+  let readingTime = 1;
 
   const fetchBlogData = async () => {
     const response = await axios.get(BACKEND_URL + '/blog/' + id);
     setBlogData(response.data)
     setTimeStamp(formatDate(response.data.createdAt))
     const article = response.data;
+    readingTime = ReadTime(article.description);
     await fetchSimilarBlogs(article.title, article.articleTags.join(',') ,article.companyName);
   }
 
@@ -66,7 +69,7 @@ const Blog = () => {
         <Author person={{ name: blogData?.author?.name, company: blogData?.companyName }} />
         <Tags data={blogData?.articleTags} ></Tags>
         <div className="flex pb-4 lg:gap-10 items-center">
-          <p className="text-gray-500">{`3 mins read • ${timeStamp}`}</p>
+          <p className="text-gray-500">{`${readingTime} mins read • ${timeStamp}`}</p>
           <div className="flex gap-3 ml-auto">
             <a href="#">
               <CiHeart color="#888888" />

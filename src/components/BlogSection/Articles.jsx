@@ -5,24 +5,29 @@ import company from '../../assets/images/company.png'
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { CleanHands } from '@mui/icons-material';
+import BlogCard from "./BlogCard";
 
+// TODO: upadte the view of similar articles
 const Articles = (props) => {
   const { similarArticles } = props;
   console.log(similarArticles)
-  console.log('first')
   return (
     <section className="">
-      <div className="container items-center  lg:p-6 p-1 w-full lg:mx-auto mt-12  lg:px-20">
+      <div className="container p-4 w-full lg:mx-auto mt-10">
         <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">Similar Articles</h1>
-        <div className="grid lg:grid-cols-2 gap-0.5">
-          {JSON.stringify(similarArticles)}
-          {Scroll()}
-          {Scroll()}
-          {Scroll()}
-          {Scroll()}
-          {Scroll()}
-          {Scroll()}
-        </div>
+        <br />
+        {similarArticles.map((item) => (
+          <BlogCard
+            link={`/blog/${item._id}`}
+            Title={item.title}
+            imagesrc={company}
+            author={item.author.name}
+            company={item.companyName}
+            data={item.description}
+            readingTime={ReadTime(item.description)}
+            date={item.createdAt}
+          />
+        ))}
       </div>
     </section>
 
