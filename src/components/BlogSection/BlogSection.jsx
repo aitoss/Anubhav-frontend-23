@@ -49,7 +49,7 @@ const BlogSection = () => {
                 company={item.companyName}
                 data={item.description}
                 readingTime={20}
-                date="21/12/2022"
+                date={item.createdAt}
               />
             ))
           )}

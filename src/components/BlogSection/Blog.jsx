@@ -16,6 +16,8 @@ import { useParams } from 'react-router-dom';
 import { BACKEND_URL } from "../../constants";
 import ReactQuill from "react-quill";
 import Articles from "./Articles";
+import { formatDate } from "../../services/date";
+import BlogCardLoading from "./BlogCardLoading";
 
 const Blog = () => {
 
@@ -23,19 +25,6 @@ const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [similarArticles, setSimilarArticles] = useState(null);
   const [timeStamp, setTimeStamp] = useState('');
-
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-  
-    // Pad the day and month with leading zeros if needed
-    const formattedDay = day < 10 ? '0' + day : day;
-    const formattedMonth = month < 10 ? '0' + month : month;
-  
-    return `${formattedDay}-${formattedMonth}-${year}`;
-  }
 
   const fetchBlogData = async () => {
     const response = await axios.get(BACKEND_URL + '/blog/' + id);
@@ -151,12 +140,18 @@ const Blog = () => {
             <ReactQuill value={blogData?.description} theme="bubble" readOnly className="w-full h-full" />
         </div>
       </div>
-    </div>{JSON.stringify(similarArticles)}
+    </div>
 
     {similarArticles ? (
         <Articles similarArticles={similarArticles} /> // Render Articles component when similarArticles is not null
     ) : (
-      <p>Loading...</p> // Render a loading indicator while data is being fetched
+      <>
+        <BlogCardLoading />
+        <BlogCardLoading />
+        <BlogCardLoading />
+        <BlogCardLoading />
+        <BlogCardLoading />
+      </>
     )}
 
     </div >

@@ -5,9 +5,12 @@ import Author from './_Child/Author';
 import { CiBookmark } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import user3 from '../../assets/images/user3.png'
+import ReactQuill from "react-quill";
+import { formatDate } from '../../services/date';
 
 
 const BlogCard = ({ link, Title, imagesrc, author, company, data, readingTime, date }) => {
+    const viewDate = formatDate(date);
     return (
         <>
             <Link to={link} className="pb-2 border-b" >
@@ -28,10 +31,11 @@ const BlogCard = ({ link, Title, imagesrc, author, company, data, readingTime, d
                             </a>
                         </div>
                         <p className="font-[300] text-[#616161] h-[50px] overflow-ellipsis line-clamp-2 justify-center">
-                            {data} Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?
+                            <ReactQuill className="preview-render" value={data} theme="bubble" readOnly/>
+                            {/* {data}  */}
                         </p>
                         <div className="md:hidden flex justify-between w-full items-center">
-                            <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{date}</h2>
+                            <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{viewDate}</h2>
                             <div className="flex gap-2">
                                 <CiHeart color="#888888" />
                                 <CiBookmark color="#888888" />
@@ -40,7 +44,7 @@ const BlogCard = ({ link, Title, imagesrc, author, company, data, readingTime, d
                     </div>
                 </div>
                 <div className="md:flex hidden justify-between w-full items-center px-4">
-                    <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{date}</h2>
+                    <h2 className="text-gray-500 font-[400] x-sm:text-[13px] "><span className='md:hidden'>{readingTime} mins read • </span>{viewDate}</h2>
                     <div className="flex gap-2">
                         <CiHeart color="#888888" />
                         <CiBookmark color="#888888" />
