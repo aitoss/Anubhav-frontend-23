@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Data from "./data";
-import { YOUTUBE_PLAYLIST } from '../constants'
-import Tag from "../components/InputTag/Tag";
+import React, {useState} from 'react';
+import Data from './data';
+import {YOUTUBE_PLAYLIST} from '../constants';
+import Tag from '../components/InputTag/Tag';
 
-//commit
+// commit
 
 const Videos = () => {
   const [info, setInfo] = useState(Data);
 
-  const YoutubeCards = ({ id, title, img, info }) => {
+  const YoutubeCards = ({id, title, img, info}) => {
     const [readMore, setReadMore] = useState(false);
 
     return (
@@ -36,7 +36,7 @@ const Videos = () => {
                   setReadMore(!readMore);
                 }}
               >
-                {readMore ? "read less" : "read more"}
+                {readMore ? 'read less' : 'read more'}
               </span>
             </p>
           </div>

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import company from "../../assets/images/company.png";
-import axios from "axios";
-import { htmlToText } from 'html-to-text';
-import { BACKEND_URL } from "../../constants";
-import BlogCard from "./BlogCard";
-import BlogCardLoading from "./BlogCardLoading";
-import { ReadTime } from "../../services/date";
+import {useState, useEffect} from 'react';
+import company from '../../assets/images/company.png';
+import axios from 'axios';
+import {htmlToText} from 'html-to-text';
+import {BACKEND_URL} from '../../constants';
+import BlogCard from './BlogCard';
+import BlogCardLoading from './BlogCardLoading';
+import {ReadTime} from '../../services/date';
 
 const BlogSection = () => {
   const [blogData, setBlogData] = useState([]);
@@ -23,7 +23,7 @@ const BlogSection = () => {
   };
 
   useEffect(() => {
-    fetchBlogData()
+    fetchBlogData();
   }, []);
 
   return (
@@ -61,6 +61,5 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-
 
 

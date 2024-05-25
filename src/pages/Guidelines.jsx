@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/Navbar";
+import React from 'react';
+import {motion} from 'framer-motion';
+import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar/Navbar';
 
 const Guidelines = () => {
   return (
@@ -12,10 +12,10 @@ const Guidelines = () => {
         <section className="mx-auto w-[100%] h-full max-w-[1400px] lg:w-[70%] px-4 py-8 overflow-y-auto">
           <div className="text-xl text-black">
             <motion.div
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 100 }}
-              transition={{ duration: 0.15, delay: 0.05 }}
+              initial={{opacity: 0, translateY: 10}}
+              animate={{opacity: 1, translateY: 0}}
+              exit={{opacity: 0, translateY: 100}}
+              transition={{duration: 0.15, delay: 0.05}}
             >
               <h1 className="text-4xl lg:py-8 font-semibold text-center text-black">
 
@@ -23,10 +23,10 @@ const Guidelines = () => {
               </h1>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 100 }}
-              transition={{ duration: 0.15, delay: 0.07 }}
+              initial={{opacity: 0, translateY: 10}}
+              animate={{opacity: 1, translateY: 0}}
+              exit={{opacity: 0, translateY: 100}}
+              transition={{duration: 0.15, delay: 0.07}}
             >
 
               <p>
@@ -39,10 +39,10 @@ const Guidelines = () => {
             </motion.div>
             <br />
             <motion.div
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 100 }}
-              transition={{ duration: 0.15, delay: 0.1 }}
+              initial={{opacity: 0, translateY: 10}}
+              animate={{opacity: 1, translateY: 0}}
+              exit={{opacity: 0, translateY: 100}}
+              transition={{duration: 0.15, delay: 0.1}}
             >
 
               <h2 className="text-black text-2xl lg:pb-4 font-semibold">
@@ -51,10 +51,10 @@ const Guidelines = () => {
             </motion.div>
             <ul>
               <motion.div
-                initial={{ opacity: 0, translateY: 10 }}
-                animate={{ opacity: 1, translateY: 0 }}
-                exit={{ opacity: 0, translateY: 100 }}
-                transition={{ duration: 0.15, delay: 0.12 }}
+                initial={{opacity: 0, translateY: 10}}
+                animate={{opacity: 1, translateY: 0}}
+                exit={{opacity: 0, translateY: 100}}
+                transition={{duration: 0.15, delay: 0.12}}
               >
 
                 <li>
@@ -63,10 +63,10 @@ const Guidelines = () => {
                 </li>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, translateY: 10 }}
-                animate={{ opacity: 1, translateY: 0 }}
-                exit={{ opacity: 0, translateY: 100 }}
-                transition={{ duration: 0.15, delay: 0.14 }}
+                initial={{opacity: 0, translateY: 10}}
+                animate={{opacity: 1, translateY: 0}}
+                exit={{opacity: 0, translateY: 100}}
+                transition={{duration: 0.15, delay: 0.14}}
               >
 
                 <li>
@@ -76,10 +76,10 @@ const Guidelines = () => {
                 </li>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, translateY: 10 }}
-                animate={{ opacity: 1, translateY: 0 }}
-                exit={{ opacity: 0, translateY: 100 }}
-                transition={{ duration: 0.15, delay: 0.14 }}
+                initial={{opacity: 0, translateY: 10}}
+                animate={{opacity: 1, translateY: 0}}
+                exit={{opacity: 0, translateY: 100}}
+                transition={{duration: 0.15, delay: 0.14}}
               >
 
                 <li>
@@ -89,20 +89,20 @@ const Guidelines = () => {
               </motion.div>
             </ul>
             <motion.div
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 100 }}
-              transition={{ duration: 0.15, delay: 0.17 }}
+              initial={{opacity: 0, translateY: 10}}
+              animate={{opacity: 1, translateY: 0}}
+              exit={{opacity: 0, translateY: 100}}
+              transition={{duration: 0.15, delay: 0.17}}
             >
               <h2 className="text-black text-2xl lg:pt-8 lg:pb-4 font-semibold">
                 How to write Article:
               </h2>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 100 }}
-              transition={{ duration: 0.15, delay: 0.2 }}
+              initial={{opacity: 0, translateY: 10}}
+              animate={{opacity: 1, translateY: 0}}
+              exit={{opacity: 0, translateY: 100}}
+              transition={{duration: 0.15, delay: 0.2}}
             >
 
               <p className="py-2">
@@ -114,10 +114,10 @@ const Guidelines = () => {
             <div className="lg:ml-8 p-3 lg:p-0">
               <ul className="list-decimal">
                 <motion.div
-                  initial={{ opacity: 0, translateY: 10 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  exit={{ opacity: 0, translateY: 100 }}
-                  transition={{ duration: 0.15, delay: 0.22 }}
+                  initial={{opacity: 0, translateY: 10}}
+                  animate={{opacity: 1, translateY: 0}}
+                  exit={{opacity: 0, translateY: 100}}
+                  transition={{duration: 0.15, delay: 0.22}}
                 >
 
                   <li>
@@ -126,10 +126,10 @@ const Guidelines = () => {
                   </li>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, translateY: 10 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  exit={{ opacity: 0, translateY: 100 }}
-                  transition={{ duration: 0.15, delay: 0.24 }}
+                  initial={{opacity: 0, translateY: 10}}
+                  animate={{opacity: 1, translateY: 0}}
+                  exit={{opacity: 0, translateY: 100}}
+                  transition={{duration: 0.15, delay: 0.24}}
                 >
 
                   <li>
@@ -140,19 +140,19 @@ const Guidelines = () => {
                   </li>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, translateY: 10 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  exit={{ opacity: 0, translateY: 100 }}
-                  transition={{ duration: 0.15, delay: 0.26 }}
+                  initial={{opacity: 0, translateY: 10}}
+                  animate={{opacity: 1, translateY: 0}}
+                  exit={{opacity: 0, translateY: 100}}
+                  transition={{duration: 0.15, delay: 0.26}}
                 >
 
                   <li>Add relevant tags related to your company and field.</li>
                 </motion.div>
                 <motion.div
-                  initial={{ opacity: 0, translateY: 10 }}
-                  animate={{ opacity: 1, translateY: 0 }}
-                  exit={{ opacity: 0, translateY: 100 }}
-                  transition={{ duration: 0.15, delay: 0.28 }}
+                  initial={{opacity: 0, translateY: 10}}
+                  animate={{opacity: 1, translateY: 0}}
+                  exit={{opacity: 0, translateY: 100}}
+                  transition={{duration: 0.15, delay: 0.28}}
                 >
 
                   <li>

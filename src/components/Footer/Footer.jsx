@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   RiTwitterXLine,
   RiLinkedinFill,
   RiInstagramFill,
   RiDiscordFill,
-} from "react-icons/ri";
-import { Link } from "react-router-dom";
-import Anubhav from "../../assets/images/Anubhav-3d.png";
-import "./Footer.css";
+} from 'react-icons/ri';
+import {Link} from 'react-router-dom';
+import Anubhav from '../../assets/images/Anubhav-3d.png';
+import './Footer.css';
 
 const Footer = () => {
   return (
@@ -20,7 +20,7 @@ const Footer = () => {
               <div className="z-40 text-[#f0f0f0] font-[400] tracking-wide py-1 text-[32px]">Anubhav</div>
               <div className="z-40 text-[#D9D9D9] lg:text-left text-base">@2024 OSS Club All</div>
               <div className="z-40 text-[#D9D9D9] lg:text-left text-base">Rights reserved</div>
-              <img className="-z-20 absolute x-sm:hidden scale-150 lg:-top-4 lg:left-28 " draggable="false" src={Anubhav} alt="" srcset="" />
+              <img className="-z-20 absolute x-sm:hidden scale-150 lg:-top-4 lg:left-28 " draggable="false" src={Anubhav} alt="" srcSet="" />
             </div>
             <div className="flex lg:flex-row flex-col my-auto gap-[5px] lg:gap-[90px]">
               <div className="flex flex-col gap-1 ">

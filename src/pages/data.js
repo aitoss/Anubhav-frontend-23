@@ -21,7 +21,7 @@ const Data = [
     img: img3,
     title: 'Talk with Bhupendra',
     info: 'In this first episode of Anubhav video interview series , we have Bhupendra Yadav, of class 2021. He has shared his college experience, coding journey and preparation strategy for juniors. Do give it a watch. 😄',
-  }
+  },
 
 ];
 

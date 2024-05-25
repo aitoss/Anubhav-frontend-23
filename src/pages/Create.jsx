@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import Inputtag from "../components/InputTag/Usertag";
-import TextEditor from "../components/Editor/TextEditor";
-import { FiUploadCloud } from "react-icons/fi";
-import DragDropFiles from "../components/Editor/Drag";
-import background2 from "../assets/dots-pattern.svg"
-import Footer from "../components/Footer/Footer";
-import Upload from "../assets/images/upload.svg";
-import { Link } from "react-router-dom";
-import { UploadFile } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { BACKEND_URL } from "../constants";
-import ErrorMessage from "../components/notification/ErrorMessage";
+import React, {useState, useRef, useEffect} from 'react';
+import Navbar from '../components/Navbar/Navbar';
+import Inputtag from '../components/InputTag/Usertag';
+import TextEditor from '../components/Editor/TextEditor';
+import {FiUploadCloud} from 'react-icons/fi';
+import DragDropFiles from '../components/Editor/Drag';
+import background2 from '../assets/dots-pattern.svg';
+import Footer from '../components/Footer/Footer';
+import Upload from '../assets/images/upload.svg';
+import {Link} from 'react-router-dom';
+import {UploadFile} from '@mui/icons-material';
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import {BACKEND_URL} from '../constants';
+import ErrorMessage from '../components/notification/ErrorMessage';
 
 const Create = () => {
   const navigate = useNavigate();
@@ -23,12 +23,12 @@ const Create = () => {
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [article, setArticle] = useState("");
+  const [article, setArticle] = useState('');
   const [value, setValue] = useState({
-    name: "",
-    email: "",
-    company: "",
-    position: "",
+    name: '',
+    email: '',
+    company: '',
+    position: '',
   });
 
   const addError = (message) => {
@@ -39,32 +39,32 @@ const Create = () => {
   };
 
   const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value })
-  }
+    setValue({...value, [e.target.name]: e.target.value});
+  };
 
   const UploadFile = async () => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
-    console.log(file)
+    console.log(file);
 
     const formData = new FormData();
-    formData.append("image", file);
+    formData.append('image', file);
 
     try {
-      const response = await axios.post("https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587", formData);
-      console.log("Response form image cloud", response);
+      const response = await axios.post('https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587', formData);
+      console.log('Response form image cloud', response);
       setbannerImage(response.data.data.display_url);
     } catch (error) {
-      console.log("Error uploading image: ", error);
+      console.log('Error uploading image: ', error);
     }
-  }
+  };
 
   useEffect(() => {
-    console.log("Banner Image", bannerImage)
+    console.log('Banner Image', bannerImage);
   }, [bannerImage]);
 
   const publishPost = async () => {
-    if (article === "") {
+    if (article === '') {
       addError('Article cannot be empty');
       return;
     }
@@ -79,37 +79,34 @@ const Create = () => {
     try {
       // TODO: implement after view blogs is complete
       const response = await axios.post(BACKEND_URL + '/blogs', {
-        title: "latest tets here", // TODO: add new field article title
+        title: 'latest tets here', // TODO: add new field article title
         authorName: value.name,
         authorEmailId: value.email,
         companyName: value.company,
         role: value.position,
         articleTags: tags, // TODO: Tags are not being added
         article: article,
-        image: bannerImage
+        image: bannerImage,
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
       console.log('Post published:', response.data);
       navigate('/blog/' + id);
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error publishing post:', error);
       setIsLoading(false);
     }
   };
 
 
-
   const [companySuggestions, setCompanySuggestions] = useState([]);
 
   useEffect(() => {
-
     const fetchCompanySuggestions = async () => {
       try {
         const response = await axios.get(BACKEND_URL + '/companies');
         setCompanySuggestions(response.data);
-        console.log(response.data)
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching company suggestions:', error);
       }
@@ -173,12 +170,14 @@ const Create = () => {
 
       <div
         className="flex flex-col gap-3 items-center mx-auto pt-16 max-w-[1440px]"
-        style={{ backgroundImage: `url(${background2})` }}
+        style={{backgroundImage: `url(${background2})`}}
       >
         {/* basic info */}
         <div className=" relative w-[100%] max-w-[100%] flex  justify-center  md:h-[70%] md:w-[90%] py-7">
           <form
-            onSubmit={(e) => { e.preventDefault(); publishPost(); }}
+            onSubmit={(e) => {
+              e.preventDefault(); publishPost();
+            }}
             className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5">
             <div className="w-full">
               <h2 className="text-[#212121] font-[500] text-2xl ml-2">

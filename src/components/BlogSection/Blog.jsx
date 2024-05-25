@@ -1,28 +1,27 @@
 // import { Link } from "react-router-dom";
-import Author from "./_Child/Author";
+import Author from './_Child/Author';
 // import company from "../../assets/images/company.png";
-import { CiBookmark } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import noogler from "../../assets/images/noogler.png"
-import Tags from "./_Child/Tags"
+import {CiBookmark} from 'react-icons/ci';
+import {CiHeart} from 'react-icons/ci';
+import noogler from '../../assets/images/noogler.png';
+import Tags from './_Child/Tags';
 import {
   RiTwitterXLine,
   RiLinkedinFill,
   RiInstagramFill,
-} from "react-icons/ri";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from 'react-router-dom';
-import { BACKEND_URL } from "../../constants";
-import ReactQuill from "react-quill";
-import Articles from "./Articles";
-import { formatDate } from "../../services/date";
-import BlogCardLoading from "./BlogCardLoading";
-import { ReadTime } from "../../services/date";
+} from 'react-icons/ri';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
+import {useParams} from 'react-router-dom';
+import {BACKEND_URL} from '../../constants';
+import ReactQuill from 'react-quill';
+import Articles from './Articles';
+import {formatDate} from '../../services/date';
+import BlogCardLoading from './BlogCardLoading';
+import {ReadTime} from '../../services/date';
 
 const Blog = () => {
-
-  const { id } = useParams();
+  const {id} = useParams();
   const [blogData, setBlogData] = useState([]);
   const [similarArticles, setSimilarArticles] = useState(null);
   const [timeStamp, setTimeStamp] = useState('');
@@ -30,25 +29,25 @@ const Blog = () => {
 
   const fetchBlogData = async () => {
     const response = await axios.get(BACKEND_URL + '/blog/' + id);
-    setBlogData(response.data)
-    setTimeStamp(formatDate(response.data.createdAt))
+    setBlogData(response.data);
+    setTimeStamp(formatDate(response.data.createdAt));
     const article = response.data;
     readingTime = ReadTime(article.description);
-    await fetchSimilarBlogs(article.title, article.articleTags.join(',') ,article.companyName);
-  }
+    await fetchSimilarBlogs(article.title, article.articleTags.join(','), article.companyName);
+  };
 
   const fetchSimilarBlogs = async (title, articleTags, companyName) =>{
     const params = {
       q: title,
       company: companyName,
-      tags: articleTags
-    }
+      tags: articleTags,
+    };
     const response = await axios.get(BACKEND_URL + '/search', {
-      params: params
-    })
+      params: params,
+    });
     console.log(response.data);
     setSimilarArticles(response.data);
-  }
+  };
 
   useEffect(() => {
     fetchBlogData();
@@ -66,7 +65,7 @@ const Blog = () => {
             {blogData?.title}
           </a>
         </div>
-        <Author person={{ name: blogData?.author?.name, company: blogData?.companyName }} />
+        <Author person={{name: blogData?.author?.name, company: blogData?.companyName}} />
         <Tags data={blogData?.articleTags} ></Tags>
         <div className="flex pb-4 lg:gap-10 items-center">
           <p className="text-gray-500">{`${readingTime} mins read • ${timeStamp}`}</p>
@@ -141,11 +140,11 @@ const Blog = () => {
             </p>
             <p className="mb-4">All the best 😉</p> */}
             <ReactQuill value={blogData?.description} theme="bubble" readOnly className="w-full h-full" />
+          </div>
         </div>
       </div>
-    </div>
 
-    {similarArticles ? (
+      {similarArticles ? (
         <Articles similarArticles={similarArticles} /> // Render Articles component when similarArticles is not null
     ) : (
       <>

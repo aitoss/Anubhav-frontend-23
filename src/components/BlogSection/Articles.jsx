@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import Author from './_Child/Author';
-import company from '../../assets/images/company.png'
-import { CiBookmark } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { CleanHands } from '@mui/icons-material';
-import BlogCard from "./BlogCard";
+import company from '../../assets/images/company.png';
+import {CiBookmark} from 'react-icons/ci';
+import {CiHeart} from 'react-icons/ci';
+import {CleanHands} from '@mui/icons-material';
+import BlogCard from './BlogCard';
 
 // TODO: upadte the view of similar articles
 const Articles = (props) => {
-  const { similarArticles } = props;
-  console.log(similarArticles)
+  const {similarArticles} = props;
+  console.log(similarArticles);
   return (
     <section className="">
       <div className="container p-4 w-full lg:mx-auto mt-10">
@@ -32,7 +32,7 @@ const Articles = (props) => {
     </section>
 
   );
-}
+};
 
 function ReadTime(content) {
   const wpm = 180;
@@ -54,7 +54,7 @@ function Scroll() {
   const [readingTime, Time] = useState(0);
 
   useEffect(() => {
-    const example = "Lorem ipsum dolor sit ametr adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus minima in sapiente vero, sunt hic, consequuntur aliquid beatae atque dolorem dolorum saepe!";
+    const example = 'Lorem ipsum dolor sit ametr adipisicing elit. Nobis, accusamus amet fugiat nulla voluptate quia natus possimus minima in sapiente vero, sunt hic, consequuntur aliquid beatae atque dolorem dolorum saepe!';
     Content(example);
   }, []);
 
@@ -78,7 +78,7 @@ function Scroll() {
                 Druva Interview Experience
               </a>
             </div>
-            <div className="lg:text-base text-[18px] "><Author person={{ name: "john", company: "cred" }}/></div>
+            <div className="lg:text-base text-[18px] "><Author person={{name: 'john', company: 'cred'}}/></div>
             <div className="lorem-container text-black py-3 justify-center">
               <p>
                 {restrict(article, window.innerWidth <= 640 ? 10 : 20)}

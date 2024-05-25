@@ -1,18 +1,18 @@
-import { Route, Routes } from "react-router-dom";
-import HomeScreen from "./pages/HomeScreen";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import Create from "./pages/Create";
-import Error404 from "./pages/Error404";
-import ViewBlog from "./pages/ViewBlog";
-import BlogSection from "./components/BlogSection/BlogSection";
-import Guidelines from "./pages/Guidelines";
-import RequestArticle from "./pages/RequestArticle";
-import TermsService from "./pages/TermsService";
-import Video from "./pages/Videos";
-import Logo from "./components/Loader/DummyLoader";
-import { useEffect, useState } from "react";
-import SearchPage from "./components/Search/SearchPage";
+import {Route, Routes} from 'react-router-dom';
+import HomeScreen from './pages/HomeScreen';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Create from './pages/Create';
+import Error404 from './pages/Error404';
+import ViewBlog from './pages/ViewBlog';
+import BlogSection from './components/BlogSection/BlogSection';
+import Guidelines from './pages/Guidelines';
+import RequestArticle from './pages/RequestArticle';
+import TermsService from './pages/TermsService';
+import Video from './pages/Videos';
+import Logo from './components/Loader/DummyLoader';
+import {useEffect, useState} from 'react';
+import SearchPage from './components/Search/SearchPage';
 
 const App = () => {
   // const [loading, setLoading] = useState(true);
@@ -34,15 +34,15 @@ const App = () => {
                 <Logo />
               </div>
             ) : ( */}
-              <div className="flex flex-col mx-auto overflow-hidden">
-                <Navbar />
-                <HomeScreen />
-                <div className="flex flex-col items-center">
-                  <BlogSection />
-                  <Video />
-                  <Footer />
-                </div>
+            <div className="flex flex-col mx-auto overflow-hidden">
+              <Navbar />
+              <HomeScreen />
+              <div className="flex flex-col items-center">
+                <BlogSection />
+                <Video />
+                <Footer />
               </div>
+            </div>
             {/* )} */}
           </>
         }

@@ -1,6 +1,6 @@
-import kd from "../../../assets/images/kd.jpg";
+import kd from '../../../assets/images/kd.jpg';
 
-const author = ({ person }) => {
+const author = ({person}) => {
   return (
     <div className="author flex items-center py-2">
       {/* <img src={kd} className="rounded-full w-8 h-8 mr-2" alt="User Avatar" /> */}
@@ -16,7 +16,7 @@ const author = ({ person }) => {
     </div>
 
 
-  )
-}
+  );
+};
 
-export default author
+export default author;

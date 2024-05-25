@@ -1,22 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, {useState, useEffect, useRef} from 'react';
 import SearchModal from './SearchModal';
 
-const Search = ({ mode, focus, full }) => {
+const Search = ({mode, focus, full}) => {
   const [isExpanded, setIsExpanded] = useState(full);
   const [searchText, setSearchText] = useState('');
   const [recentSearches, setRecentSearches] = useState([]);
-  let inputRef = useRef(null);
+  const inputRef = useRef(null);
 
 
   const popularSearches = [
-    "Amazon",
-    "Google",
-    "Facebook",
-    "Microsoft",
-  ]
+    'Amazon',
+    'Google',
+    'Facebook',
+    'Microsoft',
+  ];
 
   useEffect(() => {
-    if(focus){
+    if (focus) {
       inputRef.current.focus();
     }
     const handleKeyDown = (event) => {
@@ -60,7 +60,6 @@ const Search = ({ mode, focus, full }) => {
       setRecentSearches(limitedSearches); // Update the recent searches state
       setSearchText(''); // Clear the search input
     }
-
   };
 
   const handleClose = (event) => {
@@ -75,7 +74,7 @@ const Search = ({ mode, focus, full }) => {
     ) {
       closeSearchModal();
     }
-  }
+  };
 
   // const expandSearch = () => {
   //   if()
@@ -85,8 +84,7 @@ const Search = ({ mode, focus, full }) => {
     setRecentSearches(recentSearches.filter((_, i) => i !== index));
   };
 
-  if (mode == "dark") {
-
+  if (mode == 'dark') {
     return (
       <>
         {/* search field */}
@@ -103,16 +101,16 @@ const Search = ({ mode, focus, full }) => {
                 <path
                   d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z"
                   stroke="#b9b9b9"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M29.8333 29.9842L27.1666 27.3175"
                   stroke="#b9b9b9"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -159,9 +157,8 @@ const Search = ({ mode, focus, full }) => {
           )}
         </div>
       </>
-    )
-  }
-  else {
+    );
+  } else {
     return (
       <>
         {/* search field */}
@@ -178,16 +175,16 @@ const Search = ({ mode, focus, full }) => {
                 <path
                   d="M15.8333 28.6509C22.8289 28.6509 28.5 22.9798 28.5 15.9842C28.5 8.9886 22.8289 3.31754 15.8333 3.31754C8.83769 3.31754 3.16663 8.9886 3.16663 15.9842C3.16663 22.9798 8.83769 28.6509 15.8333 28.6509Z"
                   stroke="#b9b9b9"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M29.8333 29.9842L27.1666 27.3175"
                   stroke="#b9b9b9"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -234,7 +231,7 @@ const Search = ({ mode, focus, full }) => {
           )}
         </div>
       </>
-    )
+    );
   }
-}
-export default Search
+};
+export default Search;
