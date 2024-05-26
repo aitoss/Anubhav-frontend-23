@@ -80,7 +80,7 @@ const Blog = () => {
         </div>
         <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
           <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
-            <img src={noogler} className="w-full lg:h-full" alt="" />
+            <img src={blogData?.imageUrl} className="w-full lg:h-full" alt="" />
           </div>
           <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
             {/* <p className="mb-4">STEP is a Google <strong className="text-blue-600">Software Student Training in Engineering Program</strong>, which is open to all students studying in their second year and enrolled in a Bachelor’s Program. It requires the ability to complete a full-time, 10-12 week internship between May and August.</p>
