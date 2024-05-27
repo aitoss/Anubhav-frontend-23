@@ -29,6 +29,7 @@ const Create = () => {
     email: '',
     company: '',
     position: '',
+    title: '',
   });
 
   const addError = (message) => {
@@ -51,6 +52,7 @@ const Create = () => {
     formData.append('image', file);
 
     try {
+      // TODO: hide this key
       const response = await axios.post('https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587', formData);
       console.log('Response form image cloud', response);
       setbannerImage(response.data.data.display_url);
@@ -69,8 +71,6 @@ const Create = () => {
       return;
     }
 
-    // console.log(bannerImage)
-
     if (!file) {
       addError('Please upload a banner image');
       return;
@@ -79,12 +79,12 @@ const Create = () => {
     try {
       // TODO: implement after view blogs is complete
       const response = await axios.post(BACKEND_URL + '/blogs', {
-        title: 'latest tets here', // TODO: add new field article title
+        title: value.title,
         authorName: value.name,
         authorEmailId: value.email,
         companyName: value.company,
         role: value.position,
-        articleTags: tags, // TODO: Tags are not being added
+        articleTags: tags,
         article: article,
         image: bannerImage,
       });
@@ -93,7 +93,7 @@ const Create = () => {
       console.log('Post published:', response.data);
       navigate('/blog/' + id);
     } catch (error) {
-      console.error('Error publishing post:', error);
+      console.error('Error publishing post:', error.response.data);
       setIsLoading(false);
     }
   };
@@ -121,7 +121,7 @@ const Create = () => {
       <>
         < ErrorMessage error={error} />
 
-        <h3 className="text-[#212121] flex justify-start ml-3">Profile Image</h3>
+        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
         <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
 
           <div className="w-full flex justify-center ">
@@ -145,8 +145,9 @@ const Create = () => {
             </div>
           </div>
           <p className="text-gray-300">
-            {file ? null : (
-              <h1 className="text-[#C3C3C3] text-xs font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
+            {file ? null : (<>
+              <h1 className="text-[#C3C3C3] text-xs font-[300] text-center">JPG, JPEG, PNG file size no more than 10MB</h1>
+              <h1 className="text-[#322e2e] text-xs font-[400] text-center">Keep the image ratio to 280x180 px</h1></>
             )}
           </p>
           {file && <div className="flex justify-center items-center gap-1 text-[#717171] border-[#fff] border-b hover:border-[#717171] h-[20px] cursor-pointer" onClick={() => setFile(null)}>Remove <span className="text-[24px]">×</span></div>}
@@ -269,6 +270,8 @@ const Create = () => {
                           name="title"
                           id="title"
                           placeholder="Blog Title"
+                          value={value.title}
+                          onChange={handleChange}
                           className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]" />
                       </div>
 

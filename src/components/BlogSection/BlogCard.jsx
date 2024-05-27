@@ -15,7 +15,7 @@ const BlogCard = ({link, Title, imagesrc, author, company, data, readingTime, da
     <>
       <Link to={link} className="pb-2 border-b" >
         <div className="flex flex-row x-sm:flex-col w-full h-full justify-center items-center lg:gap-10 gap-4 p-1">
-          <div className="container w-[280px] h-[187px]  rounded-lg banner-image" style={{backgroundImage: `url(${imagesrc})` }}></div>
+          <div className="container w-[280px] h-[180px]  rounded-lg banner-image" style={{backgroundImage: `url(${imagesrc})` }}></div>
           {/* <img className='banner-image lg:w-[280px] w-[220px] md:w-[200px] x-sm:w-full h-full rounded-lg object-cover' src={imagesrc} alt="Banner Image" /> */}
           <div className="data flex items-start lg:justify-start justify-between h-full flex-col grow lg:gap-2 gap-2 x-sm:gap-1 p-1 sm:self-start ">
             <h1 className="text-[24px] sm:text-[20px] font-[500] x-sm:text-[16px] text-gray-700 hover:text-gray-800">
