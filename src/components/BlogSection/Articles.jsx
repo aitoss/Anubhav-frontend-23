@@ -20,7 +20,7 @@ const Articles = (props) => {
           <BlogCard
             link={`/blog/${item._id}`}
             Title={item.title}
-            imagesrc={company}
+            imagesrc={item?.imageUrl ? item?.imageUrl : company}
             author={item.author.name}
             company={item.companyName}
             data={item.description}
