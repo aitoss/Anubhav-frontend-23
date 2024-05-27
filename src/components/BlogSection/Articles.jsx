@@ -17,17 +17,19 @@ const Articles = (props) => {
         <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">Similar Articles</h1>
         <br />
         {similarArticles.map((item) => (
-          <BlogCard
-            link={`/blog/${item._id}`}
-            Title={item.title}
-            imagesrc={item?.imageUrl ? item?.imageUrl : company}
-            author={item.author.name}
-            company={item.companyName}
-            data={item.description}
-            readingTime={ReadTime(item.description)}
-            date={item.createdAt}
-          />
+            <BlogCard
+              key={item._id} // Added key prop for list rendering
+              link={`/blog/${item._id}`}
+              Title={item.title}
+              imagesrc={item.imageUrl == "your_image_url_here" ? company : item.imageUrl}
+              author={item.author?.name} // Optional chaining to avoid errors
+              company={item.companyName}
+              data={item.description}
+              readingTime={ReadTime(item.description)}
+              date={item.createdAt}
+            />
         ))}
+
       </div>
     </section>
 

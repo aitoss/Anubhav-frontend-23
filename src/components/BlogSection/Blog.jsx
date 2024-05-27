@@ -45,8 +45,8 @@ const Blog = () => {
     const response = await axios.get(BACKEND_URL + '/search', {
       params: params,
     });
-    console.log(response.data);
-    setSimilarArticles(response.data);
+    const filteredData = response.data.filter((item)=> item._id !== blogData._id);
+    setSimilarArticles(filteredData);
   };
 
   useEffect(() => {

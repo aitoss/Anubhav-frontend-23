@@ -43,10 +43,11 @@ const BlogSection = () => {
             // Render blog cards once data is loaded
             blogData.map((item) => (
               <BlogCard
+                key={item._id} // Added key prop for list rendering
                 link={`/blog/${item._id}`}
                 Title={item.title}
-                imagesrc={item?.imageUrl ? item?.imageUrl : company}
-                author={item.author.name}
+                imagesrc={item.imageUrl == "your_image_url_here" ? company : item.imageUrl}
+                author={item.author?.name} // Optional chaining to avoid errors
                 company={item.companyName}
                 data={item.description}
                 readingTime={ReadTime(item.description)}
