@@ -33,3 +33,26 @@
     display: flex;
     gap: .5px;
 }
+
+.ql-editor *{
+    font-family: 'TTHoves', sans-serif;
+    color: #1a1a1a;
+}
+
+.ql-editor ul{
+    padding-left: 0 !important;
+}
+
+.ql-editor strong{
+    letter-spacing: 0.05rem;
+}
+
+.ql-editor ul li{
+    font-size: 13px;
+    padding-bottom: .3rem !important;
+}
+
+.ql-editor p{
+    margin-bottom: .3rem;
+    letter-spacing: .04rem;
+}

@@ -80,7 +80,7 @@ const Blog = () => {
           </div>
         </div>
         <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
-          {blogData?.imageUrl && <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
+          {(blogData.imageUrl != "your_image_url_here") && <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
             <img src={blogData?.imageUrl} className="w-full lg:h-full" alt="" />
           </div>}
           <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
