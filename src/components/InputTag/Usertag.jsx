@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import {useEffect} from 'react';
-import {RxCross1} from 'react-icons/rx';
-import {FiArrowRight} from 'react-icons/fi';
-import {BACKEND_URL} from '../../constants';
+import React, { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { RxCross1 } from "react-icons/rx";
+import { BACKEND_URL } from "../../constants";
 
 // commit
-const Inputtag = ({setTags, tags}) => {
+const Inputtag = ({ setTags, tags }) => {
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
-        const response = await axios.get(BACKEND_URL + '/tags');
+        const response = await axios.get(BACKEND_URL + "/tags");
         setTagSuggestions(response.data);
         console.log(response.data);
       } catch (error) {
-        console.error('Error fetching tag suggestions:', error);
+        console.error("Error fetching tag suggestions:", error);
       }
     };
 
@@ -23,28 +22,28 @@ const Inputtag = ({setTags, tags}) => {
 
   const [tagSuggestions, setTagSuggestions] = useState([]);
 
-  const [tag, setTag] = useState('');
+  const [tag, setTag] = useState("");
 
   const handleChange = (e) => {
     setTag(e.target.value);
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && tag.trim() !== '') {
+    if (e.key === "Enter" && tag.trim() !== "") {
       e.preventDefault();
       addTag();
     }
   };
 
   const handleClick = () => {
-    if (tag.trim() !== '') {
+    if (tag.trim() !== "") {
       addTag();
     }
   };
 
   const addTag = () => {
     setTags([...tags, tag]);
-    setTag('');
+    setTag("");
   };
 
   const handleTagDelete = (index) => {

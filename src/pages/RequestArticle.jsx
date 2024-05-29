@@ -1,21 +1,21 @@
-import React, {useState, useRef, useEffect} from 'react';
-import {motion} from 'framer-motion';
-import Navbar from '../components/Navbar/Navbar';
-import background2 from '../assets/dots-pattern.svg';
-import Footer from '../components/Footer/Footer';
-import axios from 'axios';
-import {BACKEND_URL} from '../constants';
-import ErrorMessage from '../components/notification/ErrorMessage';
-import SuccessMessage from '../components/notification/SuccessMessage';
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import Navbar from "../components/Navbar/Navbar";
+import background2 from "../assets/dots-pattern.svg";
+import Footer from "../components/Footer/Footer";
+import axios from "axios";
+import { BACKEND_URL } from "../constants";
+import ErrorMessage from "../components/notification/ErrorMessage";
+import SuccessMessage from "../components/notification/SuccessMessage";
 
 const RequestArticle = () => {
   const initialState = {
-    name: '',
-    seniorName: '',
-    email: '',
-    link: '',
-    company: '',
-    note: '',
+    name: "",
+    seniorName: "",
+    email: "",
+    link: "",
+    company: "",
+    note: "",
   };
 
   const [error, setError] = useState(null);
@@ -27,10 +27,10 @@ const RequestArticle = () => {
   useEffect(() => {
     const fetchCompanySuggestions = async () => {
       try {
-        const response = await axios.get(BACKEND_URL + '/companies');
+        const response = await axios.get(BACKEND_URL + "/companies");
         setCompanySuggestions(response.data);
       } catch (error) {
-        console.error('Error fetching company suggestions:', error);
+        console.error("Error fetching company suggestions:", error);
       }
     };
     fetchCompanySuggestions();
@@ -44,8 +44,8 @@ const RequestArticle = () => {
   };
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
-    setValue((prevValue) => ({...prevValue, [name]: value}));
+    const { name, value } = e.target;
+    setValue((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
   const handleSubmit = async () => {
@@ -65,11 +65,11 @@ const RequestArticle = () => {
       //   requestData
       // );
       setIsLoading(false);
-      setRequestSend('Request Send Successfully');
+      setRequestSend("Request Send Successfully");
       setValue(initialState);
     } catch (error) {
-      addError('Internal server error');
-      console.error('Error:', error);
+      addError("Internal server error");
+      console.error("Error:", error);
       setIsLoading(false);
     }
   };
@@ -80,22 +80,24 @@ const RequestArticle = () => {
       <div className="h-16 md:h-8"></div>
       <div
         className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
-        style={{backgroundImage: `url(${background2})`}}>
+        style={{ backgroundImage: `url(${background2})` }}
+      >
         {/* basic info */}
         <div className=" relative w-[100%] max-w-[90%] flex  justify-center lg:w-[50%] py-7">
-          <form onSubmit={(e) => {
-            e.preventDefault(); handleSubmit();
-          }}
-          className="relative w-[100%] max-w-[1400px] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.05)] md:gap-1  md:w-full md:p-5"
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+            className="relative w-[100%] max-w-[1400px] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.05)] md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
               <motion.div
-                initial={{opacity: 0, translateY: 10}}
-                animate={{opacity: 1, translateY: 0}}
-                exit={{opacity: 0, translateY: 100}}
-                transition={{duration: 0.15, delay: 0.05}}
+                initial={{ opacity: 0, translateY: 10 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                exit={{ opacity: 0, translateY: 100 }}
+                transition={{ duration: 0.15, delay: 0.05 }}
               >
-
                 <h2 className="text-[#212121] font-[600] text-2xl ml-2">
                   Whose experience you wanna know?
                 </h2>
@@ -106,25 +108,24 @@ const RequestArticle = () => {
               <div className="flex flex-col gap-3 p-2 w-[100%] md:w-full md:gap-2">
                 <div className="flex flex-col gap-3 md:gap-1">
                   <motion.div
-                    initial={{opacity: 0, translateY: 10}}
-                    animate={{opacity: 1, translateY: 0}}
-                    exit={{opacity: 0, translateY: 100}}
-                    transition={{duration: 0.15, delay: 0.07}}
+                    initial={{ opacity: 0, translateY: 10 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: 100 }}
+                    transition={{ duration: 0.15, delay: 0.07 }}
                   >
-
                     <h4 className="text-gray-700 ml-2">About You</h4>
                   </motion.div>
 
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.09}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.09 }}
                       >
-
-                        <input required
+                        <input
+                          required
                           type="text"
                           name="name"
                           id="name"
@@ -138,12 +139,11 @@ const RequestArticle = () => {
 
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.11}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.11 }}
                       >
-
                         <input
                           required
                           type="email"
@@ -161,23 +161,21 @@ const RequestArticle = () => {
 
                 <div className="flex flex-col gap-3 md:gap-1">
                   <motion.div
-                    initial={{opacity: 0, translateY: 10}}
-                    animate={{opacity: 1, translateY: 0}}
-                    exit={{opacity: 0, translateY: 100}}
-                    transition={{duration: 0.15, delay: 0.13}}
+                    initial={{ opacity: 0, translateY: 10 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: 100 }}
+                    transition={{ duration: 0.15, delay: 0.13 }}
                   >
-
                     <h4 className="ml-2 text-gray-700">About Senior</h4>
                   </motion.div>
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.15}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.15 }}
                       >
-
                         <input
                           required
                           type="text"
@@ -193,12 +191,11 @@ const RequestArticle = () => {
 
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.16}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.16 }}
                       >
-
                         <input
                           required
                           type="text"
@@ -213,12 +210,11 @@ const RequestArticle = () => {
                     </div>
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.17}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.17 }}
                       >
-
                         <input
                           required
                           type="text"
@@ -240,13 +236,13 @@ const RequestArticle = () => {
 
                     <div className="relative flex flex-col gap-2">
                       <motion.div
-                        initial={{opacity: 0, translateY: 10}}
-                        animate={{opacity: 1, translateY: 0}}
-                        exit={{opacity: 0, translateY: 100}}
-                        transition={{duration: 0.15, delay: 0.18}}
+                        initial={{ opacity: 0, translateY: 10 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        exit={{ opacity: 0, translateY: 100 }}
+                        transition={{ duration: 0.15, delay: 0.18 }}
                       >
-
-                        <textarea required
+                        <textarea
+                          required
                           rows="4"
                           name="note"
                           id="email"
@@ -263,15 +259,18 @@ const RequestArticle = () => {
             </div>
             {/* submit button */}
             <motion.div
-              initial={{opacity: 0, translateY: 10}}
-              animate={{opacity: 1, translateY: 0}}
-              exit={{opacity: 0, translateY: 100}}
-              transition={{duration: 0.15, delay: 0.2}}
+              initial={{ opacity: 0, translateY: 10 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              exit={{ opacity: 0, translateY: 100 }}
+              transition={{ duration: 0.15, delay: 0.2 }}
             >
-
               <div className="flex flex-col justify-center gap-3">
-                <button type="Subm" disabled={isLoading} className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]">
-                  {isLoading ? 'Processing...' : 'Send Request'}
+                <button
+                  type="Subm"
+                  disabled={isLoading}
+                  className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
+                >
+                  {isLoading ? "Processing..." : "Send Request"}
                 </button>
               </div>
             </motion.div>
@@ -279,8 +278,11 @@ const RequestArticle = () => {
         </div>
         <Footer />
       </div>
-      < ErrorMessage error={error} />
-      <SuccessMessage requestSend={requestSend} setRequestSend={setRequestSend} />
+      <ErrorMessage error={error} />
+      <SuccessMessage
+        requestSend={requestSend}
+        setRequestSend={setRequestSend}
+      />
       {/* {requestError && (
         <div
           id="toast-danger"

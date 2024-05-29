@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
-import company from '../../assets/images/company.png';
-import axios from 'axios';
-import {htmlToText} from 'html-to-text';
-import {BACKEND_URL} from '../../constants';
-import BlogCard from './BlogCard';
-import BlogCardLoading from './BlogCardLoading';
-import {ReadTime} from '../../services/date';
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+import BlogCard from "./BlogCard";
+import BlogCardLoading from "./BlogCardLoading";
+import company from "../../assets/images/company.png";
+import { BACKEND_URL } from "../../constants";
+import { ReadTime } from "../../services/date";
 
 const BlogSection = () => {
   const [blogData, setBlogData] = useState([]);
@@ -13,11 +13,11 @@ const BlogSection = () => {
 
   const fetchBlogData = async () => {
     try {
-      const response = await axios.get(BACKEND_URL + '/blogs?useLatest=true');
+      const response = await axios.get(BACKEND_URL + "/blogs?useLatest=true");
       setBlogData(response.data);
       setLoading(false); // Set loading to false when data is fetched
     } catch (error) {
-      console.error('Error fetching blog data:', error);
+      console.error("Error fetching blog data:", error);
       setLoading(false); // Set loading to false on error
     }
   };
@@ -46,7 +46,11 @@ const BlogSection = () => {
                 key={item._id} // Added key prop for list rendering
                 link={`/blog/${item._id}`}
                 Title={item.title}
-                imagesrc={item.imageUrl == "your_image_url_here" ? company : item.imageUrl}
+                imagesrc={
+                  item.imageUrl == "your_image_url_here"
+                    ? company
+                    : item.imageUrl
+                }
                 author={item.author?.name} // Optional chaining to avoid errors
                 company={item.companyName}
                 data={item.description}
@@ -62,5 +66,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-
-

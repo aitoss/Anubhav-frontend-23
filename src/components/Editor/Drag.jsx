@@ -1,5 +1,5 @@
-import {useState, useRef} from 'react';
-import upload from '../../assets/images/upload.svg';
+import { useState, useRef } from "react";
+import upload from "../../assets/images/upload.svg";
 
 const DragDropFiles = () => {
   const [files, setFiles] = useState(null);
@@ -16,7 +16,7 @@ const DragDropFiles = () => {
 
   const handleUpload = () => {
     const formData = new FormData();
-    formData.append('Files', files);
+    formData.append("Files", files);
     console.log(formData.getAll());
     // fetch(
     //   "link", {
@@ -46,16 +46,22 @@ const DragDropFiles = () => {
           onDragOver={handleDragOver}
           onDrop={handleDrop}
         >
-          {
-            files ? <img src={URL.createObjectURL.files} /> :
-              <img
-                onClick={() => inputRef.current.click()}
-                className="cursor-pointer"
-                src={upload} />
-          }
+          {files ? (
+            <img src={URL.createObjectURL.files} />
+          ) : (
+            <img
+              onClick={() => inputRef.current.click()}
+              className="cursor-pointer"
+              src={upload}
+            />
+          )}
 
-          <h1 className="text-[#414141] text-base pb-2 font-normal">Select a image or drag and drop here</h1>
-          <h1 className="text-[#C3C3C3] text-xs pb-2 font-[300]">JPG, JPEG, PNG file size no more than 10MB</h1>
+          <h1 className="text-[#414141] text-base pb-2 font-normal">
+            Select a image or drag and drop here
+          </h1>
+          <h1 className="text-[#C3C3C3] text-xs pb-2 font-[300]">
+            JPG, JPEG, PNG file size no more than 10MB
+          </h1>
           <input
             type="file"
             multiple
@@ -69,8 +75,6 @@ const DragDropFiles = () => {
     </button> */}
         </div>
       </section>
-
-
     </>
   );
 };

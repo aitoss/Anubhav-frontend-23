@@ -1,58 +1,60 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* .ql-editor{
-    position: absolute;
-    height: 100%;
-} */
 .ql-container {
-    width: 100%;
-    padding: 10px;
-    background-color: white;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    overflow-y: auto;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    --tw-shadow-color: rgba(0, 0, 0, 0.03);
-    --tw-shadow: var(--tw-shadow-colored);
+  width: 100%;
+  background-color: white;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  overflow-y: auto;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-color: rgba(0, 0, 0, 0.03);
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .ql-toolbar.ql-snow {
-    width: 100%;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
+  width: 100%;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 .ql-snow .ql-picker-label {
-    width: 100%;
-    display: flex;
-    gap: .5px;
+  width: 100%;
+  display: flex;
+  gap: 0.5px;
 }
 
-.ql-editor *{
-    font-family: 'TTHoves', sans-serif;
-    color: #1a1a1a;
+.ql-editor {
+  padding: 0;
 }
 
-.ql-editor ul{
-    padding-left: 0 !important;
+.ql-editor * {
+  font-family: "TTHoves", sans-serif;
+  color: #1a1a1a;
 }
 
-.ql-editor strong{
-    letter-spacing: 0.05rem;
+.ql-editor ul {
+  padding-left: 0 !important;
 }
 
-.ql-editor ul li{
-    font-size: 13px;
-    padding-bottom: .3rem !important;
+.ql-editor strong {
+  letter-spacing: 0.05rem;
 }
 
-.ql-editor p{
-    margin-bottom: .3rem;
-    letter-spacing: .04rem;
+.ql-editor ul li {
+  font-size: 13px;
+  padding-bottom: 0.3rem !important;
+}
+
+.ql-editor p {
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.04rem;
 }

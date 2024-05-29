@@ -1,15 +1,15 @@
-import {motion, useAnimation} from 'framer-motion';
-import {useEffect} from 'react';
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
-const SuccessMessage = ({requestSend, setRequestSend}) => {
+const SuccessMessage = ({ requestSend, setRequestSend }) => {
   const controls = useAnimation();
 
   useEffect(() => {
     if (requestSend) {
       // Start animation to move the timer line from right to left
       controls.start({
-        x: '-100%', // Move the timer line to the left (100% of its container width)
-        transition: {duration: 3, ease: 'linear'}, // Duration of 3 seconds with linear easing
+        x: "-100%", // Move the timer line to the left (100% of its container width)
+        transition: { duration: 3, ease: "linear" }, // Duration of 3 seconds with linear easing
       });
 
       // Close the success message after 3 seconds
@@ -26,10 +26,10 @@ const SuccessMessage = ({requestSend, setRequestSend}) => {
     <>
       {requestSend && (
         <motion.div
-          initial={{opacity: 0, translateY: -10}}
-          animate={{opacity: 1, translateY: 0}}
-          exit={{opacity: 0, translateY: 100}}
-          transition={{duration: 0.15, delay: 0.0}}
+          initial={{ opacity: 0, translateY: -10 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          exit={{ opacity: 0, translateY: 100 }}
+          transition={{ duration: 0.15, delay: 0.0 }}
         >
           <div className="z-50 absolute top-20 flex items-start justify-center h-full w-full ">
             <div
@@ -50,9 +50,7 @@ const SuccessMessage = ({requestSend, setRequestSend}) => {
                   </svg>
                   <span className="sr-only">Check icon</span>
                 </div>
-                <div className="ms-3 text-sm font-normal">
-                  {requestSend}
-                </div>
+                <div className="ms-3 text-sm font-normal">{requestSend}</div>
                 <button
                   type="button"
                   className="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -79,7 +77,7 @@ const SuccessMessage = ({requestSend, setRequestSend}) => {
               </div>
               <motion.div
                 className="z-50 h-[2.5px] w-full bottom-0 absolute bg-[#a1a1a1]  rounded-b-lg"
-                initial={{x: 0}} // Initially, the timer line is at the rightmost position
+                initial={{ x: 0 }} // Initially, the timer line is at the rightmost position
                 animate={controls} // Animate the movement of the timer line
               />
             </div>

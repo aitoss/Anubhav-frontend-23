@@ -1,17 +1,17 @@
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import React, {useState, useEffect} from 'react';
-import {Link, useParams} from 'react-router-dom';
-import BlogSection from '../../components/BlogSection/BlogSection';
-import Articles from '../../components/BlogSection/Articles';
-import Blogs from '../../components/BlogSection/Blogs';
-import axios from 'axios';
-import ReactQuill from 'react-quill';
-import {BACKEND_URL} from '../../constants';
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import BlogSection from "../../components/BlogSection/BlogSection";
+import Articles from "../../components/BlogSection/Articles";
+import Blogs from "../../components/BlogSection/Blogs";
+import axios from "axios";
+import ReactQuill from "react-quill";
+import { BACKEND_URL } from "../../constants";
 // import './style.css'
 
 const ViewBlog = () => {
-  const {id} = useParams();
+  const { id } = useParams();
 
   const data = `<p><strong>Background: <br></strong>Department: Computer Engineering<br>I was in my 3rd year and had explored web development, ML, and a little bit of almost everything. Like out of nowhere I used to check what Docker is and after that Kubernetes. I know all of this isn't needed but I just want to explore. You know curiosity.<br>I was ok with data structures and Algorithms, I can solve easy and medium problems and hard is hard 💪 ( Leetcode levels ).</p>
     <p>I never did much competitive coding, but it's good to do if you can stick to it. CP can make you solve those hard problems easily. 😀</p>
@@ -55,7 +55,7 @@ const ViewBlog = () => {
     <p><strong>Stipend: 80K/month</strong></p>
     <p><br>So friends just follow what you like to do, be it web dev, AI, android dev, Competetive coding. You will get it if you are good with what you do. Also, good preparation of interviews is a game-changer for sure.<br><br>And luck matters, but in long run you will get to the place you deserve.<br>All the best.👍<br><br></p>`;
 
-  const [blog, setBlog] = useState<any>({});
+  const [blog, setBlog] = useState < any > {};
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -64,7 +64,7 @@ const ViewBlog = () => {
         console.log(response.data.description);
         setBlog(response.data);
       } catch (error) {
-        console.error('Error getting blog:', error);
+        console.error("Error getting blog:", error);
       }
     };
 
@@ -72,16 +72,12 @@ const ViewBlog = () => {
   }, []);
 
   return (
-    <>
-      {/* <Navbar />
-        <Blogs/>
-        <div className="lg:w-[70%] mx-auto"> */}
-      <ReactQuill value={data} theme="bubble" readOnly className="w-full h-full"/>
-      {/* <Articles/> */}
-      {/* </div> */}
-      {/* <Footer /> */}
-
-    </>
+      <ReactQuill
+        value={data}
+        theme="bubble"
+        readOnly
+        className="w-full h-full"
+      />
   );
 };
 

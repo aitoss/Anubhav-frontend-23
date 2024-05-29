@@ -1,6 +1,5 @@
 @media (max-width: 768px) {
-    .section-right {
-        display: none;
-    }
+  .section-right {
+    display: none;
+  }
 }
-
