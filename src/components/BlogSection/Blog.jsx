@@ -44,7 +44,7 @@ const Blog = () => {
       company: companyName,
       tags: articleTags,
     };
-    const response = await axios.get(BACKEND_URL + "/search", {
+    const response = await axios.get(BACKEND_URL + "/similarBlogs", {
       params: params,
     });
     const filteredData = response.data.filter((item) => item._id != articleID);

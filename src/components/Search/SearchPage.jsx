@@ -1,11 +1,33 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import NavbarMini from "../Navbar/NavbarMini";
 import BlogCard from "../BlogSection/BlogCard";
 import "./SearchPage.css";
 import FilterPopUp from "../Filter/FilterPopUp";
 import Filter from "../Filter/Filter";
+import axios from "axios";
+import { BACKEND_URL } from "../../constants";
+import { useSearchParams } from "react-router-dom";
+import company from "../../assets/images/company.png";
+import { ReadTime } from "../../services/date";
 
 const SearchPage = () => {
+
+  const [searchParams] = useSearchParams();
+  const [searchValue, setSearchValue] = useState('');
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchSearchValue = async () => {
+      // Simulate an async operation, e.g., fetching data based on search params
+      const query = searchParams.get('query');
+      if (query) {
+        fetchArticles(query);
+      }
+    };
+
+    fetchSearchValue();
+  }, [searchParams]);
+
   const [placement, setplacement] = React.useState(true);
   const [intern, setintern] = React.useState(false);
   const [videos, setvideos] = React.useState(false);
@@ -18,6 +40,17 @@ const SearchPage = () => {
   const closeFilterPopUp = () => {
     setFilterPopUp(false);
   };
+
+  const fetchArticles = async (query)=>{
+    const params = {
+      q: query,
+    };
+    const response = await axios.get(BACKEND_URL + "/search", {
+      params: params,
+    });
+    console.log(response.data);
+    setArticles(response.data);
+  }
 
   const handlePlacement = () => {
     setplacement(!placement);
@@ -75,48 +108,21 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
-            <BlogCard
-              link="/create"
-              Title="Google STEP Internship"
-              imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
-              author="Kamakshi Dixit"
-              company="Google"
-              data="lorem1 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
-              readingTime={20}
-              date="21/12/2022"
-            />
-            <BlogCard
-              link="/create"
-              Title="Google STEP Internship"
-              imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
-              author="Kamakshi Dixit"
-              company="Google"
-              data="lorem2 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
-              readingTime={20}
-              date="21/12/2022"
-            />
-            <BlogCard
-              link="/create"
-              Title="Google STEP Internship"
-              imagesrc="https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
-              author="Kamakshi Dixit"
-              company="Google"
-              data="lorem3 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
-              readingTime={20}
-              date="21/12/2022"
-            />
-            <BlogCard
-              link="/create"
-              Title="Google STEP Internship"
-              imagesrc={
-                "https://assets.aboutamazon.com/dims4/default/568f185/2147483647/strip/true/crop/7968x4482+0+0/resize/1320x743!/format/webp/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F4b%2F40%2Fa3a71ae9440aa62b90fda4d50f7d%2Fwbd00468-1.jpg"
-              }
-              author="Kamakshi Dixit"
-              company="Google"
-              data="lorem4 ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloremque deserunt placeat saepe ad, consequuntur asperiores repellat illo nostrum earum?"
-              readingTime={20}
-              date="21/12/2022"
-            />
+            {articles.map((item) => (
+              <BlogCard
+                key={item._id} // Added key prop for list rendering
+                link={`/blog/${item._id}`}
+                Title={item.title}
+                imagesrc={
+                  item.imageUrl == "your_image_url_here" ? company : item.imageUrl
+                }
+                author={item.author?.name}
+                company={item.companyName}
+                data={item.description}
+                readingTime={ReadTime(item.description)}
+                date={item.createdAt}
+              />
+            ))}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter />
