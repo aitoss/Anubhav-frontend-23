@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from '../../constants';
 
 const Search = ({ mode, focus, full }) => {
   const navigate = useNavigate();
@@ -7,7 +10,7 @@ const Search = ({ mode, focus, full }) => {
   const [searchText, setSearchText] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const inputRef = useRef(null);
-  const [popularSearches,setPopularSearches] = useState(["Google STEP", "Microsoft SDE Intern"]);
+  const [popularSearches,setPopularSearches] = useState([]);
 
   useEffect(() => {
     if (focus) {
@@ -40,10 +43,6 @@ const Search = ({ mode, focus, full }) => {
     };
   }, []);
 
-  const handleInputChange = (event) => {
-    setSearchText(event.target.value);
-  };
-
   const handleSearchSubmit = () => {
     if (searchText.trim() !== "") {
       const updatedSearches = [...recentSearches, searchText];
@@ -66,6 +65,44 @@ const Search = ({ mode, focus, full }) => {
     ) {
       setIsExpanded(false);
     }
+  };
+
+  const fetchSuggestions = useCallback(
+    throttle(async (searchText) => {
+
+      try {
+        const response = await fetch(BACKEND_URL+`/similarBlogs?q=${searchText}`);
+        const data = await response.json();
+        const suggestionTitles = data.map(item => {return item.title})
+        setPopularSearches(suggestionTitles);
+      } catch (err) {
+        console.log('Failed to fetch suggestions');
+      }
+    }, 1000), // Throttle the API call to once per second
+    []
+  );
+
+  const debouncedFetchSuggestions = useCallback(
+    debounce((searchText) => {
+      fetchSuggestions(searchText);
+    }, 300), // Debounce the input by 300ms
+    [fetchSuggestions]
+  );
+
+  useEffect(() => {
+    if (searchText.length > 2) {
+      debouncedFetchSuggestions(searchText);
+    } else {
+      setPopularSearches(["Google STEP", "Microsoft SDE Intern"]);
+    }
+  }, [searchText, debouncedFetchSuggestions]);
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSuggestionClick = (company) => {
+    setSearchText(company);
   };
 
   const handleRemove = (index) => {
@@ -118,7 +155,7 @@ const Search = ({ mode, focus, full }) => {
             placeholder="Search for your Dreams.."
             value={searchText}
             onKeyDown={handleClose}
-            onChange={handleInputChange}
+            onChange={handleChange}
             onClick={() => setIsExpanded(true)}
           />
           <div className={`border-[1.5px] ${borderClass} text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] `}>
@@ -134,7 +171,7 @@ const Search = ({ mode, focus, full }) => {
               <div className={`w-full h-[1px] ${hoverClass}`}></div>
               {popularSearches.map((company, index) => (
                 <div className={`px-2 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
-                  <div className="pl-2 w-[400px]">
+                  <div className="pl-2 w-[400px]" onClick={() => handleSuggestionClick(company)}>
                     {company}
                   </div>
                 </div>
