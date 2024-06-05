@@ -90,12 +90,17 @@ const Search = ({ mode, focus, full }) => {
   );
 
   useEffect(() => {
-    if (searchText.length > 2) {
-      debouncedFetchSuggestions(searchText);
-    } else {
-      setPopularSearches(["Google STEP", "Microsoft SDE Intern"]);
+     const fetchData = async () => {
+        const response = await fetch(BACKEND_URL + `/search?q=${searchText}`);
+        if(!response.ok) {
+            throw new Error('Failed to Fetch Data')
+        }
+        const data = await response.json();
+        setPopularSearches(data.results);
     }
-  }, [searchText, debouncedFetchSuggestions]);
+
+    fetchData();
+  }, [searchText]);
 
   const handleChange = (e) => {
     setSearchText(e.target.value);
@@ -171,9 +176,9 @@ const Search = ({ mode, focus, full }) => {
               <div className={`w-full h-[1px] ${hoverClass}`}></div>
               {popularSearches.map((company, index) => (
                 <div className={`px-2 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
-                  <div className="pl-2 w-[400px]" onClick={() => handleSuggestionClick(company)}>
-                    {company}
-                  </div>
+                  <a className="pl-2 w-[400px]" href={`/blog/${company.objectID}`}>
+                    {company.title}
+                  </a>
                 </div>
               ))}
             </div>
