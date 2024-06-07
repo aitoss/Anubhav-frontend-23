@@ -32,6 +32,28 @@ const Create = () => {
     title: "",
   });
 
+  useEffect(()=>{
+    const savedContent = localStorage.getItem('editorContent');
+    if(savedContent){
+      const content = JSON.parse(savedContent);
+      setArticle(content.article);
+      setValue(content.value);
+    }
+  },[])
+
+  useEffect(()=>{
+    const Debouncer = setTimeout(()=>{
+      const content = {
+        value: value,
+        article: article
+      }
+      const savedContent = JSON.stringify(content);
+      localStorage.setItem('editorContent', savedContent);
+    }, 500)
+    // clean up the timeout if content changes before delay
+    return ()=> clearTimeout(Debouncer);
+  },[article, value])
+
   const addError = (message) => {
     setError(message);
     setTimeout(() => {
@@ -80,7 +102,6 @@ const Create = () => {
     }
     setIsLoading(true);
     try {
-      // TODO: implement after view blogs is complete
       const response = await axios.post(BACKEND_URL + "/blogs", {
         title: value.title,
         authorName: value.name,
