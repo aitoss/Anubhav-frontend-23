@@ -9,7 +9,7 @@ const author = ({ person }) => {
           {person?.name}
         </a>
         <span className="text-[#a0a0a0] font-[200]">|</span>
-        <a href="#" className="text-md text-gray-500">
+        <a href="#" className="text-md text-slate-700 hover:text-black">
           {person?.company}
         </a>
       </div>

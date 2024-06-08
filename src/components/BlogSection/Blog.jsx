@@ -61,7 +61,7 @@ const Blog = () => {
       <br />
       <br />
       <br />
-      <div className="data items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
+      <div className="data w- items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
             className="text-2xl lg:text-5xl font-bold text-gray-700 hover:text-gray-800"
@@ -90,7 +90,7 @@ const Blog = () => {
         </div>
         <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
           {blogData.imageUrl != "your_image_url_here" && (
-            <div className="lg:h-[400px] lg:pb-4 flex flex-col items-center justify-center">
+            <div className="lg:h-[400px] lg:pb-10 flex flex-col items-center justify-center">
               <img
                 src={blogData?.imageUrl}
                 className="w-full lg:h-full"

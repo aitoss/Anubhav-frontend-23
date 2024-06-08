@@ -34,11 +34,21 @@
 
 .ql-editor {
   padding: 0;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .ql-editor * {
-  font-family: "TTHoves", sans-serif;
+  /* font-family: "TTHoves", sans-serif; */
   color: #1a1a1a;
+}
+
+
+.ql-editor .ql-align-justify a{
+  color: rgb(89, 89, 242) !important;
+  text-decoration: underline;
 }
 
 .ql-editor ul {
@@ -50,11 +60,20 @@
 }
 
 .ql-editor ul li {
-  font-size: 13px;
+  font-size: 16px;
   padding-bottom: 0.3rem !important;
+}
+.ql-editor ul li a {
+  color: blue !important;
 }
 
 .ql-editor p {
   margin-bottom: 0.3rem;
   letter-spacing: 0.04rem;
+}
+
+
+.ql-editor .ql-syntax{
+  font-size: 14px;
+  padding: 10px;
 }

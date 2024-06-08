@@ -8,21 +8,21 @@ import Tag from "../components/InputTag/Tag";
 const Videos = () => {
   const [info, setInfo] = useState(Data);
 
-  const YoutubeCards = ({ id, title, img, info }) => {
+  const YoutubeCards = ({ id, title, img, info, tags }) => {
     const [readMore, setReadMore] = useState(false);
 
     return (
       <>
         <div className="w-[20rem] bg-white transition-all">
-          <a href={YOUTUBE_PLAYLIST + id}>
-            <img src={img} alt="" className="w-full rounded-[10px]" />
+          <a href={YOUTUBE_PLAYLIST + id} target="_blank">
+            <img src={img} alt="" className="w-full rounded-[10px] pb-2" />
           </a>
           <div className="">
             <h2 className="text-black font-[500] text-[20px]">{title}</h2>
             <div className="flex flex-wrap gap-2 pt-[3px]">
-              <Tag name="CP" />
-              <Tag name="Codeforces" />
-              <Tag name="Zeta" />
+              {tags.map((tag) => {
+                return <Tag name={tag} />;
+              })}
             </div>
             <p className="leading-5 pt-[3px] content-start text-gray-500">
               {readMore ? info : `${info.substring(0, 100)}...`}
