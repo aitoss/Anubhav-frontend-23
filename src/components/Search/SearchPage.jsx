@@ -45,7 +45,7 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
- const fetchArticles = async (query, page) => {
+  const fetchArticles = async (query, page) => {
     setLoading(true);
     const params = { q: query, page, limit: 10 };
     try {
@@ -57,14 +57,6 @@ const SearchPage = () => {
       console.error("Failed to fetch articles", error);
     } finally {
       setLoading(false); 
-    }
-  };
-
-  const handleShowMore = () => {
-    const query = searchParams.get('query');
-    if (query) {
-      fetchArticles(query, page + 1);
-      setPage(prevPage => prevPage + 1);
     }
   };
 
