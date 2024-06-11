@@ -10,6 +10,7 @@ import Guidelines from "./pages/Guidelines";
 import RequestArticle from "./pages/RequestArticle";
 import TermsService from "./pages/TermsService";
 import Video from "./pages/Videos";
+import VideosPage from "./pages/VideosPage";
 import Logo from "./components/Loader/DummyLoader";
 import { useEffect, useState } from "react";
 import SearchPage from "./components/Search/SearchPage";
@@ -53,7 +54,7 @@ const App = () => {
       <Route path="/guidelines" element={<Guidelines />} />
       <Route path="/request" element={<RequestArticle />} />
       <Route path="/TermService" element={<TermsService />} />
-      <Route path="/videos" element={<Video />} />
+      <Route path="/videos" element={<VideosPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
