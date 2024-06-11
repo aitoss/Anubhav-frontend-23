@@ -16,12 +16,16 @@ const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     const fetchSearchValue = async () => {
       const query = searchParams.get('query');
       if (query) {
-        fetchArticles(query);
+        setArticles([]); 
+        setPage(1); 
+        fetchArticles(query, 1); 
       }
     };
 
@@ -41,16 +45,26 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
-  const fetchArticles = async (query) => {
+  const fetchArticles = async (query, page) => {
     setLoading(true);
-    const params = { q: query };
+    const params = { q: query, page, limit: 10 };
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
-      setArticles(response.data);
+      const newArticles = response.data.articles;
+      setArticles(prevArticles => [...prevArticles, ...newArticles]);
+      setHasMore(newArticles.length === 10); 
     } catch (error) {
       console.error("Failed to fetch articles", error);
     } finally {
       setLoading(false); 
+    }
+  };
+
+  const handleShowMore = () => {
+    const query = searchParams.get('query');
+    if (query) {
+      fetchArticles(query, page + 1);
+      setPage(prevPage => prevPage + 1);
     }
   };
 
@@ -80,7 +94,7 @@ const SearchPage = () => {
         <div className="w-full flex gap-8 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">18 Articles found</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -108,7 +122,7 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
-            {loading ? (
+            {loading && articles.length === 0 ? (
               <>
                 <SearchCardLoading />
                 <SearchCardLoading />
@@ -131,6 +145,12 @@ const SearchPage = () => {
                 />
               ))
             )}
+            {hasMore && !loading && (
+              <button onClick={handleShowMore} className="text-white">
+                Show More
+              </button>
+            )}
+            {loading && articles.length > 0 && <SearchCardLoading />}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter />
