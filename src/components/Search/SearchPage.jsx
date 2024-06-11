@@ -46,9 +46,15 @@ const SearchPage = () => {
     const params = { q: query };
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
-      setArticles(response.data);
+      if (response.data && Array.isArray(response.data.articles)) {
+        setArticles(response.data.articles);
+      } else {
+        console.error("API response does not contain articles array:", response.data);
+        setArticles([]);
+      }
     } catch (error) {
       console.error("Failed to fetch articles", error);
+      setArticles([]);
     } finally {
       setLoading(false); 
     }
@@ -80,7 +86,7 @@ const SearchPage = () => {
         <div className="w-full flex gap-8 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">18 Articles found</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
