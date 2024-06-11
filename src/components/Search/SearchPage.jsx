@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavbarMini from "../Navbar/NavbarMini";
 import BlogCard from "../BlogSection/BlogCard";
 import "./SearchPage.css";
@@ -9,16 +9,16 @@ import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
 import company from "../../assets/images/company.png";
 import { ReadTime } from "../../services/date";
+import SearchCardLoading from "./SearchCardLoading"; 
 
 const SearchPage = () => {
-
   const [searchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState('');
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchSearchValue = async () => {
-      // Simulate an async operation, e.g., fetching data based on search params
       const query = searchParams.get('query');
       if (query) {
         fetchArticles(query);
@@ -28,10 +28,10 @@ const SearchPage = () => {
     fetchSearchValue();
   }, [searchParams]);
 
-  const [placement, setplacement] = React.useState(true);
-  const [intern, setintern] = React.useState(false);
-  const [videos, setvideos] = React.useState(false);
-  const [filterPopUp, setFilterPopUp] = React.useState(false);
+  const [placement, setPlacement] = useState(true);
+  const [intern, setIntern] = useState(false);
+  const [videos, setVideos] = useState(false);
+  const [filterPopUp, setFilterPopUp] = useState(false);
 
   const openFilterPopup = () => {
     setFilterPopUp(true);
@@ -41,48 +41,48 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
-  const fetchArticles = async (query)=>{
-    const params = {
-      q: query,
-    };
-    const response = await axios.get(BACKEND_URL + "/search", {
-      params: params,
-    });
-    console.log(response.data);
-    setArticles(response.data);
-  }
+  const fetchArticles = async (query) => {
+    setLoading(true);
+    const params = { q: query };
+    try {
+      const response = await axios.get(BACKEND_URL + "/search", { params });
+      setArticles(response.data);
+    } catch (error) {
+      console.error("Failed to fetch articles", error);
+    } finally {
+      setLoading(false); 
+    }
+  };
 
   const handlePlacement = () => {
-    setplacement(!placement);
-    setintern(false);
-    setvideos(false);
+    setPlacement(!placement);
+    setIntern(false);
+    setVideos(false);
   };
 
   const handleIntern = () => {
-    setintern(!intern);
-    setplacement(false);
-    setvideos(false);
+    setIntern(!intern);
+    setPlacement(false);
+    setVideos(false);
   };
 
   const handleVideos = () => {
-    setvideos(!videos);
-    setplacement(false);
-    setintern(false);
+    setVideos(!videos);
+    setPlacement(false);
+    setIntern(false);
   };
 
   return (
     <>
       {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} />}
       <NavbarMini />
-      <div className="pt-24 px-8  md:px-4 lg:px-14 2xl:px-28 h-full">
+      <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
         <div className="w-full flex gap-8 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full">
             <div className="flex w-full justify-between items-center">
               <h3 className="font-[400] text-2xl">18 Articles found</h3>
               <svg
-                onClick={() => {
-                  openFilterPopup();
-                }}
+                onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
                 width="24"
                 height="24"
@@ -108,21 +108,29 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
-            {articles.map((item) => (
-              <BlogCard
-                key={item._id} // Added key prop for list rendering
-                link={`/blog/${item._id}`}
-                Title={item.title}
-                imagesrc={
-                  item.imageUrl == "your_image_url_here" ? company : item.imageUrl
-                }
-                author={item.author?.name}
-                company={item.companyName}
-                data={item.description}
-                readingTime={ReadTime(item.description)}
-                date={item.createdAt}
-              />
-            ))}
+            {loading ? (
+              <>
+                <SearchCardLoading />
+                <SearchCardLoading />
+                <SearchCardLoading />
+                <SearchCardLoading />
+                <SearchCardLoading />
+              </>
+            ) : (
+              articles.map((item) => (
+                <BlogCard
+                  key={item._id}
+                  link={`/blog/${item._id}`}
+                  Title={item.title}
+                  imagesrc={item.imageUrl === "your_image_url_here" ? company : item.imageUrl}
+                  author={item.author?.name}
+                  company={item.companyName}
+                  data={item.description}
+                  readingTime={ReadTime(item.description)}
+                  date={item.createdAt}
+                />
+              ))
+            )}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter />
