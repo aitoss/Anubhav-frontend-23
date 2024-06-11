@@ -16,12 +16,16 @@ const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     const fetchSearchValue = async () => {
       const query = searchParams.get('query');
       if (query) {
-        fetchArticles(query);
+        setArticles([]); 
+        setPage(1); 
+        fetchArticles(query, 1); 
       }
     };
 
@@ -41,22 +45,26 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
-  const fetchArticles = async (query) => {
+  const fetchArticles = async (query, page) => {
     setLoading(true);
-    const params = { q: query };
+    const params = { q: query, page, limit: 10 };
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
-      if (response.data && Array.isArray(response.data.articles)) {
-        setArticles(response.data.articles);
-      } else {
-        console.error("API response does not contain articles array:", response.data);
-        setArticles([]);
-      }
+      const newArticles = response.data.articles;
+      setArticles(prevArticles => [...prevArticles, ...newArticles]);
+      setHasMore(newArticles.length === 10); 
     } catch (error) {
       console.error("Failed to fetch articles", error);
-      setArticles([]);
     } finally {
       setLoading(false); 
+    }
+  };
+
+  const handleShowMore = () => {
+    const query = searchParams.get('query');
+    if (query) {
+      fetchArticles(query, page + 1);
+      setPage(prevPage => prevPage + 1);
     }
   };
 
@@ -114,7 +122,7 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
-            {loading ? (
+            {loading && articles.length === 0 ? (
               <>
                 <SearchCardLoading />
                 <SearchCardLoading />
@@ -137,6 +145,12 @@ const SearchPage = () => {
                 />
               ))
             )}
+            {hasMore && !loading && (
+              <button onClick={handleShowMore} className="text-white">
+                Show More
+              </button>
+            )}
+            {loading && articles.length > 0 && <SearchCardLoading />}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter />
