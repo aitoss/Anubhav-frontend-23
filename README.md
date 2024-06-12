@@ -1,7 +1,7 @@
 Welcome to the Anubhav Frontend repository! This project is part of the Anubhav web application and focuses on the frontend components and user interface.
 
 > [!NOTE]  
-> You can visit the backend for this project at [https://github.com/aitoss/oss-backend](OSS-Backend).
+> You can visit the backend for this project at [OSS-Backend](https://github.com/aitoss/oss-backend).
 
 ## About Anubhav
 
