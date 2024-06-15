@@ -5,7 +5,7 @@ import axios from "axios";
 import MDEditor from "@uiw/react-md-editor";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
-import '../Editor/index.css'
+import '../BlogSection/index.css'
 import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
