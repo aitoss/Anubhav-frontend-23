@@ -77,20 +77,19 @@ const RequestArticle = () => {
   return (
     <>
            <Navbar />
-      <div className="flex flex-col min-h-screen justify-center items-center">
-        <div className="flex-grow  flex">
+      <div className="flex flex-col h-screen overflow-hidden justify-center items-center">
           <div
             className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
             style={{ backgroundImage: `url(${background2})` }}
           >
         {/* basic info */}
-        <div className=" w-[100%]  flex items-center  justify-center  py-7">
+        <div className="  w-[100%] flex  justify-center  py-7">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
             }}
-            className=" w-full max-w-[1600px] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.05)] md:gap-1  md:w-full md:p-5"
+            className=" w-full max-w-[1600px] overflow-hidden rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.05)] md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
               <motion.div
@@ -275,19 +274,21 @@ const RequestArticle = () => {
                 </button>
               </div>
             </motion.div>
+          
           </form>
         </div>
       </div>
-      </div>
-          <ErrorMessage error={error} />
-          <SuccessMessage
-            requestSend={requestSend}
-            setRequestSend={setRequestSend}
-          />
         </div>
         <div className="mt-auto">
           <Footer />
         </div>
+        <ErrorMessage error={error} />
+          <SuccessMessage
+            requestSend={requestSend}
+            setRequestSend={setRequestSend}
+          />
+
+
     </>
   );
 };

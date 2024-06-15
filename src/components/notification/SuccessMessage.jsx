@@ -31,7 +31,7 @@ const SuccessMessage = ({ requestSend, setRequestSend }) => {
           exit={{ opacity: 0, translateY: 100 }}
           transition={{ duration: 0.15, delay: 0.0 }}
         >
-          <div className="z-50 absolute top-20 flex items-start justify-center h-full w-full ">
+          <div className="z-50 absolute top-20 flex items-start overflow-hidden justify-center h-full w-full ">
             <div
               id="toast-success"
               className="relative overflow-hidden z-50 w-full flex justify-center items-center flex-col border-[1px] max-w-xs p-3 text-gray-500 bg-white rounded-lg  shadow-lg shadow-[rgba(0,0,0,0.05)] dark:text-gray-400 dark:bg-gray-800"
