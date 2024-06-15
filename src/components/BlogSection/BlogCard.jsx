@@ -50,14 +50,7 @@ const BlogCard = ({
                 {company}
               </a>
             </div>
-            <p className="font-[300] text-[#616161] h-[50px] overflow-ellipsis line-clamp-2 justify-center">
-              <ReactQuill
-                className="preview-render"
-                value={data}
-                theme="bubble"
-                readOnly
-              />
-            </p>
+        {/* found it difficult to change the short description into rendered markdown so removed it as of now */}
             <div className="md:hidden flex justify-between w-full items-center">
               <h2 className="text-gray-500 font-[400] x-sm:text-[13px] ">
                 <span className="md:hidden">{readingTime} mins read • </span>
