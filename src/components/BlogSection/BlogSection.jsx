@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
 import company from "../../assets/images/company.png";

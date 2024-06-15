@@ -76,7 +76,9 @@ const RequestArticle = () => {
 
   return (
     <>
-      <Navbar />
+    
+   <div className="flex flex-col h-screen">
+   <Navbar />
       <div className="h-16 md:h-8"></div>
       <div
         className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
@@ -327,6 +329,7 @@ const RequestArticle = () => {
           </button>
         </div>
       )} */}
+   </div>
     </>
   );
 };

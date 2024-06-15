@@ -15,6 +15,7 @@
     "@headlessui/react": "^1.7.17",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
+    "@uiw/react-md-editor": "^4.0.4",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.7",
     "flowbite": "^2.3.0",
@@ -30,7 +31,9 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.17.0",
     "react-scroll": "^1.9.0",
-    "react-simple-wysiwyg": "^2.2.5"
+    "react-simple-wysiwyg": "^2.2.5",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

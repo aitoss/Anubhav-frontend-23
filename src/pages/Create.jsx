@@ -349,16 +349,16 @@ const Create = () => {
           <DragDropFiles />
         </div> */}
         {/* Write here (Editor) */}
-        <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
-          <div className="relative w-[70%] flex justify-start pb-7">
-            <h1 className="text-[#212121] font-[500] text-2xl ml-4">
-              Write Here
-            </h1>
-          </div>
-          <div className="relative w-[100%] text-[#212121] flex justify-center">
-            <TextEditor article={article} setArticle={setArticle} />
-          </div>
-        </div>
+        <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[100%] md:w-[100%] h-[100vh]">
+  <div className="relative w-[70%] flex justify-start pb-7">
+    <h1 className="text-[#212121] font-[500] text-2xl ml-4">
+      Write Here
+    </h1>
+  </div>
+  <div className="relative w-[100%] flex justify-center">
+  <TextEditor article={article} setArticle={setArticle} style={{ height: "120vh" }} />
+  </div>
+</div>
       </div>
       <div className="pt-7">
         <Footer />
