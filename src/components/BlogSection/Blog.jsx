@@ -2,8 +2,10 @@ import { CiBookmark, CiHeart } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import ReactQuill from "react-quill";
-
+import MDEditor from "@uiw/react-md-editor";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import '../Editor/index.css'
 import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
@@ -89,24 +91,24 @@ const Blog = () => {
           </div>
         </div>
         <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
-          {blogData.imageUrl != "your_image_url_here" && (
-            <div className="lg:h-[400px] lg:pb-10 flex flex-col items-center justify-center">
-              <img
-                src={blogData?.imageUrl}
-                className="w-full lg:h-full"
-                alt=""
-              />
-            </div>
-          )}
-          <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
-            <ReactQuill
-              value={blogData?.description}
-              theme="bubble"
-              readOnly
-              className="w-full h-full"
-            />
-          </div>
+      {blogData.imageUrl !== "your_image_url_here" && (
+        <div className="lg:h-[400px] lg:pb-10 flex flex-col items-center justify-center">
+          <img
+            src={blogData?.imageUrl}
+            className="w-full lg:h-full"
+            alt=""
+          />
         </div>
+      )}
+      <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
+        <MDEditor.Markdown
+          source={blogData?.description}
+          className="w-full h-full markdown-body"
+        />
+      </div>
+    </div>
+
+
       </div>
 
       {similarArticles ? (
