@@ -55,37 +55,37 @@ const Filter = ({ closeFilterPopUp }) => {
         <div className="flex flex-col gap-1 ">
           <div
             onClick={() => handlePlacement()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer ${placement ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${placement ? "bg-[#f6f8fb]" : ""}`}
           >
             {placement && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Placement</h5>
-            <h5 className="bg-[#e0e0e0] w-6 flex justify-center items-center rounded-full font-[300]">
+            <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
               12
             </h5>
           </div>
           <div
             onClick={() => handleIntern()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer  ${intern ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer  ${intern ? "bg-[#f6f8fb]" : ""}`}
           >
             {intern && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Intern</h5>
-            <h5 className="bg-[#e0e0e0] w-6 flex justify-center items-center rounded-full font-[300]">
+            <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
               6
             </h5>
           </div>
           <div
             onClick={() => handleVideos()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer  ${videos ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer  ${videos ? "bg-[#f6f8fb]" : ""}`}
           >
             {videos && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Videos</h5>
-            <h5 className="bg-[#e0e0e0] w-6 flex justify-center items-center rounded-full font-[300]">
+            <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
               3
             </h5>
           </div>
@@ -98,28 +98,28 @@ const Filter = ({ closeFilterPopUp }) => {
         <div className="flex flex-col gap-1 ">
           <div
             onClick={() => handlePopular()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer ${MostPopular ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostPopular ? "bg-[#f6f8fb]" : ""}`}
           >
             {MostPopular && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Most Popular</h5>
           </div>
           <div
             onClick={() => handleRecent()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer ${MostRecent ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostRecent ? "bg-[#f6f8fb]" : ""}`}
           >
             {MostRecent && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Most Recent</h5>
           </div>
           <div
             onClick={() => handleViewed()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f0f0f0] transition-all cursor-pointer ${MostViewed ? "bg-[#f0f0f0]" : ""}`}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostViewed ? "bg-[#f6f8fb]" : ""}`}
           >
             {MostViewed && (
-              <div className="absolute w-1 h-4 bg-[#919191] rounded-full top-2 -left-2"></div>
+              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
             )}
             <h5>Most Viewed</h5>
           </div>
@@ -132,7 +132,7 @@ const Filter = ({ closeFilterPopUp }) => {
           onClick={() => {
             handleClickApply();
           }}
-          className="bg-[#fff] text-[#212121] border px-4 py-1 rounded-md hover:bg-[#f0f0f0] font-[400] cursor-pointer transition-all"
+          className="bg-[#fff] text-[#212121] border px-4 py-1 rounded-md hover:bg-[#f6f8fb] font-[400] cursor-pointer transition-all"
         >
           Apply
         </div>
