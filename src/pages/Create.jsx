@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import TextEditor from "../components/Editor/TextEditor";
+import ButtonV5 from "../components/pixaui/buttonv5";
 import { FiUploadCloud } from "react-icons/fi";
 import DragDropFiles from "../components/Editor/Drag";
 import background2 from "../assets/dots-pattern.svg";
@@ -32,17 +33,17 @@ const Create = () => {
     title: "",
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     const savedContent = localStorage.getItem('editorContent');
-    if(savedContent){
+    if (savedContent) {
       const content = JSON.parse(savedContent);
       setArticle(content.article);
       setValue(content.value);
     }
-  },[])
+  }, [])
 
-  useEffect(()=>{
-    const Debouncer = setTimeout(()=>{
+  useEffect(() => {
+    const Debouncer = setTimeout(() => {
       const content = {
         value: value,
         article: article
@@ -51,8 +52,8 @@ const Create = () => {
       localStorage.setItem('editorContent', savedContent);
     }, 500)
     // clean up the timeout if content changes before delay
-    return ()=> clearTimeout(Debouncer);
-  },[article, value])
+    return () => clearTimeout(Debouncer);
+  }, [article, value])
 
   const addError = (message) => {
     setError(message);
@@ -205,7 +206,7 @@ const Create = () => {
 
       <div
         className="flex flex-col gap-3 items-center mx-auto pt-16 max-w-[1440px]"
-        style={{ backgroundImage: `url(${background2})` }}
+      // style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}
         <div className=" relative w-[100%] max-w-[100%] flex  justify-center  md:h-[70%] md:w-[90%] py-7">
@@ -214,7 +215,7 @@ const Create = () => {
               e.preventDefault();
               publishPost();
             }}
-            className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5"
+            className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3 md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
               <h2 className="text-[#212121] font-[500] text-2xl ml-2">
@@ -237,7 +238,7 @@ const Create = () => {
                         placeholder="Name"
                         value={value.name}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                       />
                     </div>
 
@@ -250,7 +251,7 @@ const Create = () => {
                         placeholder="Email"
                         value={value.email}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                       />
                     </div>
                   </div>
@@ -269,7 +270,7 @@ const Create = () => {
                         placeholder="Company's name"
                         value={value.company}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                       />
                       <datalist id="companySuggestions">
                         {companySuggestions.map((suggestion, index) => (
@@ -285,7 +286,7 @@ const Create = () => {
                         id="position"
                         value={value.position}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                       >
                         <option value="">Select Position</option>
                         <option value="Internship">Internship</option>
@@ -311,7 +312,7 @@ const Create = () => {
                           placeholder="Blog Title"
                           value={value.title}
                           onChange={handleChange}
-                          className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                          className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
                         />
                       </div>
                     </div>
@@ -328,14 +329,32 @@ const Create = () => {
 
             {/* submit button */}
 
-            <div className="flex flex-col justify-center gap-3">
-              <button
-                type="Subm"
-                disabled={isLoading}
-                className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
-              >
-                {isLoading ? "Processing..." : "Publish"}
-              </button>
+            <div className="flex flex-col justify-center gap-3 group">
+              <ButtonV5 icon={false}>
+                <div
+                  type="Subm"
+                  disabled={isLoading}
+                // className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
+                >
+                  {isLoading ? "Processing..." : <div className="flex justify-center items-center gap-1">Publish
+                    {/* airplane svg */}
+                    <div className="flex w-5 justify-end items-center overflow-hidden">
+                      <div className="w-5">
+                        <svg className={`h-5 w-5 group-hover:translate-x-[100%] translate-y-[66%] group-hover:translate-y-[0%]  group-hover:opacity-100 group-hover:duration-300 translate-x-[0%] opacity-0 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                      <div className="w-5">
+                        <svg className={`h-5 w-5 group-hover:translate-x-[100%] group-hover:-translate-y-[66%] translate-y-[0%] group-hover:opacity-0 group-hover:duration-300 translate-x-[0%] opacity-100 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>}
+                </div>
+              </ButtonV5>
             </div>
           </form>
         </div>
@@ -350,15 +369,15 @@ const Create = () => {
         </div> */}
         {/* Write here (Editor) */}
         <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[100%] md:w-[100%] h-[100vh]">
-  <div className="relative w-[70%] flex justify-start pb-7">
-    <h1 className="text-[#212121] font-[500] text-2xl ml-4">
-      Write Here
-    </h1>
-  </div>
-  <div className="relative w-[100%] flex justify-center">
-  <TextEditor article={article} setArticle={setArticle} style={{ height: "120vh" }} />
-  </div>
-</div>
+          <div className="relative w-[70%] flex justify-start pb-7">
+            <h1 className="text-[#212121] font-[500] text-2xl ml-4">
+              Write Here
+            </h1>
+          </div>
+          <div className="relative w-[100%] flex justify-center">
+            <TextEditor article={article} setArticle={setArticle} style={{ height: "120vh" }} />
+          </div>
+        </div>
       </div>
       <div className="pt-7">
         <Footer />
