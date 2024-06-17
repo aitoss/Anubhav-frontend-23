@@ -144,19 +144,19 @@ const Create = () => {
       <>
         <ErrorMessage error={error} />
 
-        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
+        <h3 className="text-[#212121] flex justify-start ml-1">Banner Image</h3>
         <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
           <div className="w-full flex justify-center ">
-            <div className="w-[150px] h-[150px]  flex justify-center rounded-full sm:w-24 sm:h-24">
+            <div className="w-[280px] h-[180px] rounded-lg flex justify-center items-center">
               {file ? (
                 <img
                   src={file}
-                  alt=""
-                  className="w-full h-full object-cover rounded-full"
+                  alt={value.title}
+                  className="w-[280px] h-[180px] rounded-lg object-cover"
                 />
               ) : (
                 <img
-                  className="cursor-pointer"
+                  className="cursor-pointer w-[80px] h-[80px]"
                   src={Upload}
                   onClick={(e) => {
                     inputRef.current.click();
@@ -167,25 +167,24 @@ const Create = () => {
             </div>
           </div>
           <p className="text-gray-300">
-            {file ? null : (
-              <>
-                <h1 className="text-[#C3C3C3] text-xs font-[300] text-center">
-                  JPG, JPEG, PNG file size no more than 10MB
-                </h1>
-                <h1 className="text-[#322e2e] text-xs font-[400] text-center">
-                  Keep the image ratio to 280x180 px
-                </h1>
-              </>
-            )}
+            {file ?
+              <div
+                className="flex justify-center items-center gap-1 text-[#717171] border-[#fff] border-b hover:border-[#717171] h-[20px] cursor-pointer"
+                onClick={() => setFile(null)}
+              >
+                Remove <span className="text-[24px]">×</span>
+              </div>
+              : (
+                <>
+                  <h1 className="text-[#C3C3C3] text-xs font-[300] text-center">
+                    JPG, JPEG, PNG file size no more than 10MB
+                  </h1>
+                  <h1 className="text-[#322e2e] text-xs font-[400] text-center">
+                    Keep the image ratio to 280x180 px
+                  </h1>
+                </>
+              )}
           </p>
-          {file && (
-            <div
-              className="flex justify-center items-center gap-1 text-[#717171] border-[#fff] border-b hover:border-[#717171] h-[20px] cursor-pointer"
-              onClick={() => setFile(null)}
-            >
-              Remove <span className="text-[24px]">×</span>
-            </div>
-          )}
           {/* </div> */}
           <input
             type="file"
@@ -215,7 +214,7 @@ const Create = () => {
               e.preventDefault();
               publishPost();
             }}
-            className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3 md:gap-1  md:w-full md:p-5"
+            className="relative w-[70%] rounded-xl bg-white pb-4 flex flex-col gap-3 md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
               <h2 className="text-[#212121] font-[500] text-2xl ml-2">
@@ -226,7 +225,7 @@ const Create = () => {
             <div className="flex gap-4 md:flex-col">
               <div className="flex flex-col gap-3 p-2 w-[50%] md:w-full md:gap-2">
                 <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="text-gray-700 ml-3">About You</h4>
+                  <h4 className="text-gray-700 ml-1">About You</h4>
 
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
@@ -258,7 +257,7 @@ const Create = () => {
                 </div>
 
                 <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="ml-3 text-gray-700">About Company</h4>
+                  <h4 className="ml-1 text-gray-700">About Company</h4>
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
                       <input
@@ -300,7 +299,7 @@ const Create = () => {
                 </div>
 
                 <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="ml-3 text-gray-700">Title</h4>
+                  <h4 className="ml-1 text-gray-700">Title</h4>
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
                       <div className="relative flex flex-col gap-2">
@@ -370,7 +369,7 @@ const Create = () => {
         {/* Write here (Editor) */}
         <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[100%] md:w-[100%] h-[100vh]">
           <div className="relative w-[70%] flex justify-start pb-7">
-            <h1 className="text-[#212121] font-[500] text-2xl ml-4">
+            <h1 className="text-[#212121] font-[500] text-2xl">
               Write Here
             </h1>
           </div>

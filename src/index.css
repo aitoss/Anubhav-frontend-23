@@ -77,6 +77,10 @@ button:focus-visible {
   /* object-fit: contain !important; */
 }
 
+.font-tthoves{
+  font-family: "TTHoves", sans-serif;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -94,8 +94,8 @@ export default function HomeScreen() {
           <input
             ref={inputRef}
             onClick={handleClick}
-            className="bg-[#212121] text-[#ffffffcc]  w-[350px] md:w-[280px] lg:w-[400px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
-            type="text"
+            className="bg-[#212121] px-3 h-[2.5rem] text-[#ffffffcc]  w-[350px] md:w-[280px] lg:w-[400px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
+            type=""
             placeholder="Search for your Dreams.."
           />
           <div className="border-[1.5px] border-[#414141] bg-[#313131] text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] ">
@@ -135,7 +135,7 @@ export default function HomeScreen() {
             exit={{ opacity: 0, translateY: 100 }}
             transition={{ duration: 0.15 }}
           >
-            <h1 className="  text-8xl md:text-7xl  lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
+            <h1 className="  text-8xl sm:text-7xl  lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
               Anubhav
             </h1>
           </motion.div>
@@ -214,3 +214,4 @@ export default function HomeScreen() {
     </>
   );
 }
+
