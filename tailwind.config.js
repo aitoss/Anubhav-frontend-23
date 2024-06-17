@@ -30,9 +30,13 @@ export default {
       screens: {
         md: { max: "770px" },
         // => @media (max-width: 767px) { ... }
-
+        
         sm: { max: "639px" },
         // => @media (max-width: 639px) { ... }
+
+        "md-xl": { min: "769px", max: "940px" },
+        // => @media (min-width: 1280px) and (max-width: 1535px) { ... }
+
         "x-sm": { max: "480px" },
         "lg-xl": { max: "1024px" },
       },

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CiBookmark, CiHeart } from "react-icons/ci";
+import Author from "./_Child/Author";
 import ReactQuill from "react-quill";
 
 import user3 from "../../assets/images/user3.png";
@@ -20,9 +21,9 @@ const BlogCard = ({
   return (
     <>
       <Link to={link} className="pb-2 border-b">
-        <div className="flex flex-row x-sm:flex-col w-full h-full justify-center items-center lg:gap-10 gap-4 p-1">
+        <div className="flex flex-row md:flex-col md:gap-2 w-full h-full justify-center items-center gap-4 p-1">
           <div
-            className="container w-[280px] h-[180px]  rounded-lg banner-image"
+            className="container md:w-full w-[280px] h-[180px]  rounded-lg banner-image"
             style={{ backgroundImage: `url(${imagesrc})` }}
           ></div>
           {/* <img className='banner-image lg:w-[280px] w-[220px] md:w-[200px] x-sm:w-full h-full rounded-lg object-cover' src={imagesrc} alt="Banner Image" /> */}
@@ -33,23 +34,12 @@ const BlogCard = ({
             <h1 className="text-[24px] sm:text-[20px] font-[500] x-sm:text-[16px] text-gray-700 hover:text-gray-800">
               {Title}
             </h1>
-            <div className="author flex items-center x-sm:gap-1 gap-2">
-              <img
-                src={user3}
-                className="rounded-full w-6 h-6 x-sm:w-5 x-sm:h-5"
-                alt="User Avatar"
-              />
-              <a
-                href="#"
-                className="font-[400] x-sm:text-[13px]  hover:text-gray-600 text-gray-700"
-              >
-                {author}
-              </a>
-              <span className="text-[#a0a0a0] font-[400]">|</span>
-              <a href="#" className="font-[400] x-sm:text-[13px] text-gray-500">
-                {company}
-              </a>
-            </div>
+            <Author
+          person={{
+            name: author,
+            company: company,
+          }}
+        />
         {/* found it difficult to change the short description into rendered markdown so removed it as of now */}
             <div className="md:hidden flex justify-between w-full items-center">
               <h2 className="text-gray-500 font-[400] x-sm:text-[13px] ">

@@ -66,8 +66,8 @@ const Blog = () => {
       <div className="data w- items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
-            className="text-2xl lg:text-5xl font-bold text-gray-700 hover:text-gray-800"
-            href="/link"
+            className="text-2xl lg:text-5xl font-bold text-[#212121]"
+          // href="/link"
           >
             {blogData?.title}
           </a>
@@ -82,31 +82,31 @@ const Blog = () => {
         <div className="flex pb-4 lg:gap-10 items-center">
           <p className="text-gray-500">{`${readingTime} mins read • ${timeStamp}`}</p>
           <div className="flex gap-3 ml-auto">
-            <a href="#">
+            <a >
               <CiHeart color="#888888" />
             </a>
-            <a href="#">
+            <a >
               <CiBookmark color="#888888" />
             </a>
           </div>
         </div>
         <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
-      {blogData.imageUrl !== "your_image_url_here" && (
-        <div className="lg:h-[400px] lg:pb-10 flex flex-col items-center justify-center">
-          <img
-            src={blogData?.imageUrl}
-            className="w-full lg:h-full"
-            alt=""
-          />
+          {blogData.imageUrl !== "your_image_url_here" && (
+            <div className=" lg:pb-10 w-full flex flex-col items-center justify-center">
+              <img
+                src={blogData?.imageUrl}
+                className="lg:h-[300px] lg:w-[780px] h-[400px] x-sm:h-[200px] md:h-[300px] w-full object-cover rounded-lg"
+                alt=""
+              />
+            </div>
+          )}
+          <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
+            <MDEditor.Markdown
+              source={blogData?.description}
+              className="w-full h-full markdown-body "
+            />
+          </div>
         </div>
-      )}
-      <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
-        <MDEditor.Markdown
-          source={blogData?.description}
-          className="w-full h-full markdown-body"
-        />
-      </div>
-    </div>
 
 
       </div>

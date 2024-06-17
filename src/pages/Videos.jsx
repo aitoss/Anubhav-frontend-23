@@ -26,14 +26,14 @@ const Videos = () => {
             </div>
             <p className="leading-5 pt-[3px] content-start text-gray-500">
               {readMore ? info : `${info.substring(0, 100)}...`}
-              <span
+              {/* <span
                 className="bg-white p-0 text-blue-400 cursor-pointer"
                 onClick={() => {
                   setReadMore(!readMore);
                 }}
               >
                 {readMore ? "read less" : "read more"}
-              </span>
+              </span> */}
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Videos = () => {
           <Tag name="Google" />
         </div>
         <div className="w-screen flex justify-center">
-          <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1 x-sm:w-[100%]">
+          <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4">
             {info.map((item) => {
               return <YoutubeCards id={item.id} key={item.id} {...item} />;
             })}

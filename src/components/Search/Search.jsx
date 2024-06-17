@@ -10,7 +10,7 @@ const Search = ({ mode, focus, full }) => {
   const [searchText, setSearchText] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const inputRef = useRef(null);
-  const [popularSearches,setPopularSearches] = useState([]);
+  const [popularSearches, setPopularSearches] = useState([]);
 
   useEffect(() => {
     if (focus) {
@@ -48,8 +48,11 @@ const Search = ({ mode, focus, full }) => {
       const updatedSearches = [...recentSearches, searchText];
       const limitedSearches = updatedSearches.slice(-10);
       setRecentSearches(limitedSearches);
-      setSearchText("");
-      navigate('/search?query='+searchText);
+      // setSearchText("");
+      // focus out
+      inputRef.current.value = searchText;
+      inputRef.current.blur();
+      navigate('/search?query=' + searchText);
     }
   };
 
@@ -71,9 +74,9 @@ const Search = ({ mode, focus, full }) => {
     throttle(async (searchText) => {
 
       try {
-        const response = await fetch(BACKEND_URL+`/similarBlogs?q=${searchText}`);
+        const response = await fetch(BACKEND_URL + `/similarBlogs?q=${searchText}`);
         const data = await response.json();
-        const suggestionTitles = data.map(item => {return item.title})
+        const suggestionTitles = data.map(item => { return item.title })
         setPopularSearches(suggestionTitles);
       } catch (err) {
         console.log('Failed to fetch suggestions');
@@ -150,8 +153,8 @@ const Search = ({ mode, focus, full }) => {
           </div>
           <input
             ref={inputRef}
-            className={`${inputBgClass} ${inputTextClass} w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none ${placeholderClass}`}
-            type="text"
+            className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
+            type=''
             placeholder="Search for your Dreams.."
             value={searchText}
             onKeyDown={handleClose}
@@ -171,7 +174,7 @@ const Search = ({ mode, focus, full }) => {
               <div className={`w-full h-[1px] ${hoverClass}`}></div>
               {popularSearches.map((company, index) => (
                 <div className={`px-2 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
-                  <div className="pl-2 w-[400px]" onClick={() => handleSuggestionClick(company)}>
+                  <div className="pl-2 w-[400px] cursor-pointer" onClick={() => handleSuggestionClick(company)}>
                     {company}
                   </div>
                 </div>
@@ -183,7 +186,7 @@ const Search = ({ mode, focus, full }) => {
               </div>
             ) : (
               <>
-                <div className="overflow-hidden px-2 pt-2 pb-1 w-full font-[400] tracking-wider">
+                <div className="overflow-hidden px-4 pt-2 pb-1 w-full font-[400] tracking-wider">
                   Recent Searches
                 </div>
                 <div className={`w-[480px] h-[1px] ${hoverClass}`}></div>
@@ -191,16 +194,19 @@ const Search = ({ mode, focus, full }) => {
                   .slice(0)
                   .reverse()
                   .map((search, index) => (
-                    <div className={`px-2 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
-                      <svg
-                        className="w-[20px]"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#9a9a9a"
-                      >
-                        <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"></path>
-                      </svg>
-                      <div className="pl-2 w-[400px]">{search}</div>
+                    <div className={`px-4 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
+
+                      <div className="flex justify-center items-center gap-2 cursor-pointer" onClick={() => handleSuggestionClick(search)}>
+                        <svg
+                          className="w-[20px]"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="#9a9a9a"
+                        >
+                          <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"></path>
+                        </svg>
+                        <div className=" w-[400px]">{search}</div>
+                      </div>
                       <span
                         className="hover:underline hover:cursor-pointer"
                         onClick={() => handleRemove(recentSearches.length - index - 1)}
