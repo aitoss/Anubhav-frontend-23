@@ -9,7 +9,6 @@ import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
 import Upload from "../assets/images/upload.svg";
 import { Link } from "react-router-dom";
-import { UploadFile } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
@@ -20,7 +19,7 @@ const Create = () => {
   const inputRef = useRef();
 
   const [file, setFile] = useState(null);
-  const [bannerImage, setbannerImage] = useState(null);
+  const [bannerImage, setBannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -65,28 +64,25 @@ const Create = () => {
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
-  const UploadFile = async () => {
+
+  const handleFileUpload = async () => {
     const file = inputRef.current.files[0];
     setFile(URL.createObjectURL(file));
-    console.log(file);
   
     const formData = new FormData();
     formData.append("image", file);
   
     try {
-      const response = await axios.post('http://localhost:3000/api/anubhav/upload-image', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log("Response from image cloud", response);
-      setbannerImage(response.data.data.display_url);
+      const response = await axios.post(
+        "https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587",
+        formData,
+      );      
+      console.log('Response from backend:', response.data);
+      setBannerImage(response.data.data.display_url);
     } catch (error) {
-      console.log("Error uploading image: ", error);
+      console.error('Error uploading image:', error);
     }
   };
-  
-
   useEffect(() => {
     console.log("Banner Image", bannerImage);
   }, [bannerImage]);
@@ -192,7 +188,7 @@ const Create = () => {
             ref={inputRef}
             name=""
             id=""
-            onChange={UploadFile}
+            onChange={handleFileUpload}
             className="hidden"
           />
         </div>
