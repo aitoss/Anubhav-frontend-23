@@ -12,6 +12,7 @@ import background2 from "../assets/bg.png";
 // import background2 from '../assets/dots-pattern.svg';
 import Slider from "../components/Slider/Slider";
 import Video from "../pages/Videos";
+import BackgroundDots from "../assets/Background";
 
 export default function HomeScreen() {
   const [OpenSearchModal, setOpenSearchModal] = useState(false);
@@ -114,11 +115,19 @@ export default function HomeScreen() {
       <div
         className="relative flex flex-col w-full pt-20 lg:pb-20 justify-center items-center"
         style={{
-          backgroundImage: `url(${background2})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          // backgroundImage: `url(${background2})`,
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
         }}
       >
+        <BackgroundDots
+          dotSize={1.8}
+          dotColor="#c9c9c9"
+          backgroundColor=""
+          gap={20}
+          className="custom-class"
+          fade={true}
+        />
         <div className="flex  flex-col gap-7 justify-center items-center p-7">
           <motion.div
             initial={{ opacity: 0, translateY: 20 }}

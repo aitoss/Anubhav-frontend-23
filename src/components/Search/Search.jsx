@@ -120,7 +120,7 @@ const Search = ({ mode, focus, full }) => {
   return (
     <>
       <div className="flex flex-col relative">
-        <div className={`search flex px-[4px] py-[1px] border-[1.5px] ${containerClass} ${borderClass} justify-center items-center gap-1 rounded-lg shadow-md`}>
+        <div className={`search flex px-[4px] py-[1px] border-[1.5px] ${containerClass} ${borderClass} justify-center items-center gap-1 rounded-lg shadow-md shadow-[rgba(0,0,0,0.05)]`}>
           <div
             onClick={handleSearchSubmit}
             className={`h-[32px] w-[32px] border-[1.5px] ${borderClass} rounded-lg p-1 cursor-pointer flex justify-center items-center`}
@@ -163,7 +163,7 @@ const Search = ({ mode, focus, full }) => {
           </div>
         </div>
         {isExpanded && (
-          <div className={`z-50 overflow-hidden absolute top-[42.4px] flex flex-col font-[300] text-sm ${popularSearchClass} w-full recent-searches border-[1.5px] ${borderClass} justify-start items-center rounded-lg shadow-md`}>
+          <div className={`z-50 overflow-hidden absolute top-[42.4px] flex flex-col font-[300] text-sm ${popularSearchClass} w-full recent-searches border-[1.5px] ${borderClass} justify-start items-center rounded-lg shadow-md shadow-[rgba(0,0,0,0.05)]`}>
             <div className="flex flex-col w-full justify-center items-center">
               <div className="overflow-hidden px-2 pt-2 pb-1 w-full font-[400] tracking-wider">
                 Popular Searches
