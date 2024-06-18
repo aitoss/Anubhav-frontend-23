@@ -94,7 +94,7 @@ const SearchPage = () => {
         <div className="w-full flex gap-8 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for "{searchParams.toString().substring(6).replace('+',' ')}"</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
