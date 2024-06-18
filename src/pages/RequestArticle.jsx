@@ -79,19 +79,19 @@ const RequestArticle = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col h-screen overflow-hidden justify-center items-center">
+      <div className="flex flex-col h-screen overflow-hidden justify-start items-center">
         <div
-          className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
+          className="flex flex-col mx-auto overflow-hidden pt-32 justify-center gap-3 items-center"
         // style={{ backgroundImage: `url(${background2})` }}
         >
           {/* basic info */}
-          <div className="  w-[100%] flex  justify-center  py-7">
+          <div className="w-[100%] flex justify-center">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              className=" w-[650px]  md:w-full max-w-[1600px] overflow-hidden p-7 pb-4 flex flex-col gap-3 md:gap-1 md:p-5"
+              className=" w-[650px]  md:w-full max-w-[1600px] overflow-hidden flex flex-col gap-3 md:gap-1 md:px-3"
             >
               <div className="w-full">
                 <motion.div
@@ -295,23 +295,19 @@ const RequestArticle = () => {
                         </div>}
                     </button>
                   </ButtonV5>
+                  <div className="h-16"></div>
                 </div>
               </motion.div>
-
             </form>
           </div>
         </div>
-      </div >
-      <div className="mt-auto">
-        <Footer />
       </div>
+      <Footer />
       <ErrorMessage error={error} />
       <SuccessMessage
         requestSend={requestSend}
         setRequestSend={setRequestSend}
       />
-
-
     </>
   );
 };

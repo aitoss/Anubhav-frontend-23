@@ -35,12 +35,12 @@ const BlogCard = ({
               {Title}
             </h1>
             <Author
-          person={{
-            name: author,
-            company: company,
-          }}
-        />
-        {/* found it difficult to change the short description into rendered markdown so removed it as of now */}
+              person={{
+                name: author,
+                company: company,
+              }}
+            />
+            {/* found it difficult to change the short description into rendered markdown so removed it as of now */}
             <div className="md:hidden flex justify-between w-full items-center">
               <h2 className="text-gray-500 font-[400] x-sm:text-[13px] ">
                 <span className="md:hidden">{readingTime} mins read • </span>

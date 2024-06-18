@@ -1,52 +1,29 @@
-import React, { useState } from "react";
-import Data from "./data";
+import React, { useEffect, useState } from "react";
 import { YOUTUBE_PLAYLIST } from "../constants";
 import Tag from "../components/InputTag/Tag";
-
-// commit
+import YoutubeCard from "../components/Video/YoutubeCard";
 
 const Videos = () => {
-  const [info, setInfo] = useState(Data);
+  const [youtubeData, setYoutubeData] = useState([]);
 
-  const YoutubeCards = ({ id, title, img, info, tags }) => {
-    const [readMore, setReadMore] = useState(false);
-
-    return (
-      <>
-        <div className="w-[20rem] bg-white transition-all">
-          <a href={YOUTUBE_PLAYLIST + id} target="_blank">
-            <img src={img} alt="" className="w-full rounded-[10px] pb-2" />
-          </a>
-          <div className="">
-            <h2 className="text-black font-[500] text-[20px]">{title}</h2>
-            <div className="flex flex-wrap gap-2 pt-[3px]">
-              {tags.map((tag) => {
-                return <Tag name={tag} />;
-              })}
-            </div>
-            <p className="leading-5 pt-[3px] content-start text-gray-500">
-              {readMore ? info : `${info.substring(0, 100)}...`}
-              {/* <span
-                className="bg-white p-0 text-blue-400 cursor-pointer"
-                onClick={() => {
-                  setReadMore(!readMore);
-                }}
-              >
-                {readMore ? "read less" : "read more"}
-              </span> */}
-            </p>
-          </div>
-        </div>
-      </>
-    );
-  };
-
+  useEffect(() => {
+    fetch("/VideoData.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => setYoutubeData(data))
+      .catch(error => console.error('Error loading video data:', error));
+  }, []);
+  
   return (
     <>
       {/* <Navbar /> */}
       <div className="flex  flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-20 mb-20">
-        <h1 className="text-black  x-sm:text-[35px]">Popular Video</h1>
-        <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom ">
+        <h1 className="text-[#212121] font-[500] x-sm:text-[35px]">Popular Video</h1>
+        <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom x-sm:px-6">
           <Tag name="CP" />
           <Tag name="Codeforces" />
           <Tag name="Dev" />
@@ -56,8 +33,16 @@ const Videos = () => {
         </div>
         <div className="w-screen flex justify-center">
           <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4">
-            {info.map((item) => {
-              return <YoutubeCards id={item.id} key={item.id} {...item} />;
+            {youtubeData.map((data) => {
+              return (
+                <YoutubeCard
+                  title={data.title}
+                  img={data.img}
+                  link={data.link}
+                  description={data.description}
+                  tags={data.tags}
+                />
+              );
             })}
           </div>
         </div>
