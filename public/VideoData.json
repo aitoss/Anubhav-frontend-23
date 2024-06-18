@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "img": "/src/assets/images/youtube_image1.png",
+    "img": "./src/assets/images/youtube_image1.png",
     "link": "https://www.youtube.com/embed/c58BoAV2dPc?si=Q2HOD9wHer0iV8Ox",
     "title": "Talk with Bhupendra Yadav 🔥",
     "description": "In this first episode of Anubhav video interview series, we have Bhupendra Yadav, of class 2021. He has shared his college experience, coding journey and preparation strategy for juniors.",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "img": "/src/assets/images/youtube_image2.png",
+    "img": "./src/assets/images/youtube_image2.png",
     "link": "https://www.youtube.com/embed/u3Ypg4BIu-0?si=BljzinBDTMQdSynT",
     "title": "Talk with Shailesh Kr Sahu",
     "description": "In this episode of Anubhav video interview series, we have Shailesh Kumar Sahu (Shellkore), of class 2021. He has shared his college experience, dev journey, deutsche bank interview experience, and useful tips for juniors.",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "img": "/src/assets/images/youtube_image3.png",
+    "img": "./src/assets/images/youtube_image3.png",
     "link": "https://www.youtube.com/embed/DoVbefblNbc?si=5EPAzWpF3GczesZ3",
     "title": "Talk with Sachin Yadav 🔥",
     "description": "For this episode, we have Sachin Yadav, of class 2021. He has shared his college experience, coding journey, google interview experience, and useful tips for juniors.",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "img": "/src/assets/images/youtube_image4.jpg",
+    "img": "./src/assets/images/youtube_image4.jpg",
     "link": "https://youtu.be/DoVbefblNbc",
     "title": "Talk with Vivek Kumar 🔥",
     "description": "For this episode, we have Vivek Kumar, of class 2021. Watch the video to learn from his experience, coding journey, placement preparation, and useful tips for juniors.",
