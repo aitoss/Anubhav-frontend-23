@@ -35,6 +35,7 @@ export default {
         // => @media (max-width: 639px) { ... }
 
         "md-xl": { min: "769px", max: "940px" },
+        "md-2xl": { min: "769px", max: "1240px" },
         // => @media (min-width: 1280px) and (max-width: 1535px) { ... }
 
         "x-sm": { max: "480px" },

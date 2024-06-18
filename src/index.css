@@ -81,6 +81,11 @@ button:focus-visible {
   font-family: "TTHoves", sans-serif;
 }
 
+.font-inter{
+  font-family: "Inter", sans-serif;
+
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

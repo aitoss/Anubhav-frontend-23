@@ -66,7 +66,7 @@ const Blog = () => {
       <div className="data w- items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
         <div className="heading">
           <a
-            className="text-2xl lg:text-5xl font-bold text-[#212121]"
+            className="x-sm:text-3xl text-4xl lg:text-5xl tracking-tighter font-bold text-[#212121]"
           // href="/link"
           >
             {blogData?.title}
@@ -103,7 +103,7 @@ const Blog = () => {
           <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
             <MDEditor.Markdown
               source={blogData?.description}
-              className="w-full h-full markdown-body "
+              className="w-full h-full markdown-body font-inter text-[#121212] text-lg"
             />
           </div>
         </div>
