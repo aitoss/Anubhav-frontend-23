@@ -166,7 +166,7 @@ const Search = ({ mode, focus, full }) => {
           </div>
         </div>
         {isExpanded && (
-          <div className={`z-50 overflow-hidden absolute top-[42.4px] flex flex-col font-[300] text-sm ${popularSearchClass} w-full recent-searches border-[1.5px] ${borderClass} justify-start items-center rounded-lg shadow-md shadow-[rgba(0,0,0,0.05)]`}>
+          <div className={`z-50 overflow-hidden absolute top-[42.5px] flex flex-col font-[300] text-sm ${popularSearchClass} w-full recent-searches border-[1.5px] ${borderClass} justify-start items-center rounded-lg shadow-md shadow-[rgba(0,0,0,0.05)]`}>
             <div className="flex flex-col w-full justify-center items-center">
               <div className="overflow-hidden px-2 pt-2 pb-1 w-full font-[400] tracking-wider">
                 Popular Searches

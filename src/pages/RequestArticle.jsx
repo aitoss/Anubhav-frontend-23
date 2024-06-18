@@ -8,6 +8,7 @@ import { BACKEND_URL } from "../constants";
 import ErrorMessage from "../components/notification/ErrorMessage";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import ButtonV5 from "../components/pixaui/buttonv5";
+import Spinner from "../assets/Spinner";
 
 const RequestArticle = () => {
   const initialState = {
@@ -81,7 +82,7 @@ const RequestArticle = () => {
       <div className="flex flex-col h-screen overflow-hidden justify-center items-center">
         <div
           className="flex flex-col mx-auto overflow-hidden mt-6 justify-center gap-3 items-center"
-          // style={{ backgroundImage: `url(${background2})` }}
+        // style={{ backgroundImage: `url(${background2})` }}
         >
           {/* basic info */}
           <div className="  w-[100%] flex  justify-center  py-7">
@@ -267,29 +268,32 @@ const RequestArticle = () => {
               >
                 <div className="flex flex-col justify-center gap-3">
                   <ButtonV5 icon={false}>
-                    <div
-                      type="Subm"
+                    <button
+                      type="submit"
                       disabled={isLoading}
-                      // className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
+                      className="p-0 outline-none focus:outline-none font-[400]"
                     >
-                      {isLoading ? "Processing..." : <div className="flex justify-center items-center gap-1">Send Request
-                    {/* airplane svg */}
-                    <div className="flex w-5 justify-end items-center overflow-hidden">
-                      <div className="w-5">
-                        <svg className={`h-5 w-5 group-hover:translate-x-[100%] translate-y-[66%] group-hover:translate-y-[0%]  group-hover:opacity-100 group-hover:duration-300 translate-x-[0%] opacity-0 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </div>
-                      <div className="w-5">
-                        <svg className={`h-5 w-5 group-hover:translate-x-[100%] group-hover:-translate-y-[66%] translate-y-[0%] group-hover:opacity-0 group-hover:duration-300 translate-x-[0%] opacity-100 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>}
-                    </div>
+                      {isLoading ?
+                        <div className="flex items-center justify-center gap-1"> Processing <Spinner /></div>
+                        :
+                        <div className="flex justify-center items-center gap-1">Send Request
+                          {/* airplane svg */}
+                          <div className="flex w-5 justify-end items-center overflow-hidden">
+                            <div className="w-5">
+                              <svg className={`h-5 w-5 group-hover:translate-x-[100%] translate-y-[66%] group-hover:translate-y-[0%]  group-hover:opacity-100 group-hover:duration-300 translate-x-[0%] opacity-0 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </div>
+                            <div className="w-5">
+                              <svg className={`h-5 w-5 group-hover:translate-x-[100%] group-hover:-translate-y-[66%] translate-y-[0%] group-hover:opacity-0 group-hover:duration-300 translate-x-[0%] opacity-100 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>}
+                    </button>
                   </ButtonV5>
                 </div>
               </motion.div>
