@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const MinuteReadLikes = ({ id, readingTime, timeStamp }) => {
-    const [heartColor, setHeartColor] = useState("#e6eced");
-    const [bookmarkColor, setBookmarkColor] = useState("#e6eced");
+    const [heartColor, setHeartColor] = useState("#d6d6d6");
+    const [bookmarkColor, setBookmarkColor] = useState("#d6d6d6");
     const [animateHeart, setAnimateHeart] = useState(false);
     const [animateBookmark, setAnimateBookmark] = useState(false);
 
@@ -23,7 +23,7 @@ const MinuteReadLikes = ({ id, readingTime, timeStamp }) => {
         const heart = localStorage.getItem(`heart_${id}`);
         if (heart === "true") {
             localStorage.setItem(`heart_${id}`, "false");
-            setHeartColor("#e6eced");
+            setHeartColor("#d6d6d6");
         } else {
             localStorage.setItem(`heart_${id}`, "true");
             setHeartColor("#e0245e");
@@ -36,7 +36,7 @@ const MinuteReadLikes = ({ id, readingTime, timeStamp }) => {
         const bookmark = localStorage.getItem(`bookmark_${id}`);
         if (bookmark === "true") {
             localStorage.setItem(`bookmark_${id}`, "false");
-            setBookmarkColor("#e6eced");
+            setBookmarkColor("#d6d6d6");
         } else {
             localStorage.setItem(`bookmark_${id}`, "true");
             setBookmarkColor("#414141");

@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
 import company from "../../assets/images/company.png";
 import { BACKEND_URL } from "../../constants";
-import { ReadTime } from "../../services/date";
+import { ReadTime,formatDate } from "../../services/date";
 
 const BlogSection = () => {
   const [blogData, setBlogData] = useState([]);
@@ -54,7 +54,7 @@ const BlogSection = () => {
                 author={item.author?.name} // Optional chaining to avoid errors
                 company={item.companyName}
                 readingTime={ReadTime(item.description)}
-                date={item.createdAt}
+                date={formatDate(item.createdAt)}
               />
             ))
           )}
