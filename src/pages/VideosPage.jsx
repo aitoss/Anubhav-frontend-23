@@ -1,11 +1,25 @@
-import React, { useState } from "react";
-// import { YOUTUBE_PLAYLIST } from "../constants";
+import React, { useEffect, useState } from "react";
+import { YOUTUBE_PLAYLIST } from "../constants";
 import Tag from "../components/InputTag/Tag";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import YoutubeCard from "../components/Video/YoutubeCard";
 
 const VideosPage = () => {
-  // const [info, setInfo] = useState(Data);
+  const [youtubeData, setYoutubeData] = useState([]);
+
+  useEffect(() => {
+    fetch("/VideoData.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => setYoutubeData(data))
+      .catch(error => console.error('Error loading video data:', error));
+  }, []);
+  
 
   return (
     <div className="flex flex-col h-screen">
@@ -23,11 +37,19 @@ const VideosPage = () => {
           </div>
 
           <div className="w-screen flex justify-center">
-            <div className="w-[80%] flex flex-wrap justify-center gap-10 p-3 pt-1 x-sm:w-[100%]">
-              {info.map((item) => (
-                {/* <YoutubeCards id={item.id} key={item.id} {...item} /> */}
-              ))}
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4">
+            {youtubeData.map((data) => {
+              return (
+                <YoutubeCard
+                  title={data.title}
+                  img={data.img}
+                  link={data.link}
+                  description={data.description}
+                  tags={data.tags}
+                />
+              );
+            })}
+          </div>
           </div>
         </div>
       </div>
