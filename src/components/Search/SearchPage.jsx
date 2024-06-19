@@ -8,7 +8,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
 import company from "../../assets/images/company.png";
-import { ReadTime } from "../../services/date";
+import { ReadTime,formatDate } from "../../services/date";
 import SearchCardLoading from "./SearchCardLoading"; 
 
 const SearchPage = () => {
@@ -142,7 +142,7 @@ const SearchPage = () => {
                   company={item.companyName}
                   data={item.description}
                   readingTime={ReadTime(item.description)}
-                  date={item.createdAt}
+                  date={formatDate(item.createdAt)}
                 />
               ))
             )}

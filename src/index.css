@@ -102,6 +102,10 @@ button:focus-visible {
   }
 }
 
+::selection{
+  background-color: #0099ff39;
+}
+
 /* Add this CSS to your styles.css or equivalent */
 @keyframes pingPong {
   0% {

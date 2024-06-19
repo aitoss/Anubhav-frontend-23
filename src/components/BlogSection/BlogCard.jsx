@@ -27,7 +27,7 @@ const BlogCard = ({
             ></div>
           </Link>
           <div
-            className="md-2xl:w-min data flex items-start lg:justify-start justify-between h-full flex-col grow lg:gap-2 x-sm:gap-0 p-1 sm:self-start"
+            className="md-2xl:w-min w-full data flex items-start lg:justify-start justify-between h-full flex-col grow lg:gap-2 x-sm:gap-0 p-1 sm:self-start"
           >
             <Link
               to={link}
