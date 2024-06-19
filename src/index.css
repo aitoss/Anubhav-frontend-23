@@ -101,3 +101,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Add this CSS to your styles.css or equivalent */
+@keyframes pingPong {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ping-pong {
+  animation: pingPong 0.175s ease-in-out;
+}

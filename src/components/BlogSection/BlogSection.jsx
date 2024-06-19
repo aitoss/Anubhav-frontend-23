@@ -27,7 +27,7 @@ const BlogSection = () => {
 
   return (
     <>
-      <div className="p-0 w-full  flex flex-col items-center max-w-[1540px]">
+      <div className="p-0 w-full flex flex-col items-center max-w-[1540px]">
         <h1 className="text-[#212121] font-[500] pb-20 x-sm:text-[35px]">Trending Stories</h1>
         <div className="w-[70%] p-4 lg-xl:w-[100%] flex flex-col gap-10">
           {loading ? ( // Show shimmer/loading screen while data is being fetched
@@ -43,16 +43,16 @@ const BlogSection = () => {
             blogData.map((item) => (
               <BlogCard
                 key={item._id} // Added key prop for list rendering
+                id={item._id} // Pass the id to BlogCard
                 link={`/blog/${item._id}`}
                 Title={item.title}
                 imagesrc={
-                  item.imageUrl == "your_image_url_here"
+                  item.imageUrl === "your_image_url_here"
                     ? company
                     : item.imageUrl
                 }
                 author={item.author?.name} // Optional chaining to avoid errors
                 company={item.companyName}
-                data={item.description}
                 readingTime={ReadTime(item.description)}
                 date={item.createdAt}
               />

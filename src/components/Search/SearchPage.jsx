@@ -134,6 +134,7 @@ const SearchPage = () => {
               articles.map((item) => (
                 <BlogCard
                   key={item._id}
+                  id={item._id} // Pass the id to BlogCard
                   link={`/blog/${item._id}`}
                   Title={item.title}
                   imagesrc={item.imageUrl === "your_image_url_here" ? company : item.imageUrl}
