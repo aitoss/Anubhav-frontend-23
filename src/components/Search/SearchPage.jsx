@@ -8,8 +8,8 @@ import axios from "axios";
 import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
 import company from "../../assets/images/company.png";
-import { ReadTime,formatDate } from "../../services/date";
-import SearchCardLoading from "./SearchCardLoading"; 
+import { ReadTime, formatDate } from "../../services/date";
+import SearchCardLoading from "./SearchCardLoading";
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -23,18 +23,15 @@ const SearchPage = () => {
     const fetchSearchValue = async () => {
       const query = searchParams.get('query');
       if (query) {
-        setArticles([]); 
-        setPage(1); 
-        fetchArticles(query, 1); 
+        setArticles([]);
+        setPage(1);
+        fetchArticles(query, 1);
       }
     };
 
     fetchSearchValue();
   }, [searchParams]);
 
-  const [placement, setPlacement] = useState(true);
-  const [intern, setIntern] = useState(false);
-  const [videos, setVideos] = useState(false);
   const [filterPopUp, setFilterPopUp] = useState(false);
 
   const openFilterPopup = () => {
@@ -52,11 +49,11 @@ const SearchPage = () => {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
       setArticles(prevArticles => [...prevArticles, ...newArticles]);
-      setHasMore(newArticles.length === 10); 
+      setHasMore(newArticles.length === 10);
     } catch (error) {
       console.error("Failed to fetch articles", error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -68,24 +65,6 @@ const SearchPage = () => {
     }
   };
 
-  const handlePlacement = () => {
-    setPlacement(!placement);
-    setIntern(false);
-    setVideos(false);
-  };
-
-  const handleIntern = () => {
-    setIntern(!intern);
-    setPlacement(false);
-    setVideos(false);
-  };
-
-  const handleVideos = () => {
-    setVideos(!videos);
-    setPlacement(false);
-    setIntern(false);
-  };
-
   return (
     <>
       {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} />}
@@ -94,7 +73,7 @@ const SearchPage = () => {
         <div className="w-full flex gap-8 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for "{searchParams.toString().substring(6).replace('+',' ')}"</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for "{decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}"</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -147,9 +126,13 @@ const SearchPage = () => {
               ))
             )}
             {hasMore && !loading && (
-              <button onClick={handleShowMore} className="text-white">
+              <div onClick={handleShowMore} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
                 Show More
-              </button>
+                <svg className='rotate-90 group-hover:translate-y-2 transition-all duration-300' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                  <path d="M4 10.0699L15 10.0699" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                </svg>
+              </div>
             )}
             {loading && articles.length > 0 && <SearchCardLoading />}
           </div>
