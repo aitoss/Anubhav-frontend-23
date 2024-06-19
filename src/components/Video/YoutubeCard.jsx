@@ -6,7 +6,7 @@ const YoutubeCard = ({ title, img, link, description, tags }) => {
 
     return (
         <>
-            <div className="w-[20rem] x-sm:w-full px-6 bg-white hover:bg-[#f7f7f7] p-1 rounded-2xl transition-all duration-300">
+            <div className="w-[20rem] x-sm:w-full bg-white hover:bg-[#f7f7f7] p-1 rounded-2xl transition-all duration-300">
                 <a href={link} target="_blank">
                     <img src={img} alt="" className="w-full rounded-[10px]" />
                 </a>
@@ -18,7 +18,7 @@ const YoutubeCard = ({ title, img, link, description, tags }) => {
                         })}
                     </div>
                     <p className="leading-5 pt-[3px] content-start text-gray-500">
-                        {description.substring(0, 80)}...
+                        {description.substring(0, 70)}...
                     </p>
                 </div>
             </div>

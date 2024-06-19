@@ -14,6 +14,7 @@ import BlogCardLoading from "./BlogCardLoading";
 import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
 import BlogLoading from "./BlogLoading";
+import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
 
 const Blog = () => {
   const { id } = useParams();
@@ -61,6 +62,8 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+
+
   return (
     <>
       {loading == true ? <BlogLoading /> :
@@ -85,17 +88,11 @@ const Blog = () => {
               }}
             />
             <Tags data={blogData?.articleTags}></Tags>
-            <div className="flex pb-4 lg:gap-10 items-center">
-              <p className="text-gray-500">{`${readingTime} mins read • ${timeStamp}`}</p>
-              <div className="flex gap-3 ml-auto">
-                <a >
-                  <CiHeart color="#888888" />
-                </a>
-                <a >
-                  <CiBookmark color="#888888" />
-                </a>
-              </div>
-            </div>
+            <MinuteReadLikes
+              id={id} // Pass the blog id to MinuteReadLikes
+              readingTime={readingTime}
+              timeStamp={timeStamp}
+            />
             <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
               {blogData.imageUrl !== "your_image_url_here" && (
                 <div className=" lg:pb-10 w-full flex flex-col items-center justify-center">
