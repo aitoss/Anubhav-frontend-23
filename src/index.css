@@ -102,9 +102,10 @@ button:focus-visible {
   }
 }
 
-::selection{
-  background-color: #c6e8ff;
-  color: #1a1a1a;
+
+::selection {
+  color: #f0f0f0;
+  background: #000000dc;
 }
 
 /* Add this CSS to your styles.css or equivalent */

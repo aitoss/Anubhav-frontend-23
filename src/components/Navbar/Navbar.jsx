@@ -42,7 +42,7 @@ const Navbar = () => {
     };
   }, [prevScrollPos]);
 
-  const navClasses = `bg-[#ffffffcc] bg-blur border-b fixed item-center justify-center h-[60px] p-3 flex w-screen text-black z-40 transition-transform transform ${visible ? "translate-y-0" : "-translate-y-full"
+  const navClasses = `bg-[#ffffffcc] bg-blur border-b fixed item-center justify-center h-[60px] p-3 flex w-screen text-[#212121] z-40 transition-transform transform ${visible ? "translate-y-0" : "-translate-y-full"
     }`;
 
   return (

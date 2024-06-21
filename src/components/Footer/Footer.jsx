@@ -32,27 +32,27 @@ const Footer = () => {
             <filter id="filter0_f_816_14847" x="383.723" y="-691.5" width="720.206" height="728.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" />
+              {/* <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" /> */}
             </filter>
             <filter id="filter1_f_816_14847" x="215.723" y="-683" width="720.206" height="728.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" />
+              {/* <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" /> */}
             </filter>
             <filter id="filter2_f_816_14847" x="-438.5" y="89.4292" width="720.206" height="728.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" />
+              {/* <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" /> */}
             </filter>
             <filter id="filter3_f_816_14847" x="-270.5" y="80.9292" width="720.206" height="728.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" />
+              {/* <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" /> */}
             </filter>
             <filter id="filter4_f_816_14847" x="-206" y="167.429" width="720.206" height="728.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" />
+              {/* <feGaussianBlur stdDeviation="30" result="effect1_foregroundBlur_816_14847" /> */}
             </filter>
             <linearGradient id="paint0_linear_816_14847" x1="1033.85" y1="-621.424" x2="680.3" y2="-267.87" gradientUnits="userSpaceOnUse">
               <stop stop-color="white" />
@@ -89,16 +89,16 @@ const Footer = () => {
       <div className="bg-[#121212] flex justify-center items-center w-full px-3 ">
         <div className="w-full bottom-0  space-y-6 mt-1 p-3 text-center lg:text-left text-[#D9D9D9] max-w-[1540px]">
           <div className="relative main-footer x-sm:px-0  px-1 lg:px-20 text-left lg:flex-row justify-between lg:justify-between flex sm:flex-row x-sm:flex-col x-sm:justify-center x-sm:items-center x-sm:gap-6 items-start text-[#D9D9D9] ">
-            <div className="absolute -bottom-[25px] left-[10%] pointer-events-none">
+            <div className="absolute w-1/2 md:w-[90%] blur-[30px] overflow-hidden -bottom-[25px] left-[10%] pointer-events-none">
               <Glow />
             </div>
-            <div className="absolute left-0 w-full h-full top-0">
+            <div className="absolute left-0 w-full h-full top-0 pointer-events-none">
               <SparklesCore
                 id="tsparticlesfullpage"
                 background="transparent"
                 minSize={0.6}
                 maxSize={1.4}
-                particleDensity={10}
+                particleDensity={8}
                 className="w-full h-5/6"
                 particleColor="#d9d9d9"
               />

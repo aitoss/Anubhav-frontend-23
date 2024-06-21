@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import error from "../assets/error.svg";
 import Logo from "../components/Loader/DummyLoader";
+import ButtonV5 from "../components/pixaui/buttonv5";
 
 export default function Error404() {
   return (
@@ -54,27 +55,12 @@ export default function Error404() {
           >
             <Link
               to="/"
-              className="text-[20px] text-[#212121] font-[400]   p-1 cursor-pointer hover:text-[#313131] "
             >
-              <div className="flex gap-2 py-1 px-2 justify-center items-center text-[20px] bg-[#212121] rounded-lg text-[#fff] font-[400]   p-2 cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none">
-                Go to Home
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 10 19"
-                  fill="none"
-                >
-                  <path
-                    d="M1.91003 17.171L8.43003 10.651C9.20003 9.88103 9.20003 8.62103 8.43003 7.85103L1.91003 1.33103"
-                    stroke="#fff"
-                    strokeWidth="2"
-                    strokeMiterlimit="10"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <ButtonV5 textColor='#212121' color="#f6f8fb">
+                <h5 className="flex gap-1 font-[400] text-[#212121] text-[16px] -tracking-[0.2px]">
+                  Home
+                </h5>
+              </ButtonV5>
             </Link>
           </motion.div>
         </div>
