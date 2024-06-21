@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Anubhav from "../../assets/images/Anubhav-3d.png";
 import "./Footer.css";
 import Social from "./Social";
+import { SparklesCore } from "./Sparkles";
 
 const Footer = () => {
 
@@ -90,6 +91,17 @@ const Footer = () => {
           <div className="relative main-footer x-sm:px-0  px-1 lg:px-20 text-left lg:flex-row justify-between lg:justify-between flex sm:flex-row x-sm:flex-col x-sm:justify-center x-sm:items-center x-sm:gap-6 items-start text-[#D9D9D9] ">
             <div className="absolute -bottom-[25px] left-[10%] pointer-events-none">
               <Glow />
+            </div>
+            <div className="absolute left-0 w-full h-full top-0">
+              <SparklesCore
+                id="tsparticlesfullpage"
+                background="transparent"
+                minSize={0.6}
+                maxSize={1.4}
+                particleDensity={10}
+                className="w-full h-5/6"
+                particleColor="#d9d9d9"
+              />
             </div>
             <div className="flex flex-row md:flex-col justify-center items-center">
               <img

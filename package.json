@@ -15,6 +15,8 @@
     "@headlessui/react": "^1.7.17",
     "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.16",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.4.0",
     "@uiw/react-md-editor": "^4.0.4",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.7",
