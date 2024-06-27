@@ -132,7 +132,7 @@ const Blog = () => {
       repo-id="R_kgDOMJ3j1g"
       category="Announcements"
       categoryId="DIC_kwDOF1L2fM4B-hVS"
-      mapping="specific"
+      mapping="pathname"
       term="Welcome to @giscus/react component!"
       reactionsEnabled="1"
       emitMetadata="0"
