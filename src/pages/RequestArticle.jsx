@@ -67,7 +67,7 @@ const RequestArticle = () => {
       //   requestData
       // );
       setIsLoading(false);
-      setRequestSend("Request Send Successfully");
+      setRequestSend("Request Sent Successfully");
       setValue(initialState);
     } catch (error) {
       addError("Internal server error");

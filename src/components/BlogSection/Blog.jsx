@@ -10,7 +10,7 @@ import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
 import BlogCardLoading from "./BlogCardLoading";
-
+import Giscus from '@giscus/react';
 import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
 import BlogLoading from "./BlogLoading";
@@ -125,6 +125,21 @@ const Blog = () => {
               <BlogCardLoading />
             </>
           )}
+                <Giscus
+                src="https://giscus.app/client.js"
+      id="comments"
+      repo="404Nikhil/Anubhav-frontend"
+      repo-id="R_kgDOMJ3j1g"
+      category="Announcements"
+      categoryId="DIC_kwDOF1L2fM4B-hVS"
+      mapping="specific"
+      term="Welcome to @giscus/react component!"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="top"
+      theme="light"
+      lang="en"
+    />
         </div>
       }
     </>
