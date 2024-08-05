@@ -26,32 +26,32 @@ const Slider = () => {
       <div className="w-screen max-w-[1440px]">
         <div className="logos">
           <div className="logos-slide">
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={uber} alt="" srcSet="" />
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={uber} alt="" srcSet="" />
+            <img src={adobe} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={amazon} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={atlassian} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={DeutscheBank} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={cisco} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={google} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={masterCard} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={microsoft} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={adobe} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={amazon} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={atlassian} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={DeutscheBank} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={cisco} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={google} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={masterCard} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={microsoft} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={uber} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={adobe} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={amazon} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={atlassian} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={DeutscheBank} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={cisco} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={google} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={masterCard} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={microsoft} alt="" srcSet="" draggable="false" className="select-none" />
+            <img src={uber} alt="" srcSet="" draggable="false" className="select-none" />
           </div>
         </div>
       </div>

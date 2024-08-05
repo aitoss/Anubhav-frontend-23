@@ -4,7 +4,7 @@ import AnubhavIcon from "../../assets/AnubhavIcon";
 
 const CTA = () => {
   return (
-    <div className="mb-12 flex w-[90%] max-w-7xl items-start justify-between rounded-2xl border border-[#d2d2d6] bg-[#f7f7f8] p-16 shadow-lg sm:flex-wrap-reverse md:gap-4 md:p-8">
+    <div className="mb-12 flex w-[90%] max-w-7xl items-start justify-between rounded-2xl border border-[#d2d2d6] bg-[#fafafa] p-16 shadow-lg sm:flex-wrap-reverse md:gap-4 md:p-8">
       <div className="flex flex-col items-start justify-center gap-8 text-center">
         <h2 className="text-left text-[2.6rem] font-[500] leading-10 text-[#212121] x-sm:text-4xl">
           Discover Our <br /> Latest Insights

@@ -11,21 +11,25 @@ import RequestArticle from "./pages/RequestArticle";
 import TermsService from "./pages/TermsService";
 import Video from "./pages/Videos";
 import VideosPage from "./pages/VideosPage";
-import Logo from "./components/Loader/DummyLoader";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SearchPage from "./components/Search/SearchPage";
 import Story from "./pages/Story";
 import CTA from "./components/CTA/CTA";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
+import WhatIsAnubhav from "./components/WhatIsAnubhav/WhatIsAnubhav";
+import Lenis from "lenis";
 
 const App = () => {
-  // const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const lenis = new Lenis();
 
-  // useEffect(() => {
-  //   window.addEventListener("load", () => {
-  //     setLoading(false);
-  //   });
-  // }, []);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <Routes>
@@ -33,9 +37,10 @@ const App = () => {
         path="/"
         element={
           <>
-            <div className="flex flex-col mx-auto overflow-hidden">
+            <div className="mx-auto flex flex-col overflow-hidden">
               <Navbar />
               <HomeScreen />
+              <WhatIsAnubhav />
               <HowItWorks />
               <div className="flex flex-col items-center">
                 {/* <BlogSection /> */}

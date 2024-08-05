@@ -8,12 +8,12 @@ import Editor from "../../assets/images/Editor.png";
 import Publish from "../../assets/images/Publish.png";
 
 const Card = ({ title, description, imageURL }) => (
-  <div className="relative h-full w-full overflow-hidden rounded-2xl border border-[#d2d2d6] shadow-md">
+  <div className="relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
     <div className="z-10 h-full bg-[#fff9] p-3 backdrop-blur-[36px]">
-      <div className="relative z-10 h-[200px] w-full overflow-hidden">
+      <div className="relative z-10 w-full overflow-hidden">
         <div className="absolute -bottom-[12px] left-0 z-20 h-[40px] w-[150%] bg-[#fcfcfc] blur-[8px]"></div>
         <img
-          className="bottom-0 select-none right-0 scale-90 rounded-xl border"
+          className="bottom-0 right-0 md:scale-100 scale-90 select-none rounded-xl border"
           src={imageURL}
           alt={imageURL}
           draggable="false"
