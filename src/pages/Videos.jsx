@@ -31,8 +31,8 @@ const Videos = () => {
           <AnimatedTags name="Deutsche-Bank" />
           <AnimatedTags name="Google" />
         </div>
-        <div className="w-screen flex justify-center">
-          <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="w-screen flex justify-center p-4 ">
+          <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-6">
             {youtubeData.map((data, index) => (
               <AnimatedYoutubeCard
                 key={index}

@@ -56,6 +56,19 @@ const Search = ({ mode, focus, full }) => {
     }
   };
 
+  const directSearchFunction = (company) => {
+    if (company.trim() !== "") {
+      const updatedSearches = [...recentSearches, company];
+      const limitedSearches = updatedSearches.slice(-10);
+      setRecentSearches(limitedSearches);
+      // setSearchText("");
+      // focus out
+      inputRef.current.value = company;
+      inputRef.current.blur();
+      navigate('/search?query=' + company);
+    }
+  };
+
   const handleClose = (event) => {
     if (event.key === "Enter") {
       setIsExpanded(false);
@@ -105,7 +118,7 @@ const Search = ({ mode, focus, full }) => {
   };
 
   const handleSuggestionClick = (company) => {
-    setSearchText(company);
+    directSearchFunction(company);
   };
 
   const handleRemove = (index) => {
