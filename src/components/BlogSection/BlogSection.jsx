@@ -3,6 +3,7 @@ import axios from "axios";
 import BlogCard from "./BlogCard";
 import BlogCardLoading from "./BlogCardLoading";
 import company from "../../assets/images/company.png";
+
 import { BACKEND_URL } from "../../constants";
 import { ReadTime, formatDate } from "../../services/date";
 import { motion, useAnimation } from "framer-motion";
