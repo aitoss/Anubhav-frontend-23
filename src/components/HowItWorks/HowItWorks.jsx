@@ -8,12 +8,12 @@ import Editor from "../../assets/images/Editor.png";
 import Publish from "../../assets/images/Publish.png";
 
 const Card = ({ title, description, imageURL }) => (
-  <div className="relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
+  <div className="group relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
     <div className="z-10 h-full bg-[#fff9] p-3 backdrop-blur-[36px]">
       <div className="relative z-10 w-full overflow-hidden">
         <div className="absolute -bottom-[12px] left-0 z-20 h-[40px] w-[150%] bg-[#fcfcfc] blur-[8px]"></div>
         <img
-          className="bottom-0 right-0 md:scale-100 scale-90 select-none rounded-xl border"
+          className="bottom-0 right-0 translate-y-[5%] scale-90 select-none rounded-xl border transition-all duration-300 group-hover:translate-y-[10%] md:scale-100"
           src={imageURL}
           alt={imageURL}
           draggable="false"
@@ -55,7 +55,7 @@ const AnimatedHeading = () => {
 };
 const HowItWorks = () => {
   return (
-    <section className="flex flex-col items-center justify-center px-4 py-12">
+    <section className="flex flex-col items-center justify-center px-4 pb-32 pt-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center text-center">
         <h2 className="mb-2 text-sm font-[500] text-[#212121]">How It Works</h2>
         <h1 className="text-4xl font-bold">

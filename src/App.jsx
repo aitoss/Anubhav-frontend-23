@@ -18,6 +18,7 @@ import CTA from "./components/CTA/CTA";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import WhatIsAnubhav from "./components/WhatIsAnubhav/WhatIsAnubhav";
 import Lenis from "lenis";
+import VideoSection from "./components/VideoSection/VideoSection";
 
 const App = () => {
   useEffect(() => {
@@ -42,6 +43,7 @@ const App = () => {
               <HomeScreen />
               <WhatIsAnubhav />
               <HowItWorks />
+              <VideoSection />
               <div className="flex flex-col items-center">
                 {/* <BlogSection /> */}
                 {/* <Video /> */}

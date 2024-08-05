@@ -9,8 +9,8 @@ import Emoji1 from "../../assets/images/Emoji-1.png";
 import Emoji2 from "../../assets/images/Emoji-2.png";
 
 const Card = ({ title, description, imageURL }) => (
-  <div className="relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
-    <div className="z-10 flex h-full w-full justify-between bg-[#fff9] p-0 backdrop-blur-[36px]">
+  <div className="relative w-full overflow-hidden rounded-2xl border shadow-md">
+    <div className="z-10 flex w-full justify-between bg-[#fff9] p-0 backdrop-blur-[36px]">
       <div className="flex flex-col p-4">
         <h3 className="z-50 mb-2 text-xl font-[500]">{title}</h3>
         <p className="z-50 text-[#5e5f6e]">{description}</p>
@@ -34,7 +34,7 @@ const Card = ({ title, description, imageURL }) => (
 );
 
 const Card2 = ({ title, description, imageURL }) => (
-  <div className="relative mx-12 h-[420px] w-full overflow-hidden rounded-2xl border bg-white shadow-md">
+  <div className="relative mx-12 h-[450px] w-full overflow-hidden rounded-2xl border bg-white shadow-md">
     <div className="absolute left-1/2 top-[120%] z-0 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#212121]/5"></div>
     <div className="absolute left-1/2 top-[120%] z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#212121]/5"></div>
     <p className="absolute left-[5%] top-12 inline-flex -rotate-12 rounded-md border bg-[#f9f9f9] px-2 py-1">
@@ -44,7 +44,7 @@ const Card2 = ({ title, description, imageURL }) => (
       Latest Insights
     </p>
     <img
-      className="absolute left-[30%] top-[12%] scale-[33%] select-none object-cover"
+      className="absolute left-[30%] top-[20%] scale-[33%] select-none object-cover"
       src={Emoji}
       alt="Emoji"
       draggable="false"
@@ -61,7 +61,7 @@ const Card2 = ({ title, description, imageURL }) => (
       alt="Emoji 2"
       draggable="false"
     />
-    <div className="absolute bottom-0 left-[20%] z-[100] inline-flex rotate-6 flex-col x-sm:bottom-[-5%] x-sm:left-[10%]">
+    <div className="absolute bottom-[-2%] left-[20%] z-[100] inline-flex rotate-6 flex-col x-sm:bottom-[-5%] x-sm:left-[10%]">
       <div className="-mb-2 inline-flex cursor-pointer flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[9999] hover:scale-105 hover:bg-[#fcfcfc]">
         <p className="text-[#212121]/60">5 mins read • 07-15-2024</p>
         <h3>How to Ace Your Next Interview</h3>
@@ -136,7 +136,7 @@ const WhatIsAnubhav = () => {
               </Link>
               .
             </p>
-            <div className="h-full w-full">
+            <div className="">
               <Card
                 title="Share Your Journey"
                 description="Contribute your own success story to inspire others and help build a community of successful AIT students."
