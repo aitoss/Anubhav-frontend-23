@@ -15,6 +15,8 @@ import Logo from "./components/Loader/DummyLoader";
 import { useEffect, useState } from "react";
 import SearchPage from "./components/Search/SearchPage";
 import Story from "./pages/Story";
+import CTA from "./components/CTA/CTA";
+import HowItWorks from "./components/HowItWorks/HowItWorks";
 
 const App = () => {
   // const [loading, setLoading] = useState(true);
@@ -31,21 +33,17 @@ const App = () => {
         path="/"
         element={
           <>
-            {/* {loading ? (
-              <div className="w-full flex justify-center h-screen items-center">
-                <Logo />
-              </div>
-            ) : ( */}
             <div className="flex flex-col mx-auto overflow-hidden">
               <Navbar />
               <HomeScreen />
+              <HowItWorks />
               <div className="flex flex-col items-center">
-                <BlogSection />
-                <Video />
+                {/* <BlogSection /> */}
+                {/* <Video /> */}
+                <CTA />
                 <Footer />
               </div>
             </div>
-            {/* )} */}
           </>
         }
       />
