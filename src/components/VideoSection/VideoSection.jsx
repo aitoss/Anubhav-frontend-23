@@ -64,7 +64,7 @@ const VideoSection = () => {
   return (
     <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
-        <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col">
+        <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col-reverse">
           <div className="h-[400px] w-full rounded-xl border bg-[#5e5f6e]"></div>
           <div className="flex w-full flex-col">
             <h2 className="mb-2 text-sm font-[500] text-[#212121]">
