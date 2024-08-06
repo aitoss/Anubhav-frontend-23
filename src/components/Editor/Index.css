@@ -6,7 +6,7 @@
 
 .ql-container {
   width: 100%;
-  background-color: white;
+  background-color: #F7F7F8;
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
   overflow-y: auto;
@@ -42,7 +42,7 @@
 
 .ql-editor * {
   /* font-family: "TTHoves", sans-serif; */
-  color: #1a1a1a;
+  /* color: #1a1a1a; */
 }
 
 
@@ -50,6 +50,21 @@
   color: rgb(89, 89, 242) !important;
   text-decoration: underline;
 }
+
+
+.custom-editor .w-md-editor-text-input {
+  background-color:#F7F7F8;
+  /* color: black; */
+}
+
+.custom-preview .w-md-editor-preview {
+  background-color: #F7F7F8;
+}
+
+.custom-editor .w-md-editor-text-pre {
+  background-color: #F7F7F8;
+}
+
 
 .ql-editor ul {
   padding-left: 0 !important;
