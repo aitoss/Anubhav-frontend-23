@@ -42,7 +42,7 @@
 
 .ql-editor * {
   /* font-family: "TTHoves", sans-serif; */
-  /* color: #1a1a1a; */
+  color: #1a1a1a;
 }
 
 
@@ -50,21 +50,6 @@
   color: rgb(89, 89, 242) !important;
   text-decoration: underline;
 }
-
-
-.custom-editor .w-md-editor-text-input {
-  background-color: transparent;
-  /* color: black; */
-}
-
-.custom-preview .w-md-editor-preview {
-  background-color: transparent;
-}
-
-.custom-editor .w-md-editor-text-pre {
-  background-color: transparent;
-}
-
 
 .ql-editor ul {
   padding-left: 0 !important;
