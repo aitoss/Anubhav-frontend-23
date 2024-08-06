@@ -215,7 +215,7 @@ const Create = () => {
               e.preventDefault();
               publishPost();
             }}
-            className="relative w-[70%] rounded-xl bg-white pb-4 flex flex-col gap-3 md:gap-1  md:w-full md:p-5"
+            className="relative w-[70%] rounded-xl bg-white p-4 flex flex-col gap-3 md:gap-1  md:w-full md:p-5"
           >
             <div className="w-full">
               <h2 className="text-[#212121] font-[500] text-2xl ml-2">
@@ -329,7 +329,7 @@ const Create = () => {
 
             {/* submit button */}
 
-            <div className="flex flex-col justify-center gap-3 group">
+            <div className="flex flex-col justify-center gap-3 group mx-2">
               <ButtonV5 icon={false}>
                 <button
                   type="submit"
