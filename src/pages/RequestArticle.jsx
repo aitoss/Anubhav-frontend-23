@@ -62,10 +62,7 @@ const RequestArticle = () => {
         note: value.note,
         requesterEmailId: value.email,
       };
-      // await axios.post(
-      //   BACKEND_URL+ "/reqarticle",
-      //   requestData
-      // );
+      await axios.post(BACKEND_URL + "/reqarticle", requestData);
       setIsLoading(false);
       setRequestSend("Request Sent Successfully");
       setValue(initialState);
@@ -79,19 +76,19 @@ const RequestArticle = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col h-screen overflow-hidden justify-start items-center">
+      <div className="flex h-screen flex-col items-center justify-start overflow-hidden">
         <div
-          className="flex flex-col mx-auto overflow-hidden pt-32 justify-center gap-3 items-center"
-        // style={{ backgroundImage: `url(${background2})` }}
+          className="mx-auto flex flex-col items-center justify-center gap-3 overflow-hidden pt-32"
+          // style={{ backgroundImage: `url(${background2})` }}
         >
           {/* basic info */}
-          <div className="w-[100%] flex justify-center">
+          <div className="flex w-[100%] justify-center">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              className=" w-[650px]  md:w-full max-w-[1600px] overflow-hidden flex flex-col gap-3 md:gap-1 md:px-3"
+              className="flex w-[650px] max-w-[1600px] flex-col gap-3 overflow-hidden md:w-full md:gap-1 md:px-3"
             >
               <div className="w-full">
                 <motion.div
@@ -100,14 +97,14 @@ const RequestArticle = () => {
                   exit={{ opacity: 0, translateY: 100 }}
                   transition={{ duration: 0.15, delay: 0.05 }}
                 >
-                  <h2 className="text-[#212121] font-[600] text-2xl ml-2">
+                  <h2 className="ml-2 text-2xl font-[600] text-[#212121]">
                     Whose experience you wanna know?
                   </h2>
                 </motion.div>
               </div>
 
               <div className="flex gap-4 md:flex-col">
-                <div className="flex flex-col gap-3 p-2 w-[100%] md:w-full md:gap-2">
+                <div className="flex w-[100%] flex-col gap-3 p-2 md:w-full md:gap-2">
                   <div className="flex flex-col gap-3 md:gap-1">
                     <motion.div
                       initial={{ opacity: 0, translateY: 10 }}
@@ -115,7 +112,7 @@ const RequestArticle = () => {
                       exit={{ opacity: 0, translateY: 100 }}
                       transition={{ duration: 0.15, delay: 0.07 }}
                     >
-                      <h4 className="text-gray-700 ml-2">About You</h4>
+                      <h4 className="ml-2 text-gray-700">About You</h4>
                     </motion.div>
 
                     <div className="flex flex-col gap-2">
@@ -134,7 +131,7 @@ const RequestArticle = () => {
                             placeholder="Name"
                             value={value.name}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -154,7 +151,7 @@ const RequestArticle = () => {
                             placeholder="College mail ID"
                             value={value.email}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -186,7 +183,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s name"
                             value={value.seniorName}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -206,7 +203,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s any social media link"
                             value={value.link}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -226,7 +223,7 @@ const RequestArticle = () => {
                             list="companySuggestions"
                             value={value.company}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                         <datalist id="companySuggestions">
@@ -251,7 +248,7 @@ const RequestArticle = () => {
                             placeholder="Personal note"
                             value={value.note}
                             onChange={handleChange}
-                            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000010] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -267,34 +264,77 @@ const RequestArticle = () => {
                 transition={{ duration: 0.15, delay: 0.2 }}
               >
                 <div className="flex flex-col justify-center gap-3">
-                  <ButtonV5 icon={false}>
-                    <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="p-0 outline-none focus:outline-none font-[400]"
-                    >
-                      {isLoading ?
-                        <div className="flex items-center justify-center gap-1"> Processing <Spinner /></div>
-                        :
-                        <div className="flex justify-center items-center gap-1">Send Request
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="p-0 font-[400] outline-none focus:outline-none"
+                  >
+                    <ButtonV5 icon={false}>
+                      {isLoading ? (
+                        <div className="flex items-center justify-center gap-1">
+                          {" "}
+                          Processing <Spinner />
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center gap-1">
+                          Send Request
                           {/* airplane svg */}
-                          <div className="flex w-5 justify-end items-center overflow-hidden">
+                          <div className="flex w-5 items-center justify-end overflow-hidden">
                             <div className="w-5">
-                              <svg className={`h-5 w-5 group-hover:translate-x-[100%] translate-y-[66%] group-hover:translate-y-[0%]  group-hover:opacity-100 group-hover:duration-300 translate-x-[0%] opacity-0 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              <svg
+                                className={`h-5 w-5 translate-x-[0%] translate-y-[66%] text-[#ffffff80] opacity-0 transition-all duration-0 group-hover:translate-x-[100%] group-hover:translate-y-[0%] group-hover:text-[#ffffff] group-hover:opacity-100 group-hover:duration-300`}
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z"
+                                  stroke="#f0f0f0"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10.1101 13.6501L13.6901 10.0601"
+                                  stroke="#f0f0f0"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
                               </svg>
                             </div>
                             <div className="w-5">
-                              <svg className={`h-5 w-5 group-hover:translate-x-[100%] group-hover:-translate-y-[66%] translate-y-[0%] group-hover:opacity-0 group-hover:duration-300 translate-x-[0%] opacity-100 duration-0 text-[#ffffff80] group-hover:text-[#ffffff] transition-all`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10.1101 13.6501L13.6901 10.0601" stroke="#f0f0f0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              <svg
+                                className={`h-5 w-5 translate-x-[0%] translate-y-[0%] text-[#ffffff80] opacity-100 transition-all duration-0 group-hover:-translate-y-[66%] group-hover:translate-x-[100%] group-hover:text-[#ffffff] group-hover:opacity-0 group-hover:duration-300`}
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7.39993 6.31991L15.8899 3.48991C19.6999 2.21991 21.7699 4.29991 20.5099 8.10991L17.6799 16.5999C15.7799 22.3099 12.6599 22.3099 10.7599 16.5999L9.91993 14.0799L7.39993 13.2399C1.68993 11.3399 1.68993 8.22991 7.39993 6.31991Z"
+                                  stroke="#f0f0f0"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10.1101 13.6501L13.6901 10.0601"
+                                  stroke="#f0f0f0"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
                               </svg>
                             </div>
                           </div>
-                        </div>}
-                    </button>
-                  </ButtonV5>
+                        </div>
+                      )}
+                    </ButtonV5>
+                  </button>
                   <div className="h-16"></div>
                 </div>
               </motion.div>
