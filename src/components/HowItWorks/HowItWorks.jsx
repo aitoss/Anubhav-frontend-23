@@ -9,18 +9,18 @@ import Publish from "../../assets/images/Publish.png";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="group relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
-    <div className="z-10 h-full bg-[#fff9] p-3 backdrop-blur-[36px]">
+    <div className="z-10 h-full bg-[#fff5] p-3 backdrop-blur-[36px]">
       <div className="relative z-10 w-full overflow-hidden">
         <div className="absolute -bottom-[12px] left-0 z-20 h-[40px] w-[150%] bg-[#fcfcfc] blur-[8px]"></div>
         <img
-          className="bottom-0 right-0 translate-y-[5%] scale-90 select-none rounded-xl border transition-all duration-300 group-hover:translate-y-[10%] md:scale-100"
+          className="bottom-0 right-0 translate-y-[5%] scale-95 select-none rounded-xl border transition-all duration-300 group-hover:translate-y-[10%] md:scale-100"
           src={imageURL}
           alt={imageURL}
           draggable="false"
         />
       </div>
-      <h3 className="z-50 mb-2 text-xl font-[500]">{title}</h3>
-      <p className="z-50 text-[#5e5f6e]">{description}</p>
+      <h3 className="z-50 mb-2 text-left text-xl x-sm:text-lg font-[500]">{title}</h3>
+      <p className="z-50 text-left text-base x-sm:text-sm text-[#5e5f6e]">{description}</p>
     </div>
     <div className="absolute right-1 top-16 -z-10 -rotate-[25deg]">
       <div className="h-4 w-[300px] bg-[#212121]"></div>
@@ -57,7 +57,9 @@ const HowItWorks = () => {
   return (
     <section className="flex flex-col items-center justify-center px-4 pb-32 pt-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center text-center">
-        <h2 className="mb-2 text-sm font-[500] text-[#212121]">How It Works</h2>
+        <h2 className="mb-2 w-full text-sm font-[500] text-[#212121]">
+          How It Works
+        </h2>
         <h1 className="text-4xl font-bold">
           <AnimatedHeading />
         </h1>
@@ -70,7 +72,7 @@ const HowItWorks = () => {
           posts with ease. Our platform is designed to make the writing and
           publishing process as smooth as possible.
         </p>
-        <div className="grid h-full grid-cols-3 gap-4 md:grid-cols-2 x-sm:grid-cols-1">
+        <div className="grid h-full grid-cols-3 gap-4 md:grid-cols-1">
           <Card
             title="Enter info about you"
             description="Enter basic information like your name, company name, offered position, and email address."

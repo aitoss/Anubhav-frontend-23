@@ -17,31 +17,31 @@ const MobileNav = ({ isOpen }) => {
   return (
     <>
       <div
-        className={`z-40 fixed top-[70px] bg-[#ffffffbb] bg-blur w-full shadow-lg shadow-[rgba(0,0,0,0.07)]`}
+        className={`bg-blur fixed top-[70px] z-[9999] w-full bg-[#ffffffbb] shadow-lg shadow-[rgba(0,0,0,0.07)]`}
       >
-        <div className="flex flex-col justify-center border-b gap-2">
-          <NavLink className="px-3 cursor-pointer " to="/request">
+        <div className="flex flex-col justify-center gap-2 border-b">
+          <NavLink className="cursor-pointer px-3" to="/request">
             <motion.div
-              className="w-full h-full"
+              className="h-full w-full"
               initial={{ opacity: 0, translateY: -10 }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: -10 }}
               transition={{ duration: 0.1, delay: 0.07 }}
             >
-              <h5 className="font-[400] hover:bg-[#00000015] -tracking-[0.2px] flex gap-2 p-1 justify-center items-center text-[16px] rounded-lg">
+              <h5 className="flex items-center justify-center gap-2 rounded-lg p-1 text-[16px] font-[400] -tracking-[0.2px] hover:bg-[#00000015]">
                 Request Article
               </h5>
             </motion.div>
           </NavLink>
-          <Link to="/create" className="px-3 cursor-pointer">
+          <Link to="/create" className="cursor-pointer px-3">
             <motion.div
-              className="w-full h-full"
+              className="h-full w-full"
               initial={{ opacity: 0, translateY: -10 }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: -10 }}
               transition={{ duration: 0.1, delay: 0.09 }}
             >
-              <div className="flex gap-2 p-1 justify-center items-center text-[16px] bg-[#212121] border border-[#121212] rounded-lg text-[#fff] font-[300] cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none transition-all">
+              <div className="hover:focus:outline:none hover:focus:border:none flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#121212] bg-[#212121] p-1 text-[16px] font-[300] text-[#fff] transition-all hover:bg-[#313131]">
                 <h5 className="font-[300] -tracking-[0.2px]">Write Article</h5>
                 <svg
                   width="20"

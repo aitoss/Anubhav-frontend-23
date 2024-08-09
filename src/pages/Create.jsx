@@ -32,27 +32,27 @@ const Create = () => {
     title: "",
   });
 
-  useEffect(()=>{
-    const savedContent = localStorage.getItem('editorContent');
-    if(savedContent){
+  useEffect(() => {
+    const savedContent = localStorage.getItem("editorContent");
+    if (savedContent) {
       const content = JSON.parse(savedContent);
       setArticle(content.article);
       setValue(content.value);
     }
-  },[])
+  }, []);
 
-  useEffect(()=>{
-    const Debouncer = setTimeout(()=>{
+  useEffect(() => {
+    const Debouncer = setTimeout(() => {
       const content = {
         value: value,
-        article: article
-      }
+        article: article,
+      };
       const savedContent = JSON.stringify(content);
-      localStorage.setItem('editorContent', savedContent);
-    }, 500)
+      localStorage.setItem("editorContent", savedContent);
+    }, 500);
     // clean up the timeout if content changes before delay
-    return ()=> clearTimeout(Debouncer);
-  },[article, value])
+    return () => clearTimeout(Debouncer);
+  }, [article, value]);
 
   const addError = (message) => {
     setError(message);
@@ -143,15 +143,15 @@ const Create = () => {
       <>
         <ErrorMessage error={error} />
 
-        <h3 className="text-[#212121] flex justify-start ml-3">Banner Image</h3>
-        <div className="flex flex-col p-4 justify-center w-full h-[80%] gap-2 rounded-xl items-center border-dashed border-[2px] border-[rgba(0, 0, 0, 0.15)] md:w-full">
-          <div className="w-full flex justify-center ">
-            <div className="w-[150px] h-[150px]  flex justify-center rounded-full sm:w-24 sm:h-24">
+        <h3 className="ml-3 flex justify-start bg text-[#212121]">Banner Image</h3>
+        <div className="border-[rgba(0, 0, 0, 0.15)] bg-white flex h-[80%] w-full flex-col items-center justify-center gap-2 rounded-xl border-[2px] border-dashed p-4 md:w-full">
+          <div className="flex w-full justify-center">
+            <div className="flex h-[150px] w-[150px] justify-center rounded-full sm:h-24 sm:w-24">
               {file ? (
                 <img
                   src={file}
                   alt=""
-                  className="w-full h-full object-cover rounded-full"
+                  className="h-full w-full rounded-full object-cover"
                 />
               ) : (
                 <img
@@ -168,10 +168,10 @@ const Create = () => {
           <p className="text-gray-300">
             {file ? null : (
               <>
-                <h1 className="text-[#C3C3C3] text-xs font-[300] text-center">
+                <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
                   JPG, JPEG, PNG file size no more than 10MB
                 </h1>
-                <h1 className="text-[#322e2e] text-xs font-[400] text-center">
+                <h1 className="text-center text-xs font-[400] text-[#322e2e]">
                   Keep the image ratio to 280x180 px
                 </h1>
               </>
@@ -179,7 +179,7 @@ const Create = () => {
           </p>
           {file && (
             <div
-              className="flex justify-center items-center gap-1 text-[#717171] border-[#fff] border-b hover:border-[#717171] h-[20px] cursor-pointer"
+              className="flex h-[20px] cursor-pointer items-center justify-center gap-1 border-b border-[#fff] text-[#717171] hover:border-[#717171]"
               onClick={() => setFile(null)}
             >
               Remove <span className="text-[24px]">×</span>
@@ -204,28 +204,28 @@ const Create = () => {
       <Navbar />
 
       <div
-        className="flex flex-col gap-3 items-center mx-auto pt-16 max-w-[1440px]"
-        style={{ backgroundImage: `url(${background2})` }}
+        className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-16"
+        // style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}
-        <div className=" relative w-[100%] max-w-[100%] flex  justify-center  md:h-[70%] md:w-[90%] py-7">
+        <div className="relative flex w-[100%] max-w-[100%] justify-center py-7 md:h-[70%] md:w-[90%]">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               publishPost();
             }}
-            className="relative w-[70%] rounded-xl border-[1px]  bg-white p-7 pb-4 flex flex-col gap-3  shadow-lg shadow-[rgba(0,0,0,0.03)] md:gap-1  md:w-full md:p-5"
+            className="relative flex w-[70%] flex-col gap-3 rounded-xl pt-7 pb-4 md:w-full md:gap-1 md:p-5"
           >
             <div className="w-full">
-              <h2 className="text-[#212121] font-[500] text-2xl ml-2">
+              <h2 className="ml-2 text-2xl font-[500] text-[#212121]">
                 Basic Information
               </h2>
             </div>
 
             <div className="flex gap-4 md:flex-col">
-              <div className="flex flex-col gap-3 p-2 w-[50%] md:w-full md:gap-2">
+              <div className="flex w-[50%] flex-col gap-3 p-2 md:w-full md:gap-2">
                 <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="text-gray-700 ml-3">About You</h4>
+                  <h4 className="ml-3 text-gray-700">About You</h4>
 
                   <div className="flex flex-col gap-2">
                     <div className="relative flex flex-col gap-2">
@@ -237,7 +237,7 @@ const Create = () => {
                         placeholder="Name"
                         value={value.name}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                       />
                     </div>
 
@@ -250,7 +250,7 @@ const Create = () => {
                         placeholder="Email"
                         value={value.email}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                       />
                     </div>
                   </div>
@@ -269,7 +269,7 @@ const Create = () => {
                         placeholder="Company's name"
                         value={value.company}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                       />
                       <datalist id="companySuggestions">
                         {companySuggestions.map((suggestion, index) => (
@@ -285,7 +285,7 @@ const Create = () => {
                         id="position"
                         value={value.position}
                         onChange={handleChange}
-                        className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                       >
                         <option value="">Select Position</option>
                         <option value="Internship">Internship</option>
@@ -311,7 +311,7 @@ const Create = () => {
                           placeholder="Blog Title"
                           value={value.title}
                           onChange={handleChange}
-                          className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+                          className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                         />
                       </div>
                     </div>
@@ -320,7 +320,7 @@ const Create = () => {
               </div>
 
               {/* image upload and tag */}
-              <div className="flex flex-col gap-3 p-2 w-[50%] h-full md:w-full">
+              <div className="flex h-full w-[50%] flex-col gap-3 p-2 md:w-full">
                 <UserImage />
                 <Inputtag tags={tags} setTags={setTags} />
               </div>
@@ -332,20 +332,20 @@ const Create = () => {
               <button
                 type="Subm"
                 disabled={isLoading}
-                className="bg-[#212121] text-white text-lg font-medium w-full p-2 focus:outline-none hover:bg-[#313131] hover:text-[#fff] hover:border-[#212121]"
+                className="w-full bg-[#212121] p-2 text-lg font-medium text-white hover:border-[#212121] hover:bg-[#313131] hover:text-[#fff] focus:outline-none"
               >
                 {isLoading ? "Processing..." : "Publish"}
               </button>
             </div>
           </form>
         </div>
-        <div className="w-screen max-w-[100%] items-center flex flex-col justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
-          <div className="relative w-[70%] flex justify-start pb-7">
-            <h1 className="text-[#212121] font-[500] text-2xl ml-4">
+        <div className="flex w-screen max-w-[100%] flex-col items-center justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
+          <div className="relative flex w-[70%] justify-start pb-7">
+            <h1 className="ml-4 text-2xl font-[500] text-[#212121]">
               Write Here
             </h1>
           </div>
-          <div className="relative w-[100%] text-[#212121] flex justify-center">
+          <div className="relative flex w-[100%] justify-center text-[#212121]">
             <TextEditor article={article} setArticle={setArticle} />
           </div>
         </div>

@@ -5,7 +5,6 @@ import "react-quill/dist/quill.bubble.css";
 import "../Editor/Index.css";
 
 const modules = {
-
   toolbar: [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     ["blockquote", "code-block"],
@@ -23,9 +22,9 @@ const modules = {
 
 const TextEditor = ({ article, setArticle }) => {
   return (
-    <div className="relative w-[70%]  text-black pb-10">
-      <div className="row w-full flex flex-col lg:gap-3 gap-10 items-center justify-center x-sm:gap-16">
-        <div className="editor relative h-[60vh] max-h-[80vh] w-full flex items-center justify-center  bg-white md:w-[90vw]">
+    <div className="relative w-[70%] pb-10 text-black">
+      <div className="row flex w-full flex-col items-center justify-center gap-10 lg:gap-3 x-sm:gap-16">
+        <div className="editor relative flex h-[60vh] max-h-[80vh] w-full items-center justify-center bg-white md:w-[90vw]">
           <ReactQuill
             modules={modules}
             className="input h-[100%] w-[100%]"
@@ -34,13 +33,13 @@ const TextEditor = ({ article, setArticle }) => {
             onChange={(content) => setArticle(content)}
           />
         </div>
-        <div className="bg-white preview border-[2px] h-[60vh] max-h-[80vh] mt-16 overflow-auto w-full  text-black  rounded-xl  shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]">
+        <div className="preview mt-16 h-[60vh] max-h-[80vh] w-full overflow-auto rounded-xl border-[2px] bg-white text-black shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]">
           {" "}
           <ReactQuill
             value={article}
             theme="bubble"
             readOnly
-            className="w-full h-full"
+            className="h-full w-full"
           />
         </div>
       </div>

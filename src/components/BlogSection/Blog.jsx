@@ -59,21 +59,20 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-
-
   return (
     <>
-      {loading == true ? <BlogLoading /> :
-
-        <div className="container items-center lg:p-6 mx-auto lg:mx-auto lg:w-[65%] lg:px-20 p-5">
+      {loading == true ? (
+        <BlogLoading />
+      ) : (
+        <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
           <br />
           <br />
           <br />
-          <div className="data w- items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0  ">
+          <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
             <div className="heading">
               <a
-                className="x-sm:text-3xl text-4xl lg:text-5xl tracking-tighter font-bold text-[#212121]"
-              // href="/link"
+                className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl"
+                // href="/link"
               >
                 {blogData?.title}
               </a>
@@ -90,27 +89,25 @@ const Blog = () => {
               readingTime={readingTime}
               timeStamp={timeStamp}
             />
-            <div className="lorem-container text-black py-3 flex flex-col items-center justify-center">
+            <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
               {blogData.imageUrl !== "your_image_url_here" && (
-                <div className=" lg:pb-10 w-full flex flex-col items-center justify-center">
+                <div className="flex w-full flex-col items-center justify-center lg:pb-10">
                   <img
                     src={blogData?.imageUrl}
-                    className="lg:h-[300px] lg:w-[750px] h-[400px] x-sm:h-[200px] md:h-[300px] w-full object-cover rounded-lg"
+                    className="h-[400px] w-full rounded-lg object-cover md:h-[300px] lg:h-[300px] lg:w-[750px] x-sm:h-[200px]"
                     alt=""
                   />
                 </div>
               )}
-              <div className="w-full text-[18px] bg-white shadow-none rounded-lg">
-              <ReactQuill
-              value={blogData?.description}
-              theme="bubble"
-              readOnly
-              className="w-full h-full"
-            />
+              <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
+                <ReactQuill
+                  value={blogData?.description}
+                  theme="bubble"
+                  readOnly
+                  className="h-full w-full"
+                />
               </div>
             </div>
-
-
           </div>
 
           {similarArticles ? (
@@ -125,7 +122,7 @@ const Blog = () => {
             </>
           )}
         </div>
-      }
+      )}
     </>
   );
 };
