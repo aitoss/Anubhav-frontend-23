@@ -94,7 +94,7 @@ const Blog = () => {
                 <div className="flex w-full flex-col items-center justify-center lg:pb-10">
                   <img
                     src={blogData?.imageUrl}
-                    className="h-[400px] w-full rounded-lg object-cover md:h-[300px] lg:h-[300px] lg:w-[750px] x-sm:h-[200px]"
+                    className="h-[400px] w-full rounded-lg bg-black object-cover md:h-[300px] lg:h-[300px] lg:w-[750px] x-sm:h-[200px]"
                     alt=""
                   />
                 </div>
