@@ -45,8 +45,6 @@ const App = () => {
               <HowItWorks />
               <VideoSection />
               <div className="flex flex-col items-center">
-                {/* <BlogSection /> */}
-                {/* <Video /> */}
                 <CTA />
                 <Footer />
               </div>
@@ -56,7 +54,6 @@ const App = () => {
       />
       <Route path="/Create" element={<Create />} />
       <Route path="/blog/:id" element={<ViewBlog />} />
-      {/* <Route path='/videos' element={<Videos />} /> */}
       <Route path="/guidelines" element={<Guidelines />} />
       <Route path="/request" element={<RequestArticle />} />
       <Route path="/legal/terms/" element={<TermsService />} />

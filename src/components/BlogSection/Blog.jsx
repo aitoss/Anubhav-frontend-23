@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactQuill from "react-quill";
-
+import Giscus from '@giscus/react';
 import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
@@ -121,6 +121,19 @@ const Blog = () => {
               <BlogCardLoading />
             </>
           )}
+       <Giscus
+        repo="aitoss/Anubhav-frontend-23"
+        repoId="R_kgDOKijwFQ"
+        category="Announcements"
+        categoryId="DIC_kwDOKijwFc4CeLfW"
+        mapping="pathname"
+        term="Welcome to @giscus/react component!"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme="light"
+        lang="en"
+        />
         </div>
       )}
     </>
