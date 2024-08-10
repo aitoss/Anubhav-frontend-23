@@ -1,5 +1,5 @@
 import { CiBookmark, CiHeart } from "react-icons/ci";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactQuill from "react-quill";
@@ -11,9 +11,7 @@ import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
 import BlogLoading from "./BlogLoading";
 import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
-
-const Giscus = React.lazy(() => import('@giscus/react'));
-
+import Giscus from '@giscus/react'; 
 const Blog = () => {
   const { id } = useParams();
   const [blogData, setBlogData] = useState([]);
@@ -21,7 +19,6 @@ const Blog = () => {
   const [timeStamp, setTimeStamp] = useState("");
   const [readingTime, setReadingTime] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [commentsLoading, setCommentsLoading] = useState(true);
 
   const fetchBlogData = async () => {
     try {
@@ -72,90 +69,78 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  useEffect(() => {
-    if (!loading) {
-      setCommentsLoading(false);
-    }
-  }, [loading]);
-
   return (
     <>
       {loading ? (
         <BlogLoading />
       ) : (
-        <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
-          <br />
-          <br />
-          <br />
-          <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
-            <div className="heading">
-              <a className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl">
-                {blogData?.title}
-              </a>
+        <>
+          {blogData.imageUrl !== "your_image_url_here" && (
+            <div className="relative w-full h-[400px] lg:h-[500px] bg-black overflow-hidden">
+              <img
+                src={blogData?.imageUrl}
+                className="absolute inset-0 w-full h-full object-cover"
+                alt=""
+              />
             </div>
-            <Author
-              person={{
-                name: blogData?.author?.name,
-                company: blogData?.companyName,
-              }}
-            />
-            <Tags data={blogData?.articleTags} />
-            <MinuteReadLikes
-              id={id}
-              readingTime={readingTime}
-              timeStamp={timeStamp}
-            />
-            <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
-              {blogData.imageUrl !== "your_image_url_here" && (
-                <div className="flex w-full flex-col items-center justify-center lg:pb-10">
-                  <img
-                    src={blogData?.imageUrl}
-                    className="h-[400px] w-full rounded-lg bg-black object-cover md:h-[300px] lg:h-[300px] lg:w-[750px] x-sm:h-[200px]"
-                    alt=""
+          )}
+          <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
+            <br />
+            <br />
+            <br />
+            <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
+              <div className="heading">
+                <a className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl">
+                  {blogData?.title}
+                </a>
+              </div>
+              <Author
+                person={{
+                  name: blogData?.author?.name,
+                  company: blogData?.companyName,
+                }}
+              />
+              <Tags data={blogData?.articleTags} />
+              <MinuteReadLikes
+                id={id}
+                readingTime={readingTime}
+                timeStamp={timeStamp}
+              />
+              <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
+                <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
+                  <ReactQuill
+                    value={blogData?.description}
+                    theme="bubble"
+                    readOnly
+                    className="h-full w-full"
                   />
                 </div>
-              )}
-              <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
-                <ReactQuill
-                  value={blogData?.description}
-                  theme="bubble"
-                  readOnly
-                  className="h-full w-full"
-                />
               </div>
             </div>
-          </div>
+            <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">
+          Comments
+        </h1>
+            <Giscus
+              repo="aitoss/Anubhav-frontend-23"
+              repoId="R_kgDOKijwFQ"
+              category="Announcements"
+              categoryId="DIC_kwDOKijwFc4CeLfW"
+              mapping="pathname"
+              term="Welcome to @giscus/react component!"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              inputPosition="top"
+              theme="light"
+              lang="en"
+            />
 
-          <h2 className="font-medium lg:text-3xl text-3xl mt-8 text-slate-900">
-            Comments
-          </h2>
-          <Suspense fallback={<div>Loading comments...</div>}>
-            {!commentsLoading && (
-              <Giscus
-                repo="aitoss/Anubhav-frontend-23"
-                repoId="R_kgDOKijwFQ"
-                category="Announcements"
-                categoryId="DIC_kwDOKijwFc4CeLfW"
-                mapping="pathname"
-                term="Welcome to @giscus/react component!"
-                reactionsEnabled="1"
-                emitMetadata="0"
-                inputPosition="top"
-                theme="light"
-                lang="en"
-              />
+            {similarArticles && similarArticles.length > 0 && (
+              <>
+                <Articles similarArticles={similarArticles} />
+              </>
             )}
-          </Suspense>
-
-          {similarArticles && similarArticles.length > 0 && (
-            <>
-              <h2 className="font-medium lg:text-3xl text-3xl mt-8 text-slate-900">
-                Similar Articles
-              </h2>
-              <Articles similarArticles={similarArticles} />
-            </>
-          )}
-        </div>
+          </div>
+        </>
       )}
     </>
   );
