@@ -2,9 +2,13 @@ import BlogCard from "./BlogCard";
 import company from "../../assets/images/company.png";
 import { ReadTime } from "../../services/date";
 
-// TODO: update the view of similar articles
 const Articles = (props) => {
   const { similarArticles } = props;
+
+  if (!similarArticles || similarArticles.length === 0) {
+    return null;
+  }
+
   return (
     <section className="">
       <div className="container p-4 w-full lg:mx-auto mt-10">
@@ -14,11 +18,11 @@ const Articles = (props) => {
         <br />
         {similarArticles.map((item) => (
           <BlogCard
-            key={item._id} // Added key prop for list rendering
+            key={item._id}
             link={`/blog/${item._id}`}
             Title={item.title}
             imagesrc={
-              item.imageUrl == "your_image_url_here" ? company : item.imageUrl
+              item.imageUrl === "your_image_url_here" ? company : item.imageUrl
             }
             author={item.author?.name}
             company={item.companyName}

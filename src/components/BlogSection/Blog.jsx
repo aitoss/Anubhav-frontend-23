@@ -1,18 +1,20 @@
 import { CiBookmark, CiHeart } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactQuill from "react-quill";
-import Giscus from '@giscus/react';
 import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
 import BlogCardLoading from "./BlogCardLoading";
-
 import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
 import BlogLoading from "./BlogLoading";
 import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
+
+// Lazy load the Giscus component
+const Giscus = lazy(() => import('@giscus/react'));
+
 const Blog = () => {
   const { id } = useParams();
   const [blogData, setBlogData] = useState([]);
@@ -61,7 +63,7 @@ const Blog = () => {
 
   return (
     <>
-      {loading == true ? (
+      {loading ? (
         <BlogLoading />
       ) : (
         <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
@@ -72,7 +74,6 @@ const Blog = () => {
             <div className="heading">
               <a
                 className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl"
-                // href="/link"
               >
                 {blogData?.title}
               </a>
@@ -85,7 +86,7 @@ const Blog = () => {
             />
             <Tags data={blogData?.articleTags}></Tags>
             <MinuteReadLikes
-              id={id} // Pass the blog id to MinuteReadLikes
+              id={id}
               readingTime={readingTime}
               timeStamp={timeStamp}
             />
@@ -111,7 +112,7 @@ const Blog = () => {
           </div>
 
           {similarArticles ? (
-            <Articles similarArticles={similarArticles} /> // Render Articles component when similarArticles is not null
+            <Articles similarArticles={similarArticles} />
           ) : (
             <>
               <BlogCardLoading />
@@ -121,19 +122,21 @@ const Blog = () => {
               <BlogCardLoading />
             </>
           )}
-       <Giscus
-        repo="aitoss/Anubhav-frontend-23"
-        repoId="R_kgDOKijwFQ"
-        category="Announcements"
-        categoryId="DIC_kwDOKijwFc4CeLfW"
-        mapping="pathname"
-        term="Welcome to @giscus/react component!"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme="light"
-        lang="en"
-        />
+          <Suspense fallback={<div>Loading comments...</div>}>
+            <Giscus
+              repo="aitoss/Anubhav-frontend-23"
+              repoId="R_kgDOKijwFQ"
+              category="Announcements"
+              categoryId="DIC_kwDOKijwFc4CeLfW"
+              mapping="pathname"
+              term="Welcome to @giscus/react component!"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              inputPosition="top"
+              theme="light"
+              lang="en"
+            />
+          </Suspense>
         </div>
       )}
     </>
