@@ -1,5 +1,5 @@
 import { CiBookmark, CiHeart } from "react-icons/ci";
-import { useEffect, useState, Suspense, lazy } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactQuill from "react-quill";
@@ -12,8 +12,7 @@ import { formatDate, ReadTime } from "../../services/date";
 import BlogLoading from "./BlogLoading";
 import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
 
-// Lazy load the Giscus component
-const Giscus = lazy(() => import('@giscus/react'));
+const Giscus = React.lazy(() => import('@giscus/react'));
 
 const Blog = () => {
   const { id } = useParams();
@@ -22,44 +21,62 @@ const Blog = () => {
   const [timeStamp, setTimeStamp] = useState("");
   const [readingTime, setReadingTime] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [commentsLoading, setCommentsLoading] = useState(true);
 
   const fetchBlogData = async () => {
-    const response = await axios.get(BACKEND_URL + "/blog/" + id);
-    setBlogData(response.data);
-    setLoading(false);
-    setTimeStamp(formatDate(response.data.createdAt));
-    const article = response.data;
-    setReadingTime(ReadTime(article.description));
-    await fetchSimilarBlogs(
-      article.title,
-      article.articleTags.join(","),
-      article.companyName,
-      article._id,
-    );
+    try {
+      const response = await axios.get(BACKEND_URL + "/blog/" + id);
+      setBlogData(response.data);
+      setTimeStamp(formatDate(response.data.createdAt));
+      const article = response.data;
+      setReadingTime(ReadTime(article.description));
+      await fetchSimilarBlogs(
+        article.title,
+        article.articleTags.join(","),
+        article.companyName,
+        article._id
+      );
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching blog data:", error);
+      setLoading(false);
+    }
   };
 
   const fetchSimilarBlogs = async (
     title,
     articleTags,
     companyName,
-    articleID,
+    articleID
   ) => {
-    const params = {
-      q: title,
-      company: companyName,
-      tags: articleTags,
-    };
-    const response = await axios.get(BACKEND_URL + "/similarBlogs", {
-      params: params,
-    });
-    const filteredData = response.data.filter((item) => item._id != articleID);
-    setSimilarArticles(filteredData);
+    try {
+      const params = {
+        q: title,
+        company: companyName,
+        tags: articleTags,
+      };
+      const response = await axios.get(BACKEND_URL + "/similarBlogs", {
+        params: params,
+      });
+      const filteredData = response.data.filter(
+        (item) => item._id !== articleID
+      );
+      setSimilarArticles(filteredData);
+    } catch (error) {
+      console.error("Error fetching similar blogs:", error);
+    }
   };
 
   useEffect(() => {
     fetchBlogData();
     window.scrollTo(0, 0);
   }, [id]);
+
+  useEffect(() => {
+    if (!loading) {
+      setCommentsLoading(false);
+    }
+  }, [loading]);
 
   return (
     <>
@@ -72,9 +89,7 @@ const Blog = () => {
           <br />
           <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
             <div className="heading">
-              <a
-                className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl"
-              >
+              <a className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl">
                 {blogData?.title}
               </a>
             </div>
@@ -84,7 +99,7 @@ const Blog = () => {
                 company: blogData?.companyName,
               }}
             />
-            <Tags data={blogData?.articleTags}></Tags>
+            <Tags data={blogData?.articleTags} />
             <MinuteReadLikes
               id={id}
               readingTime={readingTime}
@@ -111,32 +126,35 @@ const Blog = () => {
             </div>
           </div>
 
-          {similarArticles ? (
-            <Articles similarArticles={similarArticles} />
-          ) : (
+          <h2 className="font-medium lg:text-3xl text-3xl mt-8 text-slate-900">
+            Comments
+          </h2>
+          <Suspense fallback={<div>Loading comments...</div>}>
+            {!commentsLoading && (
+              <Giscus
+                repo="aitoss/Anubhav-frontend-23"
+                repoId="R_kgDOKijwFQ"
+                category="Announcements"
+                categoryId="DIC_kwDOKijwFc4CeLfW"
+                mapping="pathname"
+                term="Welcome to @giscus/react component!"
+                reactionsEnabled="1"
+                emitMetadata="0"
+                inputPosition="top"
+                theme="light"
+                lang="en"
+              />
+            )}
+          </Suspense>
+
+          {similarArticles && similarArticles.length > 0 && (
             <>
-              <BlogCardLoading />
-              <BlogCardLoading />
-              <BlogCardLoading />
-              <BlogCardLoading />
-              <BlogCardLoading />
+              <h2 className="font-medium lg:text-3xl text-3xl mt-8 text-slate-900">
+                Similar Articles
+              </h2>
+              <Articles similarArticles={similarArticles} />
             </>
           )}
-          <Suspense fallback={<div>Loading comments...</div>}>
-            <Giscus
-              repo="aitoss/Anubhav-frontend-23"
-              repoId="R_kgDOKijwFQ"
-              category="Announcements"
-              categoryId="DIC_kwDOKijwFc4CeLfW"
-              mapping="pathname"
-              term="Welcome to @giscus/react component!"
-              reactionsEnabled="1"
-              emitMetadata="0"
-              inputPosition="top"
-              theme="light"
-              lang="en"
-            />
-          </Suspense>
         </div>
       )}
     </>
