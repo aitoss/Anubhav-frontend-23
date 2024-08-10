@@ -123,8 +123,8 @@ const Blog = () => {
             <Giscus
               repo="aitoss/Anubhav-frontend-23"
               repoId="R_kgDOKijwFQ"
-              category="Announcements"
-              categoryId="DIC_kwDOKijwFc4CeLfW"
+              category="General"
+              categoryId="DIC_kwDOKijwFc4CeLfX"
               mapping="pathname"
               term="Welcome to @giscus/react component!"
               reactionsEnabled="1"
