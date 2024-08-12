@@ -340,7 +340,7 @@ const Create = () => {
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1">
                     {" "}
-                    Processing <Spinner />
+                    {/* Processing <Spinner /> */}
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-1">

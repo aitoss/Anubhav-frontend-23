@@ -1,48 +1,20 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { GoChevronDown } from "react-icons/go";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
-const Filter = ({ closeFilterPopUp }) => {
-  const [placement, setplacement] = React.useState(true);
-  const [intern, setintern] = React.useState(false);
-  const [videos, setvideos] = React.useState(false);
-  const [MostRecent, setMostRecent] = React.useState(false);
-  const [MostPopular, setMostPopular] = React.useState(true);
-  const [MostViewed, setMostViewed] = React.useState(false);
+const Filter = ({ closeFilterPopUp, company }) => {
+  const [show, setShow] = useState(false);
+  const [currentCompany, setCurrentCompany] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
-  const handlePlacement = () => {
-    setplacement(!placement);
-    setintern(false);
-    setvideos(false);
-  };
+   company.sort((a, b) => b.count - a.count);
 
-  const handleIntern = () => {
-    setintern(!intern);
-    setplacement(false);
-    setvideos(false);
-  };
+   const visibleCompany = show ? company : company.slice(0, 5);
+    
+   const handleShowMore = () =>{
+    setShow(!show);
+   }
 
-  const handleVideos = () => {
-    setvideos(!videos);
-    setplacement(false);
-    setintern(false);
-  };
-
-  const handleRecent = () => {
-    setMostRecent(!MostRecent);
-    setMostPopular(false);
-    setMostViewed(false);
-  };
-
-  const handlePopular = () => {
-    setMostPopular(!MostPopular);
-    setMostRecent(false);
-    setMostViewed(false);
-  };
-
-  const handleViewed = () => {
-    setMostViewed(!MostViewed);
-    setMostRecent(false);
-    setMostPopular(false);
-  };
 
   const handleClickApply = () => {
     closeFilterPopUp();
@@ -51,76 +23,53 @@ const Filter = ({ closeFilterPopUp }) => {
   return (
     <>
       <div className="category1">
-        <h5 className="font-[500]">Filter by</h5>
-        <div className="flex flex-col gap-1 ">
-          <div
-            onClick={() => handlePlacement()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${placement ? "bg-[#f6f8fb]" : ""}`}
+        <h5 className="font-[500] mb-2 text-xl">Filter by Company</h5>
+        <div className="flex flex-col gap-1">
+          {visibleCompany.map((item)=>{
+            return(
+              <div
+              onClick={() => setCurrentCompany(item.company)}
+            className={`flex relative justify-between items-center px-2 py-1 rounded-md transition-all cursor-pointer  hover:bg-white ${currentCompany === item.company ? "bg-white" : ""}`}
           >
-            {placement && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
-            <h5>Placement</h5>
+            <div className="flex items-center gap-3">
+            <div className="w-5 h-5 rounded bg-[#12121240]"></div>
+            <h5>{item.company}</h5>
+            </div>
             <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
-              12
+              {item.count}
             </h5>
           </div>
-          <div
-            onClick={() => handleIntern()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer  ${intern ? "bg-[#f6f8fb]" : ""}`}
-          >
-            {intern && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
-            <h5>Intern</h5>
-            <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
-              6
-            </h5>
-          </div>
-          <div
-            onClick={() => handleVideos()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer  ${videos ? "bg-[#f6f8fb]" : ""}`}
-          >
-            {videos && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
-            <h5>Videos</h5>
-            <h5 className="bg-[#e7e8ec] w-6 flex justify-center items-center rounded-full font-[300]">
-              3
-            </h5>
-          </div>
+            )
+          })}
+          {company.length > 5 && (
+            <div className="flex flex-col items-center cursor-pointer" onClick={handleShowMore}>
+              <p className="text-[#aaabaf]">{show ? "show less" : "show more"}</p>
+              <p className="text-[#aaabaf]">{show ? <MdKeyboardArrowUp /> : <GoChevronDown />}</p>
+              </div>
+          )}
         </div>
       </div>
       <div className="w-full h-[1px] bg-[#d9d9d9]"></div>
-      <div className="category2">
+      <div className="category1">
         {/* sort by */}
-        <h5 className="font-[500]">Sort by</h5>
+        <h5 className="font-[500] mb-2 text-xl">Sort by</h5>
         <div className="flex flex-col gap-1 ">
           <div
-            onClick={() => handlePopular()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostPopular ? "bg-[#f6f8fb]" : ""}`}
+            onClick={() => setSortBy("mostPopular")}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-white transition-all cursor-pointer ${sortBy === "mostPopular" ? "bg-white" : ""}`}
           >
-            {MostPopular && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
             <h5>Most Popular</h5>
           </div>
           <div
-            onClick={() => handleRecent()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostRecent ? "bg-[#f6f8fb]" : ""}`}
+            onClick={() => setSortBy("mostRecent")}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-white transition-all cursor-pointer ${sortBy === "mostRecent" ? "bg-white" : ""}`}
           >
-            {MostRecent && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
             <h5>Most Recent</h5>
           </div>
           <div
-            onClick={() => handleViewed()}
-            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-[#f6f8fb] transition-all cursor-pointer ${MostViewed ? "bg-[#f6f8fb]" : ""}`}
+            onClick={() => setSortBy("mostViewed")}
+            className={`flex relative justify-between px-2 py-1 rounded-md hover:bg-white transition-all cursor-pointer ${sortBy === "mostViewed" ? "bg-white" : ""}`}
           >
-            {MostViewed && (
-              <div className="absolute w-1 h-4 bg-[#e7e8ec] rounded-full top-2 -left-2"></div>
-            )}
             <h5>Most Viewed</h5>
           </div>
         </div>

@@ -18,6 +18,7 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [company, setCompany] = useState([]);
 
   useEffect(() => {
     const fetchSearchValue = async () => {
@@ -57,6 +58,22 @@ const SearchPage = () => {
     }
   };
 
+  const countCompany = async() =>{
+    try {
+      const res = await axios.get(BACKEND_URL + "/countCompanies");
+      setCompany(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  useEffect(() =>{
+    countCompany();
+  },[])
+
+  console.log(articles);
+
   const handleShowMore = () => {
     const query = searchParams.get('query');
     if (query) {
@@ -70,10 +87,10 @@ const SearchPage = () => {
       {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} />}
       <NavbarMini />
       <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
-        <div className="w-full flex gap-8 h-full">
-          <div className="section-left w-full flex flex-col gap-2 h-full">
+        <div className="w-full flex gap-10 h-full">
+          <div className="section-left w-full flex flex-col gap-2 h-full  max-w-5xl">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for "{decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}"</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -137,7 +154,7 @@ const SearchPage = () => {
             {loading && articles.length > 0 && <SearchCardLoading />}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
-            <Filter />
+            <Filter company={company} />
           </div>
         </div>
       </div>
