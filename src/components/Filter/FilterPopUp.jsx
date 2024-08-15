@@ -2,7 +2,7 @@ import React from "react";
 import Filter from "./Filter";
 import { motion } from "framer-motion";
 
-const FilterPopUp = ({ closeFilterPopUp }) => {
+const FilterPopUp = ({ closeFilterPopUp, company }) => {
   const handleClose = (e) => {
     if (e.target.classList.contains("fixed")) {
       closeFilterPopUp();
@@ -27,9 +27,9 @@ const FilterPopUp = ({ closeFilterPopUp }) => {
             onClick={(e) => {
               handleClose(e);
             }}
-            className="overlay flex flex-col w-80 gap-2 bg-white border p-2 px-4 rounded-xl shadow-lg shadow-[rgba(0,0,0,0.1)]"
+            className="overlay flex flex-col w-80 gap-2 md:block bg-white border p-2 px-4 rounded-xl shadow-lg shadow-[rgba(0,0,0,0.1)] overflow-y-auto"
           >
-            <Filter closeFilterPopUp={closeFilterPopUp} />
+            <Filter closeFilterPopUp={closeFilterPopUp} company={company} />
           </div>
         </motion.div>
       </div>

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { GoChevronDown } from "react-icons/go";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
-const Filter = ({ closeFilterPopUp, company }) => {
+const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => {
   const [show, setShow] = useState(false);
   const [currentCompany, setCurrentCompany] = useState("");
   const [sortBy, setSortBy] = useState("");
@@ -24,11 +24,15 @@ const Filter = ({ closeFilterPopUp, company }) => {
     <>
       <div className="category1">
         <h5 className="font-[500] mb-2 text-xl">Filter by Company</h5>
-        <div className="flex flex-col gap-1">
-          {visibleCompany.map((item)=>{
+        <div className="flex flex-col gap-1 max-h-[10rem] overflow-y-auto z-50">
+          {company.map((item)=>{
             return(
               <div
-              onClick={() => setCurrentCompany(item.company)}
+              onClick={() => {
+                setCurrentCompany(item.company)
+                fetchArticles(item.company, 1)
+                setHeaderName(item.company)
+              }}
             className={`flex relative justify-between items-center px-2 py-1 rounded-md transition-all cursor-pointer  hover:bg-white ${currentCompany === item.company ? "bg-white" : ""}`}
           >
             <div className="flex items-center gap-3">
@@ -41,12 +45,12 @@ const Filter = ({ closeFilterPopUp, company }) => {
           </div>
             )
           })}
-          {company.length > 5 && (
+          {/* {company.length > 5 && (
             <div className="flex flex-col items-center cursor-pointer" onClick={handleShowMore}>
               <p className="text-[#aaabaf]">{show ? "show less" : "show more"}</p>
               <p className="text-[#aaabaf]">{show ? <MdKeyboardArrowUp /> : <GoChevronDown />}</p>
               </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="w-full h-[1px] bg-[#d9d9d9]"></div>
