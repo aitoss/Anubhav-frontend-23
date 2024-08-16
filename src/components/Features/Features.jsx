@@ -1,6 +1,6 @@
 import React from "react";
 import Comment from "../../assets/svg/Comment";
-import World from "../../assets/images/World.png";
+import World from "../../assets/images/world.png";
 import VideoIcon from "../../assets/svg/VideoIcon";
 import Videos from "../../pages/Videos";
 
