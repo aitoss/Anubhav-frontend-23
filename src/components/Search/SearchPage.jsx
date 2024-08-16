@@ -19,6 +19,7 @@ const SearchPage = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [company, setCompany] = useState([]);
+  const [headerName, setHeaderName] = useState("");
 
   useEffect(() => {
     const fetchSearchValue = async () => {
@@ -46,10 +47,11 @@ const SearchPage = () => {
   const fetchArticles = async (query, page) => {
     setLoading(true);
     const params = { q: query, page, limit: 10 };
+    console.log("params",params);
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
-      setArticles(prevArticles => [...prevArticles, ...newArticles]);
+      setArticles(prevArticles => [ ...newArticles]);
       setHasMore(newArticles.length === 10);
     } catch (error) {
       console.error("Failed to fetch articles", error);
@@ -84,13 +86,13 @@ const SearchPage = () => {
 
   return (
     <>
-      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} />}
+      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
       <NavbarMini />
       <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
         <div className="w-full flex gap-10 h-full">
           <div className="section-left w-full flex flex-col gap-2 h-full  max-w-5xl">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {headerName ? headerName : decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -154,7 +156,7 @@ const SearchPage = () => {
             {loading && articles.length > 0 && <SearchCardLoading />}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
-            <Filter company={company} />
+            <Filter company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />
           </div>
         </div>
       </div>
