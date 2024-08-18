@@ -13,6 +13,11 @@ const Search = ({ mode, focus, full }) => {
   const [popularSearches, setPopularSearches] = useState([]);
 
   useEffect(() => {
+    const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+    setRecentSearches(storedSearches);
+  }, []);
+  
+  useEffect(() => {
     if (focus) {
       inputRef.current.focus();
     }
@@ -53,6 +58,7 @@ const Search = ({ mode, focus, full }) => {
       inputRef.current.value = searchText;
       inputRef.current.blur();
       navigate('/search?query=' + searchText);
+      localStorage.setItem('recentSearches', JSON.stringify(limitedSearches));
     }
   };
 
@@ -225,7 +231,6 @@ const Search = ({ mode, focus, full }) => {
                         className="hover:underline hover:cursor-pointer"
                         onClick={() => handleRemove(recentSearches.length - index - 1)}
                       >
-                        Remove
                       </span>
                     </div>
                   ))}
