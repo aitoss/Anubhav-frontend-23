@@ -171,6 +171,7 @@ const Search = ({ mode, focus, full }) => {
               />
             </svg>
           </div>
+          <form onSubmit={handleSearchSubmit}>
           <input
             ref={inputRef}
             id="search-input"
@@ -182,6 +183,7 @@ const Search = ({ mode, focus, full }) => {
             onChange={handleChange}
             onClick={() => setIsExpanded(true)}
           />
+          </form>
           <div className={`border-[1.5px] ${borderClass} text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] `}>
             ⌘K
           </div>
