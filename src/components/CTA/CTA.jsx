@@ -80,7 +80,9 @@ const CTA = () => {
           </div>
         </ButtonV5>
       </div>
-      <AnubhavIcon />
+      <div className="hidden lg:block">
+  <AnubhavIcon />
+</div>
     </div>
   );
 };
