@@ -3,6 +3,7 @@ import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from '../../constants';
+import { X } from 'lucide-react';
 
 const Search = ({ mode, focus, full }) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Search = ({ mode, focus, full }) => {
     const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
     setRecentSearches(storedSearches);
   }, []);
-  
+
   useEffect(() => {
     if (focus) {
       inputRef.current.focus();
@@ -231,6 +232,7 @@ const Search = ({ mode, focus, full }) => {
                         className="hover:underline hover:cursor-pointer"
                         onClick={() => handleRemove(recentSearches.length - index - 1)}
                       >
+                        <X size={16} />
                       </span>
                     </div>
                   ))}
