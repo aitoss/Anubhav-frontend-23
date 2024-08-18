@@ -49,7 +49,7 @@ const Search = ({ mode, focus, full }) => {
     };
   }, []);
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (event) => {
     if (searchText.trim() !== "") {
       const updatedSearches = [...recentSearches, searchText];
       const limitedSearches = updatedSearches.slice(-10);
@@ -129,7 +129,9 @@ const Search = ({ mode, focus, full }) => {
   };
 
   const handleRemove = (index) => {
-    setRecentSearches(recentSearches.filter((_, i) => i !== index));
+    const updatedSearches = recentSearches.filter((_, i) => i !== index);
+    setRecentSearches(updatedSearches);
+    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
   };
 
   const containerClass = mode === "dark" ? "bg-[#212121] text-[#ffffffcc]" : "bg-[#fff] text-[#212121]";
