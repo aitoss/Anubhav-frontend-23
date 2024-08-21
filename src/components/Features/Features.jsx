@@ -25,7 +25,7 @@ const Card = ({ title, bold, description, icon, children }) => (
 const TitleComponent = ({ title, color, borderColor }) => (
   <div className="-mt-3 ml-1 flex items-center space-x-2">
     <p
-      className={`rounded-bl-full rounded-br-full rounded-tr-full border text-white sm:text-[12px] ${color} ${borderColor} px-2 py-1 font-[500]`}
+      className={`rounded-bl-full rounded-br-full rounded-tr-full border text-[16px] text-white sm:text-[12px] ${color} ${borderColor} px-2 py-1 font-[500]`}
     >
       {title}
     </p>
@@ -66,7 +66,7 @@ const Avatar = ({ Name, borderColor, src, className }) => (
     <img
       src={src}
       alt={Name}
-      className={`h-20 w-20 rounded-full sm:h-16 sm:w-16 x-sm:h-12 x-sm:w-12`}
+      className={`rounded-full h-20 w-20 select-none sm:h-16 sm:w-16 x-sm:h-12 x-sm:w-12`}
       draggable="false"
     />
   </div>
@@ -132,7 +132,7 @@ const Features = () => {
                   borderColor="border-[#1570EF]"
                 />
                 <Pointer
-                  className="absolute right-[20%] top-[10%] md-2xl:top-[1%] sm:right-[10%] md-2xl:right-[10%] x-sm:right-[0%]"
+                  className="absolute right-[20%] top-[10%] sm:right-[10%] md-2xl:right-[10%] md-2xl:top-[1%] x-sm:right-[0%]"
                   title="Harshal patil"
                   cursorColor="text-[#FF479F]"
                   strokeColor="stroke-[#B11C64]"
@@ -161,7 +161,12 @@ const Features = () => {
               <Videos />
             </div>
             <div className="absolute -bottom-[25%] left-[60%] hidden h-[347px] w-[420px] -translate-x-1/2 scale-[140%] select-none md:block x-sm:scale-[100%]">
-              <img src={VideoPage} alt="VideoPage" draggable="false" />
+              <img
+                src={VideoPage}
+                alt="VideoPage"
+                className="select-none"
+                draggable="false"
+              />
             </div>
           </Card>
         </div>
