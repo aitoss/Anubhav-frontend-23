@@ -13,12 +13,32 @@ import background2 from "../assets/bg.png";
 import Slider from "../components/Slider/Slider";
 import Video from "../pages/Videos";
 import BackgroundDots from "../assets/Background";
+import { AnimatedTooltip } from "../components/Tooltip/tooltip";
 
 export default function HomeScreen() {
   const [OpenSearchModal, setOpenSearchModal] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const emailInputRef = useRef < HTMLInputElement > null;
   const inputRef = useRef(null);
+  const people = [
+    {
+      id: 1,
+      name: "Google",
+      image:
+"https://t4.ftcdn.net/jpg/03/08/54/37/240_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg"    },
+    {
+      id: 2,
+      name: "Microsoft",
+      image:
+        "https://static.vecteezy.com/system/resources/previews/028/339/965/original/microsoft-icon-logo-symbol-free-png.png",
+    },
+    {
+      id: 3,
+      name: "Amazon",
+      image:
+        "https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg",
+    },
+  ];
 
   const handleClick = () => {
     setOpenSearchModal(true);
@@ -157,22 +177,8 @@ export default function HomeScreen() {
           >
             <div className="flex items-center gap-4">
               <div className="flex">
-                <img
-                  src={logo2}
-                  alt="random"
-                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-                />
-                <img
-                  src={logo1}
-                  alt="random"
-                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-                />
-                <img
-                  src={logo3}
-                  alt="random"
-                  className="w-12 mr-[-16px] rounded-full border-[3px] border-white"
-                />
-                <div className="w-12 h-12 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
+              <AnimatedTooltip items={people} />
+                <div className="w-12 h-12 z-10 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
                   3k+
                 </div>
               </div>
