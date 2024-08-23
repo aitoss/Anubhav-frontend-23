@@ -4,14 +4,8 @@ import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import SearchModal from "../components/Search/SearchModal";
-import Search from "../components/Search/Search";
-import logo1 from "../assets/images/user1.png";
-import logo2 from "../assets/images/user2.png";
-import logo3 from "../assets/images/user3.png";
-import background2 from "../assets/bg.png";
 // import background2 from '../assets/dots-pattern.svg';
 import Slider from "../components/Slider/Slider";
-import Video from "../pages/Videos";
 import BackgroundDots from "../assets/Background";
 import { AnimatedTooltip } from "../components/Tooltip/tooltip";
 

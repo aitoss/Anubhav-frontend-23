@@ -29,6 +29,7 @@
     "html-to-text": "^9.0.5",
     "lenis": "^1.1.9",
     "lucide-react": "^0.428.0",
+    "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
