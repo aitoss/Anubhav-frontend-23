@@ -2,10 +2,10 @@ import React, { useMemo, useState } from 'react';
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 
-const DevTeamMember = React.memo(({ name, platform, imageSrc, githubId }) => (
+const DevTeamMember = React.memo(({ name, platform, imagepublic, githubId }) => (
     <div className="flex flex-col items-start p-4">
         <img
-            src={imageSrc}
+            public={imagepublic}
             alt={`${name}'s avatar`}
             className="w-[300px] min-w-[150px] object-cover h-[300px] rounded-lg"
             loading="lazy"
@@ -33,56 +33,56 @@ const DevTeam = () => {
                     id: 1,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user1.png',
+                    imagepublic: '/public/assets/images/user1.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 2,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user2.png',
+                    imagepublic: '/public/assets/images/user2.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 3,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 4,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 5,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user1.png',
+                    imagepublic: '/public/assets/images/user1.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 6,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user2.png',
+                    imagepublic: '/public/assets/images/user2.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 7,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 8,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
             ],
@@ -91,42 +91,42 @@ const DevTeam = () => {
                     id: 11,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user1.png',
+                    imagepublic: '/public/assets/images/user1.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 12,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user2.png',
+                    imagepublic: '/public/assets/images/user2.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 13,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 14,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 15,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
                 {
                     id: 16,
                     name: 'Nikhil',
                     platform: 'GitHub',
-                    imageSrc: '/src/assets/images/user3.png',
+                    imagepublic: '/public/assets/images/user3.png',
                     githubId: '404nikhil'
                 },
             ],
