@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { WobbleCard } from '../components/Tooltip/wobble';
-
 const DevTeamMember = React.memo(({ name, platform, imageSrc, githubId }) => (
     <WobbleCard containerClassName=" min-h-[300px]">
     <div className="flex flex-col  items-start ">
