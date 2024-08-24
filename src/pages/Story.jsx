@@ -6,92 +6,84 @@ import { Timeline } from "../components/Timeline/timeline";
 const Story = () => {
     const data = [
         {
-          title: "2024",
+          title: "Dec 2020, Idea",
           content: (
             <div>
               <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-                Built and launched Aceternity UI and Aceternity UI Pro from scratch
+              The project originated from a random conversation between Arpit and Akshay sir. After that with the formation of the team with Satya sir and few club juniors, and they started the development. The first version was designed by Rishabh sir.
+
               </p>
-              <div className="grid grid-cols-2 gap-4">
-             
-              </div>
+    
             </div>
           ),
         },
         {
-          title: "Early 2023",
+          title: "Jan 2021, Launch",
           content: (
             <div>
+                <h1 className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-[24px]">Launch</h1>
               <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-                I usually run out of copy, but when I see content this big, I try to
-                integrate lorem ipsum.
+              By this time the basic portal was ready as per the expected design. Anubhav was launched by director sir and then shared with all through AIT Alumni page. The project received lots of compliments from everyone.
               </p>
-              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-                Lorem ipsum is for people who are too lazy to write copy. But we are
-                not. Here are some more example of beautiful designs I built.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-              </div>
-            </div>
-          ),
-        },
-        {
-          title: "Changelog",
-          content: (
-            <div>
-              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                Deployed 5 new components on Aceternity today
-              </p>
-              <div className="mb-8">
-                <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                  ✅ Card grid component
-                </div>
-                <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                  ✅ Startup template Aceternity
-                </div>
-                <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                  ✅ Random file upload lol
-                </div>
-                <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                  ✅ Himesh Reshammiya Music CD
-                </div>
-                <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-                  ✅ Salman Bhai Fan Club registrations open
-                </div>
-              </div>
               <div className="grid grid-cols-2 gap-4">
                 <img
-                  src="https://assets.aceternity.com/pro/hero-sections.png"
+                  src="https://raw.githubusercontent.com/aitoss/Anubhav-backend/main/gallery/Screenshot%20(184).png"
                   alt="hero template"
                   width={500}
                   height={500}
                   className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
                 />
-                <img
-                  src="https://assets.aceternity.com/features-section.png"
-                  alt="feature template"
-                  width={500}
-                  height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                />
-                <img
-                  src="https://assets.aceternity.com/pro/bento-grids.png"
-                  alt="bento template"
-                  width={500}
-                  height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                />
-                <img
-                  src="https://assets.aceternity.com/cards.png"
-                  alt="cards template"
-                  width={500}
-                  height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                />
+              
               </div>
             </div>
           ),
         },
+        {
+          title: "June-July 2021,Video Interview Series",
+          content: (
+            <div>
+              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+              Due to pandemic juniors were unable to properly connect with seniors to seek guidance. So Arpit sir along with Abhishek sir started the Anubhav-video Interview series. In which seniors shared their college life, tech-non tech journey, along with tips for juniors. All the videos are available on OSS youtube channel.
+              </p>
+              <div className="mb-8">
+               
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
+                  alt="hero template"
+                  width={500}
+                  height={500}
+                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                />
+              
+              </div>
+            </div>
+          ),
+        },
+        {
+            title: "August 2021,Ownership transfer",
+            content: (
+              <div>
+                <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+                Due to pandemic juniors were unable to properly connect with seniors to seek guidance. So Arpit sir along with Abhishek sir started the Anubhav-video Interview series. In which seniors shared their college life, tech-non tech journey, along with tips for juniors. All the videos are available on OSS youtube channel.
+                </p>
+                <div className="mb-8">
+                 
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <img
+                    src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
+                    alt="hero template"
+                    width={500}
+                    height={500}
+                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                  />
+                
+                </div>
+              </div>
+            ),
+          },
       ];
     return (
 <>
