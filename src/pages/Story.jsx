@@ -6,7 +6,7 @@ import { Timeline } from "../components/Timeline/timeline";
 const Story = () => {
     const data = [
         {
-          title: "Dec 2020, Idea",
+          title: "Dec 2020",
           content: (
             <div>
               <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -18,14 +18,14 @@ const Story = () => {
           ),
         },
         {
-          title: "Jan 2021, Launch",
+          title: "Jan 2021",
           content: (
             <div>
                 <h1 className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-[24px]">Launch</h1>
               <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
               By this time the basic portal was ready as per the expected design. Anubhav was launched by director sir and then shared with all through AIT Alumni page. The project received lots of compliments from everyone.
               </p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="">
                 <img
                   src="https://raw.githubusercontent.com/aitoss/Anubhav-backend/main/gallery/Screenshot%20(184).png"
                   alt="hero template"
@@ -39,7 +39,7 @@ const Story = () => {
           ),
         },
         {
-          title: "June-July 2021,Video Interview Series",
+          title: "July 2021",
           content: (
             <div>
               <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -48,7 +48,7 @@ const Story = () => {
               <div className="mb-8">
                
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="">
                 <img
                   src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
                   alt="hero template"
@@ -62,16 +62,15 @@ const Story = () => {
           ),
         },
         {
-            title: "August 2021,Ownership transfer",
+            title: "Aug 2021",
             content: (
               <div>
                 <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                Due to pandemic juniors were unable to properly connect with seniors to seek guidance. So Arpit sir along with Abhishek sir started the Anubhav-video Interview series. In which seniors shared their college life, tech-non tech journey, along with tips for juniors. All the videos are available on OSS youtube channel.
-                </p>
+                With start of new academic session. The product ownership is transferred to Akshay, Satya, Rishabh and Palak</p>
                 <div className="mb-8">
                  
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="">
                   <img
                     src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
                     alt="hero template"
