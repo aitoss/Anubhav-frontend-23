@@ -1,25 +1,32 @@
 import React, { useMemo, useState } from 'react';
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
+import { WobbleCard } from '../components/Tooltip/wobble';
 
 const DevTeamMember = React.memo(({ name, platform, imageSrc, githubId }) => (
-    <div className="flex flex-col items-start p-4">
+    <WobbleCard containerClassName=" min-h-[300px]">
+    <div className="flex flex-col  items-start ">
         <img
             src={imageSrc}
             alt={`${name}'s avatar`}
-            className="w-[300px] min-w-[150px] object-cover h-[300px] rounded-lg"
+            className="w-[300px] min-w-[150px] object-cover h-[300px] rounded-[6.522px]"
             loading="lazy"
         />
-        <h3 className="mt-2 mb-1 font-semibold text-left text-sm sm:text-base lg:text-lg">{name}</h3>
+        
+
+        <h3 className=" text-[#212121] text-[24px] font-medium leading-[125%] text-left">{name}</h3>
         <a
             href={`https://github.com/${githubId.replace(' ', '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline text-xs sm:text-sm lg:text-base"
+            className="text-[#212121] z-10 hover:underline underline text-[16px]"
         >
             {platform}
         </a>
+
+
     </div>
+    </WobbleCard>
 ));
 
 
