@@ -31,7 +31,7 @@ const Story = () => {
                   alt="hero template"
                   width={500}
                   height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60  shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
                 />
               
               </div>
@@ -54,7 +54,7 @@ const Story = () => {
                   alt="hero template"
                   width={500}
                   height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
                 />
               
               </div>
@@ -76,7 +76,7 @@ const Story = () => {
                     alt="hero template"
                     width={500}
                     height={500}
-                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60  shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
                   />
                 
                 </div>
@@ -91,7 +91,7 @@ const Story = () => {
     <div className="flex flex-col mx-auto min-h-screen">
         <div className="h-16 md:h-8"></div>
         <div className="flex flex-col items-center flex-1">
-            <section className="mx-auto w-[100%] max-w-[1400px] lg:w-[70%] px-4 py-8 flex-1 overflow-y-auto">
+            <section className="mx-auto w-[100%] max-w-[1400px] lg:w-[70%] px-4 py-4 flex-1 overflow-y-auto">
             <div className="text-xl text-black">
                             <motion.div
                                 initial={{ opacity: 0, translateY: 10 }}
@@ -113,7 +113,7 @@ const Story = () => {
                                     The story of Anubhav, is as interesting as this portal. With lots of brainstorming discussion, and a motivation to improve this at each possible stage. We have created this mind-blowing portal. Explore this page to know about product owners, how it started, and the timeline for various phases of development.
                                 </p>
                             </motion.div>
-                            <div className="flex flex-col pt-8 justify-start items-start">
+                            <div className="flex flex-col lg:pt-8 justify-start items-start">
                                 <h3 className="font-[500] ">Product Ownership</h3>
                                 <p>Anubhav portal is developed and maintained by AIT OSS Club. Club is responsible for the enhancement of the quality of this portal. After its establishment, every year at the start of a new academic session its ownership and control are transferred to next-generation, which mainly consists of third year and final year members. </p>
                             </div>
