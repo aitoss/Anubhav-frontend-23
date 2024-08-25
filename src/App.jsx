@@ -20,6 +20,7 @@ import WhatIsAnubhav from "./components/WhatIsAnubhav/WhatIsAnubhav";
 import Lenis from "lenis";
 import Features from "./components/Features/Features";
 import DevTeam from "./pages/DevTeam";
+import Stories from "./pages/Stories";
 
 const App = () => {
   useEffect(() => {
@@ -61,7 +62,8 @@ const App = () => {
       <Route path="/videos" element={<VideosPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/story" element={<Story />} />
-      <Route path="/team" element={<DevTeam />} />  
+      <Route path="/team" element={<DevTeam />} />
+      <Route path="/stories" element={<Stories />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
