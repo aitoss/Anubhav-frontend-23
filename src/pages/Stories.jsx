@@ -6,11 +6,14 @@ import axios from "axios";
 import BlogCard from "../components/BlogSection/BlogCard";
 import { ReadTime, formatDate } from "../services/date";
 import { Flag } from "lucide-react";
+import Filter from "../components/Filter/Filter";
+import FilterPopUp from "../components/Filter/FilterPopUp";
 
 const Stories = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("Trending");
+  const [filterPopUp, setFilterPopUp] = useState(false);
 
   const fetchLatestArticles = async (endPoint) => {
     setLoading(true);
@@ -44,11 +47,10 @@ const Stories = () => {
   return (
     <>
       <NavbarMini />
-
       <div className="h-full px-8 pt-24 md:px-4 lg:px-14 2xl:px-28">
         <div className="flex h-full w-full gap-10">
           <div className="section-left flex h-full w-full max-w-5xl flex-col gap-5">
-            <div className="flex w-[20rem] justify-around border-b-2 border-gray-300">
+            <div className="flex w-[20rem] justify-around border-b-2 border-gray-300 md:w-full">
               <div
                 className={`${
                   activeTab === "Trending"

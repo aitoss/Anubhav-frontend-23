@@ -9,12 +9,6 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
 
    company.sort((a, b) => b.count - a.count);
 
-   const visibleCompany = show ? company : company.slice(0, 5);
-    
-   const handleShowMore = () =>{
-    setShow(!show);
-   }
-
 
   const handleClickApply = () => {
     closeFilterPopUp();
