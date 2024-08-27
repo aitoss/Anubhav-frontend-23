@@ -98,7 +98,7 @@ const Footer = () => {
                 background="transparent"
                 minSize={0.6}
                 maxSize={1.4}
-                particleDensity={8}
+                particleDensity={5}
                 className="w-full h-5/6"
                 particleColor="#d9d9d9"
               />

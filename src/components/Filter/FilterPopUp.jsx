@@ -15,7 +15,7 @@ const FilterPopUp = ({ closeFilterPopUp, company }) => {
         onClick={(e) => {
           handleClose(e);
         }}
-        className="fixed -top-[280px] inset-0 bg-white bg-opacity-70 z-50 flex justify-center items-center"
+        className="fixed -top-[ 80px] inset-0 bg-white bg-opacity-70 z-50 flex justify-center items-center"
       >
         <motion.div
           initial={{ opacity: 0, translateY: 10 }}

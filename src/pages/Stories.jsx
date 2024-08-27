@@ -13,7 +13,33 @@ const Stories = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("Trending");
+  const [company, setCompany] = useState([]);
   const [filterPopUp, setFilterPopUp] = useState(false);
+  const [headerName, setHeaderName] = useState("");
+
+
+  const openFilterPopup = () => {
+    setFilterPopUp(true);
+  };
+
+  const closeFilterPopUp = () => {
+    setFilterPopUp(false);
+  };
+
+  const countCompany = async () => {
+    try {
+      const res = await axios.get(BACKEND_URL + "/countCompanies");
+      setCompany(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  useEffect(() => {
+    countCompany();
+  }, [])
+
 
   const fetchLatestArticles = async (endPoint) => {
     setLoading(true);
@@ -29,7 +55,7 @@ const Stories = () => {
   };
 
   useEffect(() => {
-    let endPoint = "/blogs";  
+    let endPoint = "/blogs";
     switch (activeTab) {
       case "Trending":
         endPoint = "/blogs";
@@ -45,28 +71,26 @@ const Stories = () => {
   }, [activeTab]);
 
   return (
-    <>
+    <>  {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
       <NavbarMini />
       <div className="h-full px-8 pt-24 md:px-4 lg:px-14 2xl:px-28">
         <div className="flex h-full w-full gap-10">
           <div className="section-left flex h-full w-full max-w-5xl flex-col gap-5">
-            <div className="flex w-[20rem] justify-around border-b-2 border-gray-300 md:w-full">
+            <div className="flex w-1/4 justify-around border-b-2 border-gray-300 md:w-full">
               <div
-                className={`${
-                  activeTab === "Trending"
+                className={`${activeTab === "Trending"
                     ? "-mb-[2px] border-b-2 border-black"
                     : ""
-                } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
+                  } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
                 onClick={() => setActiveTab("Trending")}
               >
                 Trending
               </div>
               <div
-                className={`${
-                  activeTab === "Recent"
+                className={`${activeTab === "Recent"
                     ? "-mb-[2px] border-b-2 border-black"
                     : ""
-                } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
+                  } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
                 onClick={() => setActiveTab("Recent")}
               >
                 Recent
@@ -129,6 +153,9 @@ const Stories = () => {
               ))
             )}
             {loading && articles.length > 0 && <SearchCardLoading />}
+          </div>
+          <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
+            <Filter company={company} fetchLatestArticles={fetchLatestArticles} setHeaderName={setHeaderName} />
           </div>
         </div>
       </div>
