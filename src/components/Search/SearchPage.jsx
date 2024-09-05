@@ -7,7 +7,7 @@ import Filter from "../Filter/Filter";
 import axios from "axios";
 import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
-import company from "../../assets/images/company.png";
+import companyLogo from "../../assets/images/company.png";
 import { ReadTime, formatDate } from "../../services/date";
 import SearchCardLoading from "./SearchCardLoading";
 
@@ -135,7 +135,7 @@ const SearchPage = () => {
                   id={item._id} // Pass the id to BlogCard
                   link={`/blog/${item._id}`}
                   Title={item.title}
-                  imagesrc={item.imageUrl === "your_image_url_here" ? company : item.imageUrl}
+                  imagesrc={item.imageUrl === "your_image_url_here" ? companyLogo : item.imageUrl}
                   author={item.author?.name}
                   company={item.companyName}
                   data={item.description}
@@ -154,6 +154,7 @@ const SearchPage = () => {
               </div>
             )}
             {loading && articles.length > 0 && <SearchCardLoading />}
+            <br /><br />
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />
