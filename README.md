@@ -39,26 +39,4 @@ npm run dev
 
 ## Contributing
 
-We welcome contributions from the community. If you'd like to contribute to the project, please follow these guidelines:
-
-1. Fork the repository.
-
-2. Create a new branch for your feature or bug fix:
-
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. Make your changes and commit them:
-
-```bash
-git commit -m "Add your feature or bug fix"
-```
-
-4. Push your changes to your fork:
-
-```bash
-git push origin feature/your-feature-name
-```
-
-5. Create a pull request to the main branch of this repository.
+If you'd like to contribute to this project, refer to the [contributing documentation](./CONTRIBUTING.md).
