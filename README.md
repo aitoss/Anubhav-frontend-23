@@ -9,6 +9,20 @@ Welcome to the Anubhav Frontend repository! This project is part of the Anubhav 
 
 Anubhav: Experience Sharing Point (A-ESP) is a platform developed for AITians to read & share encounters of various interviews.
 
+## Contents
+
+1. [Highlights](#highlights)
+2. [Installation](#installation)
+3. [Contributing](#contributing)
+4. [Copyright](#copyright)
+
+## Highlights
+
+* Anyone can share his/her experience of an interview to help students.
+* Students who know someone and want his/her interview experience can request by providing a few details.
+* Writing anonymously is also possible on Anubhav.
+* In the future, we would extend this platform more than just Interview Experiences by adding more helpful features.
+
 ## Installation
 
 To get started with the Anubhav Frontend, follow these steps:
@@ -40,3 +54,10 @@ npm run dev
 ## Contributing
 
 If you'd like to contribute to this project, refer to the [contributing documentation](./CONTRIBUTING.md).
+
+<hr>
+
+## Copyright 
+If you are thinking to use this application for your community/college, We would love to see AIT OSS CLUB mention at your hosted application.
+
+Made with ❤ by [OSS Club](https://aitoss.club). 
