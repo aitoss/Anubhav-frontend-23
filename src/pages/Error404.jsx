@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import error from "../assets/error.svg";
 import Logo from "../components/Loader/DummyLoader";
-import ButtonV5 from "../components/pixaui/buttonv5";
+import ButtonV5 from "../components/ui/buttonv5";
 
 export default function Error404() {
   return (

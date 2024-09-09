@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import logo from "../../assets/images/logo.svg";
 import MobileNav from "./MobileNav";
 import "./Navbar.css";
-import ButtonV5 from "../pixaui/buttonv5";
+import ButtonV5 from "../ui/buttonv5";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // for hamburger menu

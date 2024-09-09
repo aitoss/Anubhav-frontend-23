@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ErrorMessage from "../components/notification/ErrorMessage";
-import ButtonV5 from "../components/pixaui/buttonv5";
+import ButtonV5 from "../components/ui/buttonv5";
 
 const Create = () => {
   const navigate = useNavigate();

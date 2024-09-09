@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonV5 from "../pixaui/buttonv5";
+import ButtonV5 from "../ui/buttonv5";
 import AnubhavIcon from "../../assets/AnubhavIcon";
 import { Link } from "react-router-dom";
 

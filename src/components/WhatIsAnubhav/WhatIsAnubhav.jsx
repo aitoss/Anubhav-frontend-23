@@ -1,23 +1,24 @@
-// WhatIsAnubhav.js
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import SuccessStories from "../../assets/images/SuccessStories.png";
 import Emoji from "../../assets/images/Emoji.png";
 import Emoji1 from "../../assets/images/Emoji-1.png";
 import Emoji2 from "../../assets/images/Emoji-2.png";
-import ButtonV5 from "../pixaui/buttonv5";
+import ButtonV5 from "../ui/buttonv5";
+import MaskText from "../ui/maskText";
+import FadeText from "../ui/fadeText";
+import MaskWrapper from "../ui/maskWrapper"
+import FadeWrapper from "../ui/fadeWrapper";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="relative w-full overflow-hidden rounded-2xl border shadow-md">
-    <div className="z-10 flex w-full items-center justify-between bg-[#fff9] p-0 backdrop-blur-[36px]">
+    <div className="z-10 flex w-full items-center justify-between bg-[#fff9] p-0">
       <div className="flex flex-1 flex-col p-4">
         <h3 className="z-50 mb-2 text-xl font-[500]">{title}</h3>
         <p className="z-50 text-[#5e5f6e]">{description}</p>
       </div>
       <div className="relative z-10 flex items-center">
-        <div className="absolute -left-[0px] z-20 h-[150%] w-[20px] bg-[#fcfcfc] blur-[8px]"></div>
+        <div className="absolute -left-[0px] z-20 h-[150%] w-[20px] bg-[#fcfcfc] blur-[8px]" />
         <Link to="/create" className="z-50 mr-4">
           <ButtonV5 icon={false}>
             <div className="flex items-center justify-center gap-1">
@@ -100,7 +101,7 @@ const Card = ({ title, description, imageURL }) => (
         </Link>
       </div>
     </div>
-    <div className="absolute right-1 top-16 -z-10 -rotate-[25deg]">
+    <div className="absolute right-1 blur-[32px] top-16 -z-10 -rotate-[25deg]">
       <div className="h-4 w-[300px] bg-[#212121]"></div>
     </div>
   </div>
@@ -155,69 +156,47 @@ const Card2 = ({ title, description, imageURL }) => (
   </div>
 );
 
-const AnimatedHeading = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.h1
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.3 }}
-      className="pb-10 text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl"
-    >
-      Discover Anubhav
-    </motion.h1>
-  );
-};
-
 const WhatIsAnubhav = () => {
   return (
     <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
         <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col">
           <div className="flex w-full flex-col">
-            <h2 className="mb-2 text-sm font-[500] text-[#212121]">
-              What is Anubhav?
-            </h2>
-            <h1 className="text-4xl font-bold">
-              <AnimatedHeading />
-            </h1>
+            <div className="flex flex-col">
+              <h2 className="-mb-2 text-sm font-[500] text-[#212121]">
+                <MaskText textPhrase={["What is Anubhav?"]} />
+              </h2>
+              <h1 className="text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl">
+                <MaskText textPhrase={["Discover Anubhav"]} />
+              </h1>
+            </div>
             <p className="mb-8 w-full text-[#5e5f6e] md:w-[90%]">
-              Anubhav is a dedicated platform where AIT students can share and
-              explore success stories related to placements and internships.
-              It's a space where you can find real-life experiences and
-              practical advice from your peers who have navigated their career
-              paths with success.
+              <FadeText textPhrase={["Anubhav is a dedicated platform where AIT students can share and explore success stories related to placements and internships. It's a space where you can find real-life experiences and practical advice from your peers who have navigated their career paths with success."]} />
               <br />
-              <br />
-              Whether you are looking for inspiration or practical tips to
-              enhance your own career journey, Anubhav is here to guide you.{" "}
-              <Link className="underline" to="/stories">
-                Dive into Stories
-              </Link>
-              .
+              <FadeText textPhrase={["Whether you are looking for inspiration or practical tips to enhance your own career journey, Anubhav is here to guide you."]} />
+              <MaskWrapper>
+                <Link className="underline" to="/stories">
+                  Dive into Stories
+                </Link>
+              </MaskWrapper>
             </p>
             <div className="">
-              <Card
-                title="Share Your Journey"
-                description="Contribute your own success story to inspire others and help build a community of successful AIT students."
-                imageURL={SuccessStories}
-              />
+              <FadeWrapper>
+                <Card
+                  title="Share Your Journey"
+                  description="Contribute your own success story to inspire others and help build a community of successful AIT students."
+                  imageURL={SuccessStories}
+                />
+              </FadeWrapper>
             </div>
           </div>
-          <Card2 />
+          <div className="w-full h-full">
+            <FadeWrapper>
+              <div className="w-full h-full">
+                <Card2 />
+              </div>
+            </FadeWrapper>
+          </div>
         </div>
       </div>
     </section>

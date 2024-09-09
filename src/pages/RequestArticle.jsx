@@ -7,7 +7,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ErrorMessage from "../components/notification/ErrorMessage";
 import SuccessMessage from "../components/notification/SuccessMessage";
-import ButtonV5 from "../components/pixaui/buttonv5";
+import ButtonV5 from "../components/ui/buttonv5";
 import Spinner from "../assets/Spinner";
 
 const RequestArticle = () => {

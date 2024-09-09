@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 import "./Navbar.css";
 import Search from "../Search/Search";
 import SearchModal from "../Search/SearchModal";
-import ButtonV5 from "../pixaui/buttonv5";
+import ButtonV5 from "../ui/buttonv5";
 
 const NavbarMini = () => {
   const [isOpen, setIsOpen] = useState(false); // for hamburger menu
