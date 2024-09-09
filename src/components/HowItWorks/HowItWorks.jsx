@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import Form from "../../assets/images/Form.png";
 import Editor from "../../assets/images/Editor.png";
 import Publish from "../../assets/images/Publish.png";
+import MaskText from "../ui/maskText";
+import FadeWrapper from "../ui/fadeWrapper";
+import MaskWrapper from "../ui/maskWrapper";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="group relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
@@ -35,37 +38,49 @@ const HowItWorks = () => {
   return (
     <section className="flex flex-col items-center justify-center px-4 pb-32 pt-20">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center text-center">
-        <h2 className="mb-2 w-full text-sm font-[500] text-[#212121]">
-          How It Works
-        </h2>
-        <h1 className="pb-10 text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl">
-          Get Started with Our Platform
-        </h1>
+        <div className="flex flex-col">
+          <h2 className="-mb-2 text-sm font-[500] text-[#212121]">
+            <MaskText textPhrase={["How It Works"]} />
+          </h2>
+          <h1 className="text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl">
+            <MaskText textPhrase={["Get Started with Our Platform"]} />
+          </h1>
+        </div>
+
         <p className="mb-8 w-[60%] text-[#5e5f6e] md:w-[90%]">
-          Go{" "}
-          <Link className="underline" to="/create">
-            here
-          </Link>
-          &nbsp; and follow these simple steps to create and publish your blog
-          posts with ease. Our platform is designed to make the writing and
-          publishing process as smooth as possible.
+          <MaskWrapper>
+            Go&nbsp;
+            <Link className="underline" to="/create">
+              here
+            </Link>
+            &nbsp; and follow these simple steps to create and publish your blog
+            posts with ease. Our platform is designed to make the writing and
+            publishing process as smooth as possible.
+          </MaskWrapper>
         </p>
         <div className="grid h-full grid-cols-3 gap-4 md:grid-cols-1">
-          <Card
-            title="Enter info about you"
-            description="Enter basic information like your name, company name, offered position, and email address."
-            imageURL={Form}
-          />
-          <Card
-            title="Write Your Article"
-            description="Use our intuitive editor to craft your blog post. Add headings, format text, and include images or links to make your content engaging and informative."
-            imageURL={Editor}
-          />
-          <Card
-            title="Publish and Share"
-            description="Once you're satisfied with your post, hit the publish button to make it live. Share it with your audience via social media or email newsletters."
-            imageURL={Publish}
-          />
+          <FadeWrapper>
+            <Card
+              title="Enter info about you"
+              description="Enter basic information like your name, company name, offered position, and email address."
+              imageURL={Form}
+            />
+          </FadeWrapper>
+          <FadeWrapper delay={0.15}>
+
+            <Card
+              title="Write Your Article"
+              description="Use our intuitive editor to craft your blog post. Add headings, format text, and include images or links to make your content engaging and informative."
+              imageURL={Editor}
+            />
+          </FadeWrapper>
+          <FadeWrapper delay={0.25}>
+            <Card
+              title="Publish and Share"
+              description="Once you're satisfied with your post, hit the publish button to make it live. Share it with your audience via social media or email newsletters."
+              imageURL={Publish}
+            />
+          </FadeWrapper>
         </div>
       </div>
     </section>

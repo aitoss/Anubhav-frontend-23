@@ -339,7 +339,7 @@ const Create = () => {
               <ButtonV5 icon={false}>
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1">
-                    {" "}
+                    &nbsp;
                     {/* Processing <Spinner /> */}
                   </div>
                 ) : (

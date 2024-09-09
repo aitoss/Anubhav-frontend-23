@@ -108,7 +108,7 @@ const Card = ({ title, description, imageURL }) => (
 );
 
 const Card2 = ({ title, description, imageURL }) => (
-  <div className="relative mx-12 h-[450px] w-full overflow-hidden rounded-2xl border bg-white shadow-md">
+  <div className="relative h-[450px] w-full overflow-hidden rounded-2xl border bg-white shadow-md">
     <div className="absolute left-1/2 top-[120%] z-0 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#212121]/5"></div>
     <div className="absolute left-1/2 top-[120%] z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#212121]/5"></div>
     <p className="absolute left-[5%] top-12 inline-flex -rotate-12 rounded-md border bg-[#f9f9f9] px-2 py-1">
@@ -161,7 +161,7 @@ const WhatIsAnubhav = () => {
     <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
         <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col">
-          <div className="flex w-full flex-col">
+          <div className="flex w-1/2 md:w-full flex-col">
             <div className="flex flex-col">
               <h2 className="-mb-2 text-sm font-[500] text-[#212121]">
                 <MaskText textPhrase={["What is Anubhav?"]} />
@@ -190,11 +190,9 @@ const WhatIsAnubhav = () => {
               </FadeWrapper>
             </div>
           </div>
-          <div className="w-full h-full">
+          <div className="md:w-full w-1/2">
             <FadeWrapper>
-              <div className="w-full h-full">
-                <Card2 />
-              </div>
+              <Card2 />
             </FadeWrapper>
           </div>
         </div>

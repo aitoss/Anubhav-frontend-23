@@ -34,7 +34,7 @@ const TextEditor = ({ article, setArticle }) => {
           />
         </div>
         <div className="preview mt-16 h-[60vh] max-h-[80vh] w-full overflow-auto rounded-xl border-[2px] bg-white text-black shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]">
-          {" "}
+          &nbsp;
           <ReactQuill
             value={article}
             theme="bubble"

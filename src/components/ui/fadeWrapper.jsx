@@ -1,17 +1,22 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export function FadeWrapper({ children }) {
+const FadeWrapper = ({
+  children,
+  className = "",
+  duration = 0.4,
+  delay = 0,
+}) => {
   const animation = {
-    initial: { y: "25px", opacity: 0, filter: "blur(4px)" },
+    initial: { y: "10%", filter: "blur(12px)", opacity: 0 },
     enter: {
       y: "0",
-      opacity: 1,
       filter: "blur(0px)",
+      opacity: 1,
       transition: {
         duration: 0.75,
         ease: [0.33, 1, 0.68, 1],
-        delay: 0.075,
+        delay, // Use the delay from props here
       },
     },
   };
@@ -22,17 +27,23 @@ export function FadeWrapper({ children }) {
   });
 
   return (
-    <div ref={ref}>
-      <motion.span
-        className="m-0"
-        variants={animation}
+    <AnimatePresence>
+      <motion.div
+        ref={ref}
         initial="initial"
         animate={inView ? "enter" : ""}
+        exit="hidden"
+        variants={animation}
+        transition={{
+          duration, // Use duration from props
+          ease: "easeOut",
+        }}
+        className={className}
       >
         {children}
-      </motion.span>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
-}
+};
 
 export default FadeWrapper;

@@ -13,7 +13,7 @@ const CTA = () => {
         <p className="mb-6 w-3/4 text-left text-gray-600 md:w-full">
           Dive into our blog to explore a variety of topics, from industry
           trends to practical tips. Whether you’re looking for inspiration or
-          knowledge, we’ve got something for everyone.{" "}
+          knowledge, we’ve got something for everyone.&nbsp;
           <span className="font-semibold">Explore now</span> and stay updated
           with our latest posts.
         </p>
