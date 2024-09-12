@@ -8,7 +8,7 @@ const FadeWrapper = ({
   delay = 0,
 }) => {
   const animation = {
-    initial: { y: "10%", filter: "blur(12px)", opacity: 0 },
+    initial: { y: "30%", filter: "blur(12px)", opacity: 0 },
     enter: {
       y: "0",
       filter: "blur(0px)",
@@ -22,7 +22,7 @@ const FadeWrapper = ({
   };
 
   const { ref, inView } = useInView({
-    threshold: 0.75,
+    threshold: 0.25,
     triggerOnce: true,
   });
 

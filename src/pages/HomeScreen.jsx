@@ -7,6 +7,8 @@ import SearchModal from "../components/Search/SearchModal";
 import Slider from "../components/Slider/Slider";
 import BackgroundDots from "../assets/Background";
 import { AnimatedTooltip } from "../components/Tooltip/tooltip";
+import MaskWrapper from "../components/ui/maskWrapper";
+import FadeWrapper from "../components/ui/fadeWrapper";
 
 export default function HomeScreen() {
   const [OpenSearchModal, setOpenSearchModal] = useState(false);
@@ -142,33 +144,19 @@ export default function HomeScreen() {
           className="custom-class"
           fade={true}
         />
-        <div className="flex  flex-col gap-7 justify-center items-center p-7">
-          <motion.div
-            initial={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15 }}
-          >
-            <h1 className="  text-8xl sm:text-7xl  lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
+        <div className="flex  flex-col gap-4 justify-center items-center p-7">
+
+          <h1 className="  text-8xl sm:text-7xl  lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
+            <FadeWrapper>
               Anubhav
-            </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, translateY: 10 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15, delay: 0.05 }}
-          >
-            <p className="text-3xl lg:text-4xl text-[#414141]  flex justify-center">
+            </FadeWrapper>
+          </h1>
+          <p className="text-3xl lg:text-4xl text-[#414141]  flex justify-center">
+            <FadeWrapper delay={0.1}>
               Stories of Success
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, translateY: 10 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15, delay: 0.1 }}
-          >
+            </FadeWrapper>
+          </p>
+          <FadeWrapper delay={0.15}>
             <div className="flex items-center gap-4">
               <div className="flex">
                 <AnimatedTooltip items={people} />
@@ -180,35 +168,20 @@ export default function HomeScreen() {
                 Articles written
               </p>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, translateY: 10 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15, delay: 0.15 }}
-          >
+          </FadeWrapper>
+          <FadeWrapper delay={0.2}>
             <DummySearch />
-          </motion.div>
+          </FadeWrapper>
         </div>
         <div className="w-full pt-24 flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, translateY: 0 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15, delay: 0.2 }}
-          >
-            <h1 className="text-black text-[30px] x-sm:text-[20px] pb-3">
+          <MaskWrapper>
+            <h1 className="text-black text-[30px] x-sm:text-[20px]">
               Exploring <span className="font-[500]">The Interview Safari</span>
             </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, translateY: 0 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: 100 }}
-            transition={{ duration: 0.15, delay: 0.25 }}
-          >
+          </MaskWrapper>
+          <MaskWrapper>
             <Slider />
-          </motion.div>
+          </MaskWrapper>
         </div>
       </div>
     </>
