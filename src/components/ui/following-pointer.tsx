@@ -132,10 +132,10 @@ export const FollowPointer = ({
           opacity: 0,
         }}
         className={
-          "min-w-max whitespace-nowrap rounded-full bg-neutral-200 px-2 py-2 text-xs text-white"
+          "min-w-max whitespace-nowrap rounded-full bg-neutral-200 px-2 py-2 text-[16px] text-white"
         }
       >
-        {title || `William Shakespeare`}
+        {title}
       </motion.div>
     </motion.div>
   );

@@ -171,7 +171,7 @@ const WhatIsAnubhav = () => {
               </h1>
             </div>
             <p className="mb-8 w-full text-[#5e5f6e] md:w-[90%]">
-              <FadeText textPhrase={["Anubhav is a dedicated platform where AIT students can share and explore success stories related to placements and internships. It's a space where you can find real-life experiences and practical advice from your peers who have navigated their career paths with success."]} />
+              <FadeText textPhrase={["Anubhav is a dedicated platform where AIT students can share and explore success stories related to placements and internships. It&rsquo;s a space where you can find real-life experiences and practical advice from your peers who have navigated their career paths with success."]} />
               <br />
               <FadeText textPhrase={["Whether you are looking for inspiration or practical tips to enhance your own career journey, Anubhav is here to guide you."]} />
               <MaskWrapper>

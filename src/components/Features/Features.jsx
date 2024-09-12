@@ -5,18 +5,24 @@ import VideoIcon from "../../assets/svg/VideoIcon";
 import Videos from "../../pages/Videos";
 import VideoPage from "../../assets/images/VideoPage.png";
 import { FollowerPointerCard } from "../../components/ui/following-pointer";
+import MaskWrapper from "../ui/maskWrapper";
+import FadeWrapper from "../ui/fadeWrapper";
 
 const Card = ({ title, bold, description, icon, children }) => (
   <div className="relative h-full w-full overflow-hidden">
     <div className="flex flex-col gap-3 p-8">
-      <div className="flex items-center justify-start gap-2">
-        {icon}
-        <h4 className="text-[16px] font-[400] text-[#212121]">{title}</h4>
-      </div>
-      <p className="text-[20px] leading-[100%] tracking-tight text-[#a1a1a1]">
-        <span className="font-[600] text-[#212121]">{bold}</span>
-        {description}
-      </p>
+      <MaskWrapper>
+        <div className="flex items-center justify-start gap-2">
+          {icon}
+          <h4 className="text-[16px] font-[400] text-[#212121]">{title}</h4>
+        </div>
+      </MaskWrapper>
+      <MaskWrapper>
+        <p className="text-[20px] leading-[100%] tracking-tight text-[#a1a1a1]">
+          <span className="font-[600] text-[#212121]">{bold}</span>
+          {description}
+        </p>
+      </MaskWrapper>
     </div>
     {children}
   </div>
@@ -79,13 +85,13 @@ const Features = () => {
         <div className="mx-auto flex h-[500px] w-full flex-row items-center justify-center border-b border-t border-[#d2d2d6] md:h-[1000px] md:flex-col">
           <Card
             title="Collaborate with other writers"
-            bold="Create an account on "
-            description="our platform and get started with creating and publishing your blog posts."
+            bold="Sign in with GitHub on "
+            description="our platform, and get started with commenting on blog posts to collaborate with others."
             icon={<Comment />}
           >
             <FollowerPointerCard
               cursorColor="text-[#12B76A]"
-              className="relative z-50"
+              className="relative z-50 group"
               title={
                 <TitleComponent
                   title="You"
@@ -95,28 +101,34 @@ const Features = () => {
               }
             >
               <div className="absolute bottom-[20%] flex h-full w-full items-center justify-center md-2xl:bottom-[10%] x-sm:bottom-[10%]">
-                <Avatar
-                  Name="Nikhil Dhariwal"
-                  borderColor="border-[#2E90FA]"
-                  className="z-20"
-                  src="https://avatars.githubusercontent.com/u/83774380"
-                />
-                <Avatar
-                  Name="Lokendra Kushwah"
-                  borderColor="border-[#FE7D54]"
-                  className="z-30"
-                  src="https://avatars.githubusercontent.com/u/118094744"
-                />
-                <Avatar
-                  Name="Harshal patil"
-                  borderColor="border-[#FF479F]"
-                  className="z-10"
-                  src="https://avatars.githubusercontent.com/u/91362856"
-                />
+                <FadeWrapper>
+                  <Avatar
+                    Name="Nikhil Dhariwal"
+                    borderColor="border-[#2E90FA]"
+                    className="z-30"
+                    src="https://avatars.githubusercontent.com/u/83774380"
+                  />
+                </FadeWrapper>
+                <FadeWrapper delay={0.05}>
+                  <Avatar
+                    Name="Lokendra Kushwah"
+                    borderColor="border-[#FE7D54]"
+                    className="z-20"
+                    src="https://avatars.githubusercontent.com/u/118094744"
+                  />
+                </FadeWrapper>
+                <FadeWrapper delay={0.1}>
+                  <Avatar
+                    Name="Harshal patil"
+                    borderColor="border-[#FF479F]"
+                    className="z-10"
+                    src="https://avatars.githubusercontent.com/u/91362856"
+                  />
+                </FadeWrapper>
               </div>
               <div className="h-full w-full">
                 <Pointer
-                  className="absolute left-[20%] top-[6%] md-2xl:left-[10%] x-sm:top-[0%]"
+                  className="absolute left-[20%] group-hover:translate-x-[20%] translate-x-0 transition-all duration-500 top-[6%] md-2xl:left-[10%] x-sm:top-[0%]"
                   title="Lokendra Kushwah"
                   cursorColor="text-[#FE7D54]"
                   strokeColor="stroke-[#E85E32]"
@@ -124,7 +136,7 @@ const Features = () => {
                   borderColor="border-[#E85E32]"
                 />
                 <Pointer
-                  className="absolute bottom-[40%] left-[10%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"
+                  className="absolute bottom-[40%] group-hover:-translate-y-[40%] translate-x-0 transition-all duration-[400ms]  left-[10%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"
                   title="Nikhil Dhariwal"
                   cursorColor="text-[#2E90FA]"
                   strokeColor="stroke-[#1570EF]"
@@ -132,7 +144,7 @@ const Features = () => {
                   borderColor="border-[#1570EF]"
                 />
                 <Pointer
-                  className="absolute right-[20%] top-[10%] sm:right-[10%] md-2xl:right-[10%] md-2xl:top-[1%] x-sm:right-[0%]"
+                  className="absolute right-[20%] group-hover:translate-x-[20%] group-hover:translate-y-[20%] translate-x-0 transition-all duration-500  top-[10%] sm:right-[10%] md-2xl:right-[10%] md-2xl:top-[1%] x-sm:right-[0%]"
                   title="Harshal patil"
                   cursorColor="text-[#FF479F]"
                   strokeColor="stroke-[#B11C64]"

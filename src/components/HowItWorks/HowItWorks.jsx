@@ -77,7 +77,7 @@ const HowItWorks = () => {
           <FadeWrapper delay={0.25}>
             <Card
               title="Publish and Share"
-              description="Once you're satisfied with your post, hit the publish button to make it live. Share it with your audience via social media or email newsletters."
+              description="Once you&rsquo;re satisfied with your post, hit the publish button to make it live. Share it with your audience via social media or email newsletters."
               imageURL={Publish}
             />
           </FadeWrapper>
