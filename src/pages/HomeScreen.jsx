@@ -4,7 +4,6 @@ import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import SearchModal from "../components/Search/SearchModal";
-// import background2 from '../assets/dots-pattern.svg';
 import Slider from "../components/Slider/Slider";
 import BackgroundDots from "../assets/Background";
 import { AnimatedTooltip } from "../components/Tooltip/tooltip";
@@ -19,18 +18,19 @@ export default function HomeScreen() {
       id: 1,
       name: "Google",
       image:
-"https://t4.ftcdn.net/jpg/03/08/54/37/240_F_308543787_DmPo1IELtKY9hG8E8GlW8KHEsRC7JiDN.jpg"    },
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+    },
     {
       id: 2,
       name: "Microsoft",
       image:
-        "https://static.vecteezy.com/system/resources/previews/028/339/965/original/microsoft-icon-logo-symbol-free-png.png",
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
     },
     {
       id: 3,
       name: "Amazon",
       image:
-        "https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
     },
   ];
 
@@ -171,7 +171,7 @@ export default function HomeScreen() {
           >
             <div className="flex items-center gap-4">
               <div className="flex">
-              <AnimatedTooltip items={people} />
+                <AnimatedTooltip items={people} />
                 <div className="w-12 h-12 z-10 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
                   3k+
                 </div>

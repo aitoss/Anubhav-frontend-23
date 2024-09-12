@@ -31,7 +31,7 @@ export const AnimatedTooltip = ({ items }) => {
     <>
       {items.map((item) => (
         <div
-          className="-mr-4 relative group"
+          className="-mr-3 relative group"
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -56,25 +56,27 @@ export const AnimatedTooltip = ({ items }) => {
                   rotate: rotate,
                   whiteSpace: "nowrap",
                 }}
-                className="absolute -top-16 -left-1/2 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
+                className="absolute -top-9 -left-1/4 -translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-[#212121] z-50 shadow-xl px-2 py-1"
               >
                 <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px" />
                 <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px" />
-                <div className="font-bold text-white relative z-30 text-base">
+                <div className="font-[500] text-white relative z-30 text-base">
                   {item.name}
                 </div>
                 <div className="text-white text-xs">{item.designation}</div>
               </motion.div>
             )}
           </AnimatePresence>
-          <img
-            onMouseMove={handleMouseMove}
-            height={100}
-            width={100}
-            src={item.image}
-            alt={item.name}
-            className="object-cover m-0 object-top rounded-full h-12 w-12 group-hover:scale-105 group-hover:z-30 border-4 border-white shadow-lg shadow-[#0000001d] p-0 relative transition duration-500"
-          />
+          <div className="rounded-full flex justify-center items-centers h-12 w-12 bg-white group-hover:scale-[110%] border-4 border-white shadow-lg shadow-[#0000001d] transition-all duration-500">
+            <img
+              onMouseMove={handleMouseMove}
+              height={100}
+              width={100}
+              src={item.image}
+              alt={item.name}
+              className="scale-75 object-contain transition-all duration-500"
+            />
+          </div>
         </div>
       ))}
     </>
