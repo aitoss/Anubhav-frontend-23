@@ -142,3 +142,6 @@ button:focus-visible {
   background-color: #fff;
   padding: 12px;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
