@@ -8,13 +8,13 @@ const FadeWrapper = ({
   delay = 0,
 }) => {
   const animation = {
-    initial: { y: "30%", filter: "blur(12px)", opacity: 0 },
+    initial: { y: "30%", filter: "blur(0px)", opacity: 0 },
     enter: {
       y: "0",
       filter: "blur(0px)",
       opacity: 1,
       transition: {
-        duration: 0.75,
+        duration: 0.5,
         ease: [0.33, 1, 0.68, 1],
         delay, // Use the delay from props here
       },
