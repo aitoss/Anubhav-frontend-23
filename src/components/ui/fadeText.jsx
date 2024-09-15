@@ -7,7 +7,7 @@ export function fadeText({ textPhrase }) {
         enter: (i) => ({
             y: "0",
             opacity: 1,
-            filter: "blur(0px)",
+            filter: "blur(2px)",
             transition: {
                 duration: 0.5,
                 ease: [0.33, 1, 0.68, 1],

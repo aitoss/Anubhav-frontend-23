@@ -75,6 +75,11 @@ const RequestArticle = () => {
 
   return (
     <>
+          <ErrorMessage error={error} />
+      <SuccessMessage
+        requestSend={requestSend}
+        setRequestSend={setRequestSend}
+      />
       <Navbar />
       <div className="flex h-screen flex-col items-center justify-start overflow-hidden">
         <div
@@ -343,11 +348,6 @@ const RequestArticle = () => {
         </div>
       </div>
       <Footer />
-      <ErrorMessage error={error} />
-      <SuccessMessage
-        requestSend={requestSend}
-        setRequestSend={setRequestSend}
-      />
     </>
   );
 };

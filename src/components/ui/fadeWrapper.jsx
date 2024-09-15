@@ -8,7 +8,7 @@ const FadeWrapper = ({
   delay = 0,
 }) => {
   const animation = {
-    initial: { y: "30%", filter: "blur(0px)", opacity: 0 },
+    initial: { y: "30%", filter: "blur(2px)", opacity: 0 },
     enter: {
       y: "0",
       filter: "blur(0px)",

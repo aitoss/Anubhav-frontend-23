@@ -2,36 +2,32 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Inputtag from "../components/InputTag/Usertag";
 import TextEditor from "../components/Editor/TextEditor";
-import { FiUploadCloud } from "react-icons/fi";
-import DragDropFiles from "../components/Editor/Drag";
-import background2 from "../assets/dots-pattern.svg";
 import Footer from "../components/Footer/Footer";
 import Upload from "../assets/images/upload.svg";
-import { Link } from "react-router-dom";
-import { UploadFile } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import ErrorMessage from "../components/notification/ErrorMessage";
+import SuccessMessage from "../components/notification/SuccessMessage";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
-import ErrorMessage from "../components/notification/ErrorMessage";
 import ButtonV5 from "../components/ui/buttonv5";
 
 const Create = () => {
-  const navigate = useNavigate();
+  const initialState = {
+    name: "",
+    email: "",
+    company: "",
+    position: "",
+    title: "",
+  };  
+  
   const inputRef = useRef();
-
   const [file, setFile] = useState(null);
   const [bannerImage, setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [article, setArticle] = useState("");
-  const [value, setValue] = useState({
-    name: "",
-    email: "",
-    company: "",
-    position: "",
-    title: "",
-  });
+  const [value, setValue] = useState(initialState);
+  const [requestSend, setRequestSend] = useState(null);
 
   useEffect(() => {
     const savedContent = localStorage.getItem("editorContent");
@@ -115,8 +111,9 @@ const Create = () => {
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
-      // console.log("Post published:", response.data);
-      navigate("/blog/" + id);
+      console.log("Article published successfully");
+      setRequestSend("Article published successfully");
+      setValue(initialState);
     } catch (error) {
       console.error("Error publishing post:", error.response.data);
       setIsLoading(false);
@@ -142,8 +139,6 @@ const Create = () => {
   const UserImage = () => {
     return (
       <>
-        <ErrorMessage error={error} />
-
         <h3 className="bg -mb-2 flex justify-start text-[#212121]">
           Banner Image
         </h3>
@@ -416,6 +411,11 @@ const Create = () => {
       <div className="pt-7">
         <Footer />
       </div>
+      <ErrorMessage error={error} />
+        <SuccessMessage
+        requestSend={requestSend}
+        setRequestSend={setRequestSend}
+      />
     </>
   );
 };
