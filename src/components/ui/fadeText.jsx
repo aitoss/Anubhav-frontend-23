@@ -3,11 +3,11 @@ import { useInView } from "react-intersection-observer";
 
 export function fadeText({ textPhrase }) {
     const animation = {
-        initial: { y: "25%", opacity: 0, filter: "blur(0px)" },
+        initial: { y: "25%", opacity: 0, filter: "blur(2px)" },
         enter: (i) => ({
             y: "0",
             opacity: 1,
-            filter: "blur(2px)",
+            filter: "blur(0px)",
             transition: {
                 duration: 0.5,
                 ease: [0.33, 1, 0.68, 1],
