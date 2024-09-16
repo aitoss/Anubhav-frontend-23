@@ -12,19 +12,15 @@ import FilterPopUp from "../components/Filter/FilterPopUp";
 const Stories = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("Trending");
+  const [activeTab, setActiveTab] = useState("Recent");
   const [company, setCompany] = useState([]);
   const [filterPopUp, setFilterPopUp] = useState(false);
   const [headerName, setHeaderName] = useState("");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
-
-  const openFilterPopup = () => {
-    setFilterPopUp(true);
-  };
-
-  const closeFilterPopUp = () => {
-    setFilterPopUp(false);
-  };
+  const openFilterPopup = () => setFilterPopUp(true);
+  const closeFilterPopUp = () => setFilterPopUp(false);
 
   const countCompany = async () => {
     try {
@@ -33,20 +29,25 @@ const Stories = () => {
     } catch (error) {
       console.log(error);
     }
-  }
-
+  };
 
   useEffect(() => {
     countCompany();
-  }, [])
+  }, []);
 
-
-  const fetchLatestArticles = async (endPoint) => {
+  const fetchLatestArticles = async (endPoint, page) => {
     setLoading(true);
     try {
-      const res = await axios.get(BACKEND_URL + endPoint);
+      const res = await axios.get(`${BACKEND_URL}${endPoint}?page=${page}`);
       const data = res.data.articles;
-      setArticles(data);
+
+      if (page === 1) {
+        setArticles(data);
+      } else {
+        setArticles((prevArticles) => [...prevArticles, ...data]);
+      }
+
+      setHasMore(res.data.hasMore);
     } catch (error) {
       console.log("Failed to fetch articles", error);
     } finally {
@@ -56,41 +57,23 @@ const Stories = () => {
 
   useEffect(() => {
     let endPoint = "/blogs";
-    switch (activeTab) {
-      case "Trending":
-        endPoint = "/blogs";
-        break;
-      case "Recent":
-        endPoint = "/blogs";
-        break;
-      default:
-        endPoint = "/blogs";
-        break;
-    }
-    fetchLatestArticles(endPoint);
-  }, [activeTab]);
+    fetchLatestArticles(endPoint, page);
+  }, [page, activeTab]);
+
+  const loadMore = () => {
+    if (hasMore) setPage((prevPage) => prevPage + 1);
+  };
 
   return (
-    <>  {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
+    <>
+      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
       <NavbarMini />
       <div className="h-full px-8 pt-24 md:px-4 lg:px-14 2xl:px-28">
         <div className="flex h-full w-full gap-10">
           <div className="section-left flex h-full w-full max-w-5xl flex-col gap-5">
-            <div className="flex w-1/4 justify-around border-b-2 border-gray-300 md:w-full">
+            <div className="flex  justify-around border-b-1 border-gray-300 md:w-full">
               <div
-                className={`${activeTab === "Trending"
-                    ? "-mb-[2px] border-b-2 border-black"
-                    : ""
-                  } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
-                onClick={() => setActiveTab("Trending")}
-              >
-                Trending
-              </div>
-              <div
-                className={`${activeTab === "Recent"
-                    ? "-mb-[2px] border-b-2 border-black"
-                    : ""
-                  } hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
+                className={`${activeTab === "Recent" ? "-mb-[2px] border-b-2 border-black" : ""} hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
                 onClick={() => setActiveTab("Recent")}
               >
                 Recent
@@ -136,7 +119,7 @@ const Stories = () => {
               articles.map((item) => (
                 <BlogCard
                   key={item._id}
-                  id={item._id} // Pass the id to BlogCard
+                  id={item._id}
                   link={`/blog/${item._id}`}
                   Title={item.title}
                   imagesrc={
@@ -153,6 +136,16 @@ const Stories = () => {
               ))
             )}
             {loading && articles.length > 0 && <SearchCardLoading />}
+
+            {hasMore && !loading && (
+              <div onClick={loadMore} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
+                Show More
+                <svg className='rotate-90 group-hover:translate-y-2 transition-all duration-300' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                  <path d="M4 10.0699L15 10.0699" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                </svg>
+              </div>
+            )}
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter company={company} fetchLatestArticles={fetchLatestArticles} setHeaderName={setHeaderName} />
