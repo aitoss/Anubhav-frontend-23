@@ -8,6 +8,7 @@ import { ReadTime, formatDate } from "../services/date";
 import { Flag } from "lucide-react";
 import Filter from "../components/Filter/Filter";
 import FilterPopUp from "../components/Filter/FilterPopUp";
+import companyLogo from "../assets/images/company.png";
 
 const Stories = () => {
   const [articles, setArticles] = useState([]);
@@ -118,20 +119,16 @@ const Stories = () => {
             ) : (
               articles.map((item) => (
                 <BlogCard
-                  key={item._id}
-                  id={item._id}
-                  link={`/blog/${item._id}`}
-                  Title={item.title}
-                  imagesrc={
-                    item.imageUrl === "your_image_url_here"
-                      ? company
-                      : item.imageUrl
-                  }
-                  author={item.author?.name}
-                  company={item.companyName}
-                  data={item.description}
-                  readingTime={ReadTime(item.description)}
-                  date={formatDate(item.createdAt)}
+                key={item._id}
+                id={item._id} // Pass the id to BlogCard
+                link={`/blog/${item._id}`}
+                Title={item.title}
+                imagesrc={item.imageUrl === "your_image_url_here" ? companyLogo : item.imageUrl}
+                author={item.author?.name}
+                company={item.companyName}
+                data={item.description}
+                readingTime={ReadTime(item.description)}
+                date={formatDate(item.createdAt)}
                 />
               ))
             )}
