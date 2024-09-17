@@ -5,6 +5,7 @@ import { BACKEND_URL } from "../constants";
 import axios from "axios";
 import BlogCard from "../components/BlogSection/BlogCard";
 import { ReadTime, formatDate } from "../services/date";
+import { Flag } from "lucide-react";
 import Filter from "../components/Filter/Filter";
 import FilterPopUp from "../components/Filter/FilterPopUp";
 import companyLogo from "../assets/images/company.png";
@@ -68,15 +69,15 @@ const Stories = () => {
     <>
       {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
       <NavbarMini />
-      <div className="h-full px-8 pt-24 md:px-4 lg:px-14 2xl:px-28">
-        <div className="flex h-full w-full gap-10">
+      <div className="h-full pt-24 md:px-4 lg:px-14 2xl:px-28">
+        <div className="flex h-full w-full gap-10 justify-center">
           <div className="section-left flex h-full w-full max-w-5xl flex-col gap-5">
             <div className="flex  justify-around border-b-1 border-gray-300 md:w-full">
               <div
                 className={`${activeTab === "Recent" ? "-mb-[2px] border-b-2 border-black" : ""} hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
                 onClick={() => setActiveTab("Recent")}
               >
-                Recent
+                Recent Stories
               </div>
             </div>
             <div className="flex w-full items-center justify-between">
@@ -143,9 +144,9 @@ const Stories = () => {
               </div>
             )}
           </div>
-          <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
+          {/* <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
             <Filter company={company} fetchLatestArticles={fetchLatestArticles} setHeaderName={setHeaderName} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
