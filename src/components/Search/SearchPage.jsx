@@ -47,18 +47,26 @@ const SearchPage = () => {
   const fetchArticles = async (query, page) => {
     setLoading(true);
     const params = { q: query, page, limit: 10 };
-    console.log("params",params);
+    console.log("params", params);
+    
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
-      setArticles(prevArticles => [ ...newArticles]);
-      setHasMore(newArticles.length === 10);
+      
+      if (page === 1) {
+        setArticles([...newArticles]);
+      } else {
+        setArticles(prevArticles => [...prevArticles, ...newArticles]);
+      }
+      
+      setHasMore(newArticles.length === 10); 
     } catch (error) {
       console.error("Failed to fetch articles", error);
     } finally {
       setLoading(false);
     }
   };
+
 
   const countCompany = async() =>{
     try {

@@ -5,7 +5,6 @@ import { BACKEND_URL } from "../constants";
 import axios from "axios";
 import BlogCard from "../components/BlogSection/BlogCard";
 import { ReadTime, formatDate } from "../services/date";
-import { Flag } from "lucide-react";
 import Filter from "../components/Filter/Filter";
 import FilterPopUp from "../components/Filter/FilterPopUp";
 import companyLogo from "../assets/images/company.png";
