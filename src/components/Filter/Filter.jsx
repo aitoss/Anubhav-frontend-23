@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { GoChevronDown } from "react-icons/go";
-import { MdKeyboardArrowUp } from "react-icons/md";
 import companyLogo from "../../assets/images/company.png";
 
 const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => {
@@ -15,7 +13,7 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
   };
 
   const stopScrollPropagation = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
   };
 
   return (
@@ -24,7 +22,7 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
         <h5 className="font-[500] mb-2 text-xl">Filter by Company</h5>
         <div
           className="flex relative flex-col gap-1 max-h-[40rem] overflow-y-scroll z-50"
-          onWheel={(e) => e.stopPropagation()} // Prevent page scroll
+          onWheel={(e) => e.stopPropagation()}
         >
           {company.map((item) => (
             <div
@@ -43,7 +41,7 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
                   className="h-5 w-5 rounded bg-cover bg-center bg-no-repeat"
                   style={{
                     backgroundImage: `url(${
-                      item.domainName ? item.domainName : company
+                      item.domainName ? item.domainName : companyLogo
                     })`,
                   }}
                 ></div>

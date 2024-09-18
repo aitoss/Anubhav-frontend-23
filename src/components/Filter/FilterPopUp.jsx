@@ -2,7 +2,7 @@ import React from "react";
 import Filter from "./Filter";
 import { motion } from "framer-motion";
 
-const FilterPopUp = ({ closeFilterPopUp, company }) => {
+const FilterPopUp = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => {
   const handleClose = (e) => {
     if (e.target.classList.contains("fixed")) {
       closeFilterPopUp();
@@ -15,7 +15,7 @@ const FilterPopUp = ({ closeFilterPopUp, company }) => {
         onClick={(e) => {
           handleClose(e);
         }}
-        className="fixed -top-[ 80px] inset-0 bg-white bg-opacity-70 z-50 flex justify-center items-center"
+        className="fixed -top-[80px] inset-0 bg-white bg-opacity-70 z-50 flex justify-center items-center"
       >
         <motion.div
           initial={{ opacity: 0, translateY: 10 }}
@@ -29,7 +29,12 @@ const FilterPopUp = ({ closeFilterPopUp, company }) => {
             }}
             className="overlay flex flex-col w-80 gap-2 md:block bg-white border p-2 px-4 rounded-xl shadow-lg shadow-[rgba(0,0,0,0.1)] overflow-y-auto"
           >
-            <Filter closeFilterPopUp={closeFilterPopUp} company={company} />
+            <Filter
+              closeFilterPopUp={closeFilterPopUp}
+              company={company}
+              fetchArticles={fetchArticles}
+              setHeaderName={setHeaderName}
+            />
           </div>
         </motion.div>
       </div>

@@ -48,25 +48,24 @@ const SearchPage = () => {
     setLoading(true);
     const params = { q: query, page, limit: 10 };
     console.log("params", params);
-    
+
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
-      
+
       if (page === 1) {
         setArticles([...newArticles]);
       } else {
         setArticles(prevArticles => [...prevArticles, ...newArticles]);
       }
-      
-      setHasMore(newArticles.length === 10); 
+
+      setHasMore(newArticles.length === 10);
     } catch (error) {
       console.error("Failed to fetch articles", error);
     } finally {
       setLoading(false);
     }
   };
-
 
   const countCompany = async() =>{
     try {
@@ -76,7 +75,6 @@ const SearchPage = () => {
       console.log(error);
     }
   }
-
 
   useEffect(() =>{
     countCompany();
@@ -94,7 +92,7 @@ const SearchPage = () => {
 
   return (
     <>
-      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} />}
+      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />}
       <NavbarMini />
       <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
         <div className="w-full flex gap-10 h-full">

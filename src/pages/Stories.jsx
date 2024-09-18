@@ -81,7 +81,7 @@ const Stories = () => {
               </div>
             </div>
             <div className="flex w-full items-center justify-between">
-              <svg
+              {/* <svg
                 onClick={() => openFilterPopup()}
                 className="hidden h-7 w-7 cursor-pointer rounded-lg border border-[#c1c1c1] p-[2px] transition-all hover:border-[#919191] md:block"
                 width="24"
@@ -106,7 +106,7 @@ const Stories = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg>
+              </svg> */}
             </div>
             {loading && articles.length === 0 ? (
               <>
