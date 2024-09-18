@@ -35,117 +35,75 @@ const DevTeam = () => {
             current: [
                 {
                     id: 1,
-                    name: 'Nikhil',
+                    name: 'Harshal Patil',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user1.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/n7HCZVK/heroo.jpg',
+                    githubId: 'Harshal141'
                 },
                 {
                     id: 2,
-                    name: 'Nikhil',
+                    name: 'Nikhil Dhariwal',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user2.png',
+                    imageSrc: 'https://i.ibb.co/tD0zj4L/e67e8359-f727-4bfb-ae94-da504e6c8672.jpg',
                     githubId: '404nikhil'
                 },
                 {
                     id: 3,
-                    name: 'Nikhil',
+                    name: 'Lokendra Kushwah',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/RvYpC54/pfpV4.png',
+                    githubId: 'Lokendrakushwah12'
                 },
                 {
                     id: 4,
-                    name: 'Nikhil',
+                    name: 'Gourav',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/X5yh8XF/Whats-App-Image-2023-08-21-at-22-39-13.jpg',
+                    githubId: 'Gourav2609'
                 },
                 {
                     id: 5,
-                    name: 'Nikhil',
+                    name: 'Darshan Garad',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user1.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 6,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user2.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 7,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 8,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://avatars.githubusercontent.com/u/118094848?v=4',
+                    githubId: 'darkars33'
                 },
             ],
             firstGen: [
                 {
                     id: 11,
-                    name: 'Nikhil',
+                    name: 'Arpit kr Mishra',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user1.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/k5Gj6Qb/arpitdp.jpg',
+                    githubId: 'arkumish'
                 },
                 {
                     id: 12,
-                    name: 'Nikhil',
+                    name: 'Akshay Sharma',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user2.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/XJd1wX3/80065270-165855167986313-7011278912353206272-o.jpg',
+                    githubId: 'AkshaySharma008'
                 },
                 {
                     id: 13,
-                    name: 'Nikhil',
+                    name: 'Satya Prakash',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.imgur.com/m6eMSyV.jpeg',
+                    githubId: 'satya9500'
                 },
                 {
                     id: 14,
-                    name: 'Nikhil',
+                    name: 'Akash Saxena',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/1nk25pt/118046919-1261093334242620-4374261586150049648-o.jpg',
+                    githubId: 'Akashsaxena2308'
                 },
                 {
                     id: 15,
-                    name: 'Nikhil',
+                    name: 'Rishabh Rathore',
                     platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 16,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 17,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
-                },
-                {
-                    id: 18,
-                    name: 'Nikhil',
-                    platform: 'GitHub',
-                    imageSrc: '/assets/images/user3.png',
-                    githubId: '404nikhil'
+                    imageSrc: 'https://i.ibb.co/rwQDwvQ/70093190-947181732307968-2361262531307110400-o.jpg',
+                    githubId: 'xerycks'
                 },
             ],
         }),
@@ -181,11 +139,11 @@ const DevTeam = () => {
                             }
                         </span>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-6">
-                        {teamMembers[activeTeam].map((member) => (
-                            <DevTeamMember key={member.id} {...member} />
-                        ))}
-                    </div>
+                    <div className="flex flex-col lg:flex-row justify-center gap-4 sm:gap-6 lg:gap-6">
+  {teamMembers[activeTeam].map((member) => (
+    <DevTeamMember key={member.id} {...member} />
+  ))}
+</div>
                 </div>
                 <Footer />
             </div>
