@@ -16,7 +16,7 @@ const FadeWrapper = ({
       transition: {
         duration: 0.5,
         ease: [0.33, 1, 0.68, 1],
-        delay, // Use the delay from props here
+        delay,
       },
     },
   };

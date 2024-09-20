@@ -2,33 +2,50 @@ import React, { useMemo, useState } from 'react';
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { WobbleCard } from '../components/Tooltip/wobble';
-const DevTeamMember = React.memo(({ name, platform, imageSrc, githubId }) => (
-    <WobbleCard containerClassName="min-h-[300px]">
-        <div className="flex flex-col items-start ">
-            <img
-                src={imageSrc}
-                alt={`${name}'s avatar`}
-                className="w-[300px] min-w-[150px] select-none object-cover h-[300px] rounded-[8px]"
-                loading="lazy"
-            />
-            <h3 className=" text-[#212121] text-[24px] font-medium leading-[125%] text-left">{name}</h3>
-            <a
-                href={`https://github.com/${githubId.replace(' ', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#515151] font-[400] z-10 hover:underline text-[16px]"
-            >
-                {platform}
-            </a>
+import { AnimatePresence, motion } from 'framer-motion'; // Import motion from framer-motion
 
-
-        </div>
-    </WobbleCard>
+const DevTeamMember = React.memo(({ name, platform, imageSrc, githubId, index }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 50, filter: "blur(2px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{
+            delay: index * 0.05,
+            duration: 0.3,
+            ease: [0.33, 1, 0.68, 1],
+        }}
+        className='overflow-hidden'
+    >
+        <WobbleCard containerClassName="min-h-[300px]">
+            <div className="flex flex-col items-start ">
+                <img
+                    src={imageSrc}
+                    alt={`${name}'s avatar`}
+                    className="w-[300px] min-w-[150px] select-none object-cover h-[300px] rounded-[8px]"
+                    loading="lazy"
+                />
+                <h3 className=" text-[#212121] text-[24px] font-medium leading-[125%] text-left">{name}</h3>
+                <a
+                    href={`https://github.com/${githubId.replace(' ', '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#515151] font-[400] z-10 hover:underline text-[16px]"
+                >
+                    {platform}
+                </a>
+            </div>
+        </WobbleCard>
+    </motion.div>
 ));
 
 
 const DevTeam = () => {
-    const [activeTeam, setActiveTeam] = useState('current');
+    const [activeTeam, setActiveTeam] = useState('current'); // Holds 'current' or 'firstGen'
+
+    const teamSection = [
+        { label: 'Current Team', key: 'current' },
+        { label: 'First Gen', key: 'firstGen' }
+    ];
+
 
     const teamMembers = useMemo(
         () => ({
@@ -104,46 +121,70 @@ const DevTeam = () => {
                     platform: 'GitHub',
                     imageSrc: 'https://i.ibb.co/rwQDwvQ/70093190-947181732307968-2361262531307110400-o.jpg',
                     githubId: 'xerycks'
-                },
+                }
             ],
         }),
         []
     );
+
     return (
         <>
             <Navbar />
             <div className="flex flex-col mx-auto min-h-screen">
-                <div className="flex-grow overflow-y-auto max-w-10xl mx-auto py-16 px-4 sm:px-6 lg:px-6 text-center">
-                    <h2 className="text-2xl font-bold mb-4">Dev Team</h2>
+                <div className="flex-grow overflow-y-auto max-w-7xl mx-auto py-16 pt-24 px-4 sm:px-6 lg:px-6 text-center">
+                    <h2 className="text-4xl font-[600] mb-4">Dev Team</h2>
                     <div className="flex justify-center gap-2 mb-6">
-                        <span
-                            className={`cursor-pointer flex gap-1 border px-3 py-1 rounded-full ${activeTeam === 'current' ? 'border-[#e5e7eb] bg-white' : 'border-[#f7f7f8]'
-                                }`}
-                            onClick={() => setActiveTeam('current')}
-                        >
-                            Current Team
-                            {activeTeam === 'current' && <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.625 12L9.87 16.245L18.375 7.755" stroke="#414141" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            }
-                        </span>
-                        <span
-                            className={`cursor-pointer flex gap-1 border px-3 py-1 rounded-full ${activeTeam === 'firstGen' ? 'border-[#e5e7eb] bg-white' : 'border-[#f7f7f8]'
-                                }`}
-                            onClick={() => setActiveTeam('firstGen')}
-                        >
-                            First Gen
-                            {activeTeam === 'firstGen' && <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.625 12L9.87 16.245L18.375 7.755" stroke="#414141" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            }
-                        </span>
+                        {teamSection.map((section) => (
+                            <div
+                                key={section.key}
+                                className={`relative cursor-pointer flex justify-center items-center gap-1 px-3 py-1`}
+                                onClick={() => setActiveTeam(section.key)}
+                            >
+                                {section.label}
+                                <div className="flex items-center justify-center w-[24px] h-[24px]">
+                                    <AnimatePresence>
+                                        {activeTeam === section.key && (
+                                            <motion.svg
+                                                key="icon"
+                                                initial={{ opacity: 0, scale: '50%' }}
+                                                animate={{ opacity: 1, scale: '100%' }}
+                                                exit={{ opacity: 0, scale: '50%' }}
+                                                transition={{ type: 'spring', duration: 0.4 }}
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M5.625 12L9.87 16.245L18.375 7.755"
+                                                    stroke="#414141"
+                                                    strokeWidth="2.25"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </motion.svg>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                                <AnimatePresence>
+                                    {activeTeam === section.key && (
+                                        <motion.span
+                                            layoutId="tab"
+                                            transition={{ type: 'spring', duration: 0.4 }}
+                                            className="absolute inset-0 z-[-10] rounded-full bg-white border border-[#e5e7eb]"
+                                        ></motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
                     </div>
-                    <div className="flex flex-col lg:flex-row justify-center gap-4 sm:gap-6 lg:gap-6">
-  {teamMembers[activeTeam].map((member) => (
-    <DevTeamMember key={member.id} {...member} />
-  ))}
-</div>
+
+                    <div className='grid grid-cols-3 md:grid-cols-1 lg:grid-cols-4 gap-4'>
+                        {teamMembers[activeTeam].map((member, index) => (
+                            <DevTeamMember index={index} key={member.id} {...member} />
+                        ))}
+                    </div>
                 </div>
                 <Footer />
             </div>
