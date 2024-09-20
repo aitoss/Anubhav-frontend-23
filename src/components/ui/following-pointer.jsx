@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
-import { cn } from "../../../utils/cn";
+// Utility function to combine class names
+const cn = (...classes) => {
+  return classes.filter(Boolean).join(' ');
+};
 
 export const FollowerPointerCard = ({
   children,
   className,
   title,
   cursorColor,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  title?: string | React.ReactNode;
-  cursorColor?: string;
 }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [rect, setRect] = useState<DOMRect | null>(null);
-  const [isInside, setIsInside] = useState<boolean>(false); // Add this line
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const ref = React.useRef(null);
+  const [rect, setRect] = useState(null);
+  const [isInside, setIsInside] = useState(false);
 
   useEffect(() => {
     if (ref.current) {
@@ -26,14 +23,16 @@ export const FollowerPointerCard = ({
     }
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e) => {
     if (rect) {
-      const scrollX = window.scrollX;
-      const scrollY = window.scrollY;
-      x.set(e.clientX - rect.left + scrollX);
-      y.set(e.clientY - rect.top + scrollY);
+      const { clientX, clientY } = e;
+      setPosition({
+        x: clientX - rect.left,
+        y: clientY - rect.top,
+      });
     }
   };
+
   const handleMouseLeave = () => {
     setIsInside(false);
   };
@@ -41,6 +40,7 @@ export const FollowerPointerCard = ({
   const handleMouseEnter = () => {
     setIsInside(true);
   };
+
   return (
     <div
       onMouseLeave={handleMouseLeave}
@@ -54,7 +54,12 @@ export const FollowerPointerCard = ({
     >
       <AnimatePresence>
         {isInside && (
-          <FollowPointer x={x} y={y} title={title} cursorColor={cursorColor} />
+          <FollowPointer
+            x={position.x}
+            y={position.y}
+            title={title}
+            cursorColor={cursorColor}
+          />
         )}
       </AnimatePresence>
       {children}
@@ -67,11 +72,6 @@ export const FollowPointer = ({
   y,
   title,
   cursorColor,
-}: {
-  x: any;
-  y: any;
-  title?: string | React.ReactNode;
-  cursorColor?: string;
 }) => {
   const colors = [
     "var(--sky-500)",
@@ -82,6 +82,7 @@ export const FollowPointer = ({
     "var(--red-500)",
     "var(--yellow-500)",
   ];
+
   return (
     <motion.div
       className="absolute z-50 h-4 w-4 rounded-full"
@@ -131,9 +132,7 @@ export const FollowPointer = ({
           scale: 0.5,
           opacity: 0,
         }}
-        className={
-          "min-w-max whitespace-nowrap rounded-full bg-neutral-200 px-2 py-2 text-[16px] text-white"
-        }
+        className="min-w-max whitespace-nowrap rounded-full bg-neutral-200 px-2 py-2 text-[16px] text-white"
       >
         {title}
       </motion.div>

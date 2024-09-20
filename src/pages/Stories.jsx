@@ -72,14 +72,14 @@ const Stories = () => {
       <div className="h-full pt-24 md:px-4 lg:px-14 2xl:px-28">
         <div className="flex h-full w-full gap-10 justify-center">
           <div className="section-left flex h-full w-full max-w-5xl flex-col gap-5">
-            <div className="flex  justify-around border-b-1 border-gray-300 md:w-full">
+            {/* <div className="flex  justify-around border-b-1 border-gray-300 md:w-full">
               <div
                 className={`${activeTab === "Recent" ? "-mb-[2px] border-b-2 border-black" : ""} hover:bg-secondary relative flex cursor-pointer justify-center p-1 text-xl transition duration-300`}
                 onClick={() => setActiveTab("Recent")}
               >
                 Recent Stories
               </div>
-            </div>
+            </div> */}
             <div className="flex w-full items-center justify-between">
               {/* <svg
                 onClick={() => openFilterPopup()}
