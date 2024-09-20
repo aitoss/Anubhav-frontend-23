@@ -5,7 +5,7 @@ const ErrorMessage = ({ error }) => {
         <div
           id="toast-warning"
           style={{ zIndex: 10 }}
-          className="fixed bottom-4 right-4 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          className="fixed top-[60px] flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
           role="alert"
         >
           <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">

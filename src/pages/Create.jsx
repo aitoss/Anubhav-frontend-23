@@ -10,7 +10,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ButtonV5 from "../components/ui/buttonv5";
 import { Link } from "react-router-dom";
-
+import { Spinner } from "flowbite-react";
 const Create = () => {
   const initialState = {
     name: "",
@@ -117,11 +117,11 @@ const Create = () => {
       });
       setIsLoading(false);
       const id = response.data.createArticle._id;
-      console.log("Article published successfully");
-      setRequestSend("Article published successfully");
+      console.log("Article submitted successfully");
+      setRequestSend("Article submitted successfully");
       setValue(initialState);
     } catch (error) {
-      console.error("Error publishing post:", error.response.data);
+      console.error("Error submittin post:", error.response.data);
       setIsLoading(false);
     }
   };
@@ -354,20 +354,19 @@ const Create = () => {
           <div className="relative mx-auto flex w-full flex-col items-center justify-center text-[#212121]">
             <TextEditor article={article} setArticle={setArticle} />
           </div>
-        </div>
-
+          
             {/* submit button */}
 
             <button
               type="submit"
               disabled={isLoading}
-              className="p-0 font-[400] max-w-[100%] outline-none focus:outline-none"
+              className="p-0 font-[400] mt-4 max-w-[100%] outline-none focus:outline-none"
             >
               <ButtonV5 icon={false}>
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1">
                     &nbsp;
-                    {/* Processing <Spinner /> */}
+                    Processing <Spinner className="h-5 w-5" />
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-1">
@@ -429,6 +428,7 @@ const Create = () => {
                 )}
               </ButtonV5>
             </button>
+        </div>
           </form>
         </div>
       </div>
