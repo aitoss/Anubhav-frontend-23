@@ -161,7 +161,7 @@ const WhatIsAnubhav = () => {
     <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
         <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col">
-          <div className="flex w-1/2 md:w-full flex-col">
+          <div className="flex w-1/2 h-[450px] justify-between md:w-full flex-col">
             <div className="flex flex-col">
               <h2 className="-mb-2 text-sm font-[500] text-[#212121]">
                 <MaskText textPhrase={["What is Anubhav?"]} />
@@ -171,7 +171,7 @@ const WhatIsAnubhav = () => {
               </h1>
             </div>
             <p className="mb-8 w-full text-[#5e5f6e] md:w-[90%]">
-              <FadeText textPhrase={["Anubhav is a dedicated platform where AIT students can share and explore success stories related to placements and internships. It&rsquo;s a space where you can find real-life experiences and practical advice from your peers who have navigated their career paths with success."]} />
+              <FadeText textPhrase={["Anubhav is a dedicated platform where AIT students can share and explore success stories related to placements and internships. It's a space where you can find real-life experiences and practical advice from your peers who have navigated their career paths with success."]} />
               <br />
               <FadeText textPhrase={["Whether you are looking for inspiration or practical tips to enhance your own career journey, Anubhav is here to guide you."]} />
               <MaskWrapper>

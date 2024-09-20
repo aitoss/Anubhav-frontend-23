@@ -74,7 +74,7 @@ export const AnimatedTooltip = ({ items }) => {
               width={100}
               src={item.image}
               alt={item.name}
-              className="scale-75 object-contain transition-all duration-500"
+              className="scale-75 select-none object-contain transition-all duration-500"
             />
           </div>
         </div>

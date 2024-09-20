@@ -9,6 +9,7 @@ import SuccessMessage from "../components/notification/SuccessMessage";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ButtonV5 from "../components/ui/buttonv5";
+import { Link } from "react-router-dom";
 
 const Create = () => {
   const initialState = {
@@ -17,8 +18,8 @@ const Create = () => {
     company: "",
     position: "",
     title: "",
-  };  
-  
+  };
+
   const inputRef = useRef();
   const [file, setFile] = useState(null);
   const [bannerImage, setbannerImage] = useState(null);
@@ -28,6 +29,11 @@ const Create = () => {
   const [article, setArticle] = useState("");
   const [value, setValue] = useState(initialState);
   const [requestSend, setRequestSend] = useState(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleDismiss = () => {
+    setIsVisible(false);
+  };
 
   useEffect(() => {
     const savedContent = localStorage.getItem("editorContent");
@@ -201,18 +207,36 @@ const Create = () => {
     <>
       <Navbar />
 
+      {isVisible && (
+        <p className="flex justify-center x-sm:text-sm pt-16 pb-1 w-full relative bg-white/40 items-center text-[#212121]">
+          Before writing an article, please read the &nbsp;
+          <Link to="/guidelines" className="underline">Guidelines</Link>.
+          <svg
+            className="cursor-pointer absolute x-sm:right-2 right-[6%] md:right-[4%]"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            onClick={handleDismiss} // Call this function when clicking the cross icon
+          >
+            <path d="M16.0163 15.8805L4.72266 4.58691" stroke="#212121" strokeWidth="1.42857" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15.8796 4.71973L4.58594 16.0134" stroke="#212121" strokeWidth="1.42857" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </p>
+      )}
       <div
-        className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-16"
-        // style={{ backgroundImage: `url(${background2})` }}
+        className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-8"
+      // style={{ backgroundImage: `url(${background2})` }}
       >
         {/* basic info */}
-        <div className="relative flex w-[100%] max-w-[100%] justify-center py-7 md:h-[70%] md:w-[90%]">
+        <div className="relative flex w-[100%] max-w-[100%] justify-center md:h-[70%] md:w-[90%]">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               publishPost();
             }}
-            className="relative flex w-[70%] flex-col gap-3 rounded-xl pb-4 pt-7 md:w-full md:gap-1 md:p-5 x-sm:p-0"
+            className="relative flex w-[70%] flex-col gap-3 rounded-xl pb-4 md:w-full md:gap-1 md:p-5 x-sm:p-0"
           >
             <div className="w-full">
               <h2 className="text-2xl font-[500] text-[#212121]">
@@ -412,7 +436,7 @@ const Create = () => {
         <Footer />
       </div>
       <ErrorMessage error={error} />
-        <SuccessMessage
+      <SuccessMessage
         requestSend={requestSend}
         setRequestSend={setRequestSend}
       />
