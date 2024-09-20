@@ -22,7 +22,7 @@ const modules = {
 
 const TextEditor = ({ article, setArticle }) => {
   return (
-    <div className="relative w-[70%] pb-10 text-black">
+    <div className="relative w-full pb-10 text-black">
       <div className="row flex w-full flex-col items-center justify-center gap-10 lg:gap-3 x-sm:gap-16">
         <div className="editor relative flex h-[60vh] max-h-[80vh] w-full items-center justify-center bg-white md:w-[90vw]">
           <ReactQuill
@@ -33,7 +33,7 @@ const TextEditor = ({ article, setArticle }) => {
             onChange={(content) => setArticle(content)}
           />
         </div>
-        <div className="preview mt-16 h-[60vh] max-h-[80vh] w-full overflow-auto rounded-xl border-[2px] bg-white text-black shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]">
+        {/* <div className="preview mt-16 h-[60vh] max-h-[80vh] w-full overflow-auto rounded-xl border-[2px] bg-white text-black shadow-lg shadow-[rgba(0,0,0,0.03)] md:w-[90vw]">
           &nbsp;
           <ReactQuill
             value={article}
@@ -41,7 +41,7 @@ const TextEditor = ({ article, setArticle }) => {
             readOnly
             className="h-full w-full"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -347,13 +347,21 @@ const Create = () => {
                 <Inputtag tags={tags} setTags={setTags} />
               </div>
             </div>
+            <h1 className=" text-left text-2xl font-[500] text-[#212121]">
+              Write Here
+            </h1>
+            <div className="flex w-screen max-w-[100%] flex-col items-center justify-center gap-0 pb-5 ">
+          <div className="relative mx-auto flex w-full flex-col items-center justify-center text-[#212121]">
+            <TextEditor article={article} setArticle={setArticle} />
+          </div>
+        </div>
 
             {/* submit button */}
 
             <button
               type="submit"
               disabled={isLoading}
-              className="p-0 font-[400] outline-none focus:outline-none"
+              className="p-0 font-[400] max-w-[100%] outline-none focus:outline-none"
             >
               <ButtonV5 icon={false}>
                 {isLoading ? (
@@ -422,14 +430,6 @@ const Create = () => {
               </ButtonV5>
             </button>
           </form>
-        </div>
-        <div className="flex w-screen max-w-[100%] flex-col items-center justify-center gap-0 pb-5 md:h-[50%] md:w-[100%]">
-          <div className="relative mx-auto flex w-full flex-col items-center justify-center text-[#212121]">
-            <h1 className="w-[70%] text-left text-2xl font-[500] text-[#212121] md:w-[90%]">
-              Write Here
-            </h1>
-            <TextEditor article={article} setArticle={setArticle} />
-          </div>
         </div>
       </div>
       <div className="pt-7">

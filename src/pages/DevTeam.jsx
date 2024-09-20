@@ -133,7 +133,7 @@ const DevTeam = () => {
             <div className="flex flex-col mx-auto min-h-screen">
                 <div className="flex-grow overflow-y-auto max-w-7xl mx-auto py-16 pt-24 px-4 sm:px-6 lg:px-6 text-center">
                     <h2 className="text-4xl font-[600] mb-4">Dev Team</h2>
-                    <div className="flex justify-center gap-2 mb-6">
+                    <div className="flex flex-wrap justify-center gap-2 mb-6">
                         {teamSection.map((section) => (
                             <div
                                 key={section.key}
@@ -180,7 +180,7 @@ const DevTeam = () => {
                         ))}
                     </div>
 
-                    <div className='grid grid-cols-3 md:grid-cols-1 lg:grid-cols-4 gap-4'>
+                    <div className='flex flex-wrap justify-center gap-12'>
                         {teamMembers[activeTeam].map((member, index) => (
                             <DevTeamMember index={index} key={member.id} {...member} />
                         ))}
