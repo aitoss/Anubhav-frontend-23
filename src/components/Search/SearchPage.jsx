@@ -20,19 +20,7 @@ const SearchPage = () => {
   const [hasMore, setHasMore] = useState(true);
   const [company, setCompany] = useState([]);
   const [headerName, setHeaderName] = useState("");
-
-  useEffect(() => {
-    const fetchSearchValue = async () => {
-      const query = searchParams.get('query');
-      if (query) {
-        setArticles([]);
-        setPage(1);
-        fetchArticles(query, 1);
-      }
-    };
-
-    fetchSearchValue();
-  }, [searchParams]);
+  const [isSearching, setIsSearching] = useState(false);
 
   const [filterPopUp, setFilterPopUp] = useState(false);
 
@@ -42,6 +30,26 @@ const SearchPage = () => {
 
   const closeFilterPopUp = () => {
     setFilterPopUp(false);
+  };
+
+  const fetchLatestArticles = async (endPoint, page) => {
+    setLoading(true);
+    try {
+      const res = await axios.get(`${BACKEND_URL}${endPoint}?page=${page}`);
+      const data = res.data.articles;
+
+      if (page === 1) {
+        setArticles(data);
+      } else {
+        setArticles((prevArticles) => [...prevArticles, ...data]);
+      }
+
+      setHasMore(res.data.hasMore);
+    } catch (error) {
+      console.log("Failed to fetch articles", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fetchArticles = async (query, page) => {
@@ -67,27 +75,40 @@ const SearchPage = () => {
     }
   };
 
-  const countCompany = async() =>{
+  const countCompany = async () => {
     try {
       const res = await axios.get(BACKEND_URL + "/countCompanies");
       setCompany(res.data.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  useEffect(() =>{
+  useEffect(() => {
     countCompany();
-  },[])
+  }, []);
 
-  console.log(articles);
+  useEffect(() => {
+    const query = searchParams.get('query');
+    setIsSearching(!!query);
+
+    if (query) {
+      setArticles([]);
+      setPage(1);
+      fetchArticles(query, 1);
+    } else {
+      fetchLatestArticles("/blogs", page);
+    }
+  }, [searchParams, page]);
 
   const handleShowMore = () => {
     const query = searchParams.get('query');
     if (query) {
       fetchArticles(query, page + 1);
-      setPage(prevPage => prevPage + 1);
+    } else {
+      fetchLatestArticles("/blogs", page + 1);
     }
+    setPage(prevPage => prevPage + 1);
   };
 
   return (
@@ -96,9 +117,9 @@ const SearchPage = () => {
       <NavbarMini />
       <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
         <div className="w-full flex gap-10 h-full">
-          <div className="section-left w-full flex flex-col gap-2 h-full  max-w-5xl">
+          <div className="section-left w-full flex flex-col gap-2 h-full max-w-5xl">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {headerName ? headerName : decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {headerName ? headerName : (isSearching ? decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " ")) : "Latest Blogs")}</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -126,6 +147,7 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
+
             {loading && articles.length === 0 ? (
               <>
                 <SearchCardLoading />
@@ -138,7 +160,7 @@ const SearchPage = () => {
               articles.map((item) => (
                 <BlogCard
                   key={item._id}
-                  id={item._id} // Pass the id to BlogCard
+                  id={item._id}
                   link={`/blog/${item._id}`}
                   Title={item.title}
                   imagesrc={item.imageUrl === "your_image_url_here" ? companyLogo : item.imageUrl}
@@ -150,6 +172,7 @@ const SearchPage = () => {
                 />
               ))
             )}
+
             {hasMore && !loading && (
               <div onClick={handleShowMore} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
                 Show More
@@ -159,6 +182,7 @@ const SearchPage = () => {
                 </svg>
               </div>
             )}
+
             {loading && articles.length > 0 && <SearchCardLoading />}
             <br /><br />
           </div>

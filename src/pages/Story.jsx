@@ -4,86 +4,105 @@ import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { Timeline } from "../components/Timeline/timeline";
 const Story = () => {
-    const data = [
-        {
-          title: "Dec 2020",
-          content: (
-            <div>
-              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              The project originated from a random conversation between Arpit and Akshay sir. After that with the formation of the team with Satya sir and few club juniors, and they started the development. The first version was designed by Rishabh sir.
-
-              </p>
-    
-            </div>
-          ),
-        },
-        {
-          title: "Jan 2021",
-          content: (
-            <div>
-                <h1 className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-[24px]">Launch</h1>
-              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-              By this time the basic portal was ready as per the expected design. Anubhav was launched by director sir and then shared with all through AIT Alumni page. The project received lots of compliments from everyone.
-              </p>
-              <div className="">
-                <img
-                  src="https://raw.githubusercontent.com/aitoss/Anubhav-backend/main/gallery/Screenshot%20(184).png"
-                  alt="hero template"
-                  width={500}
-                  height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60  shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                />
-              
-              </div>
-            </div>
-          ),
-        },
-        {
-          title: "July 2021",
-          content: (
-            <div>
-              <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-              Due to pandemic juniors were unable to properly connect with seniors to seek guidance. So Arpit sir along with Abhishek sir started the Anubhav-video Interview series. In which seniors shared their college life, tech-non tech journey, along with tips for juniors. All the videos are available on OSS youtube channel.
-              </p>
-              <div className="mb-8">
-               
-              </div>
-              <div className="">
-                <img
-                  src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
-                  alt="hero template"
-                  width={500}
-                  height={500}
-                  className="rounded-lg object-cover h-20 md:h-44 lg:h-60 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                />
-              
-              </div>
-            </div>
-          ),
-        },
-        {
-            title: "Aug 2021",
-            content: (
-              <div>
-                <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                With start of new academic session. The product ownership is transferred to Akshay, Satya, Rishabh and Palak</p>
-                <div className="mb-8">
-                 
-                </div>
-                <div className="">
-                  <img
-                    src="https://user-images.githubusercontent.com/31367960/125487646-c911b5a5-afdd-4b2a-893f-58a9239d9b63.png"
-                    alt="hero template"
-                    width={500}
-                    height={500}
-                    className="rounded-lg object-cover h-20 md:h-44 lg:h-60  shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                  />
-                
-                </div>
-              </div>
-            ),
-          },
-      ];
+  const data = [
+    {
+      title: "Dec 2020",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            The project originated from a random conversation between Arpit and Akshay sir. After that with the formation of the team with Satya sir and few club juniors, they started the development. The first version was designed by Rishabh sir.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Jan 2021",
+      content: (
+        <div>
+          <h1 className="text-neutral-800 dark:text-neutral-200 font-bold text-sm md:text-sm">Launch</h1>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            By this time the basic portal was ready as per the expected design. Anubhav was launched by director sir and then shared with all through AIT Alumni page. The project received lots of compliments from everyone.
+          </p>
+          <div className="">
+            <img
+              src="/dev/story1.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "July 2021",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            Due to pandemic juniors were unable to properly connect with seniors to seek guidance. So Arpit sir along with Abhishek sir started the Anubhav-video Interview series. In which seniors shared their college life, tech-non tech journey, along with tips for juniors. All the videos are available on OSS YouTube channel.
+          </p>
+          <div className="mb-8"></div>
+          <div className="">
+            <img
+              src="/dev/story2.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Aug 2021",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            With the start of the new academic session, the product ownership is transferred to Akshay, Satya, Rishabh, and Palak.
+          </p>
+          <div className="mb-8"></div>
+          <div className="">
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Oct 2023",
+      content: (
+        <div>
+          <h1 className="text-neutral-800 dark:text-neutral-200 font-bold text-sm md:text-sm">Revamping Anubhav</h1>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            With the evolution of technology and the need for a better user experience, the new gen team began revamping Anubhav. The focus was on improving the interface, adding new features, and ensuring a seamless user journey for the students and alumni.
+          </p>
+          <div className="mb-8"></div>
+        </div>
+      ),
+    },
+    {
+      title: "Jan 2024",
+      content: (
+        <div>
+          <h1 className="text-neutral-800 dark:text-neutral-200 font-bold text-sm md:text-sm">Brand New Anubhav</h1>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            The brand-new version of Anubhav has been released, featuring a sleek design, enhanced functionality, and several new features to support students and alumni in networking, learning, and sharing their experiences. The launch marked a new milestone for the platform and its users.
+          </p>
+          <div className="mb-8"></div>
+          <div className="">
+            <img
+              src="/dev/story3.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+            />
+          </div>
+        </div>
+      ),
+    },
+  ];
+  
     return (
 <>
     <Navbar />
@@ -99,7 +118,7 @@ const Story = () => {
                                 exit={{ opacity: 0, translateY: 100 }}
                                 transition={{ duration: 0.15, delay: 0.05 }}
                             >
-                                <h1 className="text-4xl lg:py-8 font-semibold text-center text-black">
+                                <h1 className="text-4xl lg:py-8 py-6 font-semibold text-center text-black">
                                     Our Story
                                 </h1>
                             </motion.div>

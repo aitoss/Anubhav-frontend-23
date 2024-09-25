@@ -116,7 +116,7 @@ const Search = ({ mode, focus, full }) => {
     if (searchText.length > 2) {
       debouncedFetchSuggestions(searchText);
     } else {
-      setPopularSearches(["Google STEP", "Microsoft SDE Intern"]);
+      setPopularSearches(["Google", "Microsoft"]);
     }
   }, [searchText, debouncedFetchSuggestions]);
 
