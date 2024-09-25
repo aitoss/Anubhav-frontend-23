@@ -9,12 +9,6 @@ const BlogLoading = () => {
                 <br />
                 <br />
                 <div className="w-full items-start lg:justify-start justify-center flex-col lg:p-4 space-y-2 md:mt-0">
-                    <div>
-                        <a className="tracking-tighter flex flex-col gap-2">
-                            <Skeleton className="md:w-[632px] h-[40px] max-w-full" />
-                            <Skeleton className="w-[332px] h-[40px] max-w-full" />
-                        </a>
-                    </div>
                     <div className="flex items-center py-2 gap-2">
                         <div className="w-6 h-6 flex justify-center items-center ">
                             <SVGSkeleton className="w-[17px] h-[17px] rounded-full" />
@@ -63,9 +57,9 @@ const BlogLoading = () => {
                         </div>
                     </div>
                     <div className="lorem-container py-3 flex flex-col items-center justify-center">
-                        <div className="lg:pb-10 w-full flex flex-col items-center justify-center">
+                        {/* <div className="lg:pb-10 w-full flex flex-col items-center justify-center">
                             <SVGSkeleton className="lg:h-[300px] lg:w-[750px] x-sm:h-[200px] md:h-[300px] object-cover rounded-lg w-full h-[400px]" />
-                        </div>
+                        </div> */}
                         <div className="w-full shadow-none">
                             <div className="wmde-markdown-color w-full h-full">
                                 <p>

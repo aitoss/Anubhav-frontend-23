@@ -1,17 +1,46 @@
-import { CiBookmark, CiHeart } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
-import BlogCardLoading from "./BlogCardLoading";
+import BlogLoading from "./BlogLoading";
 import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
-import BlogLoading from "./BlogLoading";
 import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
-import Giscus from '@giscus/react'; 
+import Giscus from "@giscus/react";
+
+const LazyLoad = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current && observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
+  return <div ref={ref}>{isVisible ? children : null}</div>;
+};
+
 const Blog = () => {
   const { id } = useParams();
   const [blogData, setBlogData] = useState([]);
@@ -40,24 +69,13 @@ const Blog = () => {
     }
   };
 
-  const fetchSimilarBlogs = async (
-    title,
-    articleTags,
-    companyName,
-    articleID
-  ) => {
+  const fetchSimilarBlogs = async (title, articleTags, companyName, articleID) => {
     try {
-      const params = {
-        q: title,
-        company: companyName,
-        tags: articleTags,
-      };
+      const params = { q: title, company: companyName, tags: articleTags };
       const response = await axios.get(BACKEND_URL + "/similarBlogs", {
         params: params,
       });
-      const filteredData = response.data.filter(
-        (item) => item._id !== articleID
-      );
+      const filteredData = response.data.filter((item) => item._id !== articleID);
       setSimilarArticles(filteredData);
     } catch (error) {
       console.error("Error fetching similar blogs:", error);
@@ -68,6 +86,27 @@ const Blog = () => {
     fetchBlogData();
     window.scrollTo(0, 0);
   }, [id]);
+
+  const MemoizedAuthor = useMemo(() => {
+    return (
+      <Author
+        person={{
+          name: blogData?.author?.name,
+          company: blogData?.companyName,
+        }}
+      />
+    );
+  }, [blogData]);
+
+  const MemoizedTags = useMemo(() => {
+    return <Tags data={blogData?.articleTags} />;
+  }, [blogData]);
+
+  const MemoizedMinuteReadLikes = useMemo(() => {
+    return (
+      <MinuteReadLikes id={id} readingTime={readingTime} timeStamp={timeStamp} />
+    );
+  }, [id, readingTime, timeStamp]);
 
   return (
     <>
@@ -81,6 +120,7 @@ const Blog = () => {
                 src={blogData?.imageUrl}
                 className="absolute inset-0 w-full h-full object-cover"
                 alt=""
+                loading="lazy"
               />
             </div>
           )}
@@ -94,32 +134,25 @@ const Blog = () => {
                   {blogData?.title}
                 </a>
               </div>
-              <Author
-                person={{
-                  name: blogData?.author?.name,
-                  company: blogData?.companyName,
-                }}
-              />
-              <Tags data={blogData?.articleTags} />
-              <MinuteReadLikes
-                id={id}
-                readingTime={readingTime}
-                timeStamp={timeStamp}
-              />
-              <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
-                <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
-                  <ReactQuill
-                    value={blogData?.description}
-                    theme="bubble"
-                    readOnly
-                    className="h-full w-full"
-                  />
+              {MemoizedAuthor}
+              {MemoizedTags}
+              {MemoizedMinuteReadLikes}
+              <LazyLoad>
+                <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
+                  <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
+                    <ReactQuill
+                      value={blogData?.description}
+                      theme="bubble"
+                      readOnly
+                      className="h-full w-full"
+                    />
+                  </div>
                 </div>
-              </div>
+              </LazyLoad>
             </div>
-            <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900 ">
-          Comments
-        </h1>
+            <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900">
+              Comments
+            </h1>
             <Giscus
               repo="aitoss/Anubhav-frontend-23"
               repoId="R_kgDOKijwFQ"
@@ -133,12 +166,11 @@ const Blog = () => {
               theme="light"
               lang="en"
             />
-
-            {similarArticles && similarArticles.length > 0 && (
-              <>
+            <LazyLoad>
+              {similarArticles && similarArticles.length > 0 && (
                 <Articles similarArticles={similarArticles} />
-              </>
-            )}
+              )}
+            </LazyLoad>
           </div>
         </>
       )}

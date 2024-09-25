@@ -54,35 +54,35 @@ const DevTeam = () => {
                     id: 1,
                     name: 'Harshal Patil',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/n7HCZVK/heroo.jpg',
+                    imageSrc: '/dev/harshal.jpg',
                     githubId: 'Harshal141'
                 },
                 {
                     id: 2,
                     name: 'Nikhil Dhariwal',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/tD0zj4L/e67e8359-f727-4bfb-ae94-da504e6c8672.jpg',
+                    imageSrc: '/dev/nikhil.jpg',
                     githubId: '404nikhil'
                 },
                 {
                     id: 3,
                     name: 'Lokendra Kushwah',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/RvYpC54/pfpV4.png',
+                    imageSrc: '/dev/loki.png',
                     githubId: 'Lokendrakushwah12'
                 },
                 {
                     id: 4,
                     name: 'Gourav',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/X5yh8XF/Whats-App-Image-2023-08-21-at-22-39-13.jpg',
+                    imageSrc: '/dev/gourav.jpg',
                     githubId: 'Gourav2609'
                 },
                 {
                     id: 5,
                     name: 'Darshan Garad',
                     platform: 'GitHub',
-                    imageSrc: 'https://avatars.githubusercontent.com/u/118094848?v=4',
+                    imageSrc: '/dev/darshan.jpeg',
                     githubId: 'darkars33'
                 },
             ],
@@ -91,35 +91,35 @@ const DevTeam = () => {
                     id: 11,
                     name: 'Arpit kr Mishra',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/k5Gj6Qb/arpitdp.jpg',
+                    imageSrc: '/dev/arp.jpg',
                     githubId: 'arkumish'
                 },
                 {
                     id: 12,
                     name: 'Akshay Sharma',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/XJd1wX3/80065270-165855167986313-7011278912353206272-o.jpg',
+                    imageSrc: '/dev/aks.jpg',
                     githubId: 'AkshaySharma008'
                 },
                 {
                     id: 13,
                     name: 'Satya Prakash',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.imgur.com/m6eMSyV.jpeg',
+                    imageSrc: '/dev/sat.jpeg',
                     githubId: 'satya9500'
                 },
                 {
                     id: 14,
                     name: 'Akash Saxena',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/1nk25pt/118046919-1261093334242620-4374261586150049648-o.jpg',
+                    imageSrc: '/dev/aksx.jpg',
                     githubId: 'Akashsaxena2308'
                 },
                 {
                     id: 15,
                     name: 'Rishabh Rathore',
                     platform: 'GitHub',
-                    imageSrc: 'https://i.ibb.co/rwQDwvQ/70093190-947181732307968-2361262531307110400-o.jpg',
+                    imageSrc: '/dev/rrb.jpg',
                     githubId: 'xerycks'
                 }
             ],
