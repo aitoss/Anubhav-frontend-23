@@ -31,18 +31,17 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
                 setCurrentCompany(item.company);
                 fetchArticles(item.company, 1);
                 setHeaderName(item.company);
+                handleClickApply();
               }}
-              className={`relative flex cursor-pointer items-center justify-between rounded-md px-2 py-1 transition-all hover:bg-white ${
-                currentCompany === item.company ? "bg-white" : ""
-              }`}
+              className={`relative flex cursor-pointer items-center justify-between rounded-md px-2 py-1 transition-all hover:bg-white ${currentCompany === item.company ? "bg-white" : ""
+                }`}
             >
               <div className="flex items-center gap-3">
                 <div
                   className="h-5 w-5 rounded bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: `url(${
-                      item.domainName ? item.domainName : companyLogo
-                    })`,
+                    backgroundImage: `url(${item.domainName ? item.domainName : companyLogo
+                      })`,
                   }}
                 ></div>
                 <h5>{item.company}</h5>
