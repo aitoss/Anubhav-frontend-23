@@ -7,7 +7,7 @@ import Filter from "../Filter/Filter";
 import axios from "axios";
 import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
-import companyLogo from "../../assets/images/company.png";
+import companyLogo from "/assets/images/company.png";
 import { ReadTime, formatDate } from "../../services/date";
 import SearchCardLoading from "./SearchCardLoading";
 

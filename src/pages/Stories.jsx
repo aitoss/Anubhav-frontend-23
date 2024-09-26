@@ -8,7 +8,7 @@ import { ReadTime, formatDate } from "../services/date";
 import { Flag } from "lucide-react";
 import Filter from "../components/Filter/Filter";
 import FilterPopUp from "../components/Filter/FilterPopUp";
-import companyLogo from "../assets/images/company.png";
+import companyLogo from "/assets/images/company.png";
 
 const Stories = () => {
   const [articles, setArticles] = useState([]);

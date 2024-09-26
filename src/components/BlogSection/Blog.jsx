@@ -137,7 +137,6 @@ const Blog = () => {
               {MemoizedAuthor}
               {MemoizedTags}
               {MemoizedMinuteReadLikes}
-              <LazyLoad>
                 <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
                   <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
                     <ReactQuill
@@ -148,7 +147,6 @@ const Blog = () => {
                     />
                   </div>
                 </div>
-              </LazyLoad>
             </div>
             <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900">
               Comments
