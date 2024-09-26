@@ -29,6 +29,7 @@
     "hamburger-react": "^2.5.0",
     "html-to-text": "^9.0.5",
     "lenis": "^1.1.9",
+    "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.428.0",
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
@@ -46,6 +47,7 @@
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.9",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-helmet": "^6.1.8",

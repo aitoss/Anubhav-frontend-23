@@ -1,5 +1,5 @@
 import BlogCard from "./BlogCard";
-import company from "../../assets/images/company.png";
+import company from "/assets/images/company.png";
 import { ReadTime } from "../../services/date";
 
 const Articles = (props) => {

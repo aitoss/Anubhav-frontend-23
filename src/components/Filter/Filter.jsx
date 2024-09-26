@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import companyLogo from "../../assets/images/company.png";
+import companyLogo from "/assets/images/company.png";
 
 const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => {
   const [currentCompany, setCurrentCompany] = useState("");

@@ -56,6 +56,45 @@ const BlogLoading = () => {
                             </a>
                         </div>
                     </div>
+                    <div className="flex pb-4 lg:gap-10 items-center">
+                        <p>
+                            <Skeleton className="w-[192px] max-w-full" />
+                        </p>
+                        <div className="flex gap-3 ml-auto">
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                        </div>
+                    </div>
+                    <div className="flex pb-4 lg:gap-10 items-center">
+                        <p>
+                            <Skeleton className="w-[192px] max-w-full" />
+                        </p>
+                        <div className="flex gap-3 ml-auto">
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                        </div>
+                    </div>
+                    <div className="flex pb-4 lg:gap-10 items-center">
+                        <p>
+                            <Skeleton className="w-[192px] max-w-full" />
+                        </p>
+                        <div className="flex gap-3 ml-auto">
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                            <a>
+                                <SVGSkeleton className="w-[1rem] h-[1rem]" />
+                            </a>
+                        </div>
+                    </div>
                     <div className="lorem-container py-3 flex flex-col items-center justify-center">
                         {/* <div className="lg:pb-10 w-full flex flex-col items-center justify-center">
                             <SVGSkeleton className="lg:h-[300px] lg:w-[750px] x-sm:h-[200px] md:h-[300px] object-cover rounded-lg w-full h-[400px]" />
@@ -150,6 +189,101 @@ const BlogLoading = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="lorem-container py-3 flex flex-col items-center justify-center">
+                        {/* <div className="lg:pb-10 w-full flex flex-col items-center justify-center">
+                            <SVGSkeleton className="lg:h-[300px] lg:w-[750px] x-sm:h-[200px] md:h-[300px] object-cover rounded-lg w-full h-[400px]" />
+                        </div> */}
+                        <div className="w-full shadow-none">
+                            <div className="wmde-markdown-color w-full h-full">
+                                <p>
+                                    <Skeleton className="w-[3376px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[1456px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[1304px] max-w-full" />
+                                </p>
+                                <pre>
+                                    <Skeleton className="w-[3376px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <p>
+                                    <Skeleton className="w-[2016px] max-w-full" />
+                                </p>
+                                <pre>
+                                    <Skeleton className="w-[4304px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <p>
+                                    <Skeleton className="w-[584px] max-w-full" />
+                                </p>
+                                <pre>
+                                    <Skeleton className="w-[4592px] max-w-full" />
+                                    <div>
+                                        <SVGSkeleton className="w-[120px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <pre>
+                                    <Skeleton className="w-[1464px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeleton className="w-full h-[12px]" />
+                                    </div>
+                                </pre>
+                                <pre>
+                                    <Skeleton className="w-[3688px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <p>
+                                    <Skeleton className="w-[448px] max-w-full" />
+                                </p>
+                                <pre>
+                                    <Skeleton className="w-[696px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <pre>
+                                    <Skeleton className="w-[3432px] max-w-full" />
+                                    <div>
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                        <SVGSkeletonWhite className="w-[12px] h-[12px]" />
+                                    </div>
+                                </pre>
+                                <p>
+                                    <Skeleton className="w-[712px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[936px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[2096px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[1232px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[1056px] max-w-full" />
+                                </p>
+                                <p>
+                                    <Skeleton className="w-[3496px] max-w-full" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </>
