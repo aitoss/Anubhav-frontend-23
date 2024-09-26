@@ -145,3 +145,8 @@ button:focus-visible {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.ql-editor * {
+  font-family: "TTHoves", sans-serif;
+  color: #1a1a1a;
+}

@@ -18,18 +18,24 @@ const Videos = () => {
       .then(data => setYoutubeData(data))
       .catch(error => console.error('Error loading video data:', error));
   }, []);
-  
+
+  const tagsData = [
+    "Google",
+    "Zeta",
+    "UBS",
+    "Microsoft",
+    "Deutsche-Bank",
+    "Cred",
+  ];
+
   return (
     <>
       <div className="flex flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3 mt-20 mb-20">
         <AnimatedHeading />
         <div className="w-screen flex flex-wrap gap-4 justify-center align-bottom x-sm:px-6">
-          <AnimatedTags name="CP" />
-          <AnimatedTags name="Codeforces" />
-          <AnimatedTags name="Dev" />
-          <AnimatedTags name="Hackthon" />
-          <AnimatedTags name="Deutsche-Bank" />
-          <AnimatedTags name="Google" />
+          {tagsData.map((tag, index) => {
+            return <AnimatedTags key={index} name={tag} />
+          })}
         </div>
         <div className="w-screen flex justify-center p-4 ">
           <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-6">
