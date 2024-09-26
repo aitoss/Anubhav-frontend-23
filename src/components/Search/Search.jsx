@@ -51,15 +51,22 @@ const Search = ({ mode, focus, full }) => {
 
   const handleSearchSubmit = (event) => {
     if (searchText.trim() !== "") {
-      const updatedSearches = [...recentSearches, searchText];
+      let updatedSearches;
+      if (recentSearches.includes(searchText)) {
+        updatedSearches = recentSearches.filter(item => item !== searchText);
+        updatedSearches.push(searchText);
+      } else {
+        updatedSearches = [...recentSearches, searchText];
+      }
+
       const limitedSearches = updatedSearches.slice(-10);
       setRecentSearches(limitedSearches);
-      // setSearchText("");
-      // focus out
+
+      localStorage.setItem('recentSearches', JSON.stringify(limitedSearches));
+
       inputRef.current.value = searchText;
       inputRef.current.blur();
       navigate('/search?query=' + searchText);
-      localStorage.setItem('recentSearches', JSON.stringify(limitedSearches));
     }
   };
 
@@ -174,17 +181,17 @@ const Search = ({ mode, focus, full }) => {
             </svg>
           </div>
           <form onSubmit={handleSearchSubmit}>
-          <input
-            ref={inputRef}
-            id="search-input"
-            className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
-            type=''
-            placeholder="Search for your Dreams.."
-            value={searchText}
-            onKeyDown={handleClose}
-            onChange={handleChange}
-            onClick={() => setIsExpanded(true)}
-          />
+            <input
+              ref={inputRef}
+              id="search-input"
+              className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
+              type=''
+              placeholder="Search for your Dreams.."
+              value={searchText}
+              onKeyDown={handleClose}
+              onChange={handleChange}
+              onClick={() => setIsExpanded(true)}
+            />
           </form>
           <div className={`border-[1.5px] ${borderClass} text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] `}>
             ⌘K
@@ -219,25 +226,25 @@ const Search = ({ mode, focus, full }) => {
                   .slice(0)
                   .reverse()
                   .map((search, index) => (
-                    <div className="flex flex-row w-full justify-between items-center px-4 py-2" key={index}>
-  <div className="flex justify-start items-center gap-2 cursor-pointer" onClick={() => handleSuggestionClick(search)}>
-    <svg
-      className="w-5 h-5"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="#9a9a9a"
-    >
-      <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"></path>
-    </svg>
-    <div className="flex-grow truncate">{search}</div>
-  </div>
-  <span
-    className="hover:underline hover:cursor-pointer"
-    onClick={() => handleRemove(recentSearches.length - index - 1)}
-  >
-    <X size={16} />
-  </span>
-</div>
+                    <div className={`flex flex-row w-full justify-between items-center px-4 ${hoverClass}`} key={index}>
+                      <div className="flex justify-start items-center gap-2 cursor-pointer  py-2  w-full" onClick={() => handleSuggestionClick(search)}>
+                        <svg
+                          className="w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="#9a9a9a"
+                        >
+                          <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"></path>
+                        </svg>
+                        <div className="flex-grow truncate">{search}</div>
+                      </div>
+                      <span
+                        className="hover:underline hover:cursor-pointer"
+                        onClick={() => handleRemove(recentSearches.length - index - 1)}
+                      >
+                        <X size={16} />
+                      </span>
+                    </div>
 
                   ))}
               </>
