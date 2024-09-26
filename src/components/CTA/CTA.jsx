@@ -25,7 +25,7 @@ const CTA = () => {
             with our latest posts.
           </MaskWrapper>
         </p>
-        <Link to="/stories">
+        <Link to="/search">
           <ButtonV5 icon={false}>
             <FadeWrapper>
               <div className="flex items-center justify-center gap-1">

@@ -159,11 +159,9 @@ export default function HomeScreen() {
           </p>
           <FadeWrapper delay={0.15}>
             <div className="flex items-center gap-4">
-              <div className="flex">
-                <AnimatedTooltip items={people} />
-                <div className="w-12 h-12 z-10 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
-                  3k+
-                </div>
+              <AnimatedTooltip items={people} />
+              <div className="w-12 h-12 z-10 flex justify-center items-center font-[500] bg-white text-[#414141] rounded-full border-4 border-white shadow-lg">
+                3k+
               </div>
               <p className="text-xl text-[#414141] font-[500] ">
                 Articles written
