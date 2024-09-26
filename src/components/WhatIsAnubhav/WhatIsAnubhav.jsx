@@ -136,22 +136,22 @@ const Card2 = ({ title, description, imageURL }) => (
       draggable="false"
     />
     <div className="absolute bottom-[-2%] left-[20%] z-[100] inline-flex rotate-6 select-none flex-col x-sm:bottom-[-5%] x-sm:left-[10%]">
-      <div className="-mb-2 inline-flex cursor-pointer flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[999] hover:scale-105 hover:bg-[#fcfcfc]">
-        <p className="text-[#212121]/60">5 mins read • 07-15-2024</p>
-        <h3>How to Ace Your Next Interview</h3>
-      </div>
-      <div className="z-[99] scale-[102%] -mb-2 inline-flex cursor-pointer flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:scale-105 hover:bg-[#fcfcfc]">
-        <p className="text-[#212121]/60">6 mins read • 07-10-2024</p>
-        <h3>Networking Tips for Career Growth</h3>
-      </div>
-      <div className="z-[20] -mb-2 inline-flex cursor-pointer flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[99] hover:scale-105 hover:bg-[#fcfcfc]">
-        <p className="text-[#212121]/60">4 mins read • 07-05-2024</p>
-        <h3>Top 5 Internship Opportunities This Summer</h3>
-      </div>
-      <div className="z-[10] inline-flex cursor-pointer flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[99] hover:scale-105 hover:bg-[#fcfcfc]">
-        <p className="text-[#212121]/60">5 mins read • 07-01-2024</p>
-        <h3>Effective Resume Building Strategies</h3>
-      </div>
+      <Link to="/blog/6482c7f31efe8f6914eefe2e" className="-mb-2 inline-flex cursor-pointer text-[#212121] flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[999] hover:scale-105 hover:bg-[#fcfcfc]">
+        <p className="text-[#212121]/60 font-[400]">11 mins read • 09-06-2023</p>
+        <h3>CRED Interview Experience ( On Campus SDE - Backend  )</h3>
+      </Link>
+      <Link to="/blog/63a30bd3fa72a20c75f513e3" className="z-[99] scale-[102%] -mb-2 inline-flex cursor-pointer text-[#212121] flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:scale-105 hover:bg-[#fcfcfc]">
+        <p className="text-[#212121]/60 font-[400]">5 mins read • 21-12-2022</p>
+        <h3>Google STEP Internship Decoded</h3>
+      </Link>
+      <Link to="/blog/639f77bcfa72a20c75f5106a" className="z-[20] -mb-2 inline-flex cursor-pointer text-[#212121] flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[99] hover:scale-105 hover:bg-[#fcfcfc]">
+        <p className="text-[#212121]/60 font-[400]">5 mins read • 19-12-2022</p>
+        <h3>Deutsche bank: Internship | Summer Intern 2023</h3>
+      </Link>
+      <Link to="/blog/61e1433251a2879b50add90e" className="z-[10] inline-flex cursor-pointer text-[#212121] flex-col rounded-lg border border-[#d2d2d6] bg-[#f9f9f9] p-2 shadow-md backdrop-blur-[12px] transition-all duration-200 hover:z-[99] hover:scale-105 hover:bg-[#fcfcfc]">
+        <p className="text-[#212121]/60 font-[400]">15 mins read • 14-01-2022</p>
+        <h3>Microsoft FTE Interview Experience from Engage 2021 [FTE]</h3>
+      </Link>
     </div>
   </div>
 );
@@ -160,8 +160,8 @@ const WhatIsAnubhav = () => {
   return (
     <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
-        <div className="mx-auto flex w-full flex-row items-center justify-center gap-8 md:flex-col">
-          <div className="flex w-1/2 h-[450px] justify-between md:w-full flex-col">
+        <div className="mx-auto flex w-full lg:flex-row items-center justify-center gap-8 flex-col">
+          <div className="flex lg:w-1/2 lg:h-[450px] justify-between w-full flex-col">
             <div className="flex flex-col">
               <h2 className="-mb-2 text-sm font-[500] text-[#212121]">
                 <MaskText textPhrase={["What is Anubhav?"]} />
@@ -175,7 +175,7 @@ const WhatIsAnubhav = () => {
               <br />
               <FadeText textPhrase={["Whether you are looking for inspiration or practical tips to enhance your own career journey, Anubhav is here to guide you."]} />
               <MaskWrapper>
-                <Link className="underline" to="/stories">
+                <Link className="underline" to="/search">
                   Dive into Stories
                 </Link>
               </MaskWrapper>
@@ -190,7 +190,7 @@ const WhatIsAnubhav = () => {
               </FadeWrapper>
             </div>
           </div>
-          <div className="md:w-full w-1/2">
+          <div className="w-full lg:w-1/2">
             <FadeWrapper>
               <Card2 />
             </FadeWrapper>
