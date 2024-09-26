@@ -159,9 +159,11 @@ export default function HomeScreen() {
           </p>
           <FadeWrapper delay={0.15}>
             <div className="flex items-center gap-4">
-              <AnimatedTooltip items={people} />
-              <div className="w-12 h-12 z-10 flex justify-center items-center font-[500] bg-white text-[#414141] rounded-full border-4 border-white shadow-lg">
-                3k+
+              <div className="flex">
+                <AnimatedTooltip items={people} />
+                <div className="w-12 h-12 z-10 flex justify-center  items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
+                  3k+
+                </div>
               </div>
               <p className="text-xl text-[#414141] font-[500] ">
                 Articles written
@@ -173,7 +175,7 @@ export default function HomeScreen() {
           </FadeWrapper>
           <FadeWrapper delay={0.25}>
             <Link to='/search'>
-              <h3 className="hover:border-[#777] leading-3 pt-4 flex items-center justify-center group border-b border-[#f7f7f8]">Read articles  <div className="relative w-4 h-4 flex items-center">
+              <h3 className="hover:border-[#777] leading-3 pt-4 flex items-center justify-center group border-b border-[#f7f7f8]">Read Articles  <div className="relative w-4 h-4 flex items-center">
                 <svg
                   className="h-4 w-4 absolute transition-all group-hover:translate-x-1 group-hover:opacity-0"
                   xmlns="http://www.w3.org/2000/svg"
