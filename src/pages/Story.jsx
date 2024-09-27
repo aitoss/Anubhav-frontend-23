@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { Timeline } from "../components/Timeline/timeline";
+
 const Story = () => {
   const data = [
     {
@@ -137,18 +138,13 @@ const Story = () => {
               </div>
               <div className="w-full">
                 <Timeline data={data} />
-
-
               </div>
-
-              {/*  */}
             </div>
           </section>
         </div>
         <Footer />
       </div>
     </>
-
   );
 };
 

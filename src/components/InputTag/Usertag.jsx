@@ -84,11 +84,11 @@ const Inputtag = ({ setTags, tags }) => {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-          <datalist id="tagSuggestions">
+          {/* <datalist id="tagSuggestions">
             {tagSuggestions.map((suggestion, index) => (
               <option key={index} value={suggestion._id} />
             ))}
-          </datalist>
+          </datalist> */}
         </div>
       </div>
     </div>

@@ -293,11 +293,11 @@ const Create = () => {
                         onChange={handleChange}
                         className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                       />
-                      <datalist id="companySuggestions">
+                      {/* <datalist id="companySuggestions">
                         {companySuggestions.map((suggestion, index) => (
                           <option key={index} value={suggestion} />
                         ))}
-                      </datalist>
+                      </datalist> */}
                     </div>
 
                     <div className="relative flex flex-col gap-2">
