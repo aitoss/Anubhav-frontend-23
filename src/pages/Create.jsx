@@ -190,7 +190,7 @@ const Create = () => {
           />
         )}
         {step >= 2 && <WriteHere article={article} setArticle={setArticle} />}
-        <div className="flex w-full max-w-[70%] justify-between pb-12">
+        <div className="flex w-full max-w-[70%] justify-between sm:pb-4 x-sm:pb-8 sm:mt-8 x-sm:mt-20 pb-4 mt-6 xl:mt-0">
           {step > 1 && (
             <div
               onClick={handleBack}
