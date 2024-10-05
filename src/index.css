@@ -40,6 +40,36 @@ h1 {
   font-size: 2.6em;
   line-height: 1.1;
 }
+.ql-bubble .ql-editor h1 {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: normal;
+}
+.ql-bubble .ql-editor h2 {
+  font-size: 1.75em;
+  font-weight: 600;
+  line-height: normal;
+}
+.ql-bubble .ql-editor h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.ql-editor strong {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+}
+.ql-editor .ql-size-small {
+  font-size: 1em;
+}
+@media screen and (max-width: 500px) {
+  .ql-editor p {
+    font-size: 14px;
+  }
+  .ql-editor .ql-size-small {
+    font-size: 14px;
+  }
+}
 
 button {
   border-radius: 8px;
@@ -84,7 +114,6 @@ button:focus-visible {
 
 .font-inter {
   font-family: "Inter", sans-serif;
-
 }
 
 @media (prefers-color-scheme: light) {
@@ -101,7 +130,6 @@ button:focus-visible {
     background-color: #f7f7f8;
   }
 }
-
 
 ::selection {
   color: #f0f0f0;

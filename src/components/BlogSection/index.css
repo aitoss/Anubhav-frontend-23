@@ -1,7 +1,7 @@
 
 .markdown-body {
     background-color: white !important;
-    color: black !important;
+    color: #212121 !important;
   }
   
   /* Headings */
@@ -11,12 +11,12 @@
   .markdown-body h4,
   .markdown-body h5,
   .markdown-body h6 {
-    color: black !important;
+    color: #212121 !important;
   }
   
   /* Paragraphs */
   .markdown-body p {
-    color: black !important;
+    color: #212121 !important;
   }
   
   /* Links */
@@ -59,7 +59,7 @@
   /* Lists */
   .markdown-body ul,
   .markdown-body ol {
-    color: black !important;
+    color: #212121 !important;
   }
   
   /* Tables */
@@ -73,7 +73,7 @@
   .markdown-body td {
     border: 1px solid #ddd;
     padding: 8px;
-    color: black !important;
+    color: #212121 !important;
     background-color: white !important;
   }
   

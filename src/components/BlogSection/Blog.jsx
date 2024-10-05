@@ -114,16 +114,6 @@ const Blog = () => {
         <BlogLoading />
       ) : (
         <>
-          {blogData.imageUrl !== "your_image_url_here" && (
-            <div className="relative w-full h-[400px] lg:h-[500px] bg-black overflow-hidden">
-              <img
-                src={blogData?.imageUrl}
-                className="absolute inset-0 w-full h-full object-cover"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-          )}
           <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
             <br />
             <br />
@@ -137,6 +127,16 @@ const Blog = () => {
               {MemoizedAuthor}
               {MemoizedTags}
               {MemoizedMinuteReadLikes}
+                    {blogData.imageUrl !== "your_image_url_here" && (
+                      <div className="relative rounded-xl w-full x-sm:h-[200px] h-[250px] lg:h-[300px] bg-black overflow-hidden">
+                        <img
+                          src={blogData?.imageUrl}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                 <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
                   <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
                     <ReactQuill
@@ -144,7 +144,7 @@ const Blog = () => {
                       theme="bubble"
                       readOnly
                       className="h-full w-full"
-                    />
+                      />
                   </div>
                 </div>
             </div>
