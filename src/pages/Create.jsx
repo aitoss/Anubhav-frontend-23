@@ -134,7 +134,7 @@ const Create = () => {
             Guidelines
           </Link>
           .
-          <svg
+          {/* <svg
             className="absolute right-[6%] cursor-pointer md:right-[4%] x-sm:right-2"
             width="20"
             height="20"
@@ -159,7 +159,7 @@ const Create = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          </svg>
+          </svg> */}
         </p>
       )}
 

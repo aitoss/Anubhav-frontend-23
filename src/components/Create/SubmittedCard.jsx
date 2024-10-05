@@ -11,6 +11,7 @@ const SubmittedCard = () => {
   const [timer, setTimer] = useState(5);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const timerInterval = setInterval(() => {
       setTimer((prev) => {
         if (prev <= 1) {
@@ -19,7 +20,7 @@ const SubmittedCard = () => {
         }
         return prev - 1;
       });
-    }, 1000); 
+    }, 1000);
 
     const fadeOutTimer = setTimeout(() => {
       setFadeOut(true);
