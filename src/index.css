@@ -70,7 +70,9 @@ h1 {
     font-size: 14px;
   }
 }
-
+.ql-editor {
+  padding: 0px !important;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
