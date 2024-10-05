@@ -1,16 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Inputtag from "../components/InputTag/Usertag";
-import TextEditor from "../components/Editor/TextEditor";
 import Footer from "../components/Footer/Footer";
-import Upload from "../assets/images/upload.svg";
 import ErrorMessage from "../components/notification/ErrorMessage";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ButtonV5 from "../components/ui/buttonv5";
 import { Link } from "react-router-dom";
-import { Spinner } from "flowbite-react";
+import Spinner from "../components/ui/Spinner";
+import BasicInformation from "../components/Create/BasicInformation";
+import WriteHere from "../components/Create/WriteHere";
+import SubmittedCard from "../components/Create/SubmittedCard";
+
 const Create = () => {
   const initialState = {
     name: "",
@@ -20,7 +21,6 @@ const Create = () => {
     title: "",
   };
 
-  const inputRef = useRef();
   const [file, setFile] = useState(null);
   const [bannerImage, setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
@@ -30,6 +30,8 @@ const Create = () => {
   const [value, setValue] = useState(initialState);
   const [requestSend, setRequestSend] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleDismiss = () => {
     setIsVisible(false);
@@ -53,7 +55,6 @@ const Create = () => {
       const savedContent = JSON.stringify(content);
       localStorage.setItem("editorContent", savedContent);
     }, 500);
-    // clean up the timeout if content changes before delay
     return () => clearTimeout(Debouncer);
   }, [article, value]);
 
@@ -64,36 +65,8 @@ const Create = () => {
     }, 3000);
   };
 
-  const handleChange = (e) => {
-    setValue({ ...value, [e.target.name]: e.target.value });
-  };
-
-  const UploadFile = async () => {
-    const file = inputRef.current.files[0];
-    setFile(URL.createObjectURL(file));
-    // console.log(file);
-
-    const formData = new FormData();
-    formData.append("image", file);
-
-    try {
-      // TODO: hide this key
-      const response = await axios.post(
-        "https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587",
-        formData,
-      );
-      // console.log("Response form image cloud", response);
-      setbannerImage(response.data.data.display_url);
-    } catch (error) {
-      console.log("Error uploading image: ", error);
-    }
-  };
-
-  useEffect(() => {
-    // console.log("Banner Image", bannerImage);
-  }, [bannerImage]);
-
   const publishPost = async () => {
+    setStep(step + 1);
     if (article === "") {
       addError("Article cannot be empty");
       return;
@@ -116,257 +89,138 @@ const Create = () => {
         image: bannerImage,
       });
       setIsLoading(false);
-      const id = response.data.createArticle._id;
       console.log("Article submitted successfully");
       setRequestSend("Article submitted successfully");
       setValue(initialState);
+      setIsSubmitted(true);
     } catch (error) {
-      console.error("Error submittin post:", error.response.data);
+      console.error("Error submitting post:", error.response.data);
       setIsLoading(false);
     }
   };
 
-  const [companySuggestions, setCompanySuggestions] = useState([]);
-
-  useEffect(() => {
-    const fetchCompanySuggestions = async () => {
-      try {
-        const response = await axios.get(BACKEND_URL + "/companies");
-        setCompanySuggestions(response.data);
-        // console.log(response.data);
-      } catch (error) {
-        console.error("Error fetching company suggestions:", error);
+  const handleNext = () => {
+    if (step === 1) {
+      if (
+        !value.name ||
+        !value.email ||
+        !value.company ||
+        !value.position ||
+        !value.title ||
+        !file
+      ) {
+        addError("Please fill all fields and upload a banner image");
+        return;
       }
-    };
-
-    fetchCompanySuggestions();
-  }, []);
-
-  const UserImage = () => {
-    return (
-      <>
-        <h3 className="bg -mb-2 flex justify-start text-[#212121]">
-          Banner Image
-        </h3>
-        <div className="border-[rgba(0, 0, 0, 0.15)] flex h-[80%] w-full flex-col items-center justify-center gap-2 rounded-xl border-[2px] border-dashed bg-white md:w-full">
-          <div className="flex w-full justify-center">
-            <div className="flex h-[150px] w-[150px] justify-center rounded-full sm:h-24 sm:w-24">
-              {file ? (
-                <img
-                  src={file}
-                  alt=""
-                  className="h-full w-full rounded-full object-cover"
-                />
-              ) : (
-                <img
-                  className="cursor-pointer"
-                  src={Upload}
-                  onClick={(e) => {
-                    inputRef.current.click();
-                    e.preventDefault();
-                  }}
-                />
-              )}
-            </div>
-          </div>
-          <p className="text-gray-300">
-            {file ? null : (
-              <>
-                <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
-                  JPG, JPEG, PNG file size no more than 10MB
-                </h1>
-                <h1 className="text-center text-xs font-[400] text-[#322e2e]">
-                  Keep the image ratio to 280x180 px
-                </h1>
-              </>
-            )}
-          </p>
-          {file && (
-            <div
-              className="flex h-[20px] cursor-pointer items-center justify-center gap-1 border-b border-[#fff] text-[#717171] hover:border-[#717171]"
-              onClick={() => setFile(null)}
-            >
-              Remove <span className="text-[24px]">×</span>
-            </div>
-          )}
-          {/* </div> */}
-          <input
-            type="file"
-            ref={inputRef}
-            name=""
-            id=""
-            onChange={UploadFile}
-            className="hidden"
-          />
-        </div>
-      </>
-    );
+    }
+    setStep(step + 1);
   };
+
+  const handleBack = () => {
+    setStep(step - 1);
+  };
+
+  // Calculate progress
+  const progressPercentage = ((step - 1) / 2) * 100;
 
   return (
     <>
       <Navbar />
-
+      {isSubmitted && <SubmittedCard />}
       {isVisible && (
-        <p className="flex justify-center x-sm:text-sm pt-16 pb-1 w-full relative bg-white/40 items-center text-[#212121]">
+        <p className="relative flex w-full items-center justify-center bg-white/40 pb-1 pt-16 text-[#212121] x-sm:text-sm">
           Before writing an article, please read the &nbsp;
-          <Link to="/guidelines" className="underline">Guidelines</Link>.
+          <Link to="/guidelines" className="underline">
+            Guidelines
+          </Link>
+          .
           <svg
-            className="cursor-pointer absolute x-sm:right-2 right-[6%] md:right-[4%]"
+            className="absolute right-[6%] cursor-pointer md:right-[4%] x-sm:right-2"
             width="20"
             height="20"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            onClick={handleDismiss} // Call this function when clicking the cross icon
+            onClick={handleDismiss}
           >
-            <path d="M16.0163 15.8805L4.72266 4.58691" stroke="#212121" strokeWidth="1.42857" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M15.8796 4.71973L4.58594 16.0134" stroke="#212121" strokeWidth="1.42857" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M16.0163 15.8805L4.72266 4.58691"
+              stroke="#212121"
+              strokeWidth="1.42857"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.8796 4.71973L4.58594 16.0134"
+              stroke="#212121"
+              strokeWidth="1.42857"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </p>
       )}
-      <div
-        className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-8"
-      // style={{ backgroundImage: `url(${background2})` }}
-      >
-        {/* basic info */}
-        <div className="relative flex w-[100%] max-w-[100%] justify-center md:h-[70%] md:w-[90%]">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              publishPost();
-            }}
-            className="relative flex w-[70%] flex-col gap-3 rounded-xl pb-4 md:w-full md:gap-1 md:p-5 x-sm:p-0"
-          >
-            <div className="w-full">
-              <h2 className="text-2xl font-[500] text-[#212121]">
-                Basic Information
-              </h2>
-            </div>
 
-            <div className="g flex md:flex-col">
-              <div className="flex w-[50%] flex-col gap-3 md:w-full md:gap-2">
-                <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="text-gray-700">About You</h4>
-
-                  <div className="flex flex-col gap-2">
-                    <div className="relative flex flex-col gap-2">
-                      <input
-                        required
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                        value={value.name}
-                        onChange={handleChange}
-                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
-                      />
-                    </div>
-
-                    <div className="relative flex flex-col gap-2">
-                      <input
-                        required
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                        value={value.email}
-                        onChange={handleChange}
-                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="text-gray-700">About Company</h4>
-                  <div className="flex flex-col gap-2">
-                    <div className="relative flex flex-col gap-2">
-                      <input
-                        required
-                        type="text"
-                        name="company"
-                        id="name"
-                        list="companySuggestions"
-                        placeholder="Company's name"
-                        value={value.company}
-                        onChange={handleChange}
-                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
-                      />
-                      {/* <datalist id="companySuggestions">
-                        {companySuggestions.map((suggestion, index) => (
-                          <option key={index} value={suggestion} />
-                        ))}
-                      </datalist> */}
-                    </div>
-
-                    <div className="relative flex flex-col gap-2">
-                      <select
-                        required
-                        name="position"
-                        id="position"
-                        value={value.position}
-                        onChange={handleChange}
-                        className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
-                      >
-                        <option value="">Select Position</option>
-                        <option value="Internship">Internship</option>
-                        <option value="FullTime">Full Time</option>
-                        <option value="Interview-experience">
-                          Interview Experience
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3 md:gap-1">
-                  <h4 className="text-gray-700">Title</h4>
-                  <div className="flex flex-col gap-2">
-                    <div className="relative flex flex-col gap-2">
-                      <div className="relative flex flex-col gap-2">
-                        <input
-                          required
-                          type="text"
-                          name="title"
-                          id="title"
-                          placeholder="Blog Title"
-                          value={value.title}
-                          onChange={handleChange}
-                          className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000020] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* image upload and tag */}
-              <div className="flex h-full w-[50%] flex-col gap-3 pl-2 pt-2 md:w-full">
-                <UserImage />
-                <Inputtag tags={tags} setTags={setTags} />
-              </div>
-            </div>
-            <h1 className=" text-left text-2xl font-[500] text-[#212121]">
-              Write Here
-            </h1>
-            <div className="flex w-screen max-w-[100%] flex-col items-center justify-center gap-0 pb-5 ">
-          <div className="relative mx-auto flex w-full flex-col items-center justify-center text-[#212121]">
-            <TextEditor article={article} setArticle={setArticle} />
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-4">
+        {/* Progress Bar */}
+        <div className="relative mt-4 w-[50%] rounded-full bg-[#d2d7d9]">
+          <div className="absolute left-0 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#212121] text-[#f2f2f2]">
+            1
           </div>
-          
-            {/* submit button */}
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="p-0 font-[400] mt-[30px] sm:mt-[80px] max-w-[100%] outline-none focus:outline-none"
+          <div className="absolute left-1/2 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#212121] text-[#f2f2f2]">
+            2
+          </div>
+          <div
+            className="h-1 rounded-full bg-[#212121] transition-all duration-300"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+        </div>
+        {step === 1 && (
+          <BasicInformation
+            value={value}
+            setValue={setValue}
+            tags={tags}
+            setTags={setTags}
+            file={file}
+            setFile={setFile}
+            bannerImage={bannerImage}
+            setbannerImage={setbannerImage}
+          />
+        )}
+        {step >= 2 && <WriteHere article={article} setArticle={setArticle} />}
+        <div className="flex w-full max-w-[70%] justify-between pb-12">
+          {step > 1 && (
+            <div
+              onClick={handleBack}
+              className="p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 icon={false}>
+              <ButtonV5 icon={false} color="#f6f8fb">
+                <h5 className="flex gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
+                  Previous
+                </h5>
+              </ButtonV5>
+            </div>
+          )}
+
+          {step < 2 ? (
+            <button
+              onClick={handleNext}
+              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+            >
+              <ButtonV5 icon={true}>Next</ButtonV5>
+            </button>
+          ) : (
+            <button
+              onClick={publishPost}
+              disabled={isLoading}
+              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+            >
+              <ButtonV5 disabled={isLoading} icon={false}>
                 {isLoading ? (
-                  <div className="flex items-center justify-center gap-1">
-                    &nbsp;
-                    Processing <Spinner className="h-5 w-5" />
+                  <div className="flex items-center justify-center gap-1 font-[300]">
+                    &nbsp; Processing <Spinner color="#fff" />
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-1">
@@ -428,18 +282,20 @@ const Create = () => {
                 )}
               </ButtonV5>
             </button>
+          )}
         </div>
-          </form>
-        </div>
+
+        {requestSend && (
+          <SuccessMessage
+            message={requestSend}
+            onClose={() => setRequestSend(null)}
+          />
+        )}
+
+        {error && <ErrorMessage message={error} />}
       </div>
-      <div className="pt-7">
-        <Footer />
-      </div>
-      <ErrorMessage error={error} />
-      <SuccessMessage
-        requestSend={requestSend}
-        setRequestSend={setRequestSend}
-      />
+
+      <Footer />
     </>
   );
 };

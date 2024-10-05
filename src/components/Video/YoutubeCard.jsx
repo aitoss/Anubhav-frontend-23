@@ -13,8 +13,8 @@ const YoutubeCard = ({ title, img, link, description, tags }) => {
                 <div className="">
                     <h2 className="text-black font-[500] text-[20px] truncate">{title}</h2>
                     <div className="flex flex-wrap gap-2 pt-[3px]">
-                        {tags.map((tag) => {
-                            return <Tag name={tag} />;
+                        {tags.map((key, tag) => {
+                            return <Tag key={key} name={tag} />;
                         })}
                     </div>
                     <p className="leading-5 pt-[3px] content-start text-gray-500">

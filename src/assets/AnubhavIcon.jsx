@@ -1,10 +1,10 @@
 import React from "react";
 
-const AnubhavIcon = () => {
+const AnubhavIcon = ({ className='w-52 -mt-24' }) => {
   return (
     <div>
       <svg
-        className="-mt-24 w-52"
+        className={`${className} `}
         viewBox="0 0 57 72"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
