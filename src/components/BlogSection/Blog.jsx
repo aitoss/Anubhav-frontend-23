@@ -126,9 +126,7 @@ const Blog = () => {
       ) : (
         <>
           <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
-            <br />
-            <br />
-            <br />
+            <div className="h-10"></div>
             <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
               <div className="heading">
                 <a className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl">
