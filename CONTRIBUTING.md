@@ -9,7 +9,7 @@
 
 **Anubhav: Experience Sharing Point (A-ESP)** is a platform developed for AITians to read & share encounters of various interviews.
 
-The story of Anubhav, is as interesting as this portal. With lots of brainstorming discussion, and a motivation to improve this at each possible stage. We have created this mind-blowing portal. Explore this link to know about [product owners](https://anubhav-frontend-23.vercel.app/story), how it started, and the timeline for various phases of development.
+The story of Anubhav, is as interesting as this portal. With lots of brainstorming discussion, and a motivation to improve this at each possible stage. We have created this mind-blowing portal. Explore this link to know about [Product](https://anubhav.aitoss.club/), how it started, and the timeline for various phases of development.
 
 We welcome contributions from the community. To make sure your contributions count , Please follow up the guidelines mentioned :
 
@@ -42,11 +42,7 @@ Make sure you're in the root directory of your project. Then, install the necess
 ```bash
 npm install
 ```
-Or, if you’re using Yarn:
 
-```bash
-yarn install
-```
 
 ### **Step 4: Start the Development Server**
 After the dependencies are installed, start the development server using:
@@ -54,10 +50,7 @@ After the dependencies are installed, start the development server using:
 ```bash
 npm run dev
 ```
-Or, if you’re using Yarn:
-``` bash
-yarn dev
-```
+
 You’ll see output in your terminal with a local server address (e.g., http://localhost:5173).
 
 ### **Step 5: Open the Project in Your Browser**
@@ -107,6 +100,21 @@ Create a Pull Request: Now it’s time to let us know about your contributions! 
 
 Let’s keep our commits clear and impactful! 🌟
 
+### Found an Issue ?
+
+
+**Whether it’s a bug, code redundancy, or any other issue, we encourage you to raise it! This helps us improve the product and take it to new heights.**
+
+**How do I raise an issue?**
+It’s as simple as raising your hand when you have a doubt!
+
+- Navigate to the Issues section and click on New Issue.
+- Provide detailed information about the bug or issue, including a clear description and, if possible, any relevant results. This helps the project owners understand and resolve it faster.
+
+  
+**Bonus!**
+
+Once you've raised an issue, the team might even assign it to you, giving you the opportunity to contribute with a PR (Pull Request)!
 
 ### **File Structure**
 
