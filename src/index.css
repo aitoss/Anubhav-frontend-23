@@ -69,6 +69,17 @@ h1 {
   .ql-editor .ql-size-small {
     font-size: 14px;
   }
+  .ql-bubble .ql-editor h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .ql-editor li:not(.ql-direction-rtl)::before {
+    margin-left: -1.5em;
+    font-size: 0.75em;
+    margin-right: 0.3em;
+    text-align: right;
+  }
 }
 .ql-editor {
   padding: 0px !important;
@@ -179,4 +190,13 @@ button:focus-visible {
 .ql-editor * {
   font-family: "TTHoves", sans-serif;
   color: #1a1a1a;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #212121 inset !important;
+  -webkit-text-fill-color: #FAFAFA !important;
+  border: 1px solid #212121;
 }
