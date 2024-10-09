@@ -9,13 +9,13 @@
 
 **Anubhav: Experience Sharing Point (A-ESP)** is a platform developed for AITians to read & share encounters of various interviews.
 
-The story of Anubhav, is as interesting as this portal. With lots of brainstorming discussion, and a motivation to improve this at each possible stage. We have created this mind-blowing portal. Explore this link to know about [Product](https://anubhav.aitoss.club/), how it started, and the timeline for various phases of development.
+The story of Anubhav, is as interesting as this portal. With lots of brainstorming discussion, and a motivation to improve this at each possible stage. We have created this mind-blowing portal. Explore this link to know more about [product owners](https://anubhav.aitoss.club/), how it started, and the timeline for various phases of development.
 
 We welcome contributions from the community. To make sure your contributions count , Please follow up the guidelines mentioned :
 
-# What should I know before getting started with contributions :
+# Prerequisite :
 
-- ReactJS , Make sure you are well versed with the react fundamentals and functionalities as the Anubhav is mostly on Frontend part having knowledge on TailwindCss , JavaScript , TypeScript , Framer Motion will make you feel comfortable with the code base
+ReactJS , Make sure you are well versed with the react fundamentals and functionalities as the Anubhav is mostly on Frontend part having knowledge on TailwindCss , JavaScript , TypeScript , Framer Motion will make you feel comfortable with the code base
 
 Now that , I think you got what's needed , lets get to the point ....
 
