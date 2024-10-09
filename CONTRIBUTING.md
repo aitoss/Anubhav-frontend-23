@@ -1,10 +1,3 @@
-# Contributing to Anubhav
-
-## Contribution Guidelines
-
-🎉Huge shout-out for jumping in and lending a hand with this project!🎉 Your contribution is really appreciated and helping move things forward in such a great way!
-
-
 # Anubhav - Experience Sharing Platform 
 
 **Anubhav: Experience Sharing Point (A-ESP)** is a platform developed for AITians to read & share encounters of various interviews.
@@ -13,30 +6,39 @@ The story of Anubhav, is as interesting as this portal. With lots of brainstormi
 
 We welcome contributions from the community. To make sure your contributions count , Please follow up the guidelines mentioned :
 
-# Prerequisite :
+## Contribution Guidelines
+
+🎉Huge shout-out for jumping in and lending a hand with this project!🎉 Your contribution is really appreciated and helping move things forward in such a great way!
+
+## Prerequisite :
 
 ReactJS , Make sure you are well versed with the react fundamentals and functionalities as the Anubhav is mostly on Frontend part having knowledge on TailwindCss , JavaScript , TypeScript , Framer Motion will make you feel comfortable with the code base
 
 Now that , I think you got what's needed , lets get to the point ....
 
-## How do I setup the Project ?
+## How do I setup the Project?
 
-### **Step 1: Clone the Repository**
+### **Step 1: Fork the Repository**
+1. Go to the [Anubhav-frontend-23 repository](https://github.com/aitoss/Anubhav-frontend-23).
+2. Click the "Fork" button at the top right of the page to create a copy of the repository in your GitHub account.
+
+### **Step 2: Clone the Forked Repository**
 1. Open your terminal or command prompt.
 2. Navigate to the directory where you want to store your project.
-3. Run the following command to clone the repository:
+3. Run the following command to clone the forked repository:
 
- ```bash
-   git clone https://github.com/aitoss/Anubhav-frontend-23.git
-   ```
-### **Step 2: Navigate to the Project Directory**
-Once the repository is cloned, go into the project folder:
+```bash
+git clone https://github.com/your-username/Anubhav-frontend-23.git
+  ```
 
-  ```bash
+### **Step 3: Navigate to the Project Directory**
+Make sure you're in the root directory of your project. Then, install the necessary dependencies using:
+
+```bash
   cd repository-name
   ```
 
-### **Step 3: Install Dependencies**
+### **Step 4: Install Dependencies**
 Make sure you're in the root directory of your project. Then, install the necessary dependencies using:
 
 ```bash
@@ -44,7 +46,7 @@ npm install
 ```
 
 
-### **Step 4: Start the Development Server**
+### **Step 5: Start the Development Server**
 After the dependencies are installed, start the development server using:
 
 ```bash
@@ -53,7 +55,7 @@ npm run dev
 
 You’ll see output in your terminal with a local server address (e.g., http://localhost:5173).
 
-### **Step 5: Open the Project in Your Browser**
+### **Step 6: Open the Project in Your Browser**
 Open your browser and go to the local server address (e.g., http://localhost:5173) to see Anubhav Frontend in action!
 
 
