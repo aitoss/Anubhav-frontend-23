@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
@@ -21,11 +21,44 @@ const modules = {
 };
 
 const TextEditor = ({ article, setArticle }) => {
+  // create a reference for the Quill editor
+  const quillRef = useRef(null);
+
+  useEffect(() => {
+    // function to handle the scroll event
+    const handleWheel = (e) => {
+      const quill = quillRef.current.getEditor();
+      const { scrollTop, scrollHeight, clientHeight } = quill.root;
+
+      // define variable for pointer position for top or bottom of the Quill content
+      const isAtTop = scrollTop === 0 && e.deltaY < 0;
+      const isAtBottom =
+        scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+
+      // stop scroll action and event-propagation when we reach the top and bottom of the component
+      if (!isAtTop && !isAtBottom) {
+        quill.root.scrollTop = scrollTop + e.deltaY;
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    // getting quill root element to add event listener
+    const quillRoot = quillRef.current.getEditor().root;
+    // add event listener to the Quill root element
+    quillRoot.addEventListener("wheel", handleWheel, { passive: false });
+
+    // cleaning up the event listener
+    return () => {
+      quillRoot.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
   return (
     <div className="relative w-full pb-10 text-black">
       <div className="row flex w-full flex-col items-center justify-center gap-10 lg:gap-3 x-sm:gap-16">
         <div className="editor relative flex h-[60vh] max-h-[80vh] w-full items-center justify-center bg-white md:w-[90vw]">
           <ReactQuill
+            ref={quillRef}
             modules={modules}
             className="input h-[100%] w-[100%]"
             theme="snow"
