@@ -196,7 +196,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #212121 inset !important;
-  -webkit-text-fill-color: #FAFAFA !important;
-  border: 1px solid #212121;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+  -webkit-text-fill-color: #212121 !important;
 }
