@@ -197,5 +197,13 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-  -webkit-text-fill-color: #212121 !important;
+}
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  border: 2px solid #1c64f2;
+}
+
+.laptop-screen {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
