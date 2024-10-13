@@ -137,7 +137,7 @@ const Blog = () => {
               {MemoizedTags}
               {MemoizedMinuteReadLikes}
               {blogData.imageUrl !== "your_image_url_here" && (
-                <div className="relative h-[250px] w-full overflow-hidden rounded-xl bg-black lg:h-[300px] x-sm:h-[200px]">
+                <div className="relative h-[250px] w-full border overflow-hidden rounded-xl lg:h-[300px] x-sm:h-[200px]">
                   <img
                     src={blogData?.imageUrl}
                     className="absolute inset-0 h-full w-full object-cover"

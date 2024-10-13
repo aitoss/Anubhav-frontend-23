@@ -54,7 +54,7 @@ const Inputtag = ({ setTags, tags }) => {
   return (
     <div>
       <div className="relative flex flex-col gap-[5.5px]">
-        <h4 className="text-black ml-3">Tags</h4>
+        <h4 className="text-[#212121] ml-3 md:ml-0">Tags</h4>
         <div className="flex flex-wrap gap-2 w-full md:w-full overflow-y-auto">
           {tags.map((tagItem, index) => (
             <div

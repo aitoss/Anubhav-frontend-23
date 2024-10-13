@@ -203,14 +203,14 @@ const Create = () => {
             tags={tags}
           />
         )}
-        <div className="mt-6 flex w-full max-w-[70%] justify-between pb-4 sm:mt-8 sm:pb-4 xl:mt-0 x-sm:mt-20 x-sm:pb-8">
+        <div className="mt-6 flex w-full max-w-[70%] justify-between gap-4 pb-4 sm:mt-8 sm:pb-4 md:max-w-[90%] md:px-5 xl:mt-0 x-sm:mt-20 x-sm:px-0 x-sm:pb-8">
           {step > 1 && (
             <div
               onClick={handleBack}
-              className="p-0 font-[400] outline-none focus:outline-none"
+              className="w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 icon={false} color="#f6f8fb">
-                <h5 className="flex gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
+              <ButtonV5 className="w-full" icon={false} color="#f6f8fb">
+                <h5 className="flex w-full gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
                   Previous
                 </h5>
               </ButtonV5>
@@ -220,17 +220,19 @@ const Create = () => {
           {step < 3 ? (
             <button
               onClick={handleNext}
-              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+              className="ml-auto w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 icon={true}>Next</ButtonV5>
+              <ButtonV5 className="w-full" icon={true}>
+                Next
+              </ButtonV5>
             </button>
           ) : (
             <button
               onClick={publishPost}
               disabled={isLoading}
-              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+              className="ml-auto w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 disabled={isLoading} icon={false}>
+              <ButtonV5 className="w-full" disabled={isLoading} icon={false}>
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1 font-[300]">
                     &nbsp; Processing <Spinner color="#fff" />

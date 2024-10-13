@@ -110,7 +110,7 @@ const BasicInformation = ({
         <div className="g flex md:flex-col">
           <div className="flex w-[50%] flex-col gap-3 md:w-full md:gap-2">
             <div className="flex flex-col gap-3 md:gap-1">
-              <h4 className="text-gray-700">About You</h4>
+              <h4 className="text-[#212121]">About You</h4>
 
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col gap-2">
@@ -142,7 +142,7 @@ const BasicInformation = ({
             </div>
 
             <div className="flex flex-col gap-3 md:gap-1">
-              <h4 className="text-gray-700">About Company</h4>
+              <h4 className="text-[#212121]">About Company</h4>
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col gap-2">
                   <input
@@ -179,7 +179,7 @@ const BasicInformation = ({
             </div>
 
             <div className="flex flex-col gap-3 md:gap-1">
-              <h4 className="text-gray-700">Title</h4>
+              <h4 className="text-[#212121]">Title</h4>
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col gap-2">
                   <div className="relative flex flex-col gap-2">
@@ -199,7 +199,7 @@ const BasicInformation = ({
             </div>
           </div>
 
-          <div className="flex h-full w-[50%] flex-col gap-3 pl-2 pt-2 md:w-full">
+          <div className="flex h-full w-[50%] flex-col gap-3 pl-2 md:pl-0 pt-2 md:w-full">
             <UserImage />
             <Inputtag tags={tags} setTags={setTags} />
           </div>
