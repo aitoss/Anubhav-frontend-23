@@ -24,7 +24,7 @@ const LazyLoad = ({ children }) => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -60,7 +60,7 @@ const Blog = () => {
         article.title,
         article.articleTags.join(","),
         article.companyName,
-        article._id
+        article._id,
       );
       setLoading(false);
     } catch (error) {
@@ -69,13 +69,20 @@ const Blog = () => {
     }
   };
 
-  const fetchSimilarBlogs = async (title, articleTags, companyName, articleID) => {
+  const fetchSimilarBlogs = async (
+    title,
+    articleTags,
+    companyName,
+    articleID,
+  ) => {
     try {
       const params = { q: title, company: companyName, tags: articleTags };
       const response = await axios.get(BACKEND_URL + "/similarBlogs", {
         params: params,
       });
-      const filteredData = response.data.filter((item) => item._id !== articleID);
+      const filteredData = response.data.filter(
+        (item) => item._id !== articleID,
+      );
       setSimilarArticles(filteredData);
     } catch (error) {
       console.error("Error fetching similar blogs:", error);
@@ -104,7 +111,11 @@ const Blog = () => {
 
   const MemoizedMinuteReadLikes = useMemo(() => {
     return (
-      <MinuteReadLikes id={id} readingTime={readingTime} timeStamp={timeStamp} />
+      <MinuteReadLikes
+        id={id}
+        readingTime={readingTime}
+        timeStamp={timeStamp}
+      />
     );
   }, [id, readingTime, timeStamp]);
 
@@ -114,20 +125,8 @@ const Blog = () => {
         <BlogLoading />
       ) : (
         <>
-          {blogData.imageUrl !== "your_image_url_here" && (
-            <div className="relative w-full h-[400px] lg:h-[500px] bg-black overflow-hidden">
-              <img
-                src={blogData?.imageUrl}
-                className="absolute inset-0 w-full h-full object-cover"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-          )}
           <div className="container mx-auto items-center bg-white p-5 lg:mx-auto lg:w-[65%] lg:p-6 lg:px-20">
-            <br />
-            <br />
-            <br />
+            <div className="h-10"></div>
             <div className="data w- flex-col items-start justify-center space-y-2 md:mt-0 lg:justify-start lg:p-4">
               <div className="heading">
                 <a className="text-4xl font-bold tracking-tighter text-[#212121] lg:text-5xl x-sm:text-3xl">
@@ -137,18 +136,28 @@ const Blog = () => {
               {MemoizedAuthor}
               {MemoizedTags}
               {MemoizedMinuteReadLikes}
-                <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
-                  <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
-                    <ReactQuill
-                      value={blogData?.description}
-                      theme="bubble"
-                      readOnly
-                      className="h-full w-full"
-                    />
-                  </div>
+              {blogData.imageUrl !== "your_image_url_here" && (
+                <div className="relative h-[250px] w-full border overflow-hidden rounded-xl lg:h-[300px] x-sm:h-[200px]">
+                  <img
+                    src={blogData?.imageUrl}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    alt=""
+                    loading="lazy"
+                  />
                 </div>
+              )}
+              <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
+                <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
+                  <ReactQuill
+                    value={blogData?.description}
+                    theme="bubble"
+                    readOnly
+                    className="h-full w-full"
+                  />
+                </div>
+              </div>
             </div>
-            <h1 className="font-medium lg:text-4xl text-4xl items-center justify-center text-center lg:text-left lg:ml-10 text-slate-900">
+            <h1 className="items-center justify-center text-center text-4xl font-medium text-slate-900 lg:ml-10 lg:text-left lg:text-4xl">
               Comments
             </h1>
             <Giscus

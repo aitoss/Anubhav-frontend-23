@@ -106,7 +106,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-row md:flex-col justify-center items-center">
               <img
-                className="w-[278px] h-[246px] md:h-[150px] overflow-visible md:object-cover"
+                className="w-[278px] select-none h-[246px] md:h-[150px] overflow-visible md:object-cover"
                 draggable="false"
                 src={Anubhav}
                 alt=""

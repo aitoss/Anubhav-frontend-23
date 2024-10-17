@@ -7,8 +7,9 @@ import VideoPage from "../../assets/images/VideoPage.png";
 import { FollowerPointerCard } from "../../components/ui/following-pointer";
 import MaskWrapper from "../ui/maskWrapper";
 import FadeWrapper from "../ui/fadeWrapper";
+import { Link } from "react-router-dom";
 
-const Card = ({ title, bold, description, icon, children }) => (
+const Card = ({ title, bold, href, description, icon, children }) => (
   <div className="relative h-full w-full overflow-hidden">
     <div className="flex flex-col gap-3 p-8">
       <MaskWrapper>
@@ -19,7 +20,12 @@ const Card = ({ title, bold, description, icon, children }) => (
       </MaskWrapper>
       <MaskWrapper>
         <p className="text-[20px] leading-[100%] tracking-tight text-[#a1a1a1]">
-          <span className="font-[600] text-[#212121]">{bold}</span>
+          <Link
+            to={href}
+            className={`font-[600] text-[#212121] ${href != "" ? "underline" : ""}`}
+          >
+            {bold}
+          </Link>
           {description}
         </p>
       </MaskWrapper>
@@ -72,7 +78,7 @@ const Avatar = ({ Name, borderColor, src, className }) => (
     <img
       src={src}
       alt={Name}
-      className={`rounded-full h-20 w-20 select-none sm:h-16 sm:w-16 x-sm:h-12 x-sm:w-12`}
+      className={`h-20 w-20 select-none rounded-full sm:h-16 sm:w-16 x-sm:h-12 x-sm:w-12`}
       draggable="false"
     />
   </div>
@@ -86,12 +92,13 @@ const Features = () => {
           <Card
             title="Collaborate with other writers"
             bold="Sign in with GitHub on "
+            href=""
             description="our platform, and get started with commenting on blog posts to collaborate with others."
             icon={<Comment />}
           >
             <FollowerPointerCard
               cursorColor="text-[#12B76A]"
-              className="relative z-50 group"
+              className="group relative z-50"
               title={
                 <TitleComponent
                   title="You"
@@ -128,7 +135,7 @@ const Features = () => {
               </div>
               <div className="h-full w-full">
                 <Pointer
-                  className="absolute left-[20%] group-hover:translate-x-[20%] translate-x-0 transition-all duration-500 top-[6%] md-2xl:left-[10%] x-sm:top-[0%]"
+                  className="absolute left-[20%] top-[6%] translate-x-0 transition-all duration-500 group-hover:translate-x-[20%] md-2xl:left-[10%] x-sm:top-[0%]"
                   title="Lokendra Kushwah"
                   cursorColor="text-[#FE7D54]"
                   strokeColor="stroke-[#E85E32]"
@@ -136,7 +143,7 @@ const Features = () => {
                   borderColor="border-[#E85E32]"
                 />
                 <Pointer
-                  className="absolute bottom-[40%] group-hover:-translate-y-[40%] translate-x-0 transition-all duration-[400ms]  left-[10%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"
+                  className="absolute bottom-[40%] left-[10%] translate-x-0 transition-all duration-[400ms] group-hover:-translate-y-[40%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"
                   title="Nikhil Dhariwal"
                   cursorColor="text-[#2E90FA]"
                   strokeColor="stroke-[#1570EF]"
@@ -144,7 +151,7 @@ const Features = () => {
                   borderColor="border-[#1570EF]"
                 />
                 <Pointer
-                  className="absolute right-[20%] group-hover:translate-x-[20%] group-hover:translate-y-[20%] translate-x-0 transition-all duration-500  top-[10%] sm:right-[10%] md-2xl:right-[10%] md-2xl:top-[1%] x-sm:right-[0%]"
+                  className="absolute right-[20%] top-[10%] translate-x-0 transition-all duration-500 group-hover:translate-x-[20%] group-hover:translate-y-[20%] sm:right-[10%] md-2xl:right-[10%] md-2xl:top-[1%] x-sm:right-[0%]"
                   title="Harshal patil"
                   cursorColor="text-[#FF479F]"
                   strokeColor="stroke-[#B11C64]"
@@ -166,6 +173,7 @@ const Features = () => {
           <Card
             title="Video Collection"
             bold="Prefer Videos Over Blogs? "
+            href="/videos"
             description="No worries! We've got an exciting collection of videos that bring the same inspiring stories and useful insights right to your screen."
             icon={<VideoIcon />}
           >
