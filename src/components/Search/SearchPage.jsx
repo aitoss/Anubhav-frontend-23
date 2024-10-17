@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavbarMini from "../Navbar/NavbarMini";
 import BlogCard from "../BlogSection/BlogCard";
 import "./SearchPage.css";
@@ -23,6 +23,7 @@ const SearchPage = () => {
   const [isSearching, setIsSearching] = useState(false);
 
   const [filterPopUp, setFilterPopUp] = useState(false);
+  const loadMoreRef = useRef(null);
 
   const openFilterPopup = () => {
     setFilterPopUp(true);
@@ -111,6 +112,25 @@ const SearchPage = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  useEffect(() => {
+    if (!loadMoreRef.current || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          handleShowMore();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.observe(loadMoreRef.current);
+
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, [hasMore, loadMoreRef.current]);
+
   return (
     <>
       {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />}
@@ -174,12 +194,8 @@ const SearchPage = () => {
             )}
 
             {hasMore && !loading && (
-              <div onClick={handleShowMore} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
-                Show More
-                <svg className='rotate-90 group-hover:translate-y-2 transition-all duration-300' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                  <path d="M4 10.0699L15 10.0699" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                </svg>
+              <div ref={loadMoreRef} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
+                Loading more...
               </div>
             )}
 
