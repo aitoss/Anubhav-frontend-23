@@ -12,6 +12,8 @@ import WriteHere from "../components/Create/WriteHere";
 import SubmittedCard from "../components/Create/SubmittedCard";
 import PreviewPage from "../components/Create/PreviewPage";
 import useErrorToast from "../hooks/useErrorToast";
+import DragAndDropImageUpload from "../pages/DragAndDropImageUpload";
+
 
 const Create = () => {
   const initialState = {
@@ -192,6 +194,7 @@ const Create = () => {
             setFile={setFile}
             bannerImage={bannerImage}
             setbannerImage={setbannerImage}
+            DragAndDropImageUpload={DragAndDropImageUpload} 
           />
         )}
         {step === 2 && <WriteHere article={article} setArticle={setArticle} />}
