@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Inputtag from "../InputTag/Usertag";
-import Upload from "../../assets/images/upload.svg";
-import axios from "axios";
+import InputTag from "../InputTag/Usertag";
 
 const BasicInformation = ({
   value,
@@ -12,6 +10,7 @@ const BasicInformation = ({
   setFile,
   bannerImage,
   setbannerImage,
+  DragAndDropImageUpload,
   errors,
 }) => {
   const inputRef = useRef();
@@ -19,26 +18,7 @@ const BasicInformation = ({
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
-
-  const UploadFile = async () => {
-    const file = inputRef.current.files[0];
-    setFile(URL.createObjectURL(file));
-
-    const formData = new FormData();
-    formData.append("image", file);
-
-    try {
-      const response = await axios.post(
-        "https://api.imgbb.com/1/upload?key=cc540dc0e2847dccaa0d727a71651587",
-        formData,
-      );
-      setbannerImage(response.data.data.display_url);
-      console.log("Image uploaded: ", response.data.data.display_url);
-    } catch (error) {
-      console.log("Error uploading image: ", error);
-    }
-  };
-
+  
   const UserImage = () => {
     return (
       <>
@@ -47,53 +27,10 @@ const BasicInformation = ({
             Banner Image *
           </h3>
           <div className="border-[rgba(0, 0, 0, 0.15)] flex h-[90%] w-full flex-col items-center justify-center gap-2 rounded-xl border-[2px] border-dashed bg-white md:w-full">
-            <div className="flex w-full justify-center">
-              <div className="flex h-[150px] w-[150px] justify-center rounded-full sm:h-24 sm:w-24">
-                {file ? (
-                  <img
-                    src={file}
-                    alt=""
-                    className="h-full w-full rounded-full object-cover"
-                  />
-                ) : (
-                  <img
-                    className="cursor-pointer"
-                    src={Upload}
-                    onClick={(e) => {
-                      inputRef.current.click();
-                      e.preventDefault();
-                    }}
-                  />
-                )}
-              </div>
-            </div>
-            <p className="text-gray-300">
-              {file ? null : (
-                <>
-                  <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
-                    JPG, JPEG, PNG file size no more than 10MB
-                  </h1>
-                  <h1 className="text-center text-xs font-[400] text-[#322e2e]">
-                    Keep the image ratio to 280x180 px
-                  </h1>
-                </>
-              )}
-            </p>
-            {file && (
-              <div
-                className="flex h-[20px] cursor-pointer items-center justify-center gap-1 border-b border-[#fff] text-[#717171] hover:border-[#717171]"
-                onClick={() => setFile(null)}
-              >
-                Remove <span className="text-[24px]">×</span>
-              </div>
-            )}
-            <input
-              type="file"
-              ref={inputRef}
-              name=""
-              id=""
-              onChange={UploadFile}
-              className="hidden"
+          <DragAndDropImageUpload
+            file={file}
+            setFile={setFile}
+            setbannerImage={setbannerImage}
             />
           </div>
           {errors.file && (
@@ -103,6 +40,7 @@ const BasicInformation = ({
       </>
     );
   };
+  
 
   return (
     <div className="flex w-[100%] max-w-[100%] justify-center pt-4 md:h-[70%] md:w-[90%]">
@@ -162,7 +100,6 @@ const BasicInformation = ({
                     type="text"
                     name="company"
                     id="name"
-                    list="companySuggestions"
                     placeholder="Company's name"
                     value={value.company}
                     onChange={handleChange}
@@ -230,7 +167,7 @@ const BasicInformation = ({
           <div className="flex h-full w-1/2 flex-col justify-between md:w-full">
             <UserImage />
            
-            <Inputtag tags={tags} setTags={setTags} />
+            <InputTag tags={tags} setTags={setTags} />
             {errors.tags && (
               <p className="px-1 text-sm text-red-500">{errors.tags}</p>
             )}

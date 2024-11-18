@@ -52,7 +52,12 @@ const RequestArticle = () => {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-
+    const lastRequestTime = localStorage.getItem("lastRequestTime");
+    const currentTime = new Date().getTime();
+    if (lastRequestTime && currentTime - lastRequestTime < 3 * 60 * 60 * 1000) {
+      addError("You can only submit a request once every 3 hours.");
+      return;
+    }
     try {
       const requestData = {
         requesterName: value.name,
@@ -65,6 +70,7 @@ const RequestArticle = () => {
       await axios.post(BACKEND_URL + "/reqarticle", requestData);
       setIsLoading(false);
       setRequestSend("Request Sent Successfully");
+      localStorage.setItem("lastRequestTime", currentTime.toString());
       setValue(initialState);
     } catch (error) {
       addError("Internal server error");

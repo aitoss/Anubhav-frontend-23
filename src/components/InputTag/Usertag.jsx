@@ -5,7 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 import { BACKEND_URL } from "../../constants";
 
 // commit
-const Inputtag = ({ setTags, tags }) => {
+const InputTag = ({ setTags, tags }) => {
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
@@ -95,4 +95,4 @@ const Inputtag = ({ setTags, tags }) => {
   );
 };
 
-export default Inputtag;
+export default InputTag;
