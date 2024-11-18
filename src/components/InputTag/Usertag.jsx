@@ -53,22 +53,22 @@ const Inputtag = ({ setTags, tags }) => {
   };
   return (
     <div>
-      <div className="relative flex flex-col gap-[5.5px]">
-        <h4 className="text-[#212121] ml-3 md:ml-0">Tags</h4>
-        <div className="flex flex-wrap gap-2 w-full md:w-full overflow-y-auto">
+      <div className="relative flex flex-col">
+        <div className="flex w-full flex-wrap gap-2 overflow-y-auto md:w-full">
+          <h4 className="text-[#212121]">Tags *</h4>
           {tags.map((tagItem, index) => (
             <div
               key={index}
-              className="flex bg-[#f0f0f0] border px-2 items-center rounded-full hover:bg-[#e9e9e9] transition-all justify-center"
+              className="flex items-center justify-center rounded-full border bg-[#f0f0f0] px-2 transition-all hover:bg-[#e9e9e9]"
             >
-              <span className="text-[#212121] font-light text-[20px] text-center text-base">
+              <span className="text-center text-[20px] text-base font-light text-[#212121]">
                 {tagItem}
               </span>
               <span
                 onClick={() => handleTagDelete(index)}
-                className="cursor-pointer ml-1 text-2xl"
+                className="ml-1 cursor-pointer text-2xl"
               >
-                <RxCross1 className="h-[14px] text-[#919191] items-center" />
+                <RxCross1 className="h-[14px] items-center text-[#919191]" />
               </span>
             </div>
           ))}
@@ -78,7 +78,7 @@ const Inputtag = ({ setTags, tags }) => {
             type="text"
             name="tag"
             list="tagSuggestions"
-            className="w-full rounded-lg text-md bg-white border-[1px] shadow-sm shadow-[#00000020] ring ring-transparent border-[#78788033] p-3 text-[#3C3C43]  placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] md:w-full sm:p-2 sm:text-[13px]"
+            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
             placeholder="Tags relevant to your field"
             value={tag}
             onChange={handleChange}

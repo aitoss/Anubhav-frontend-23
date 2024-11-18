@@ -34,6 +34,7 @@ const Create = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const showError = useErrorToast();
+  const [errors, setErrors] = useState({});
 
   const publishPost = async () => {
     setIsLoading(true);
@@ -61,52 +62,36 @@ const Create = () => {
   };
 
   const handleNext = () => {
+    const newErrors = {};
+
     if (step === 1) {
-      if (value.name === "") {
-        showError("Name cannot be empty");
-        return;
+      if (!value.name) newErrors.name = "Name cannot be empty";
+      if (!value.email) {
+        newErrors.email = "Email cannot be empty";
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value.email)) {
+          newErrors.email = "Please enter a valid email address";
+        }
       }
-      if (value.email === "") {
-        showError("Email cannot be empty");
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value.email)) {
-        showError("Please enter a valid email address");
-        return;
-      }
-
-      if (value.company === "") {
-        showError("Company cannot be empty");
-        return;
-      }
-
-      if (value.position === "") {
-        showError("Position cannot be empty");
-        return;
-      }
-
-      if (value.title === "") {
-        showError("Title cannot be empty");
-        return;
-      }
-
-      if (!file) {
-        showError("Please upload a banner image");
-        return;
-      }
-
-      if (tags.length === 0) {
-        showError("Write a tag and press enter to add it");
-        return;
-      }
+      if (!value.company) newErrors.company = "Company cannot be empty";
+      if (!value.position) newErrors.position = "Position cannot be empty";
+      if (!value.title) newErrors.title = "Title cannot be empty";
+      if (!file) newErrors.file = "Please upload a banner image";
+      if (tags.length === 0)
+        newErrors.tags = "Write a tag and press enter to add it";
     }
 
     if (step === 2 && article === "") {
-      showError("Article cannot be empty");
+      newErrors.article = "Please write your article before proceeding";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
+
+    setErrors({});
     setStep(step + 1);
   };
 
@@ -133,7 +118,7 @@ const Create = () => {
 
       <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-4">
         {/* Progress Bar */}
-        <div className="relative z-0 mt-4 h-12 w-[70%] border border-[#d3ddeb] bg-[#f7f7f8] md:w-[90%] md:text-[14px] xl:w-[50%]">
+        <div className="relative z-0 mt-4 h-12 w-[90%] border border-[#d3ddeb] bg-[#f7f7f8] md:w-[90%] md:text-[14px] lg:w-[70%] xl:w-[50%]">
           <div className="absolute inset-0 left-1/3 z-[99] w-3">
             <svg
               class="h-full w-full text-slate-300"
@@ -192,9 +177,16 @@ const Create = () => {
             setFile={setFile}
             bannerImage={bannerImage}
             setbannerImage={setbannerImage}
+            errors={errors}
           />
         )}
-        {step === 2 && <WriteHere article={article} setArticle={setArticle} />}
+        {step === 2 && (
+          <WriteHere
+            article={article}
+            setArticle={setArticle}
+            errors={errors}
+          />
+        )}
         {step === 3 && (
           <PreviewPage
             value={value}
@@ -203,7 +195,7 @@ const Create = () => {
             tags={tags}
           />
         )}
-        <div className="mt-6 flex w-full max-w-[70%] justify-between gap-4 pb-4 sm:mt-8 sm:pb-4 md:max-w-[90%] md:px-5 xl:mt-0 x-sm:mt-20 x-sm:px-0 x-sm:pb-8">
+        <div className="flex w-[90%] justify-between gap-4 lg:w-[70%] pb-4">
           {step > 1 && (
             <div
               onClick={handleBack}

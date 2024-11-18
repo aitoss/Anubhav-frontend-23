@@ -56,7 +56,7 @@ const TextEditor = ({ article, setArticle }) => {
   return (
     <div className="relative w-full pb-10 text-black">
       <div className="row flex w-full flex-col items-center justify-center gap-10 lg:gap-3 x-sm:gap-16">
-        <div className="editor relative flex h-[60vh] max-h-[80vh] w-full items-center justify-center bg-white md:w-[90vw]">
+        <div className="editor relative mb-[5%] flex h-[65vh] max-h-[80vh] w-full items-center justify-center md:mb-[10%] md:w-[90vw] lg:mb-5 x-sm:mb-[20%]">
           <ReactQuill
             ref={quillRef}
             modules={modules}
