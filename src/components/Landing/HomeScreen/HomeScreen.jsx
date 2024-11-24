@@ -2,12 +2,12 @@
 import { ArrowRightIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import BackgroundDots from "../assets/Background";
-import SearchModal from "../components/Search/SearchModal";
-import Slider from "../components/Slider/Slider";
-import { AnimatedTooltip } from "../components/Tooltip/tooltip";
-import FadeWrapper from "../components/ui/fadeWrapper";
-import MaskWrapper from "../components/ui/maskWrapper";
+import BackgroundDots from "../../../assets/Background";
+import SearchModal from "../../Search/SearchModal";
+import Slider from "../../Slider/Slider";
+import { AnimatedTooltip } from "../../Tooltip/tooltip";
+import FadeWrapper from "../../ui/fadeWrapper";
+import MaskWrapper from "../../ui/maskWrapper";
 
 export default function HomeScreen() {
   const [OpenSearchModal, setOpenSearchModal] = useState(false);

@@ -1,14 +1,12 @@
 // HowItWorks.js
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Form from "../../assets/images/Form.png";
-import Editor from "../../assets/images/Editor.png";
-import Publish from "../../assets/images/Publish.png";
-import MaskText from "../ui/maskText";
-import FadeWrapper from "../ui/fadeWrapper";
-import MaskWrapper from "../ui/maskWrapper";
+import Editor from "../../../assets/images/Editor.png";
+import Form from "../../../assets/images/Form.png";
+import Publish from "../../../assets/images/Publish.png";
+import MaskWrapper from "../../ui/maskWrapper";
+import FadeWrapper from "../../ui/fadeWrapper";
+import MaskText from "../../ui/maskText";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="group relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
@@ -67,7 +65,6 @@ const HowItWorks = () => {
             />
           </FadeWrapper>
           <FadeWrapper delay={0.15}>
-
             <Card
               title="Write Your Article"
               description="Use our intuitive editor to craft your blog post. Add headings, format text, and include images or links to make your content engaging and informative."

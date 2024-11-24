@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Anubhav from "../../assets/images/Anubhav-3d.png";
+import Anubhav from "../../../assets/images/Anubhav-3d.png";
 import "./Footer.css";
 import Social from "./Social";
 import { SparklesCore } from "./Sparkles";

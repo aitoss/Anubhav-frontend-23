@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Landing/Footer/Footer";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ErrorMessage from "../components/notification/ErrorMessage";

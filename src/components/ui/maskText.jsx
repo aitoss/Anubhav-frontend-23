@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export function maskText({ textPhrase }) {
+export function MaskText({ textPhrase }) {
 
     const animation = {
         initial: { y: "100%" },
@@ -24,4 +24,4 @@ export function maskText({ textPhrase }) {
     )
 }
 
-export default maskText;
+export default MaskText;

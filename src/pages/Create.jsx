@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Landing/Footer/Footer";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";

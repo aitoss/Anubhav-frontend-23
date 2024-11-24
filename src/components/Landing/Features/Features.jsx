@@ -1,12 +1,12 @@
 import React from "react";
-import Comment from "../../assets/svg/Comment";
-import World from "../../assets/images/world.png";
-import VideoIcon from "../../assets/svg/VideoIcon";
-import Videos from "../../pages/Videos";
-import VideoPage from "../../assets/images/VideoPage.png";
-import { FollowerPointerCard } from "../../components/ui/following-pointer";
-import MaskWrapper from "../ui/maskWrapper";
-import FadeWrapper from "../ui/fadeWrapper";
+import Comment from "../../../assets/svg/Comment";
+import World from "../../../assets/images/world.png";
+import VideoIcon from "../../../assets/svg/VideoIcon";
+import Videos from "../../../pages/Videos";
+import VideoPage from "../../../assets/images/VideoPage.png";
+import { FollowerPointerCard } from "../../../components/ui/following-pointer";
+import MaskWrapper from "../../ui/maskWrapper";
+import FadeWrapper from "../../ui/fadeWrapper";
 import { Link } from "react-router-dom";
 
 const Card = ({ title, bold, href, description, icon, children }) => (

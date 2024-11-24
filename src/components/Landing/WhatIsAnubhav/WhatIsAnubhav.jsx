@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SuccessStories from "../../assets/images/SuccessStories.png";
-import Emoji from "../../assets/images/Emoji.png";
-import Emoji1 from "../../assets/images/Emoji-1.png";
-import Emoji2 from "../../assets/images/Emoji-2.png";
-import ButtonV5 from "../ui/buttonv5";
-import MaskText from "../ui/maskText";
-import FadeText from "../ui/fadeText";
-import MaskWrapper from "../ui/maskWrapper"
-import FadeWrapper from "../ui/fadeWrapper";
+import SuccessStories from "../../../assets/images/SuccessStories.png";
+import Emoji from "../../../assets/images/Emoji.png";
+import Emoji1 from "../../../assets/images/Emoji-1.png";
+import Emoji2 from "../../../assets/images/Emoji-2.png";
+import ButtonV5 from "../../ui/buttonv5";
+import MaskText from "../../ui/maskText";
+import FadeText from "../../ui/fadeText";
+import MaskWrapper from "../../ui/maskWrapper"
+import FadeWrapper from "../../ui/fadeWrapper";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="relative w-full overflow-hidden rounded-2xl border shadow-md">

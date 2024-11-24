@@ -1,29 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { YOUTUBE_PLAYLIST } from "../constants";
-import Tag from "../components/InputTag/Tag";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import YoutubeCard from "../components/Video/YoutubeCard";
 import Videos from "./Videos";
+import Footer from "../components/Landing/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
 
 const VideosPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
 
   useEffect(() => {
     fetch("/VideoData.json")
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         return response.json();
       })
-      .then(data => setYoutubeData(data))
-      .catch(error => console.error('Error loading video data:', error));
+      .then((data) => setYoutubeData(data))
+      .catch((error) => console.error("Error loading video data:", error));
   }, []);
-  
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen flex-col">
       <Navbar className="sticky top-0 z-50 bg-white" />
       <div className="flex-grow">
         <Videos />

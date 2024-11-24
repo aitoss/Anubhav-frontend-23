@@ -1,26 +1,25 @@
+import Lenis from "lenis";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomeScreen from "./pages/HomeScreen";
+import AnubhavIsOS from "./components/Landing/AnubhavIsOS/AnubhavIsOS";
+import CTA from "./components/Landing/CTA/CTA";
+import Footer from "./components/Landing/Footer/Footer";
+import HomeScreen from "./components/Landing/HomeScreen/HomeScreen";
+import HowItWorks from "./components/Landing/HowItWorks/HowItWorks";
+import WhatIsAnubhav from "./components/Landing/WhatIsAnubhav/WhatIsAnubhav";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import SearchPage from "./components/Search/SearchPage";
 import Create from "./pages/Create";
+import DevTeam from "./pages/DevTeam";
 import Error404 from "./pages/Error404";
-import ViewBlog from "./pages/ViewBlog";
-import BlogSection from "./components/BlogSection/BlogSection";
 import Guidelines from "./pages/Guidelines";
 import RequestArticle from "./pages/RequestArticle";
-import TermsService from "./pages/TermsService";
-import Video from "./pages/Videos";
-import VideosPage from "./pages/VideosPage";
-import { useEffect } from "react";
-import SearchPage from "./components/Search/SearchPage";
-import Story from "./pages/Story";
-import CTA from "./components/CTA/CTA";
-import HowItWorks from "./components/HowItWorks/HowItWorks";
-import WhatIsAnubhav from "./components/WhatIsAnubhav/WhatIsAnubhav";
-import Lenis from "lenis";
-import Features from "./components/Features/Features";
-import DevTeam from "./pages/DevTeam";
 import Stories from "./pages/Stories";
+import Story from "./pages/Story";
+import TermsService from "./pages/TermsService";
+import VideosPage from "./pages/VideosPage";
+import ViewBlog from "./pages/ViewBlog";
+import Features from "./components/Landing/Features/Features";
 
 const App = () => {
   useEffect(() => {
@@ -46,6 +45,7 @@ const App = () => {
               <WhatIsAnubhav />
               <HowItWorks />
               <Features />
+              <AnubhavIsOS />
               <div className="flex flex-col items-center">
                 <CTA />
                 <Footer />
