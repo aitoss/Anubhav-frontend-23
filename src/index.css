@@ -13,7 +13,7 @@
   font-weight: 400;
   /* color-scheme: light dark; */
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #ffffff;
+  background-color: #f7f7f8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +40,50 @@ h1 {
   font-size: 2.6em;
   line-height: 1.1;
 }
-
+.ql-bubble .ql-editor h1 {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: normal;
+}
+.ql-bubble .ql-editor h2 {
+  font-size: 1.75em;
+  font-weight: 600;
+  line-height: normal;
+}
+.ql-bubble .ql-editor h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.ql-editor strong {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+}
+.ql-editor .ql-size-small {
+  font-size: 1em;
+}
+@media screen and (max-width: 500px) {
+  .ql-editor p {
+    font-size: 14px;
+  }
+  .ql-editor .ql-size-small {
+    font-size: 14px;
+  }
+  .ql-bubble .ql-editor h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .ql-editor li:not(.ql-direction-rtl)::before {
+    margin-left: -1.5em;
+    font-size: 0.75em;
+    margin-right: 0.3em;
+    text-align: right;
+  }
+}
+.ql-editor {
+  padding: 0px !important;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -84,7 +127,6 @@ button:focus-visible {
 
 .font-inter {
   font-family: "Inter", sans-serif;
-
 }
 
 @media (prefers-color-scheme: light) {
@@ -98,12 +140,13 @@ button:focus-visible {
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: #f7f7f8;
   }
 }
 
-::selection{
-  background-color: #0099ff39;
+::selection {
+  color: #f0f0f0;
+  background: #000000dc;
 }
 
 /* Add this CSS to your styles.css or equivalent */
@@ -111,9 +154,11 @@ button:focus-visible {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
@@ -121,4 +166,44 @@ button:focus-visible {
 
 .ping-pong {
   animation: pingPong 0.175s ease-in-out;
+}
+
+.quill,
+.editor {
+  /* overflow: hidden; */
+  border-radius: 12px;
+}
+
+.ql-snow {
+  background-color: #fff;
+}
+
+.ql-editor {
+  gap: 0px;
+  background-color: #fff;
+  padding: 12px;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.ql-editor * {
+  font-family: "TTHoves", sans-serif;
+  color: #1a1a1a;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  border: 2px solid #1c64f2;
+}
+
+.laptop-screen {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }

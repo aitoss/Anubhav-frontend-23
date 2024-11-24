@@ -44,17 +44,15 @@ body {
 
 /* scroll-bar */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
   background-color: #ffffff;
-  position: absolute;
-  right: 0;
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background-color: #d9d9d9;
-  border: 3px solid transparent;
-  background-clip: content-box;
+  border: 2px solid #ffffff;
+  background-color: #777;
+  border-radius: 8px;
 }
 
 * {

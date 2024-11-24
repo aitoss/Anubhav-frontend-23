@@ -3,6 +3,7 @@ import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
 import { useNavigate } from "react-router-dom";
 import { BACKEND_URL } from '../../constants';
+import { X } from 'lucide-react';
 
 const Search = ({ mode, focus, full }) => {
   const navigate = useNavigate();
@@ -11,6 +12,11 @@ const Search = ({ mode, focus, full }) => {
   const [recentSearches, setRecentSearches] = useState([]);
   const inputRef = useRef(null);
   const [popularSearches, setPopularSearches] = useState([]);
+
+  useEffect(() => {
+    const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+    setRecentSearches(storedSearches);
+  }, []);
 
   useEffect(() => {
     if (focus) {
@@ -43,16 +49,37 @@ const Search = ({ mode, focus, full }) => {
     };
   }, []);
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (event) => {
     if (searchText.trim() !== "") {
-      const updatedSearches = [...recentSearches, searchText];
+      let updatedSearches;
+      if (recentSearches.includes(searchText)) {
+        updatedSearches = recentSearches.filter(item => item !== searchText);
+        updatedSearches.push(searchText);
+      } else {
+        updatedSearches = [...recentSearches, searchText];
+      }
+
+      const limitedSearches = updatedSearches.slice(-10);
+      setRecentSearches(limitedSearches);
+
+      localStorage.setItem('recentSearches', JSON.stringify(limitedSearches));
+
+      inputRef.current.value = searchText;
+      inputRef.current.blur();
+      navigate('/search?query=' + searchText);
+    }
+  };
+
+  const directSearchFunction = (company) => {
+    if (company.trim() !== "") {
+      const updatedSearches = [...recentSearches, company];
       const limitedSearches = updatedSearches.slice(-10);
       setRecentSearches(limitedSearches);
       // setSearchText("");
       // focus out
-      inputRef.current.value = searchText;
+      inputRef.current.value = company;
       inputRef.current.blur();
-      navigate('/search?query=' + searchText);
+      navigate('/search?query=' + company);
     }
   };
 
@@ -96,7 +123,7 @@ const Search = ({ mode, focus, full }) => {
     if (searchText.length > 2) {
       debouncedFetchSuggestions(searchText);
     } else {
-      setPopularSearches(["Google STEP", "Microsoft SDE Intern"]);
+      setPopularSearches(["Google", "Microsoft"]);
     }
   }, [searchText, debouncedFetchSuggestions]);
 
@@ -105,11 +132,13 @@ const Search = ({ mode, focus, full }) => {
   };
 
   const handleSuggestionClick = (company) => {
-    setSearchText(company);
+    directSearchFunction(company);
   };
 
   const handleRemove = (index) => {
-    setRecentSearches(recentSearches.filter((_, i) => i !== index));
+    const updatedSearches = recentSearches.filter((_, i) => i !== index);
+    setRecentSearches(updatedSearches);
+    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
   };
 
   const containerClass = mode === "dark" ? "bg-[#212121] text-[#ffffffcc]" : "bg-[#fff] text-[#212121]";
@@ -151,16 +180,19 @@ const Search = ({ mode, focus, full }) => {
               />
             </svg>
           </div>
-          <input
-            ref={inputRef}
-            className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
-            type=''
-            placeholder="Search for your Dreams.."
-            value={searchText}
-            onKeyDown={handleClose}
-            onChange={handleChange}
-            onClick={() => setIsExpanded(true)}
-          />
+          <form onSubmit={handleSearchSubmit}>
+            <input
+              ref={inputRef}
+              id="search-input"
+              className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
+              type=''
+              placeholder="Search for your Dreams.."
+              value={searchText}
+              onKeyDown={handleClose}
+              onChange={handleChange}
+              onClick={() => setIsExpanded(true)}
+            />
+          </form>
           <div className={`border-[1.5px] ${borderClass} text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] `}>
             ⌘K
           </div>
@@ -194,26 +226,26 @@ const Search = ({ mode, focus, full }) => {
                   .slice(0)
                   .reverse()
                   .map((search, index) => (
-                    <div className={`px-4 py-2 flex flex-row w-full justify-between items-center ${hoverClass}`} key={index}>
-
-                      <div className="flex justify-center items-center gap-2 cursor-pointer" onClick={() => handleSuggestionClick(search)}>
+                    <div className={`flex flex-row w-full justify-between items-center px-4 ${hoverClass}`} key={index}>
+                      <div className="flex justify-start items-center gap-2 cursor-pointer  py-2  w-full" onClick={() => handleSuggestionClick(search)}>
                         <svg
-                          className="w-[20px]"
+                          className="w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           fill="#9a9a9a"
                         >
                           <path d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12H4C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C9.25022 4 6.82447 5.38734 5.38451 7.50024L8 7.5V9.5H2V3.5H4L3.99989 5.99918C5.82434 3.57075 8.72873 2 12 2ZM13 7L12.9998 11.585L16.2426 14.8284L14.8284 16.2426L10.9998 12.413L11 7H13Z"></path>
                         </svg>
-                        <div className=" w-[400px]">{search}</div>
+                        <div className="flex-grow truncate">{search}</div>
                       </div>
                       <span
                         className="hover:underline hover:cursor-pointer"
                         onClick={() => handleRemove(recentSearches.length - index - 1)}
                       >
-                        Remove
+                        <X size={16} />
                       </span>
                     </div>
+
                   ))}
               </>
             )}

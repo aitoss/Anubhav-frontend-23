@@ -31,14 +31,14 @@ const SuccessMessage = ({ requestSend, setRequestSend }) => {
           exit={{ opacity: 0, translateY: 100 }}
           transition={{ duration: 0.15, delay: 0.0 }}
         >
-          <div className="z-50 absolute top-20 flex items-start overflow-hidden justify-center h-full w-full ">
+          <div className="z-50 fixed top-[60px] flex items-start overflow-hidden justify-center h-full w-full">
             <div
               id="toast-success"
-              className="relative overflow-hidden z-50 w-full flex justify-center items-center flex-col border-[1px] max-w-xs p-3 text-gray-500 bg-white rounded-lg  shadow-lg shadow-[rgba(0,0,0,0.05)] dark:text-gray-400 dark:bg-gray-800"
+              className="relative overflow-hidden z-50 w-full flex justify-center items-center flex-col border-[1px] max-w-xs p-3 text-gray-500 bg-white rounded-lg shadow-lg shadow-[rgba(0,0,0,0.05)] dark:text-gray-400 dark:bg-gray-800"
               role="alert"
             >
               <div className="flex flex-row justify-between w-full items-center">
-                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg  dark:bg-green-800 dark:text-green-200">
+                <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
                   <svg
                     className="w-5 h-5"
                     aria-hidden="true"
@@ -76,7 +76,7 @@ const SuccessMessage = ({ requestSend, setRequestSend }) => {
                 </button>
               </div>
               <motion.div
-                className="z-50 h-[2.5px] w-full bottom-0 absolute bg-[#a1a1a1]  rounded-b-lg"
+                className="z-50 h-[2.5px] w-full bottom-0 absolute bg-[#a1a1a1] rounded-b-lg"
                 initial={{ x: 0 }} // Initially, the timer line is at the rightmost position
                 animate={controls} // Animate the movement of the timer line
               />

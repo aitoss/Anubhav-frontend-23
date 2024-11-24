@@ -7,11 +7,11 @@ import Blog from "../components/BlogSection/Blog";
 
 const ViewBlog = () => {
   return (
-    <>
+    <div className="bg-white">
       <Navbar />
       <Blog />
       <Footer />
-    </>
+    </div>
   );
 };
 

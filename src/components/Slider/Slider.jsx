@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Style.css";
-import { Helmet } from "react-helmet";
 import adobe from "../../assets/company logo/adobe.svg";
 import amazon from "../../assets/company logo/amazon.svg";
 import atlassian from "../../assets/company logo/atlassian.svg";
@@ -10,6 +9,10 @@ import google from "../../assets/company logo/google.svg";
 import masterCard from "../../assets/company logo/masterCard.svg";
 import microsoft from "../../assets/company logo/microsoft.svg";
 import uber from "../../assets/company logo/uber.svg";
+
+const logos = [
+  adobe, amazon, atlassian, DeutscheBank, cisco, google, masterCard, microsoft, uber,
+];
 
 const Slider = () => {
   useEffect(() => {
@@ -22,40 +25,21 @@ const Slider = () => {
   }, []);
 
   return (
-    <>
-      <div className="w-screen max-w-[1440px]">
-        <div className="logos">
-          <div className="logos-slide">
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={uber} alt="" srcSet="" />
-            <img src={adobe} alt="" srcSet="" />
-            <img src={amazon} alt="" srcSet="" />
-            <img src={atlassian} alt="" srcSet="" />
-            <img src={DeutscheBank} alt="" srcSet="" />
-            <img src={cisco} alt="" srcSet="" />
-            <img src={google} alt="" srcSet="" />
-            <img src={masterCard} alt="" srcSet="" />
-            <img src={microsoft} alt="" srcSet="" />
-            <img src={uber} alt="" srcSet="" />
-          </div>
+    <div className="w-screen max-w-[1440px]">
+      <div className="logos">
+        <div className="logos-slide">
+          {logos.concat(logos).map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Logo ${index}`}
+              draggable="false"
+              className="select-none"
+            />
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

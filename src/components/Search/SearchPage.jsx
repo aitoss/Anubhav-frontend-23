@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavbarMini from "../Navbar/NavbarMini";
 import BlogCard from "../BlogSection/BlogCard";
 import "./SearchPage.css";
@@ -7,7 +7,7 @@ import Filter from "../Filter/Filter";
 import axios from "axios";
 import { BACKEND_URL } from "../../constants";
 import { useSearchParams } from "react-router-dom";
-import company from "../../assets/images/company.png";
+import companyLogo from "/assets/images/company.png";
 import { ReadTime, formatDate } from "../../services/date";
 import SearchCardLoading from "./SearchCardLoading";
 
@@ -18,21 +18,12 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-
-  useEffect(() => {
-    const fetchSearchValue = async () => {
-      const query = searchParams.get('query');
-      if (query) {
-        setArticles([]);
-        setPage(1);
-        fetchArticles(query, 1);
-      }
-    };
-
-    fetchSearchValue();
-  }, [searchParams]);
+  const [company, setCompany] = useState([]);
+  const [headerName, setHeaderName] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   const [filterPopUp, setFilterPopUp] = useState(false);
+  const loadMoreRef = useRef(null);
 
   const openFilterPopup = () => {
     setFilterPopUp(true);
@@ -42,13 +33,41 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
+  const fetchLatestArticles = async (endPoint, page) => {
+    setLoading(true);
+    try {
+      const res = await axios.get(`${BACKEND_URL}${endPoint}?page=${page}`);
+      const data = res.data.articles;
+
+      if (page === 1) {
+        setArticles(data);
+      } else {
+        setArticles((prevArticles) => [...prevArticles, ...data]);
+      }
+
+      setHasMore(res.data.hasMore);
+    } catch (error) {
+      console.log("Failed to fetch articles", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const fetchArticles = async (query, page) => {
     setLoading(true);
     const params = { q: query, page, limit: 10 };
+    console.log("params", params);
+
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
-      setArticles(prevArticles => [...prevArticles, ...newArticles]);
+
+      if (page === 1) {
+        setArticles([...newArticles]);
+      } else {
+        setArticles(prevArticles => [...prevArticles, ...newArticles]);
+      }
+
       setHasMore(newArticles.length === 10);
     } catch (error) {
       console.error("Failed to fetch articles", error);
@@ -57,23 +76,70 @@ const SearchPage = () => {
     }
   };
 
+  const countCompany = async () => {
+    try {
+      const res = await axios.get(BACKEND_URL + "/countCompanies");
+      setCompany(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    countCompany();
+  }, []);
+
+  useEffect(() => {
+    const query = searchParams.get('query');
+    setIsSearching(!!query);
+
+    if (query) {
+      setArticles([]);
+      setPage(1);
+      fetchArticles(query, 1);
+    } else {
+      fetchLatestArticles("/blogs", page);
+    }
+  }, [searchParams, page]);
+
   const handleShowMore = () => {
     const query = searchParams.get('query');
     if (query) {
       fetchArticles(query, page + 1);
-      setPage(prevPage => prevPage + 1);
+    } else {
+      fetchLatestArticles("/blogs", page + 1);
     }
+    setPage(prevPage => prevPage + 1);
   };
+
+  useEffect(() => {
+    if (!loadMoreRef.current || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          handleShowMore();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.observe(loadMoreRef.current);
+
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, [hasMore, loadMoreRef.current]);
 
   return (
     <>
-      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} />}
+      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />}
       <NavbarMini />
       <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
-        <div className="w-full flex gap-8 h-full">
-          <div className="section-left w-full flex flex-col gap-2 h-full">
+        <div className="w-full flex gap-10 h-full">
+          <div className="section-left w-full flex flex-col gap-2 h-full max-w-5xl">
             <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for "{decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " "))}"</h3>
+              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {headerName ? headerName : (isSearching ? decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " ")) : "Latest Blogs")}</h3>
               <svg
                 onClick={() => openFilterPopup()}
                 className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
@@ -101,6 +167,7 @@ const SearchPage = () => {
                 />
               </svg>
             </div>
+
             {loading && articles.length === 0 ? (
               <>
                 <SearchCardLoading />
@@ -113,10 +180,10 @@ const SearchPage = () => {
               articles.map((item) => (
                 <BlogCard
                   key={item._id}
-                  id={item._id} // Pass the id to BlogCard
+                  id={item._id}
                   link={`/blog/${item._id}`}
                   Title={item.title}
-                  imagesrc={item.imageUrl === "your_image_url_here" ? company : item.imageUrl}
+                  imagesrc={item.imageUrl === "your_image_url_here" ? companyLogo : item.imageUrl}
                   author={item.author?.name}
                   company={item.companyName}
                   data={item.description}
@@ -125,19 +192,18 @@ const SearchPage = () => {
                 />
               ))
             )}
+
             {hasMore && !loading && (
-              <div onClick={handleShowMore} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
-                Show More
-                <svg className='rotate-90 group-hover:translate-y-2 transition-all duration-300' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                  <path d="M4 10.0699L15 10.0699" stroke='#212121' strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                </svg>
+              <div ref={loadMoreRef} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
+                Loading more...
               </div>
             )}
+
             {loading && articles.length > 0 && <SearchCardLoading />}
+            <br /><br />
           </div>
           <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
-            <Filter />
+            <Filter company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />
           </div>
         </div>
       </div>

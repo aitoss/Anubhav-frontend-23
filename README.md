@@ -9,6 +9,20 @@ Welcome to the Anubhav Frontend repository! This project is part of the Anubhav 
 
 Anubhav: Experience Sharing Point (A-ESP) is a platform developed for AITians to read & share encounters of various interviews.
 
+## Contents
+
+1. [Highlights](#highlights)
+2. [Installation](#installation)
+3. [Contributing](#contributing)
+4. [Copyright](#copyright)
+
+## Highlights
+
+* Anyone can share his/her experience of an interview to help students.
+* Students who know someone and want his/her interview experience can request by providing a few details.
+* Writing anonymously is also possible on Anubhav.
+* In the future, we would extend this platform more than just Interview Experiences by adding more helpful features.
+
 ## Installation
 
 To get started with the Anubhav Frontend, follow these steps:
@@ -39,26 +53,11 @@ npm run dev
 
 ## Contributing
 
-We welcome contributions from the community. If you'd like to contribute to the project, please follow these guidelines:
+If you'd like to contribute to this project, refer to the [contributing documentation](./CONTRIBUTING.md).
 
-1. Fork the repository.
+<hr>
 
-2. Create a new branch for your feature or bug fix:
+## Copyright 
+If you are thinking to use this application for your community/college, We would love to see AIT OSS CLUB mention at your hosted application.
 
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. Make your changes and commit them:
-
-```bash
-git commit -m "Add your feature or bug fix"
-```
-
-4. Push your changes to your fork:
-
-```bash
-git push origin feature/your-feature-name
-```
-
-5. Create a pull request to the main branch of this repository.
+Made with ❤ by [OSS Club](https://aitoss.club). 
