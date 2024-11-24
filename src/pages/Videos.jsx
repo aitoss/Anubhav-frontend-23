@@ -5,9 +5,10 @@ import YoutubeCard from "../components/Video/YoutubeCard";
 import { useInView } from "react-intersection-observer";
 import MaskText from "../components/ui/maskText";
 import YoutubeCardLoading from "../components/Video/YoutubeCardLoading";
+import BackgroundDots from "../assets/Background";
 const Videos = () => {
   const [youtubeData, setYoutubeData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,7 +21,7 @@ const Videos = () => {
       })
       .then((data) => {
         setYoutubeData(data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((error) => console.error("Error loading video data:", error));
   }, []);
@@ -36,11 +37,17 @@ const Videos = () => {
 
   return (
     <>
-      <div className="my-20 flex flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className="text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl">
-            <MaskText textPhrase={["Videos"]} />
-          </h1>
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
+      <div className="mx-auto flex min-h-screen flex-col">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-centerF px-4 py-6 pt-24 text-center sm:px-6 lg:px-6">
+          <h2 className="mb-4 text-4xl font-[600] tracking-tight">Videos</h2>
           <div className="flex w-screen flex-wrap justify-center gap-4 align-bottom x-sm:px-6">
             {tagsData.map((tag, index) => {
               return <AnimatedTags key={index} name={tag} />;
@@ -95,7 +102,7 @@ const AnimatedTags = ({ name }) => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
     >
       <Tag name={name} />
     </motion.div>
@@ -121,7 +128,7 @@ const AnimatedYoutubeCard = ({ title, img, link, description, tags }) => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <YoutubeCard
         title={title}

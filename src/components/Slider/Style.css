@@ -26,12 +26,12 @@
 
 .logos:before {
   left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), #f9f9f9);
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), #f7f7f8);
 }
 
 .logos:after {
   right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), #f9f9f9);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #f7f7f8);
 }
 
 /* .logos:hover .logos-slide {
@@ -44,7 +44,7 @@
 }
 
 .logos-slide img {
-  height: 50px;
-  margin: 0 40px;
+  height: 35px;
+  margin: 0 30px;
   display: inline-block;
 }

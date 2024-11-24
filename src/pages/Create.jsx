@@ -13,7 +13,7 @@ import SubmittedCard from "../components/Create/SubmittedCard";
 import PreviewPage from "../components/Create/PreviewPage";
 import useErrorToast from "../hooks/useErrorToast";
 import DragAndDropImageUpload from "../components/Create/DragAndDropImageUpload";
-
+import BackgroundDots from "../assets/Background";
 
 const Create = () => {
   const initialState = {
@@ -107,6 +107,14 @@ const Create = () => {
   return (
     <>
       <Navbar />
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
       {isSubmitted && <SubmittedCard />}
       {isVisible && (
         <p className="relative flex w-full items-center justify-center bg-white/40 pb-1 pt-16 text-[#212121] x-sm:text-sm">
@@ -179,7 +187,7 @@ const Create = () => {
             setFile={setFile}
             bannerImage={bannerImage}
             setbannerImage={setbannerImage}
-            DragAndDropImageUpload={DragAndDropImageUpload} 
+            DragAndDropImageUpload={DragAndDropImageUpload}
             errors={errors}
           />
         )}
@@ -198,7 +206,7 @@ const Create = () => {
             tags={tags}
           />
         )}
-        <div className="flex w-[90%] justify-between gap-4 lg:w-[70%] pb-4">
+        <div className="flex w-[90%] justify-between gap-4 pb-4 lg:w-[70%]">
           {step > 1 && (
             <div
               onClick={handleBack}

@@ -13,7 +13,7 @@ import SearchCardLoading from "./SearchCardLoading";
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -65,7 +65,7 @@ const SearchPage = () => {
       if (page === 1) {
         setArticles([...newArticles]);
       } else {
-        setArticles(prevArticles => [...prevArticles, ...newArticles]);
+        setArticles((prevArticles) => [...prevArticles, ...newArticles]);
       }
 
       setHasMore(newArticles.length === 10);
@@ -90,7 +90,7 @@ const SearchPage = () => {
   }, []);
 
   useEffect(() => {
-    const query = searchParams.get('query');
+    const query = searchParams.get("query");
     setIsSearching(!!query);
 
     if (query) {
@@ -103,13 +103,13 @@ const SearchPage = () => {
   }, [searchParams, page]);
 
   const handleShowMore = () => {
-    const query = searchParams.get('query');
+    const query = searchParams.get("query");
     if (query) {
       fetchArticles(query, page + 1);
     } else {
       fetchLatestArticles("/blogs", page + 1);
     }
-    setPage(prevPage => prevPage + 1);
+    setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const SearchPage = () => {
           handleShowMore();
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0 },
     );
 
     observer.observe(loadMoreRef.current);
@@ -133,16 +133,36 @@ const SearchPage = () => {
 
   return (
     <>
-      {filterPopUp && <FilterPopUp closeFilterPopUp={closeFilterPopUp} company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />}
+      {filterPopUp && (
+        <FilterPopUp
+          closeFilterPopUp={closeFilterPopUp}
+          company={company}
+          fetchArticles={fetchArticles}
+          setHeaderName={setHeaderName}
+        />
+      )}
       <NavbarMini />
-      <div className="pt-24 px-8 md:px-4 lg:px-14 2xl:px-28 h-full">
-        <div className="w-full flex gap-10 h-full">
-          <div className="section-left w-full flex flex-col gap-2 h-full max-w-5xl">
-            <div className="flex w-full justify-between items-center">
-              <h3 className="font-[400] text-2xl">{articles.length} Articles found for {headerName ? headerName : (isSearching ? decodeURIComponent(searchParams.toString().substring(6).replace(/\+/g, " ")) : "Latest Blogs")}</h3>
+      <div className="h-full px-8 pt-24 md:px-4 lg:px-14 2xl:px-28">
+        <div className="flex h-full w-full gap-10">
+          <div className="section-left flex h-full w-full max-w-5xl flex-col gap-2">
+            <div className="flex w-full items-center justify-between">
+              <h3 className="text-2xl font-[500]">
+                {!isSearching
+                  ? "Recent Stories"
+                  : `${articles.length} Articles found for ${
+                      headerName
+                        ? headerName
+                        : decodeURIComponent(
+                            searchParams
+                              .toString()
+                              .substring(6)
+                              .replace(/\+/g, " "),
+                          )
+                    }`}
+              </h3>
               <svg
                 onClick={() => openFilterPopup()}
-                className="md:block hidden cursor-pointer border border-[#c1c1c1] hover:border-[#919191] transition-all rounded-lg p-[2px] w-7 h-7"
+                className="hidden h-7 w-7 cursor-pointer rounded-lg border border-[#c1c1c1] p-[2px] transition-all hover:border-[#919191] md:block"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -183,7 +203,11 @@ const SearchPage = () => {
                   id={item._id}
                   link={`/blog/${item._id}`}
                   Title={item.title}
-                  imagesrc={item.imageUrl === "your_image_url_here" ? companyLogo : item.imageUrl}
+                  imagesrc={
+                    item.imageUrl === "your_image_url_here"
+                      ? companyLogo
+                      : item.imageUrl
+                  }
                   author={item.author?.name}
                   company={item.companyName}
                   data={item.description}
@@ -194,16 +218,24 @@ const SearchPage = () => {
             )}
 
             {hasMore && !loading && (
-              <div ref={loadMoreRef} className="pt-4 group pb-8 cursor-pointer h-full flex flex-col justify-center items-center w-full text-[#212121]">
+              <div
+                ref={loadMoreRef}
+                className="group flex h-full w-full cursor-pointer flex-col items-center justify-center pb-8 pt-4 text-[#212121]"
+              >
                 Loading more...
               </div>
             )}
 
             {loading && articles.length > 0 && <SearchCardLoading />}
-            <br /><br />
+            <br />
+            <br />
           </div>
-          <div className="section-right md:hidden w-1/5 flex flex-col gap-2">
-            <Filter company={company} fetchArticles={fetchArticles} setHeaderName={setHeaderName} />
+          <div className="section-right flex w-1/5 flex-col gap-2 md:hidden">
+            <Filter
+              company={company}
+              fetchArticles={fetchArticles}
+              setHeaderName={setHeaderName}
+            />
           </div>
         </div>
       </div>

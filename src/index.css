@@ -25,6 +25,12 @@
   min-height: 100vh;
 }
 
+html {
+  scrollbar-color: #c9c9c9 transparent;
+  scrollbar-width: thin;
+  letter-spacing: -0.09px;
+}
+
 a {
   font-weight: 500;
   text-decoration: none;

@@ -1,27 +1,23 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
-import { useRef } from "react";
-import { motion } from "framer-motion";
+import { ArrowRightIcon } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import BackgroundDots from "../assets/Background";
 import SearchModal from "../components/Search/SearchModal";
 import Slider from "../components/Slider/Slider";
-import BackgroundDots from "../assets/Background";
 import { AnimatedTooltip } from "../components/Tooltip/tooltip";
-import MaskWrapper from "../components/ui/maskWrapper";
 import FadeWrapper from "../components/ui/fadeWrapper";
-import { Link } from "react-router-dom";
+import MaskWrapper from "../components/ui/maskWrapper";
 
 export default function HomeScreen() {
   const [OpenSearchModal, setOpenSearchModal] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const emailInputRef = useRef < HTMLInputElement > null;
   const inputRef = useRef(null);
   const people = [
     {
       id: 1,
       name: "Google",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
     },
     {
       id: 2,
@@ -83,8 +79,8 @@ export default function HomeScreen() {
   const DummySearch = () => {
     return (
       <>
-        <div className="search flex px-[4px] py-[1px] border-[1.5px] bg-[rgb(33,33,33)] border-[#414141] justify-center items-center gap-1 rounded-lg shadow-md shadow-[rgba(48,50,51,0.3)]">
-          <div className=" h-[32px] w-[32px] border-[1.5px] bg-[#313131] border-[#414141] rounded-lg p-1 cursor-pointer  flex justify-center items-center ">
+        <div className="search flex items-center justify-center gap-1 rounded-lg border-[1.5px] border-[#444] bg-[rgb(33,33,33)] px-[4px] py-[1px] shadow-md shadow-[rgba(48,50,51,0.3)]">
+          <div className="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-lg border-[1.5px] border-[#444] bg-[#313131] p-1">
             <svg
               width="24"
               height="24"
@@ -111,11 +107,11 @@ export default function HomeScreen() {
           <input
             ref={inputRef}
             onClick={handleClick}
-            className="bg-[#212121] px-3 h-[2.5rem] text-[#ffffffcc]  w-[350px] md:w-[280px] lg:w-[400px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)]"
+            className="h-[2.5rem] w-[350px] border-none bg-[#212121] px-3 font-[300] text-[#ffffffcc] outline-none placeholder:font-[300] placeholder:text-[rgba(255,255,255,0.6)] focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] placeholder:focus:outline-none md:w-[280px] lg:w-[400px]"
             type=""
             placeholder="Search for your Dreams.."
           />
-          <div className="border-[1.5px] border-[#414141] bg-[#313131] text-[#b9b9b9] p-1 h-[32px] w-[32px] flex justify-center items-center rounded-md font-[400] ">
+          <div className="flex h-[32px] w-[32px] items-center justify-center rounded-md border-[1.5px] border-[#444] bg-[#313131] p-1 font-[400] text-[#b9b9b9]">
             ⌘K
           </div>
         </div>
@@ -129,13 +125,15 @@ export default function HomeScreen() {
         <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1} />
       )}
       {/* <div className="h-16 w-screen md:h-8 pt-20"></div> */}
-      <div
-        className="relative flex flex-col w-full pt-20 lg:pb-20 justify-center items-center"
-        style={{
-          // backgroundImage: `url(${background2})`,
-          // backgroundPosition: "center",
-          // backgroundRepeat: "no-repeat",
-        }}
+      <main
+        className="relative flex w-full flex-col items-center justify-center pt-20 lg:pb-20"
+        style={
+          {
+            // backgroundImage: `url(${background2})`,
+            // backgroundPosition: "center",
+            // backgroundRepeat: "no-repeat",
+          }
+        }
       >
         <BackgroundDots
           dotSize={1.8}
@@ -145,78 +143,93 @@ export default function HomeScreen() {
           className="custom-class"
           fade={true}
         />
-        <div className="flex  flex-col gap-4 justify-center items-center p-7">
-
-          <h1 className="  text-8xl sm:text-7xl  lg:text-8xl  text-[#212121] tracking-wider flex justify-center font-[600]">
-            <FadeWrapper>
-              Anubhav
-            </FadeWrapper>
+        <section className="flex flex-col items-center justify-center gap-4 py-12">
+          <FadeWrapper>
+            <Link
+              to="/videos"
+              className="overflowhidden group relative flex cursor-pointer items-center justify-center rounded-full border border-[#ddd] p-1 pl-2 transition-colors duration-200"
+            >
+              <span className="spark mask-gradient animate-flip overflowhidden before:animate-rotate absolute inset-0 h-[100%] w-[100%] rounded-full [mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,#00a6ed_360deg)] before:content-[''] before:[translate:0%_-15%]" />
+              <span className="backdrop absolute inset-[1px] rounded-full bg-neutral-50 transition-colors duration-200 group-hover:bg-neutral-100" />
+              <span className="absolute inset-x-0 bottom-0 h-full w-full bg-gradient-to-tr from-neutral-500/10 blur-md"></span>
+              <span className="z-10 flex items-center justify-center gap-1 py-0.5 text-sm font-[500] text-[#212121]">
+                🎉 Video collection{" "}
+                <span className="flex size-full h-full w-fit items-center justify-center rounded-full bg-neutral-200/50 px-2 py-0.5 transition-all group-hover:bg-neutral-200">
+                  What's new
+                  <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+                </span>
+              </span>
+            </Link>
+          </FadeWrapper>
+          <h1 className="flex justify-center text-6xl font-[600] tracking-tighter text-[#212121] sm:text-[3rem] lg:text-7xl">
+            <FadeWrapper delay={0.05}>Success Stories</FadeWrapper>
           </h1>
-          <p className="text-3xl lg:text-4xl text-[#414141]  flex justify-center">
+          <p className="flex justify-center text-lg font-[500] text-[#444] lg:text-xl">
             <FadeWrapper delay={0.1}>
-              Stories of Success
+              Discover Inspiring Interview Experiences
             </FadeWrapper>
           </p>
           <FadeWrapper delay={0.15}>
             <div className="flex items-center gap-4">
               <div className="flex">
                 <AnimatedTooltip items={people} />
-                <div className="w-12 h-12 z-10 flex justify-center text-sm items-center font-[500] bg-white text-[#414141]  rounded-full border-4 border-white shadow-lg shadow-[#0000001d] p-4">
+                <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-white p-4 text-sm font-[500] text-[#444] shadow-lg shadow-[#0000001d]">
                   200+
                 </div>
               </div>
-              <p className="text-xl text-[#414141] font-[500] ">
-                Articles written
-              </p>
+              <p className="text-xl font-[500] text-[#444]">Articles written</p>
             </div>
           </FadeWrapper>
           <FadeWrapper delay={0.2}>
             <DummySearch />
           </FadeWrapper>
           <FadeWrapper delay={0.25}>
-            <Link to='/search'>
-              <h3 className="hover:border-[#777] leading-3 pt-4 flex items-center justify-center group border-b border-[#f9f9f9]">Read Articles  <div className="relative w-4 h-4 flex items-center">
-                <svg
-                  className="h-4 w-4 absolute transition-all group-hover:translate-x-1 group-hover:opacity-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#212121"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  height="16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"
-                  ></path>
-                </svg>
-                <svg
-                  className="h-4 w-4 absolute opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="#212121"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  height="16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"
-                  ></path>
-                </svg>
-              </div> </h3>
+            <Link to="/search">
+              <h3 className="group flex items-center justify-center border-b border-[#f9f9f9] pt-4 leading-3 hover:border-[#777]">
+                Read Articles{" "}
+                <div className="relative flex h-4 w-4 items-center">
+                  <svg
+                    className="absolute h-4 w-4 transition-all group-hover:translate-x-1 group-hover:opacity-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#212121"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"
+                    ></path>
+                  </svg>
+                  <svg
+                    className="absolute h-4 w-4 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#212121"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"
+                    ></path>
+                  </svg>
+                </div>{" "}
+              </h3>
             </Link>
           </FadeWrapper>
-        </div>
-        <div className="w-full pt-24 flex flex-col items-center">
+        </section>
+        <section className="flex w-full flex-col items-center pt-16">
           <MaskWrapper>
-            <h1 className="text-black text-[30px] x-sm:text-[20px]">
+            <h1 className="text-[30px] text-black x-sm:text-[20px]">
               Exploring <span className="font-[500]">The Interview Safari</span>
             </h1>
           </MaskWrapper>
           <MaskWrapper>
             <Slider />
           </MaskWrapper>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }

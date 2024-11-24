@@ -9,6 +9,7 @@ import ErrorMessage from "../components/notification/ErrorMessage";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import ButtonV5 from "../components/ui/buttonv5";
 import Spinner from "../assets/Spinner";
+import BackgroundDots from "../assets/Background";
 
 const RequestArticle = () => {
   const initialState = {
@@ -81,12 +82,20 @@ const RequestArticle = () => {
 
   return (
     <>
-          <ErrorMessage error={error} />
+      <ErrorMessage error={error} />
       <SuccessMessage
         requestSend={requestSend}
         setRequestSend={setRequestSend}
       />
       <Navbar />
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
       <div className="flex h-screen flex-col items-center justify-start overflow-hidden">
         <div
           className="mx-auto flex flex-col items-center justify-center gap-3 overflow-hidden pt-32"
@@ -142,7 +151,7 @@ const RequestArticle = () => {
                             placeholder="Name"
                             value={value.name}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -162,7 +171,7 @@ const RequestArticle = () => {
                             placeholder="College mail ID"
                             value={value.email}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -194,7 +203,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s name"
                             value={value.seniorName}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -214,7 +223,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s any social media link"
                             value={value.link}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -234,7 +243,7 @@ const RequestArticle = () => {
                             list="companySuggestions"
                             value={value.company}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                         {/* <datalist id="companySuggestions">
@@ -259,7 +268,7 @@ const RequestArticle = () => {
                             placeholder="Personal note"
                             value={value.note}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -283,8 +292,7 @@ const RequestArticle = () => {
                     <ButtonV5 icon={false}>
                       {isLoading ? (
                         <div className="flex items-center justify-center gap-1">
-                          &nbsp;
-                          Processing <Spinner />
+                          &nbsp; Processing <Spinner />
                         </div>
                       ) : (
                         <div className="flex items-center justify-center gap-1">

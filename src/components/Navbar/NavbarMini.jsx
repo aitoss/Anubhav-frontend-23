@@ -67,7 +67,7 @@ const NavbarMini = () => {
         <div className="m-auto flex h-full w-full max-w-[1400px] items-center justify-between">
           <div className="flex w-full items-center justify-between px-1 lg:px-8">
             <div className="flex items-center justify-center gap-2">
-              <Link to="/" className="p-2">
+              <Link to="/" className="">
                 <img className="w-10" src={logo} alt="" />
               </Link>
               <div className="block md:hidden">

@@ -53,9 +53,39 @@ const Navbar = () => {
       <nav className={navClasses} aria-label="Global">
         <div className="m-auto flex h-full w-full max-w-[1400px] items-center justify-between">
           <div className="flex w-full items-center justify-between px-1 lg:px-8">
-            <Link to="/" className="p-2">
-              <img className="w-10" src={logo} alt="" />
-            </Link>
+            <div className="flex items-center justify-center gap-12">
+              <Link to="/" className="flex items-center justify-center gap-1">
+                <img className="w-10" src={logo} alt="" />
+                <h4 className="text-3xl font-[600] tracking-tighter">
+                  anubhav
+                </h4>
+              </Link>
+              <div
+                to="/"
+                className="flex items-center justify-center gap-1 md:hidden"
+              >
+                <NavLink to="/videos">
+                  <div className="flex rounded-lg px-2 py-0 text-base font-[500] text-[#212121] transition-all hover:bg-[#efefef] hover:py-1">
+                    Videos
+                  </div>
+                </NavLink>
+                <NavLink to="/team">
+                  <div className="flex rounded-lg px-2 py-0 text-base font-[500] text-[#212121] transition-all hover:bg-[#efefef] hover:py-1">
+                    Team
+                  </div>
+                </NavLink>
+                <NavLink to="/story">
+                  <div className="flex rounded-lg px-2 py-0 text-base font-[500] text-[#212121] transition-all hover:bg-[#efefef] hover:py-1">
+                    About
+                  </div>
+                </NavLink>
+                <NavLink to="https://github.com/aitoss/Anubhav-frontend-23" target="_blank">
+                  <div className="flex rounded-lg px-2 py-0 text-base font-[500] text-[#212121] transition-all hover:bg-[#efefef] hover:py-1">
+                    GitHub
+                  </div>
+                </NavLink>
+              </div>
+            </div>
             <div className="flex items-center justify-center gap-2">
               <NavLink to="/request">
                 <ButtonV5 icon={false} color="#f6f8fb">

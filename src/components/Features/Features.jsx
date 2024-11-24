@@ -119,7 +119,7 @@ const Features = () => {
                 <FadeWrapper delay={0.05}>
                   <Avatar
                     Name="Lokendra Kushwah"
-                    borderColor="border-[#FE7D54]"
+                    borderColor="border-[#313131]"
                     className="z-20"
                     src="https://avatars.githubusercontent.com/u/118094744"
                   />
@@ -137,10 +137,10 @@ const Features = () => {
                 <Pointer
                   className="absolute left-[20%] top-[6%] translate-x-0 transition-all duration-500 group-hover:translate-x-[20%] md-2xl:left-[10%] x-sm:top-[0%]"
                   title="Lokendra Kushwah"
-                  cursorColor="text-[#FE7D54]"
-                  strokeColor="stroke-[#E85E32]"
-                  color="bg-[#FE7D54]"
-                  borderColor="border-[#E85E32]"
+                  cursorColor="text-[#313131]"
+                  strokeColor="stroke-[#121212]"
+                  color="bg-[#313131]"
+                  borderColor="border-[#121212]"
                 />
                 <Pointer
                   className="absolute bottom-[40%] left-[10%] translate-x-0 transition-all duration-[400ms] group-hover:-translate-y-[40%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"
