@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Upload from "../../src/assets/images/upload.svg";
+import Upload from "../../../src/assets/images/upload.svg";
 
 const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -69,12 +69,14 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
             <img
               src={URL.createObjectURL(file)}
               alt="Preview"
-              className="h-full w-full rounded-full object-cover"
+              draggable="false"
+              className="h-full w-full select-none rounded-full object-cover"
             />
           ) : (
             <img
-              className="h-[150px] w-[150px] cursor-pointer sm:h-24 sm:w-24"
+              className="h-[150px] w-[150px] cursor-pointer select-none sm:h-24 sm:w-24"
               src={Upload}
+              draggable="false"
               onClick={(e) => {
                 inputRef.current.click();
                 e.preventDefault();

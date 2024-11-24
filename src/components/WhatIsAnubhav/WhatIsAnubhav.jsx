@@ -158,7 +158,7 @@ const Card2 = ({ title, description, imageURL }) => (
 
 const WhatIsAnubhav = () => {
   return (
-    <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
+    <section className="flex flex-col items-center justify-center bg-[#f9f9f9] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
         <div className="mx-auto flex w-full lg:flex-row items-center justify-center gap-8 flex-col">
           <div className="flex lg:w-1/2 lg:h-[450px] justify-between w-full flex-col">

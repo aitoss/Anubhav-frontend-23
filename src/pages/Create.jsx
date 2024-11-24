@@ -12,7 +12,7 @@ import WriteHere from "../components/Create/WriteHere";
 import SubmittedCard from "../components/Create/SubmittedCard";
 import PreviewPage from "../components/Create/PreviewPage";
 import useErrorToast from "../hooks/useErrorToast";
-import DragAndDropImageUpload from "../pages/DragAndDropImageUpload";
+import DragAndDropImageUpload from "../components/Create/DragAndDropImageUpload";
 
 
 const Create = () => {
@@ -120,7 +120,7 @@ const Create = () => {
 
       <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-4">
         {/* Progress Bar */}
-        <div className="relative z-0 mt-4 h-12 w-[90%] border border-[#d3ddeb] bg-[#f7f7f8] md:w-[90%] md:text-[14px] lg:w-[70%] xl:w-[50%]">
+        <div className="relative z-0 mt-4 h-12 w-[90%] border border-[#d3ddeb] bg-[#f9f9f9] md:w-[90%] md:text-[14px] lg:w-[70%] xl:w-[50%]">
           <div className="absolute inset-0 left-1/3 z-[99] w-3">
             <svg
               class="h-full w-full text-slate-300"

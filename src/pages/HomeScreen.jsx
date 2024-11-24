@@ -139,9 +139,9 @@ export default function HomeScreen() {
       >
         <BackgroundDots
           dotSize={1.8}
-          dotColor="#c9c9c9"
+          dotColor="#cbcbcc"
           backgroundColor=""
-          gap={20}
+          gap={15}
           className="custom-class"
           fade={true}
         />
@@ -175,7 +175,7 @@ export default function HomeScreen() {
           </FadeWrapper>
           <FadeWrapper delay={0.25}>
             <Link to='/search'>
-              <h3 className="hover:border-[#777] leading-3 pt-4 flex items-center justify-center group border-b border-[#f7f7f8]">Read Articles  <div className="relative w-4 h-4 flex items-center">
+              <h3 className="hover:border-[#777] leading-3 pt-4 flex items-center justify-center group border-b border-[#f9f9f9]">Read Articles  <div className="relative w-4 h-4 flex items-center">
                 <svg
                   className="h-4 w-4 absolute transition-all group-hover:translate-x-1 group-hover:opacity-0"
                   xmlns="http://www.w3.org/2000/svg"

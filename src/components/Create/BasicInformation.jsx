@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import InputTag from "../InputTag/Usertag";
 
 const BasicInformation = ({
@@ -18,7 +18,7 @@ const BasicInformation = ({
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
-  
+
   const UserImage = () => {
     return (
       <>
@@ -27,20 +27,19 @@ const BasicInformation = ({
             Banner Image *
           </h3>
           <div className="border-[rgba(0, 0, 0, 0.15)] flex h-[90%] w-full flex-col items-center justify-center gap-2 rounded-xl border-[2px] border-dashed bg-white md:w-full">
-          <DragAndDropImageUpload
-            file={file}
-            setFile={setFile}
-            setbannerImage={setbannerImage}
+            <DragAndDropImageUpload
+              file={file}
+              setFile={setFile}
+              setbannerImage={setbannerImage}
             />
           </div>
           {errors.file && (
-              <p className="py-1.5 px-1 text-sm text-red-500">{errors.file}</p>
-            )}
+            <p className="px-1 py-1.5 text-sm text-red-500">{errors.file}</p>
+          )}
         </div>
       </>
     );
   };
-  
 
   return (
     <div className="flex w-[100%] max-w-[100%] justify-center pt-4 md:h-[70%] md:w-[90%]">
@@ -65,7 +64,7 @@ const BasicInformation = ({
                     placeholder="Name"
                     value={value.name}
                     onChange={handleChange}
-                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43]  ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                   />
                   {errors.name && (
                     <p className="px-1 text-sm text-red-500">{errors.name}</p>
@@ -82,7 +81,7 @@ const BasicInformation = ({
                     placeholder="Email"
                     value={value.email}
                     onChange={handleChange}
-                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43]  ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                   />
                   {errors.email && (
                     <p className="px-1 text-sm text-red-500">{errors.email}</p>
@@ -103,7 +102,7 @@ const BasicInformation = ({
                     placeholder="Company's name"
                     value={value.company}
                     onChange={handleChange}
-                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43]  ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                   />
                   {errors.company && (
                     <p className="px-1 text-sm text-red-500">
@@ -120,7 +119,7 @@ const BasicInformation = ({
                     id="position"
                     value={value.position}
                     onChange={handleChange}
-                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43]  ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                    className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                   >
                     <option value="">Select Position</option>
                     <option value="Internship">Internship</option>
@@ -151,7 +150,7 @@ const BasicInformation = ({
                       placeholder="Blog Title"
                       value={value.title}
                       onChange={handleChange}
-                      className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43]  ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                      className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                     />
                     {errors.title && (
                       <p className="px-1 text-sm text-red-500">
@@ -166,7 +165,7 @@ const BasicInformation = ({
 
           <div className="flex h-full w-1/2 flex-col justify-between md:w-full">
             <UserImage />
-           
+
             <InputTag tags={tags} setTags={setTags} />
             {errors.tags && (
               <p className="px-1 text-sm text-red-500">{errors.tags}</p>
