@@ -147,10 +147,10 @@ export default function HomeScreen() {
           <FadeWrapper>
             <Link
               to="/videos"
-              className="overflowhidden group relative flex cursor-pointer items-center justify-center rounded-full border border-[#ddd] p-1 pl-2 transition-colors duration-200"
+              className="overflowhidden group bg-white relative flex cursor-pointer items-center justify-center rounded-full border border-[#ddd] p-1 pl-2 transition-colors duration-200"
             >
               <span className="spark mask-gradient animate-flip overflowhidden before:animate-rotate absolute inset-0 h-[100%] w-[100%] rounded-full [mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,#00a6ed_360deg)] before:content-[''] before:[translate:0%_-15%]" />
-              <span className="backdrop absolute inset-[1px] rounded-full bg-neutral-50 transition-colors duration-200 group-hover:bg-neutral-100" />
+              <span className="backdrop absolute inset-[1px] rounded-full bg-white transition-colors duration-200 group-hover:bg-neutral-50" />
               <span className="absolute inset-x-0 bottom-0 h-full w-full bg-gradient-to-tr from-neutral-500/10 blur-md"></span>
               <span className="z-10 flex items-center justify-center gap-1 py-0.5 text-sm font-[500] text-[#212121]">
                 🎉 Video collection{" "}
