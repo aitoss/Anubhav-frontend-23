@@ -105,8 +105,8 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
       <p className="text-gray-300">
         {file ? null : (
           <>
-            <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
-              JPG, JPEG, PNG file size no more than 10MB
+            <h1 className="text-center text-sm font-[400] selection:text-[#121212] text-[#777]">
+              JPG, JPEG, PNG file size no more than 73KB
             </h1>
             {/* <h1 className="text-center text-xs font-[400] text-[#322e2e]">
               Keep the image ratio to 280x180 px
