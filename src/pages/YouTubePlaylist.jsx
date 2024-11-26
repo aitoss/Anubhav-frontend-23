@@ -15,7 +15,7 @@ const YouTubePlaylist = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
 
     const fetchPlaylistItems = async () => {
       try {
@@ -24,7 +24,7 @@ const YouTubePlaylist = () => {
           {
             params: {
               part: "snippet",
-              maxResults: 15,
+              maxResults: 25,
               playlistId: PLAYLIST_ID,
               key: API_KEY,
             },
@@ -80,35 +80,36 @@ const YouTubePlaylist = () => {
               </>
             ) : (
               <>
-                {youtubeData
-                  .slice()
-                  .reverse()
-                  .map((data) => {
-                    const { snippet } = data;
-                    if (
-                      !snippet ||
-                      !snippet.thumbnails ||
-                      !snippet.thumbnails.medium
-                    ) {
-                      return null;
-                    }
-                    const videoId = snippet.resourceId.videoId;
-                    const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
-                    const { title, description, tags = [] } = snippet;
-                    return (
-                      <YoutubeCard
-                        key={videoId}
-                        title={title}
-                        img={
-                          snippet.thumbnails.maxres?.url ||
-                          snippet.thumbnails.medium.url
-                        }
-                        link={videoLink}
-                        description={description}
-                        tags={tags}
-                      />
-                    );
-                  })}
+                {Array.isArray(youtubeData) &&
+                  youtubeData
+                    .slice()
+                    .reverse()
+                    .map((data) => {
+                      const { snippet } = data;
+                      if (
+                        !snippet ||
+                        !snippet.thumbnails ||
+                        !snippet.thumbnails.medium
+                      ) {
+                        return null;
+                      }
+                      const videoId = snippet.resourceId.videoId;
+                      const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
+                      const { title, description, tags = [] } = snippet;
+                      return (
+                        <YoutubeCard
+                          key={videoId}
+                          title={title}
+                          img={
+                            snippet.thumbnails.maxres?.url ||
+                            snippet.thumbnails.medium.url
+                          }
+                          link={videoLink}
+                          description={description}
+                          tags={tags}
+                        />
+                      );
+                    })}
               </>
             )}
           </div>
