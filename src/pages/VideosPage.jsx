@@ -10,7 +10,7 @@ const VideosPage = () => {
       <Navbar className="sticky top-0 z-50 bg-white" />
       <div className="flex-grow">
         <Videos />
-        <YouTubePlaylist />
+        {/* <YouTubePlaylist /> */}
       </div>
       <Footer />
     </div>

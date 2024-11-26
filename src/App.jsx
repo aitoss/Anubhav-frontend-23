@@ -20,6 +20,7 @@ import TermsService from "./pages/TermsService";
 import VideosPage from "./pages/VideosPage";
 import ViewBlog from "./pages/ViewBlog";
 import Features from "./components/Landing/Features/Features";
+import YouTubePlaylist from "./pages/YouTubePlaylist";
 
 const App = () => {
   useEffect(() => {
@@ -64,6 +65,7 @@ const App = () => {
       <Route path="/story" element={<Story />} />
       <Route path="/team" element={<DevTeam />} />
       <Route path="/stories" element={<Stories />} />
+      <Route path="/test" element={<YouTubePlaylist />} />
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
