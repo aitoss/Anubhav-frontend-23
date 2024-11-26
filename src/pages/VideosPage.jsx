@@ -9,8 +9,8 @@ const VideosPage = () => {
     <div className="flex h-screen flex-col">
       <Navbar className="sticky top-0 z-50 bg-white" />
       <div className="flex-grow">
-        {/* <YouTubePlaylist /> */}
         <Videos />
+        <YouTubePlaylist />
       </div>
       <Footer />
     </div>
