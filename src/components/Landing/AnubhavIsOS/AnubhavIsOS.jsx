@@ -25,16 +25,7 @@ const AnubhavIsOS = () => {
         <FadeWrapper delay={0.1}>
           <p className="mt-4 max-w-2xl px-4 text-center text-2xl font-medium text-[#444] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_80%,transparent_200%)] sm:text-xl lg:text-3xl">
             Join our journey to make Anubhav better! Contribute to the project
-            on{" "}
-            <a
-              href="https://github.com/your-repo-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-[#121212]"
-            >
-              GitHub
-            </a>{" "}
-            and help us create something extraordinary.
+            on GitHub and help us create something extraordinary.
           </p>
         </FadeWrapper>
         <FadeWrapper
