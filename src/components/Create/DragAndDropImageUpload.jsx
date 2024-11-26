@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Upload from "../../../src/assets/images/upload.svg";
 
+const MAX_FILE_SIZE = 73 * 1024;
+
 const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
   const [isDragging, setIsDragging] = useState(false);
   const inputRef = React.useRef();
@@ -29,29 +31,43 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
     setIsDragging(false);
 
     const droppedFile = e.dataTransfer.files[0];
-    if (droppedFile && droppedFile.type.startsWith("image/")) {
+    if (droppedFile) {
+      if (!droppedFile.type.startsWith("image/")) {
+        alert("Please drop an image file.");
+        return;
+      }
+      if (droppedFile.size > MAX_FILE_SIZE) {
+        alert("File size exceeds 73 KB. Please upload a smaller image.");
+        return;
+      }
+
       setFile(droppedFile);
       const reader = new FileReader();
       reader.onloadend = () => {
-        setbannerImage(reader.result); // Set the image preview using base64
+        setbannerImage(reader.result);
       };
       reader.readAsDataURL(droppedFile);
-    } else {
-      alert("Please drop an image file.");
     }
   };
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    if (selectedFile && selectedFile.type.startsWith("image/")) {
+    if (selectedFile) {
+      if (!selectedFile.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        return;
+      }
+      if (selectedFile.size > MAX_FILE_SIZE) {
+        alert("File size exceeds 73 KB. Please upload a smaller image.");
+        return;
+      }
+
       setFile(selectedFile);
       const reader = new FileReader();
       reader.onloadend = () => {
         setbannerImage(reader.result);
       };
       reader.readAsDataURL(selectedFile);
-    } else {
-      alert("Please select an image file.");
     }
   };
 
