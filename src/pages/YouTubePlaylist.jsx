@@ -24,7 +24,7 @@ const YouTubePlaylist = () => {
               maxResults: 25,
               playlistId: PLAYLIST_ID,
               key: API_KEY,
-              key: API_KEY,
+              t: new Date().getTime(),
             },
             headers: {
               "Cache-Control": "no-cache",
