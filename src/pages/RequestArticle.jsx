@@ -117,14 +117,14 @@ const RequestArticle = () => {
                   exit={{ opacity: 0, translateY: 100 }}
                   transition={{ duration: 0.15, delay: 0.05 }}
                 >
-                  <h2 className="ml-2 text-2xl font-[600] text-[#212121]">
+                  <h2 className="text-2xl font-[600] text-[#212121]">
                     Whose experience you wanna know?
                   </h2>
                 </motion.div>
               </div>
 
               <div className="flex gap-4 md:flex-col">
-                <div className="flex w-[100%] flex-col gap-3 p-2 md:w-full md:gap-2">
+                <div className="flex w-[100%] flex-col gap-3 md:w-full md:gap-2">
                   <div className="flex flex-col gap-3 md:gap-1">
                     <motion.div
                       initial={{ opacity: 0, translateY: 10 }}

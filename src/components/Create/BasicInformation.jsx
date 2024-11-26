@@ -24,7 +24,7 @@ const BasicInformation = ({
       <>
         <div className="flex size-full flex-col">
           <h3 className="flex items-start justify-start text-[#212121]">
-            Banner Image *
+            Banner Image
           </h3>
           <div className="border-[rgba(0, 0, 0, 0.15)] flex h-[90%] w-full flex-col items-center justify-center gap-2 rounded-xl border-[2px] border-dashed bg-white md:w-full">
             <DragAndDropImageUpload
@@ -55,7 +55,7 @@ const BasicInformation = ({
             <div className="flex flex-col gap-3 md:gap-1">
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col">
-                  <h4 className="text-[#212121]">Name *</h4>
+                  <h4 className="text-[#212121]">Name</h4>
                   <input
                     required
                     type="text"
@@ -72,7 +72,7 @@ const BasicInformation = ({
                 </div>
 
                 <div className="relative flex flex-col">
-                  <h4 className="text-[#212121]">Email *</h4>
+                  <h4 className="text-[#212121]">Email</h4>
                   <input
                     required
                     type="email"
@@ -93,7 +93,7 @@ const BasicInformation = ({
             <div className="flex flex-col gap-3 md:gap-1">
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col">
-                  <h4 className="text-[#212121]">Company Name *</h4>
+                  <h4 className="text-[#212121]">Company Name</h4>
                   <input
                     required
                     type="text"
@@ -112,7 +112,7 @@ const BasicInformation = ({
                 </div>
 
                 <div className="relative flex flex-col">
-                  <h4 className="text-[#212121]">Position *</h4>
+                  <h4 className="text-[#212121]">Position</h4>
                   <select
                     required
                     name="position"
@@ -141,7 +141,7 @@ const BasicInformation = ({
               <div className="flex flex-col gap-2">
                 <div className="relative flex flex-col gap-1">
                   <div className="relative flex flex-col">
-                    <h4 className="text-[#212121]">Title *</h4>
+                    <h4 className="text-[#212121]">Title</h4>
                     <input
                       required
                       type="text"

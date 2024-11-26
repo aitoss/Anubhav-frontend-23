@@ -212,7 +212,7 @@ const Create = () => {
               onClick={handleBack}
               className="w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 className="w-full" icon={false} color="#f6f8fb">
+              <ButtonV5 className="w-full" icon={false} color="#f8f8f8">
                 <h5 className="flex w-full gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
                   Previous
                 </h5>

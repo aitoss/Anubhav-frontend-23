@@ -55,30 +55,34 @@ const InputTag = ({ setTags, tags }) => {
     <div>
       <div className="relative flex flex-col">
         <div className="flex w-full flex-wrap gap-2 overflow-y-auto md:w-full">
-          <h4 className="text-[#212121]">Tags *</h4>
-          {tags.map((tagItem, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center rounded-full border bg-[#f0f0f0] px-2 transition-all hover:bg-[#e9e9e9]"
-            >
-              <span className="text-center text-[20px] text-base font-light text-[#212121]">
-                {tagItem}
-              </span>
-              <span
-                onClick={() => handleTagDelete(index)}
-                className="ml-1 cursor-pointer text-2xl"
-              >
-                <RxCross1 className="h-[14px] items-center text-[#919191]" />
-              </span>
-            </div>
-          ))}
+          <h4 className="text-[#212121]">Tags</h4>
         </div>
-        <div className="flex">
+        <div className="text-md flex w-full flex-col gap-2 rounded-lg border-[1px] border-[#78788033] bg-white py-1 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full">
+          {tags.length != 0 && (
+            <div className="-mb-2 flex flex-wrap gap-2 p-2 pb-0">
+              {tags.map((tagItem, index) => (
+                <div
+                  key={index}
+                  className="flex size-fit items-center justify-center rounded-full border bg-[#f0f0f0] px-2 transition-all hover:bg-[#e9e9e9]"
+                >
+                  <span className="text-center text-[20px] text-base font-light text-[#212121]">
+                    {tagItem}
+                  </span>
+                  <span
+                    onClick={() => handleTagDelete(index)}
+                    className="ml-1 cursor-pointer text-2xl"
+                  >
+                    <RxCross1 className="h-[14px] items-center text-[#919191]" />
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
           <input
             type="text"
             name="tag"
             list="tagSuggestions"
-            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+            className="text-md w-full rounded-lg border-0 bg-white text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:border-0 focus:outline-none focus:ring-0 focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
             placeholder="Tags relevant to your field"
             value={tag}
             onChange={handleChange}

@@ -7,6 +7,7 @@ import Publish from "../../../assets/images/Publish.png";
 import MaskWrapper from "../../ui/maskWrapper";
 import FadeWrapper from "../../ui/fadeWrapper";
 import MaskText from "../../ui/maskText";
+import BasicInformation from "../../Create/BasicInformation";
 
 const Card = ({ title, description, imageURL }) => (
   <div className="group relative h-full w-full overflow-hidden rounded-2xl border shadow-md">
@@ -73,7 +74,7 @@ const HowItWorks = () => {
           </FadeWrapper>
           <FadeWrapper delay={0.25}>
             <Card
-              title="Publish and Share"
+              title="Preview and Publish"
               description="Once you&rsquo;re satisfied with your post, hit the publish button to make it live. Share it with your audience via social media or email newsletters."
               imageURL={Publish}
             />

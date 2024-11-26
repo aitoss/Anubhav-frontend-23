@@ -1,3 +1,4 @@
+import { Github, Star } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonV5 from "../../ui/buttonv5";
@@ -36,14 +37,59 @@ const AnubhavIsOS = () => {
             and help us create something extraordinary.
           </p>
         </FadeWrapper>
-        <FadeWrapper delay={0.2}>
+        <FadeWrapper
+          className="flex items-center justify-center gap-2"
+          delay={0.2}
+        >
+          <Link
+            to="https://github.com/aitoss/Anubhav-frontend-23/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ButtonV5 icon={false} color="#f8f8f8" textColor="#212121">
+              <div className="flex size-full items-center justify-center gap-2">
+                Contribute Now
+                <Github
+                  size={20}
+                  className="text-[#333] transition-all group-hover:text-[#222]"
+                />
+              </div>
+            </ButtonV5>
+          </Link>
           <Link
             to="https://github.com/aitoss/Anubhav-frontend-23"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ButtonV5 className="w-full" icon={true}>
-              Contribute Now
+            <ButtonV5 icon={false}>
+              <div className="flex items-center justify-center gap-1">
+                <h5 className="flex gap-1 font-[400] -tracking-[0.2px]">
+                  Star On Github
+                </h5>
+                {/* write svg */}
+                <div className="flex w-5 items-center justify-end overflow-hidden">
+                  <div className="w-5">
+                    <div
+                      className={`translate-x-[0%] opacity-0 transition-all duration-0 group-hover:translate-x-[100%] group-hover:text-[#ffffff] group-hover:opacity-100 group-hover:duration-300`}
+                    >
+                      <Star
+                        size={20}
+                        className="text-[#fffc] transition-all group-hover:text-white"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-5">
+                    <div
+                      className={`translate-x-[0%] opacity-100 transition-all duration-0 group-hover:translate-x-[100%] group-hover:text-[#ffffff] group-hover:opacity-0 group-hover:duration-300`}
+                    >
+                      <Star
+                        size={20}
+                        className="text-[#fffc] transition-all group-hover:text-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </ButtonV5>
           </Link>
         </FadeWrapper>

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import BackgroundDots from "../assets/Background";
 import Tag from "../components/InputTag/Tag";
 import YoutubeCard from "../components/Video/YoutubeCard";
-import { useInView } from "react-intersection-observer";
-import MaskText from "../components/ui/maskText";
 import YoutubeCardLoading from "../components/Video/YoutubeCardLoading";
-import BackgroundDots from "../assets/Background";
 const Videos = () => {
   const [youtubeData, setYoutubeData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -46,15 +45,15 @@ const Videos = () => {
         fade={true}
       />
       <div className="mx-auto flex min-h-screen flex-col">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-centerF px-4 py-6 pt-24 text-center sm:px-6 lg:px-6">
+        <div className="mx-auto flex max-w-lg flex-col items-center justify-center overflow-hidden py-6 pt-24 text-center">
           <h2 className="mb-4 text-4xl font-[600] tracking-tight">Videos</h2>
-          <div className="flex w-screen flex-wrap justify-center gap-4 align-bottom x-sm:px-6">
+          <div className="flex w-full flex-wrap justify-center gap-4 align-bottom">
             {tagsData.map((tag, index) => {
               return <AnimatedTags key={index} name={tag} />;
             })}
           </div>
         </div>
-        <div className="flex w-screen justify-center p-4">
+        <div className="flex w-full justify-center p-4">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-1 lg:grid-cols-3">
             {loading ? (
               <>
@@ -64,9 +63,9 @@ const Videos = () => {
               </>
             ) : (
               <>
-                {youtubeData.map((data, index) => (
+                {[...youtubeData].reverse().map((data, index) => (
                   <AnimatedYoutubeCard
-                    key={index}
+                    key={data.id}
                     title={data.title}
                     img={data.img}
                     link={data.link}

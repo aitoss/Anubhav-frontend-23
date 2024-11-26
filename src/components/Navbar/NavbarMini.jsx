@@ -105,7 +105,7 @@ const NavbarMini = () => {
                 </svg>
               </div>
               <NavLink to="/request">
-                <ButtonV5 icon={false} color="#f6f8fb">
+                <ButtonV5 icon={false} color="#f8f8f8">
                   <h5 className="flex gap-1 text-[16px] font-[400] -tracking-[0.2px] text-[#212121]">
                     Request <div className="block x-sm:hidden">Article</div>
                   </h5>

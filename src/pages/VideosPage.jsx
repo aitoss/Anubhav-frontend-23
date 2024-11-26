@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Videos from "./Videos";
 import Footer from "../components/Landing/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
+import YouTubePlaylist from "./YouTubePlaylist";
 
 const VideosPage = () => {
   const [youtubeData, setYoutubeData] = useState([]);
@@ -23,6 +24,7 @@ const VideosPage = () => {
       <Navbar className="sticky top-0 z-50 bg-white" />
       <div className="flex-grow">
         <Videos />
+        {/* <YouTubePlaylist /> */}
       </div>
       <Footer />
     </div>

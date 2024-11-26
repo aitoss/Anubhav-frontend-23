@@ -88,7 +88,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center justify-center gap-2">
               <NavLink to="/request">
-                <ButtonV5 icon={false} color="#f6f8fb">
+                <ButtonV5 icon={false} color="#f8f8f8">
                   <h5 className="flex gap-1 text-[16px] font-[400] -tracking-[0.2px] text-[#212121]">
                     Request <div className="block x-sm:hidden">Article</div>
                   </h5>
@@ -101,7 +101,7 @@ const Navbar = () => {
                 {/* <div className="flex gap-2 p-1 justify-center items-center text-[16px] bg-[#212121] border border-[#121212] rounded-lg text-[#fff] font-[300] cursor-pointer hover:bg-[#313131] hover:focus:outline:none hover:focus:border:none transition-all"> */}
                 <ButtonV5 icon={false}>
                   <div className="flex items-center justify-center gap-1">
-                    <h5 className="flex gap-1 font-[300] -tracking-[0.2px]">
+                    <h5 className="flex gap-1 font-[400] -tracking-[0.2px]">
                       Write<div className="block x-sm:hidden">Article</div>
                     </h5>
                     {/* write svg */}

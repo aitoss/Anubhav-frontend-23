@@ -57,7 +57,7 @@ export default function Error404() {
             <Link
               to="/"
             >
-              <ButtonV5 textColor='#212121' color="#f6f8fb">
+              <ButtonV5 textColor='#212121' color="#f8f8f8">
                 <h5 className="flex gap-1 font-[400] text-[#212121] text-[16px] -tracking-[0.2px]">
                   Home
                 </h5>
