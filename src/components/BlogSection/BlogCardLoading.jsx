@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlogCard = () => {
+const BlogCardLoading = () => {
   return (
     <>
       <div className="flex flex-row x-sm:flex-col  w-full h-full justify-center items-center gap-4 p-1 animate-pulse">
@@ -39,4 +39,4 @@ const BlogCard = () => {
   );
 };
 
-export default BlogCard;
+export default BlogCardLoading;

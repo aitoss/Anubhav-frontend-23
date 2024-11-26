@@ -64,17 +64,17 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
       onDrop={handleDrop}
     >
       <div className="flex w-full items-center justify-center">
-        <div className="flex h-[150px] w-[150px] items-center justify-center rounded-full sm:h-24 sm:w-24">
+        <div className="flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg px-4 sm:h-24">
           {file ? (
             <img
               src={URL.createObjectURL(file)}
               alt="Preview"
               draggable="false"
-              className="h-full w-full select-none rounded-full object-cover"
+              className="h-full w-[500px] select-none rounded-lg border object-cover"
             />
           ) : (
             <img
-              className="h-[150px] w-[150px] cursor-pointer select-none sm:h-24 sm:w-24"
+              className="h-[150px] w-[150px] cursor-pointer select-none sm:h-24"
               src={Upload}
               draggable="false"
               onClick={(e) => {
@@ -92,9 +92,9 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
             <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
               JPG, JPEG, PNG file size no more than 10MB
             </h1>
-            <h1 className="text-center text-xs font-[400] text-[#322e2e]">
+            {/* <h1 className="text-center text-xs font-[400] text-[#322e2e]">
               Keep the image ratio to 280x180 px
-            </h1>
+            </h1> */}
           </>
         )}
       </p>

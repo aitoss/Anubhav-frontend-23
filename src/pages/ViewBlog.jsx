@@ -1,4 +1,4 @@
-import BlogCard from "../components/BlogSection/BlogCard";
+import Blog from "../components/BlogSection/Blog";
 import Footer from "../components/Landing/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 
@@ -6,7 +6,7 @@ const ViewBlog = () => {
   return (
     <div className="bg-white">
       <Navbar />
-      <BlogCard />
+      <Blog />
       <Footer />
     </div>
   );

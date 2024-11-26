@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { BACKEND_URL } from "../../constants";
 
-// commit
 const InputTag = ({ setTags, tags }) => {
+  const [tagSuggestions, setTagSuggestions] = useState([]);
+  const [tag, setTag] = useState("");
+  const [error, setError] = useState("");
+
   useEffect(() => {
     const fetchTagSuggestions = async () => {
       try {
         const response = await axios.get(BACKEND_URL + "/tags");
         setTagSuggestions(response.data);
-        // console.log(response.data);
       } catch (error) {
         console.error("Error fetching tag suggestions:", error);
       }
@@ -20,12 +21,9 @@ const InputTag = ({ setTags, tags }) => {
     fetchTagSuggestions();
   }, []);
 
-  const [tagSuggestions, setTagSuggestions] = useState([]);
-
-  const [tag, setTag] = useState("");
-
   const handleChange = (e) => {
     setTag(e.target.value);
+    setError("");
   };
 
   const handleKeyDown = (e) => {
@@ -42,8 +40,13 @@ const InputTag = ({ setTags, tags }) => {
   };
 
   const addTag = () => {
-    setTags([...tags, tag]);
-    setTag("");
+    if (tags.includes(tag.trim())) {
+      setError("This tag is already added!"); // Set error message
+    } else {
+      setTags([...tags, tag.trim()]);
+      setTag("");
+      setError(""); // Clear error on successful addition
+    }
   };
 
   const handleTagDelete = (index) => {
@@ -51,6 +54,7 @@ const InputTag = ({ setTags, tags }) => {
     updatedTags.splice(index, 1);
     setTags(updatedTags);
   };
+
   return (
     <div>
       <div className="relative flex flex-col">
@@ -58,7 +62,7 @@ const InputTag = ({ setTags, tags }) => {
           <h4 className="text-[#212121]">Tags</h4>
         </div>
         <div className="text-md flex w-full flex-col gap-2 rounded-lg border-[1px] border-[#78788033] bg-white py-1 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full">
-          {tags.length != 0 && (
+          {tags.length !== 0 && (
             <div className="-mb-2 flex flex-wrap gap-2 p-2 pb-0">
               {tags.map((tagItem, index) => (
                 <div
@@ -88,12 +92,16 @@ const InputTag = ({ setTags, tags }) => {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-          {/* <datalist id="tagSuggestions">
-            {tagSuggestions.map((suggestion, index) => (
-              <option key={index} value={suggestion._id} />
-            ))}
-          </datalist> */}
+          {/* <button
+            onClick={handleClick}
+            className="mt-2 self-start rounded-lg bg-blue-500 px-3 py-1 text-white hover:bg-blue-600"
+            >
+            Add Tag
+          </button> */}
         </div>
+            {error && (
+              <p className="text-red-500 text-sm mt-1">{error}</p>
+            )}
       </div>
     </div>
   );
