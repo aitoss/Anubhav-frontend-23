@@ -16,15 +16,23 @@ const YouTubePlaylist = () => {
   useEffect(() => {
     const fetchPlaylistItems = async () => {
       try {
-        const response = await axios.get("/api/youtube/youtube/v3/playlistItems", {
-          params: {
-            part: "snippet",
-            maxResults: 25,
-            playlistId: PLAYLIST_ID,
-            key: API_KEY,
-            t: new Date().getTime(),
+        const response = await axios.get(
+          "/api/youtube/youtube/v3/playlistItems",
+          {
+            params: {
+              part: "snippet",
+              maxResults: 25,
+              playlistId: PLAYLIST_ID,
+              key: API_KEY,
+              key: API_KEY,
+            },
+            headers: {
+              "Cache-Control": "no-cache",
+              Pragma: "no-cache",
+              Expires: "0",
+            },
           },
-        });
+        );
 
         if (response.data && response.data.items) {
           setYoutubeData(response.data.items);
@@ -42,11 +50,26 @@ const YouTubePlaylist = () => {
     fetchPlaylistItems();
   }, []);
 
-  const tagsData = ["Amazon", "Google", "Zeta", "UBS", "Microsoft", "Deutsche-Bank", "Cred"];
+  const tagsData = [
+    "Amazon",
+    "Google",
+    "Zeta",
+    "UBS",
+    "Microsoft",
+    "Deutsche-Bank",
+    "Cred",
+  ];
 
   return (
     <>
-      <BackgroundDots dotSize={1.8} dotColor="#cbcbcc" backgroundColor="" gap={15} className="custom-class" fade={true} />
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
       <div className="mx-auto flex min-h-screen flex-col">
         <div className="mx-auto flex max-w-3xl flex-col items-center justify-center overflow-hidden py-6 pt-24 text-center">
           <h2 className="mb-4 text-4xl font-[600] tracking-tight">Videos</h2>
@@ -59,37 +82,44 @@ const YouTubePlaylist = () => {
         <div className="flex w-full justify-center p-4">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-1 lg:grid-cols-3">
             {loading ? (
-              new Array(7).fill(null).map((_, index) => <YoutubeCardLoading key={index} />)
+              new Array(7)
+                .fill(null)
+                .map((_, index) => <YoutubeCardLoading key={index} />)
             ) : error ? (
               <div className="text-red-600">{error}</div>
-            ) : (
-              youtubeData.length > 0 ? (
-                youtubeData
-                  .slice()
-                  .reverse()
-                  .map((data) => {
-                    const { snippet } = data;
-                    if (!snippet || !snippet.thumbnails || !snippet.thumbnails.medium) {
-                      return null;
-                    }
-                    const videoId = snippet.resourceId.videoId;
-                    const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
-                    const { title, description, tags = [] } = snippet;
+            ) : youtubeData.length > 0 ? (
+              youtubeData
+                .slice()
+                .reverse()
+                .map((data) => {
+                  const { snippet } = data;
+                  if (
+                    !snippet ||
+                    !snippet.thumbnails ||
+                    !snippet.thumbnails.medium
+                  ) {
+                    return null;
+                  }
+                  const videoId = snippet.resourceId.videoId;
+                  const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
+                  const { title, description, tags = [] } = snippet;
 
-                    return (
-                      <YoutubeCard
-                        key={videoId}
-                        title={title}
-                        img={snippet.thumbnails.maxres?.url || snippet.thumbnails.medium.url}
-                        link={videoLink}
-                        description={description}
-                        tags={tags}
-                      />
-                    );
-                  })
-              ) : (
-                <div>No videos available in this playlist.</div>
-              )
+                  return (
+                    <YoutubeCard
+                      key={videoId}
+                      title={title}
+                      img={
+                        snippet.thumbnails.maxres?.url ||
+                        snippet.thumbnails.medium.url
+                      }
+                      link={videoLink}
+                      description={description}
+                      tags={tags}
+                    />
+                  );
+                })
+            ) : (
+              <div>No videos available in this playlist.</div>
             )}
           </div>
         </div>
