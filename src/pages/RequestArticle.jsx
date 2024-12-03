@@ -96,9 +96,9 @@ const RequestArticle = () => {
         className="custom-class"
         fade={true}
       />
-      <div className="flex h-screen flex-col items-center justify-start overflow-hidden">
+      <div className="flex h-screen flex-col items-center justify-start">
         <div
-          className="mx-auto flex flex-col items-center justify-center gap-3 overflow-hidden pt-32"
+          className="mx-auto flex flex-col items-center justify-center gap-3 pt-32"
           // style={{ backgroundImage: `url(${background2})` }}
         >
           {/* basic info */}
@@ -108,7 +108,7 @@ const RequestArticle = () => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              className="flex w-[650px] max-w-[1600px] flex-col gap-3 overflow-hidden md:w-full md:gap-1 md:px-3"
+              className="flex w-[650px] max-w-[1600px] flex-col gap-3 md:w-full md:gap-1 md:px-3"
             >
               <div className="w-full">
                 <motion.div
@@ -298,7 +298,7 @@ const RequestArticle = () => {
                         <div className="flex items-center justify-center gap-1">
                           Send Request
                           {/* airplane svg */}
-                          <div className="flex w-5 items-center justify-end overflow-hidden">
+                          <div className="flex w-5 items-center justify-end">
                             <div className="w-5">
                               <svg
                                 className={`h-5 w-5 translate-x-[0%] translate-y-[66%] text-[#ffffff80] opacity-0 transition-all duration-0 group-hover:translate-x-[100%] group-hover:translate-y-[0%] group-hover:text-[#ffffff] group-hover:opacity-100 group-hover:duration-300`}
