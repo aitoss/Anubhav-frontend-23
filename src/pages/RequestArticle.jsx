@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import background2 from "../assets/dots-pattern.svg";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Landing/Footer/Footer";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
 import ErrorMessage from "../components/notification/ErrorMessage";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import ButtonV5 from "../components/ui/buttonv5";
 import Spinner from "../assets/Spinner";
+import BackgroundDots from "../assets/Background";
 
 const RequestArticle = () => {
   const initialState = {
@@ -52,7 +53,12 @@ const RequestArticle = () => {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-
+    const lastRequestTime = localStorage.getItem("lastRequestTime");
+    const currentTime = new Date().getTime();
+    if (lastRequestTime && currentTime - lastRequestTime < 3 * 60 * 60 * 1000) {
+      addError("You can only submit a request once every 3 hours.");
+      return;
+    }
     try {
       const requestData = {
         requesterName: value.name,
@@ -65,6 +71,7 @@ const RequestArticle = () => {
       await axios.post(BACKEND_URL + "/reqarticle", requestData);
       setIsLoading(false);
       setRequestSend("Request Sent Successfully");
+      localStorage.setItem("lastRequestTime", currentTime.toString());
       setValue(initialState);
     } catch (error) {
       addError("Internal server error");
@@ -75,15 +82,23 @@ const RequestArticle = () => {
 
   return (
     <>
-          <ErrorMessage error={error} />
+      <ErrorMessage error={error} />
       <SuccessMessage
         requestSend={requestSend}
         setRequestSend={setRequestSend}
       />
       <Navbar />
-      <div className="flex h-screen flex-col items-center justify-start overflow-hidden">
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
+      <div className="flex h-screen flex-col items-center justify-start">
         <div
-          className="mx-auto flex flex-col items-center justify-center gap-3 overflow-hidden pt-32"
+          className="mx-auto flex flex-col items-center justify-center gap-3 pt-32"
           // style={{ backgroundImage: `url(${background2})` }}
         >
           {/* basic info */}
@@ -93,7 +108,7 @@ const RequestArticle = () => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              className="flex w-[650px] max-w-[1600px] flex-col gap-3 overflow-hidden md:w-full md:gap-1 md:px-3"
+              className="flex w-[650px] max-w-[1600px] flex-col gap-3 md:w-full md:gap-1 md:px-3"
             >
               <div className="w-full">
                 <motion.div
@@ -102,14 +117,14 @@ const RequestArticle = () => {
                   exit={{ opacity: 0, translateY: 100 }}
                   transition={{ duration: 0.15, delay: 0.05 }}
                 >
-                  <h2 className="ml-2 text-2xl font-[600] text-[#212121]">
+                  <h2 className="text-2xl font-[600] text-[#212121]">
                     Whose experience you wanna know?
                   </h2>
                 </motion.div>
               </div>
 
               <div className="flex gap-4 md:flex-col">
-                <div className="flex w-[100%] flex-col gap-3 p-2 md:w-full md:gap-2">
+                <div className="flex w-[100%] flex-col gap-3 md:w-full md:gap-2">
                   <div className="flex flex-col gap-3 md:gap-1">
                     <motion.div
                       initial={{ opacity: 0, translateY: 10 }}
@@ -136,7 +151,7 @@ const RequestArticle = () => {
                             placeholder="Name"
                             value={value.name}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -156,7 +171,7 @@ const RequestArticle = () => {
                             placeholder="College mail ID"
                             value={value.email}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -188,7 +203,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s name"
                             value={value.seniorName}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -208,7 +223,7 @@ const RequestArticle = () => {
                             placeholder="Senior’s any social media link"
                             value={value.link}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -228,7 +243,7 @@ const RequestArticle = () => {
                             list="companySuggestions"
                             value={value.company}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                         {/* <datalist id="companySuggestions">
@@ -253,7 +268,7 @@ const RequestArticle = () => {
                             placeholder="Personal note"
                             value={value.note}
                             onChange={handleChange}
-                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] shadow-sm shadow-[#00000010] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
+                            className="text-md w-full rounded-lg border-[1px] border-[#78788033] bg-white p-3 text-[#3C3C43] ring ring-transparent placeholder:text-[#3C3C4399] focus:outline-none focus:placeholder:text-[#3c3c4350] sm:p-2 sm:text-[13px] md:w-full"
                           />
                         </motion.div>
                       </div>
@@ -277,14 +292,13 @@ const RequestArticle = () => {
                     <ButtonV5 icon={false}>
                       {isLoading ? (
                         <div className="flex items-center justify-center gap-1">
-                          &nbsp;
-                          Processing <Spinner />
+                          &nbsp; Processing <Spinner />
                         </div>
                       ) : (
                         <div className="flex items-center justify-center gap-1">
                           Send Request
                           {/* airplane svg */}
-                          <div className="flex w-5 items-center justify-end overflow-hidden">
+                          <div className="flex w-5 items-center justify-end">
                             <div className="w-5">
                               <svg
                                 className={`h-5 w-5 translate-x-[0%] translate-y-[66%] text-[#ffffff80] opacity-0 transition-all duration-0 group-hover:translate-x-[100%] group-hover:translate-y-[0%] group-hover:text-[#ffffff] group-hover:opacity-100 group-hover:duration-300`}

@@ -6,7 +6,7 @@
 
 .ql-container {
   width: 100%;
-  background-color: #F7F7F8;
+  background-color: #f9f9f9;
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
   overflow-y: auto;
@@ -53,16 +53,16 @@
 
 
 .custom-editor .w-md-editor-text-input {
-  background-color:#F7F7F8;
+  background-color:#f9f9f9;
   /* color: black; */
 }
 
 .custom-preview .w-md-editor-preview {
-  background-color: #F7F7F8;
+  background-color: #f9f9f9;
 }
 
 .custom-editor .w-md-editor-text-pre {
-  background-color: #F7F7F8;
+  background-color: #f9f9f9;
 }
 
 

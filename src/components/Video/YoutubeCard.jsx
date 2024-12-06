@@ -2,12 +2,20 @@ import { useState } from "react";
 import Tag from "../InputTag/Tag";
 
 const YoutubeCard = ({ title, img, link, description, tags }) => {
-
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <>
-      <div className="w-[20rem] rounded-2xl bg-white p-1 transition-all duration-300 hover:bg-[#f7f7f7] x-sm:w-full">
+      <div className="w-[20rem] rounded-2xl bg-white p-1 transition-all duration-300 x-sm:w-full">
         <a href={link} target="_blank">
-          <img src={img} alt="" className="w-full rounded-[10px]" />
+          <img
+            src={img}
+            alt={title}
+            className={`w-full rounded-[10px] transition-opacity duration-300 ${
+              isLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            loading="lazy"
+            onLoad={() => setIsLoaded(true)}
+          />
         </a>
         <div className="">
           <h2 className="truncate text-[20px] font-[500] text-[#212121]">

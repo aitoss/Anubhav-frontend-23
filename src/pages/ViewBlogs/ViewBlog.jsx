@@ -1,14 +1,8 @@
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import BlogSection from "../../components/BlogSection/BlogSection";
-import Articles from "../../components/BlogSection/Articles";
-import Blogs from "../../components/BlogSection/Blogs";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
+import { useParams } from "react-router-dom";
 import { BACKEND_URL } from "../../constants";
-// import './style.css'
 
 const ViewBlog = () => {
   const { id } = useParams();

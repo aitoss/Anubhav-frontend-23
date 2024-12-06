@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import ErrorMessage from "../components/notification/ErrorMessage";
+import Footer from "../components/Landing/Footer/Footer";
 import SuccessMessage from "../components/notification/SuccessMessage";
 import axios from "axios";
 import { BACKEND_URL } from "../constants";
@@ -11,6 +10,10 @@ import Spinner from "../components/ui/Spinner";
 import BasicInformation from "../components/Create/BasicInformation";
 import WriteHere from "../components/Create/WriteHere";
 import SubmittedCard from "../components/Create/SubmittedCard";
+import PreviewPage from "../components/Create/PreviewPage";
+import useErrorToast from "../hooks/useErrorToast";
+import DragAndDropImageUpload from "../components/Create/DragAndDropImageUpload";
+import BackgroundDots from "../assets/Background";
 
 const Create = () => {
   const initialState = {
@@ -25,7 +28,6 @@ const Create = () => {
   const [bannerImage, setbannerImage] = useState(null);
   const [tags, setTags] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [article, setArticle] = useState("");
   const [value, setValue] = useState(initialState);
   const [requestSend, setRequestSend] = useState(null);
@@ -33,49 +35,10 @@ const Create = () => {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleDismiss = () => {
-    setIsVisible(false);
-  };
-
-  useEffect(() => {
-    const savedContent = localStorage.getItem("editorContent");
-    if (savedContent) {
-      const content = JSON.parse(savedContent);
-      setArticle(content.article);
-      setValue(content.value);
-    }
-  }, []);
-
-  useEffect(() => {
-    const Debouncer = setTimeout(() => {
-      const content = {
-        value: value,
-        article: article,
-      };
-      const savedContent = JSON.stringify(content);
-      localStorage.setItem("editorContent", savedContent);
-    }, 500);
-    return () => clearTimeout(Debouncer);
-  }, [article, value]);
-
-  const addError = (message) => {
-    setError(message);
-    setTimeout(() => {
-      setError(null);
-    }, 3000);
-  };
+  const showError = useErrorToast();
+  const [errors, setErrors] = useState({});
 
   const publishPost = async () => {
-    setStep(step + 1);
-    if (article === "") {
-      addError("Article cannot be empty");
-      return;
-    }
-
-    if (!file) {
-      addError("Please upload a banner image");
-      return;
-    }
     setIsLoading(true);
     try {
       const response = await axios.post(BACKEND_URL + "/blogs", {
@@ -95,24 +58,42 @@ const Create = () => {
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error submitting post:", error.response.data);
+      showError("Failed to submit the article. Please try again.");
       setIsLoading(false);
     }
   };
 
   const handleNext = () => {
+    const newErrors = {};
+
     if (step === 1) {
-      if (
-        !value.name ||
-        !value.email ||
-        !value.company ||
-        !value.position ||
-        !value.title ||
-        !file
-      ) {
-        addError("Please fill all fields and upload a banner image");
-        return;
+      if (!value.name) newErrors.name = "Name cannot be empty";
+      if (!value.email) {
+        newErrors.email = "Email cannot be empty";
+      } else {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value.email)) {
+          newErrors.email = "Please enter a valid email address";
+        }
       }
+      if (!value.company) newErrors.company = "Company cannot be empty";
+      if (!value.position) newErrors.position = "Position cannot be empty";
+      if (!value.title) newErrors.title = "Title cannot be empty";
+      if (!file) newErrors.file = "Please upload a banner image";
+      if (tags.length === 0)
+        newErrors.tags = "Write a tag and press enter to add it";
     }
+
+    if (step === 2 && article === "") {
+      newErrors.article = "Please write your article before proceeding";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     setStep(step + 1);
   };
 
@@ -121,59 +102,78 @@ const Create = () => {
   };
 
   // Calculate progress
-  const progressPercentage = ((step - 1) / 2) * 100;
+  const progressPercentage = ((step - 1) / 3) * 100;
 
   return (
     <>
       <Navbar />
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
       {isSubmitted && <SubmittedCard />}
       {isVisible && (
         <p className="relative flex w-full items-center justify-center bg-white/40 pb-1 pt-16 text-[#212121] x-sm:text-sm">
           Before writing an article, please read the &nbsp;
-          <Link to="/guidelines" className="underline">
+          <Link to="/guidelines" target="_blank" className="underline">
             Guidelines
           </Link>
           .
-          {/* <svg
-            className="absolute right-[6%] cursor-pointer md:right-[4%] x-sm:right-2"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            onClick={handleDismiss}
-          >
-            <path
-              d="M16.0163 15.8805L4.72266 4.58691"
-              stroke="#212121"
-              strokeWidth="1.42857"
-              strokeMiterlimit="10"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M15.8796 4.71973L4.58594 16.0134"
-              stroke="#212121"
-              strokeWidth="1.42857"
-              strokeMiterlimit="10"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg> */}
         </p>
       )}
 
       <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-3 pt-4">
         {/* Progress Bar */}
-        <div className="relative mt-4 w-[50%] rounded-full bg-[#d2d7d9]">
-          <div className="absolute left-0 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#212121] text-[#f2f2f2]">
-            1
+        <div className="relative z-0 mt-4 h-12 w-[90%] border border-[#d3ddeb] bg-[#f9f9f9] md:w-[90%] md:text-[14px] lg:w-[70%] xl:w-[50%]">
+          <div className="absolute inset-0 left-1/3 z-[99] w-3">
+            <svg
+              class="h-full w-full text-slate-300"
+              viewBox="0 0 12 82"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0.5 0V31L10.5 41L0.5 51V82"
+                stroke="currentcolor"
+                vector-effect="non-scaling-stroke"
+              ></path>
+            </svg>
           </div>
-          <div className="absolute left-1/2 top-0 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#212121] text-[#f2f2f2]">
-            2
+          <div className="absolute inset-0 left-2/3 z-[99] w-3">
+            <svg
+              class="h-full w-full text-slate-300"
+              viewBox="0 0 12 82"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0.5 0V31L10.5 41L0.5 51V82"
+                stroke="currentcolor"
+                vector-effect="non-scaling-stroke"
+              ></path>
+            </svg>
           </div>
           <div
-            className="h-1 rounded-full bg-[#212121] transition-all duration-300"
+            className={`-50 absolute ${step >= 1 ? "bg-[#fff]" : ""} left-0 top-1/2 flex h-full w-1/3 -translate-y-1/2 translate-x-0 items-center justify-center text-[#212121]`}
+          >
+            1. Basic Info <span className="md:hidden">rmation</span>
+          </div>
+          <div
+            className={`-50 absolute ${step >= 2 ? "bg-[#fff]" : ""} left-1/3 top-1/2 flex h-full w-1/3 -translate-y-1/2 translate-x-0 items-center justify-center text-[#212121]`}
+          >
+            2. Write Here
+          </div>
+          <div
+            className={`-50 absolute ${step >= 3 ? "bg-[#fff]" : ""} right-0 top-1/2 flex h-full w-1/3 -translate-y-1/2 translate-x-0 items-center justify-center text-[#212121]`}
+          >
+            3. Preview <span className="md:hidden">&nbsp;& Publish</span>
+          </div>
+          <div
+            className="absolute bottom-0 z-[999] h-1 bg-[#212121] transition-all duration-300"
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
@@ -187,44 +187,62 @@ const Create = () => {
             setFile={setFile}
             bannerImage={bannerImage}
             setbannerImage={setbannerImage}
+            DragAndDropImageUpload={DragAndDropImageUpload}
+            errors={errors}
           />
         )}
-        {step >= 2 && <WriteHere article={article} setArticle={setArticle} />}
-        <div className="flex w-full max-w-[70%] justify-between sm:pb-4 x-sm:pb-8 sm:mt-8 x-sm:mt-20 pb-4 mt-6 xl:mt-0">
+        {step === 2 && (
+          <WriteHere
+            article={article}
+            setArticle={setArticle}
+            errors={errors}
+          />
+        )}
+        {step === 3 && (
+          <PreviewPage
+            value={value}
+            article={article}
+            bannerImage={bannerImage}
+            tags={tags}
+          />
+        )}
+        <div className="flex w-[90%] justify-between gap-4 pb-4 lg:w-[70%]">
           {step > 1 && (
             <div
               onClick={handleBack}
-              className="p-0 font-[400] outline-none focus:outline-none"
+              className="w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 icon={false} color="#f6f8fb">
-                <h5 className="flex gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
+              <ButtonV5 className="w-full" icon={false} color="#f8f8f8">
+                <h5 className="flex w-full gap-1 text-[16px] font-[500] -tracking-[0.2px] text-[#212121]">
                   Previous
                 </h5>
               </ButtonV5>
             </div>
           )}
 
-          {step < 2 ? (
+          {step < 3 ? (
             <button
               onClick={handleNext}
-              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+              className="ml-auto w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 icon={true}>Next</ButtonV5>
+              <ButtonV5 className="w-full" icon={true}>
+                Next
+              </ButtonV5>
             </button>
           ) : (
             <button
               onClick={publishPost}
               disabled={isLoading}
-              className="ml-auto p-0 font-[400] outline-none focus:outline-none"
+              className="ml-auto w-full p-0 font-[400] outline-none focus:outline-none"
             >
-              <ButtonV5 disabled={isLoading} icon={false}>
+              <ButtonV5 className="w-full" disabled={isLoading} icon={false}>
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1 font-[300]">
                     &nbsp; Processing <Spinner color="#fff" />
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-1">
-                    Submit
+                    Publish
                     {/* airplane svg */}
                     <div className="flex w-5 items-center justify-end overflow-hidden">
                       <div className="w-5">
@@ -291,8 +309,6 @@ const Create = () => {
             onClose={() => setRequestSend(null)}
           />
         )}
-
-        {error && <ErrorMessage message={error} />}
       </div>
 
       <Footer />
