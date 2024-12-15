@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Landing/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 
 const Guidelines = () => {

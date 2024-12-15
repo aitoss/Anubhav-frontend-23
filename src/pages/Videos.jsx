@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import BackgroundDots from "../assets/Background";
 import Tag from "../components/InputTag/Tag";
 import YoutubeCard from "../components/Video/YoutubeCard";
-import { useInView } from "react-intersection-observer";
-import MaskText from "../components/ui/maskText";
 import YoutubeCardLoading from "../components/Video/YoutubeCardLoading";
 const Videos = () => {
   const [youtubeData, setYoutubeData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,7 +20,7 @@ const Videos = () => {
       })
       .then((data) => {
         setYoutubeData(data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((error) => console.error("Error loading video data:", error));
   }, []);
@@ -36,18 +36,24 @@ const Videos = () => {
 
   return (
     <>
-      <div className="my-20 flex flex-col items-center gap-10 overflow-hidden p-5 x-sm:gap-3">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h1 className="text-[2.6rem] font-[500] text-[#212121] x-sm:text-4xl">
-            <MaskText textPhrase={["Videos"]} />
-          </h1>
-          <div className="flex w-screen flex-wrap justify-center gap-4 align-bottom x-sm:px-6">
+      <BackgroundDots
+        dotSize={1.8}
+        dotColor="#cbcbcc"
+        backgroundColor=""
+        gap={15}
+        className="custom-class"
+        fade={true}
+      />
+      <div className="mx-auto flex min-h-screen flex-col">
+        <div className="mx-auto flex max-w-lg flex-col items-center justify-center overflow-hidden py-6 pt-24 text-center">
+          <h2 className="mb-4 text-4xl font-[600] tracking-tight">Videos</h2>
+          <div className="flex w-full flex-wrap justify-center gap-4 align-bottom">
             {tagsData.map((tag, index) => {
               return <AnimatedTags key={index} name={tag} />;
             })}
           </div>
         </div>
-        <div className="flex w-screen justify-center p-4">
+        <div className="flex w-full justify-center p-4">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-1 lg:grid-cols-3">
             {loading ? (
               <>
@@ -57,9 +63,9 @@ const Videos = () => {
               </>
             ) : (
               <>
-                {youtubeData.map((data, index) => (
+                {[...youtubeData].reverse().map((data, index) => (
                   <AnimatedYoutubeCard
-                    key={index}
+                    key={data.id}
                     title={data.title}
                     img={data.img}
                     link={data.link}
@@ -95,7 +101,7 @@ const AnimatedTags = ({ name }) => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
     >
       <Tag name={name} />
     </motion.div>
@@ -121,7 +127,7 @@ const AnimatedYoutubeCard = ({ title, img, link, description, tags }) => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <YoutubeCard
         title={title}

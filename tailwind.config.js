@@ -15,6 +15,24 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
         },
+        rotate: {
+          "0%": { transform: "translateX(-50%) translateY(-15%) rotate(0deg)" },
+          "100%": {
+            transform: "translateX(-50%) translateY(-15%) rotate(360deg)",
+          },
+        },
+        "flip": {
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+      },
+      animation: {
+        rotate: "rotate 3s linear infinite both",
+        flip: "flip 6s infinite steps(2, end)",
+      },
+      animationDelay: {
+        4: "4s",
       },
       colors: {
         primary: "rgba(50, 51, 55, 1)",
@@ -30,7 +48,7 @@ export default {
       screens: {
         md: { max: "770px" },
         // => @media (max-width: 767px) { ... }
-        
+
         sm: { max: "639px" },
         // => @media (max-width: 639px) { ... }
 

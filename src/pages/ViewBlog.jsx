@@ -1,9 +1,6 @@
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import React, { useState, useEffect } from "react";
-import BlogSection from "../components/BlogSection/BlogSection";
-import Articles from "../components/BlogSection/Articles";
 import Blog from "../components/BlogSection/Blog";
+import Footer from "../components/Landing/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
 
 const ViewBlog = () => {
   return (

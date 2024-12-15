@@ -11,7 +11,15 @@ import microsoft from "../../assets/company logo/microsoft.svg";
 import uber from "../../assets/company logo/uber.svg";
 
 const logos = [
-  adobe, amazon, atlassian, DeutscheBank, cisco, google, masterCard, microsoft, uber,
+  adobe,
+  amazon,
+  atlassian,
+  DeutscheBank,
+  cisco,
+  google,
+  masterCard,
+  microsoft,
+  uber,
 ];
 
 const Slider = () => {

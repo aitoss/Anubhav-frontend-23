@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import { Timeline } from "../components/Timeline/timeline";
+import Footer from "../components/Landing/Footer/Footer";
 
 const Story = () => {
   const data = [

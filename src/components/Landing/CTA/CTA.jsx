@@ -1,10 +1,10 @@
 import React from "react";
-import ButtonV5 from "../ui/buttonv5";
-import AnubhavIcon from "../../assets/AnubhavIcon";
+import ButtonV5 from "../../ui/buttonv5";
+import AnubhavIcon from "../../../assets/AnubhavIcon";
 import { Link } from "react-router-dom";
-import MaskWrapper from "../ui/maskWrapper";
-import MaskText from "../ui/maskText";
-import FadeWrapper from "../ui/fadeWrapper";
+import MaskWrapper from "../../ui/maskWrapper";
+import MaskText from "../../ui/maskText";
+import FadeWrapper from "../../ui/fadeWrapper";
 
 const CTA = () => {
   return (

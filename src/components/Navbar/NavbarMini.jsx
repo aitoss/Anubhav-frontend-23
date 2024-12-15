@@ -67,7 +67,7 @@ const NavbarMini = () => {
         <div className="m-auto flex h-full w-full max-w-[1400px] items-center justify-between">
           <div className="flex w-full items-center justify-between px-1 lg:px-8">
             <div className="flex items-center justify-center gap-2">
-              <Link to="/" className="p-2">
+              <Link to="/" className="">
                 <img className="w-10" src={logo} alt="" />
               </Link>
               <div className="block md:hidden">
@@ -105,7 +105,7 @@ const NavbarMini = () => {
                 </svg>
               </div>
               <NavLink to="/request">
-                <ButtonV5 icon={false} color="#f6f8fb">
+                <ButtonV5 icon={false} color="#f8f8f8">
                   <h5 className="flex gap-1 text-[16px] font-[400] -tracking-[0.2px] text-[#212121]">
                     Request <div className="block x-sm:hidden">Article</div>
                   </h5>

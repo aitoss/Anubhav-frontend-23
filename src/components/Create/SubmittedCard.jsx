@@ -46,7 +46,7 @@ const SubmittedCard = () => {
         />
       )}
       <motion.div
-        className="w-[400px] rounded-2xl bg-white p-4 shadow-lg"
+        className="w-[400px] rounded-2xl bg-white p-4 shadow-lg m-4 border-2"
         initial={{ opacity: 0, translateY: 10 }}
         animate={{ opacity: 1, translateY: 0 }}
         exit={{ opacity: 0, translateY: 10 }}

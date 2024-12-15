@@ -1,12 +1,12 @@
 import React from "react";
-import Comment from "../../assets/svg/Comment";
-import World from "../../assets/images/world.png";
-import VideoIcon from "../../assets/svg/VideoIcon";
-import Videos from "../../pages/Videos";
-import VideoPage from "../../assets/images/VideoPage.png";
-import { FollowerPointerCard } from "../../components/ui/following-pointer";
-import MaskWrapper from "../ui/maskWrapper";
-import FadeWrapper from "../ui/fadeWrapper";
+import Comment from "../../../assets/svg/Comment";
+import World from "../../../assets/images/world.png";
+import VideoIcon from "../../../assets/svg/VideoIcon";
+import Videos from "../../../pages/Videos";
+import VideoPage from "../../../assets/images/VideoPage.png";
+import { FollowerPointerCard } from "../../../components/ui/following-pointer";
+import MaskWrapper from "../../ui/maskWrapper";
+import FadeWrapper from "../../ui/fadeWrapper";
 import { Link } from "react-router-dom";
 
 const Card = ({ title, bold, href, description, icon, children }) => (
@@ -86,7 +86,7 @@ const Avatar = ({ Name, borderColor, src, className }) => (
 
 const Features = () => {
   return (
-    <section className="flex flex-col items-center justify-center bg-[#f7f7f8] px-4 pb-32 pt-20">
+    <section className="flex flex-col items-center justify-center bg-[#f9f9f9] px-4 pb-32 pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-left">
         <div className="mx-auto flex h-[500px] w-full flex-row items-center justify-center border-b border-t border-[#d2d2d6] md:h-[1000px] md:flex-col">
           <Card
@@ -119,7 +119,7 @@ const Features = () => {
                 <FadeWrapper delay={0.05}>
                   <Avatar
                     Name="Lokendra Kushwah"
-                    borderColor="border-[#FE7D54]"
+                    borderColor="border-[#313131]"
                     className="z-20"
                     src="https://avatars.githubusercontent.com/u/118094744"
                   />
@@ -137,10 +137,10 @@ const Features = () => {
                 <Pointer
                   className="absolute left-[20%] top-[6%] translate-x-0 transition-all duration-500 group-hover:translate-x-[20%] md-2xl:left-[10%] x-sm:top-[0%]"
                   title="Lokendra Kushwah"
-                  cursorColor="text-[#FE7D54]"
-                  strokeColor="stroke-[#E85E32]"
-                  color="bg-[#FE7D54]"
-                  borderColor="border-[#E85E32]"
+                  cursorColor="text-[#313131]"
+                  strokeColor="stroke-[#121212]"
+                  color="bg-[#313131]"
+                  borderColor="border-[#121212]"
                 />
                 <Pointer
                   className="absolute bottom-[40%] left-[10%] translate-x-0 transition-all duration-[400ms] group-hover:-translate-y-[40%] md-2xl:bottom-[25%] x-sm:bottom-[20%]"

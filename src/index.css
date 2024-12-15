@@ -13,7 +13,7 @@
   font-weight: 400;
   /* color-scheme: light dark; */
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #f7f7f8;
+  background-color: #f9f9f9;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +23,12 @@
 
 #root {
   min-height: 100vh;
+}
+
+html {
+  scrollbar-color: #c9c9c9 transparent;
+  scrollbar-width: thin;
+  letter-spacing: -0.09px;
 }
 
 a {
@@ -140,13 +146,12 @@ button:focus-visible {
   }
 
   button {
-    background-color: #f7f7f8;
+    background-color: #f9f9f9;
   }
 }
 
 ::selection {
-  color: #f0f0f0;
-  background: #000000dc;
+  background: hsla(216, 0%, 50%, 0.2);
 }
 
 /* Add this CSS to your styles.css or equivalent */

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Upload from "../../src/assets/images/upload.svg";
+import Upload from "../../../src/assets/images/upload.svg";
+
+const MAX_FILE_SIZE = 73 * 1024;
 
 const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
   const [isDragging, setIsDragging] = useState(false);
@@ -29,54 +31,68 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
     setIsDragging(false);
 
     const droppedFile = e.dataTransfer.files[0];
-    if (droppedFile && droppedFile.type.startsWith("image/")) {
+    if (droppedFile) {
+      if (!droppedFile.type.startsWith("image/")) {
+        alert("Please drop an image file.");
+        return;
+      }
+      if (droppedFile.size > MAX_FILE_SIZE) {
+        alert("File size exceeds 73 KB. Please upload a smaller image.");
+        return;
+      }
+
       setFile(droppedFile);
       const reader = new FileReader();
       reader.onloadend = () => {
-        setbannerImage(reader.result); // Set the image preview using base64
+        setbannerImage(reader.result);
       };
       reader.readAsDataURL(droppedFile);
-    } else {
-      alert("Please drop an image file.");
     }
   };
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    if (selectedFile && selectedFile.type.startsWith("image/")) {
+    if (selectedFile) {
+      if (!selectedFile.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        return;
+      }
+      if (selectedFile.size > MAX_FILE_SIZE) {
+        alert("File size exceeds 73 KB. Please upload a smaller image.");
+        return;
+      }
+
       setFile(selectedFile);
       const reader = new FileReader();
       reader.onloadend = () => {
-        setbannerImage(reader.result); 
+        setbannerImage(reader.result);
       };
       reader.readAsDataURL(selectedFile);
-    } else {
-      alert("Please select an image file.");
     }
   };
 
   return (
     <div
-      className={` ${
-        isDragging ? "border-blue-400" : "border-gray-300"
-      }`}
+      className="flex flex-col items-center justify-center gap-2 md:py-4"
       onDragEnter={handleDragEnter}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      <div className="flex w-full justify-center">
-        <div className="flex h-[150px] w-[150px] justify-center rounded-full sm:h-24 sm:w-24">
+      <div className="flex w-full items-center justify-center">
+        <div className="flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg px-4 sm:h-24">
           {file ? (
             <img
               src={URL.createObjectURL(file)}
               alt="Preview"
-              className="h-full w-full rounded-full object-cover"
+              draggable="false"
+              className="h-full w-[500px] select-none rounded-lg border object-cover"
             />
           ) : (
             <img
-              className="cursor-pointer"
+              className="h-[150px] w-[150px] cursor-pointer select-none sm:h-24"
               src={Upload}
+              draggable="false"
               onClick={(e) => {
                 inputRef.current.click();
                 e.preventDefault();
@@ -89,29 +105,24 @@ const DragAndDropImageUpload = ({ file, setFile, setbannerImage }) => {
       <p className="text-gray-300">
         {file ? null : (
           <>
-            <h1 className="text-center text-xs font-[300] text-[#C3C3C3]">
-              JPG, JPEG, PNG file size no more than 10MB
+            <h1 className="text-center text-sm font-[400] selection:text-[#121212] text-[#777]">
+              JPG, JPEG, PNG file size no more than 73KB
             </h1>
-            <h1 className="text-center text-xs font-[400] text-[#322e2e]">
+            {/* <h1 className="text-center text-xs font-[400] text-[#322e2e]">
               Keep the image ratio to 280x180 px
-            </h1>
+            </h1> */}
           </>
         )}
       </p>
       {file && (
         <div
-          className="flex py-5 px-0 h-[20px] cursor-pointer items-center justify-center gap-1 text-[#717171]"
+          className="flex h-[20px] w-fit cursor-pointer items-center justify-center gap-1 border-b-2 border-white text-[#717171] transition duration-200 ease-in-out hover:border-[#777]"
           onClick={() => setFile(null)}
         >
-          <span
-            className="px-2 py-1 rounded-full hover:bg-red-500 hover:text-white hover:border-red-500 transition duration-200 ease-in-out"
-          >
-            Remove
-          </span>
+          <span className="">Remove</span>
           <span className="text-[24px]">×</span>
         </div>
       )}
-
 
       <input
         type="file"

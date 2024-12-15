@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Utility function to combine class names
 const cn = (...classes) => {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 };
 
 export const FollowerPointerCard = ({
@@ -14,23 +14,13 @@ export const FollowerPointerCard = ({
 }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const ref = React.useRef(null);
-  const [rect, setRect] = useState(null);
   const [isInside, setIsInside] = useState(false);
 
-  useEffect(() => {
-    if (ref.current) {
-      setRect(ref.current.getBoundingClientRect());
-    }
-  }, []);
-
   const handleMouseMove = (e) => {
-    if (rect) {
-      const { clientX, clientY } = e;
-      setPosition({
-        x: clientX - rect.left,
-        y: clientY - rect.top,
-      });
-    }
+    if (!ref.current) return;
+
+    const rect = ref.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
   const handleMouseLeave = () => {
@@ -67,12 +57,7 @@ export const FollowerPointerCard = ({
   );
 };
 
-export const FollowPointer = ({
-  x,
-  y,
-  title,
-  cursorColor,
-}) => {
+export const FollowPointer = ({ x, y, title, cursorColor }) => {
   const colors = [
     "var(--sky-500)",
     "var(--neutral-500)",
@@ -109,7 +94,7 @@ export const FollowPointer = ({
         fill="currentColor"
         strokeWidth="1"
         viewBox="0 0 16 16"
-        className={`h-6 w-6 sm:w-4 sm:h-4 ${cursorColor} stroke -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-[#039855] stroke-[1px]`}
+        className={`h-6 w-6 sm:h-4 sm:w-4 ${cursorColor} stroke -translate-x-[5px] -translate-y-[2px] -rotate-[70deg] transform stroke-[#039855] stroke-[1px]`}
         height="1em"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"

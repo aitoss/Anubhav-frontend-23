@@ -5,7 +5,10 @@
     "link": "https://www.youtube.com/embed/c58BoAV2dPc?si=Q2HOD9wHer0iV8Ox",
     "title": "Talk with Bhupendra Yadav 🔥",
     "description": "In this first episode of Anubhav video interview series, we have Bhupendra Yadav, of class 2021. He has shared his college experience, coding journey and preparation strategy for juniors.",
-    "tags": ["Zeta", "Codeforces"]
+    "tags": [
+      "Zeta",
+      "Codeforces"
+    ]
   },
   {
     "id": 2,
@@ -13,7 +16,10 @@
     "link": "https://www.youtube.com/embed/u3Ypg4BIu-0?si=BljzinBDTMQdSynT",
     "title": "Talk with Shailesh Kr Sahu",
     "description": "In this episode of Anubhav video interview series, we have Shailesh Kumar Sahu (Shellkore), of class 2021. He has shared his college experience, dev journey, deutsche bank interview experience, and useful tips for juniors.",
-    "tags": ["Deutsche Bank", "Hackathon"]
+    "tags": [
+      "Deutsche Bank",
+      "Hackathon"
+    ]
   },
   {
     "id": 3,
@@ -21,7 +27,11 @@
     "link": "https://www.youtube.com/embed/DoVbefblNbc?si=5EPAzWpF3GczesZ3",
     "title": "Talk with Sachin Yadav 🔥",
     "description": "For this episode, we have Sachin Yadav, of class 2021. He has shared his college experience, coding journey, google interview experience, and useful tips for juniors.",
-    "tags": ["Zeta", "Google", "ACM-ICPC"]
+    "tags": [
+      "Zeta",
+      "Google",
+      "ACM-ICPC"
+    ]
   },
   {
     "id": 4,
@@ -29,6 +39,20 @@
     "link": "https://youtu.be/DoVbefblNbc",
     "title": "Talk with Vivek Kumar 🔥",
     "description": "For this episode, we have Vivek Kumar, of class 2021. Watch the video to learn from his experience, coding journey, placement preparation, and useful tips for juniors.",
-    "tags": ["BNY Mellon", "Deutsche Bank"]
+    "tags": [
+      "BNY Mellon",
+      "Deutsche Bank"
+    ]
+  },
+  {
+    "id": 5,
+    "img": "https://i.ytimg.com/vi/5W1r5CSodxo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBJKuWpN7NKcuHj-_DK1bfw9B-OrA",
+    "link": "https://youtu.be/5W1r5CSodxo",
+    "title": "Talk With Vidushi Singh | Amazon 🔥",
+    "description": "In this episode of the Anubhav Interview Series, we have Vidushi Singh, Class of 2024, who is currently a Software Development Engineer (SDE) at Amazon. ",
+    "tags": [
+      "Microsoft",
+      "Amazon"
+    ]
   }
 ]

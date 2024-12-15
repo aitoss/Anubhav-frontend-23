@@ -57,7 +57,7 @@ const Filter = ({ closeFilterPopUp, company, fetchArticles, setHeaderName }) => 
       <div className="flex justify-start">
         {/* <div
           onClick={closeFilterPopUp}
-          className="bg-[#fff] text-[#212121] border px-4 py-1 rounded-md hover:bg-[#f6f8fb] font-[400] cursor-pointer transition-all"
+          className="bg-[#fff] text-[#212121] border px-4 py-1 rounded-md hover:bg-[#f8f8f8] font-[400] cursor-pointer transition-all"
         >
           Apply
         </div> */}

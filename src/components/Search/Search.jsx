@@ -144,7 +144,7 @@ const Search = ({ mode, focus, full }) => {
   const containerClass = mode === "dark" ? "bg-[#212121] text-[#ffffffcc]" : "bg-[#fff] text-[#212121]";
   const borderClass = mode === "dark" ? "border-[#414141]" : "border-[#d9d9d9]";
   const inputBgClass = mode === "dark" ? "bg-[#212121]" : "bg-[#fff]";
-  const inputTextClass = mode === "dark" ? "text-[#ffffffcc]" : "text-[#212121]";
+  const inputTextClass = mode === "dark" ? "text-[#ffffffcc] placeholder:text-[rgba(255,255,255,0.6)]" : "text-[#212121] placeholder:text-[rgba(0,0,0,0.4)] placeholder:font-[500]";
   const placeholderClass = mode === "dark" ? "placeholder:text-[rgba(255,255,255,0.6)]" : "placeholder:text-[#818181]";
   const hoverClass = mode === "dark" ? "hover:bg-[#313131]" : "hover:bg-[#f8f8f8]";
   const popularSearchClass = mode === "dark" ? "bg-[#212121] text-[#ffffffbb]" : "bg-[#fff] text-[#212121]";
@@ -152,7 +152,7 @@ const Search = ({ mode, focus, full }) => {
   return (
     <>
       <div className="flex flex-col relative">
-        <div className={`search flex px-[4px] py-[1px] border-[1.5px] ${containerClass} ${borderClass} justify-center items-center gap-1 rounded-lg shadow-md shadow-[rgba(0,0,0,0.05)]`}>
+        <div className={`search flex px-[4px] py-[1px] border-[1.5px] ${containerClass} ${borderClass} justify-center items-center gap-1 rounded-lg`}>
           <div
             onClick={handleSearchSubmit}
             className={`h-[32px] w-[32px] border-[1.5px] ${borderClass} rounded-lg p-1 cursor-pointer flex justify-center items-center`}
@@ -184,7 +184,7 @@ const Search = ({ mode, focus, full }) => {
             <input
               ref={inputRef}
               id="search-input"
-              className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none placeholder:text-[rgba(255,255,255,0.6)] placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
+              className={`${inputBgClass} ${inputTextClass} px-3 h-[2.5rem] w-[400px] x-sm:w-[300px] lg:w-[500px] border-none outline-none focus:outline-none  placeholder:font-[300] font-[300] placeholder:focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] ${placeholderClass}`}
               type=''
               placeholder="Search for your Dreams.."
               value={searchText}
