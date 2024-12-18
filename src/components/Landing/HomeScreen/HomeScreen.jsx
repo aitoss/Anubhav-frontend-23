@@ -1,9 +1,11 @@
 "use client";
+import { AnimatePresence } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BackgroundDots from "../../../assets/Background";
 import SearchModal from "../../Search/SearchModal";
+import ShortcutIcon from "../../Search/ShortcutIcon";
 import Slider from "../../Slider/Slider";
 import { AnimatedTooltip } from "../../Tooltip/tooltip";
 import FadeWrapper from "../../ui/fadeWrapper";
@@ -79,8 +81,8 @@ export default function HomeScreen() {
   const DummySearch = () => {
     return (
       <>
-        <div className="search flex items-center justify-center gap-1 rounded-lg border-[1.5px] border-[#444] bg-[rgb(33,33,33)] px-[4px] py-[1px] shadow-md shadow-[rgba(48,50,51,0.3)]">
-          <div className="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-lg border-[1.5px] border-[#444] bg-[#313131] p-1">
+        <div className="search flex items-center justify-center gap-1 rounded-xl border-[1.5px] border-[#27272a] bg-[#121212] px-[4px] py-[1px] shadow-md shadow-[rgba(48,50,51,0.3)]">
+          <div className="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-lg border-[1.5px] border-[#27272a] bg-[#212121] p-1">
             <svg
               width="24"
               height="24"
@@ -107,12 +109,14 @@ export default function HomeScreen() {
           <input
             ref={inputRef}
             onClick={handleClick}
-            className="h-[2.5rem] w-[350px] border-none bg-[#212121] px-3 font-[300] text-[#ffffffcc] outline-none placeholder:font-[300] placeholder:text-[rgba(255,255,255,0.6)] focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] placeholder:focus:outline-none md:w-[280px] lg:w-[400px]"
+            className="search h-[2.5rem] w-[350px] border-none bg-[#121212] px-3 font-[300] text-[#ffffffcc] outline-none placeholder:font-[300] placeholder:text-[rgba(255,255,255,0.6)] focus:outline-none placeholder:focus:border-none placeholder:focus:text-[rgba(255,255,255,0.8)] placeholder:focus:outline-none md:w-[280px] lg:w-[400px]"
             type=""
             placeholder="Search for your Dreams.."
           />
-          <div className="flex h-[32px] w-[32px] items-center justify-center rounded-md border-[1.5px] border-[#444] bg-[#313131] p-1 font-[400] text-[#b9b9b9]">
-            ⌘K
+          <div
+            className={`flex h-[32px] items-center justify-center rounded-md border-[1.5px] border-[#27272a] bg-[#212121] p-1 px-0.5 font-[400] text-[#b9b9b9]`}
+          >
+            <ShortcutIcon />
           </div>
         </div>
       </>
@@ -121,9 +125,11 @@ export default function HomeScreen() {
 
   return (
     <>
-      {OpenSearchModal && (
-        <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1} />
-      )}
+      <AnimatePresence>
+        {OpenSearchModal && (
+          <SearchModal closeSearchModal={closeSearchModal} focus={1} full={1} />
+        )}
+      </AnimatePresence>
       {/* <div className="h-16 w-screen md:h-8 pt-20"></div> */}
       <main
         className="relative flex w-full flex-col items-center justify-center pt-20 lg:pb-20"
@@ -147,9 +153,9 @@ export default function HomeScreen() {
           <FadeWrapper>
             <Link
               to="/videos"
-              className="overflowhidden group bg-white relative flex cursor-pointer items-center justify-center rounded-full border border-[#ddd] p-1 pl-2 transition-colors duration-200"
+              className="overflowhidden group relative flex cursor-pointer items-center justify-center rounded-full border border-[#ddd] bg-white p-1 pl-2 transition-colors duration-200"
             >
-              <span className="spark mask-gradient animate-flip overflowhidden before:animate-rotate absolute inset-0 h-[100%] w-[100%] rounded-full [mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,#00a6ed_360deg)] before:content-[''] before:[translate:0%_-15%]" />
+              <span className="spark mask-gradient overflowhidden absolute inset-0 h-[100%] w-[100%] animate-flip rounded-full [mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,#00a6ed_360deg)] before:content-[''] before:[translate:0%_-15%]" />
               <span className="backdrop absolute inset-[1px] rounded-full bg-white transition-colors duration-200 group-hover:bg-neutral-50" />
               <span className="absolute inset-x-0 bottom-0 h-full w-full bg-gradient-to-tr from-neutral-500/10 blur-md"></span>
               <span className="z-10 flex items-center justify-center gap-1 py-0.5 text-sm font-[500] text-[#212121]">
