@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import AnubhavIsOS from "./components/Landing/AnubhavIsOS/AnubhavIsOS";
 import CTA from "./components/Landing/CTA/CTA";
+import Features from "./components/Landing/Features/Features";
 import Footer from "./components/Landing/Footer/Footer";
 import HomeScreen from "./components/Landing/HomeScreen/HomeScreen";
 import HowItWorks from "./components/Landing/HowItWorks/HowItWorks";
@@ -19,7 +20,6 @@ import Story from "./pages/Story";
 import TermsService from "./pages/TermsService";
 import VideosPage from "./pages/VideosPage";
 import ViewBlog from "./pages/ViewBlog";
-import Features from "./components/Landing/Features/Features";
 import YouTubePlaylist from "./pages/YouTubePlaylist";
 
 const App = () => {
