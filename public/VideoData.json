@@ -54,5 +54,27 @@
       "Microsoft",
       "Amazon"
     ]
+  },
+  {
+    "id": 6,
+    "img": "https://i.ytimg.com/vi/6ABxfFbImlE/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLC8yvipz7f7JKmMGaTxfwLJS2oj8w",
+    "link": "https://youtu.be/6ABxfFbImlE",
+    "title": "EP-11 | Talk with Anand Dwivedi | Deutsche Bank 🔥",
+    "description": "Are you someone who's passionate about tech but unsure how to turn that passion into a successful career? Wondering how to bridge the gap between college projects and real-world roles in the tech industry? Or looking for practical advice from someone who’s carved their path from the ground up?",
+    "tags": [
+      "Deutsche Bank",
+      "Technical Analyst"
+    ]
+  },
+  {
+    "id": 7,
+    "img": "https://i.ytimg.com/vi/rLzhbBA6wUQ/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAi_n7frZ6uG-xCR6L8rzVoc4M-Dg",
+    "link": "https://youtu.be/rLzhbBA6wUQ",
+    "title": "EP-12 | Talk with Mukesh Bishnoi | Techie from Non-Tech 🔥",
+    "description": "Are you passionate about breaking into tech but unsure how to make the leap from college projects to impactful industry roles? Curious about transitioning from a Non-Technical Branch into the dynamic world of software? Then this episode of the Anubhav Interview Series is just for you!",
+    "tags": [
+      "Frontend Developer",
+      "Unolo"
+    ]
   }
 ]
