@@ -21,6 +21,7 @@ const SearchPage = () => {
   const [company, setCompany] = useState([]);
   const [headerName, setHeaderName] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [totalArticles, setTotalArticles] = useState(0);
 
   const [filterPopUp, setFilterPopUp] = useState(false);
   const loadMoreRef = useRef(null);
@@ -33,11 +34,12 @@ const SearchPage = () => {
     setFilterPopUp(false);
   };
 
-  const fetchLatestArticles = async (endPoint, page) => {
+  const fetchLatestArticles = async (endPoint, page = 1) => {
     setLoading(true);
     try {
       const res = await axios.get(`${BACKEND_URL}${endPoint}?page=${page}`);
       const data = res.data.articles;
+      setTotalArticles(res.data.totalArticles);
 
       if (page === 1) {
         setArticles(data);
@@ -61,6 +63,7 @@ const SearchPage = () => {
     try {
       const response = await axios.get(BACKEND_URL + "/search", { params });
       const newArticles = response.data.articles;
+      setTotalArticles(response.data.totalArticles);
 
       if (page === 1) {
         setArticles([...newArticles]);
@@ -98,16 +101,16 @@ const SearchPage = () => {
       setPage(1);
       fetchArticles(query, 1);
     } else {
-      fetchLatestArticles("/blogs", page);
+      fetchLatestArticles("/blogs");
     }
-  }, [searchParams, page]);
+  }, [searchParams]);
 
   const handleShowMore = () => {
     const query = searchParams.get("query");
     if (query) {
       fetchArticles(query, page + 1);
     } else {
-      fetchLatestArticles("/blogs", page + 1);
+      fetchLatestArticles("/blogs", page);
     }
     setPage((prevPage) => prevPage + 1);
   };
@@ -149,7 +152,7 @@ const SearchPage = () => {
               <h3 className="text-2xl font-[500]">
                 {!isSearching
                   ? "Recent Stories"
-                  : `${articles.length} Articles found for ${
+                  : `${totalArticles} Articles found for ${
                       headerName
                         ? headerName
                         : decodeURIComponent(

@@ -307,7 +307,7 @@ const Footer = () => {
           </div>
           <div className="flex select-none flex-row items-center justify-center gap-4 text-[#6b6b6b] sm:flex-col sm:gap-1">
             <div className="flex justify-center text-[#d9dd9d9cc] sm:text-start">
-              ©2024 O<span className="block x-sm:hidden">pen&nbsp;</span>S
+              ©2025 O<span className="block x-sm:hidden">pen&nbsp;</span>S
               <span className="block x-sm:hidden">ource&nbsp;</span>S
               <span className="block x-sm:hidden">oftware&nbsp;</span> Club All
               rights reserved
