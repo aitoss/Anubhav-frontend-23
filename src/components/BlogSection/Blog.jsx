@@ -6,6 +6,7 @@ import Author from "./_Child/Author";
 import Tags from "./_Child/Tags";
 import Articles from "./Articles";
 import BlogLoading from "./BlogLoading";
+import ArticleSummaryCard from "./_Child/ArticleSummaryCard";
 import { BACKEND_URL } from "../../constants";
 import { formatDate, ReadTime } from "../../services/date";
 import MinuteReadLikes from "../MinuteReadLikes/MinuteReadLikes";
@@ -148,6 +149,12 @@ const Blog = () => {
                   />
                 </div>
               )}
+
+              <ArticleSummaryCard
+                articleId={blogData?._id}
+                articleTitle={blogData?.title}
+              />
+
               <div className="lorem-container flex flex-col items-center justify-center py-3 text-black">
                 <div className="w-full rounded-lg bg-white text-[18px] shadow-none">
                   <ReactQuill
