@@ -9,3 +9,12 @@ export const updateBlog = (id, payload) =>
 
 export const getBlog = (id) =>
   axios.get(`${BACKEND_URL}/blog/${id}`).then((r) => r.data);
+
+export const getBlogSummaryStatus = (id) =>
+  axios.get(`${BACKEND_URL}/blog/${id}/summary/status`).then((r) => r.data);
+
+export const requestBlogSummary = (id) =>
+  axios.get(`${BACKEND_URL}/blog/${id}/summary`).then((r) => r);
+
+export const getBlogSummary = (id) =>
+  axios.get(`${BACKEND_URL}/blog/${id}/summary`).then((r) => r.data);
